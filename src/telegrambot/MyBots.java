@@ -8,9 +8,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 public class MyBots extends TelegramLongPollingBot{
 
     public void onUpdateReceived(Update update) {
-
         if(update.hasMessage() && update.getMessage().hasText()){ // Controlliamo che il messaggio contenga un testo
-
             Long sender_id = update.getMessage().getChatId(); // Assegniamo ad una variabile l'Id della chat
             String received_text = update.getMessage().getText(); // Assegniamo ad una varibile il testo ricevuto
             String text_to_send = ""; // Inizializziamo una variabile che conterrà il messaggio da inviare
@@ -23,9 +21,7 @@ public class MyBots extends TelegramLongPollingBot{
             message.setText(text_to_send); // Settiamo il messaggio
 
             try{
-//                sendMessage(message); // Inviamo il messaggio
-                System.out.println("ciao");
-
+                execute(message);
             }catch(TelegramApiException e){
                 e.printStackTrace();
             }
@@ -33,15 +29,10 @@ public class MyBots extends TelegramLongPollingBot{
     }
 
     public String getBotUsername() {
-
         return "HOR_chatbot"; // Nome del bot
-
     }
 
     public String getBotToken() {
-
         return "606310301:AAEG0oCm-glhfCUOzvCks9piv5dC8YleFIY"; // Token del bot per lo sviluppo
-
     }
-
 }

@@ -17,7 +17,5 @@ public class TelegramBot {
         } catch (TelegramApiRequestException e) {
             e.printStackTrace();
         }
-
     }
-
 }
