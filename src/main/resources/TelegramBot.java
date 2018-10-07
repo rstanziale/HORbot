@@ -1,5 +1,4 @@
-package telegrambot;
-
+import main.resources.HORBot;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
@@ -8,12 +7,15 @@ public class TelegramBot {
 
     public static void main(String[] args) {
 
-        ApiContextInitializer.init(); //Inizializza le api per poter sviluppare
+        // Inizializza le api per poter sviluppare
+        ApiContextInitializer.init();
 
-        TelegramBotsApi botsApi = new TelegramBotsApi(); //Crea il nostro bot
+        // Crea il bot
+        TelegramBotsApi botsApi = new TelegramBotsApi();
 
         try {
-            botsApi.registerBot(new MyBots()); //Registra il bot con gli attributi che abbiamo dato
+            // Registra il bot con gli attributi dati
+            botsApi.registerBot(new HORBot());
         } catch (TelegramApiRequestException e) {
             e.printStackTrace();
         }
