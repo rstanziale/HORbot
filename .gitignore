@@ -39,3 +39,6 @@ Thumbs.db
 
 # Files
 horbot.properties
+
+# Directories
+/.idea/*
