@@ -8,12 +8,26 @@
     <artifactId>HORbot</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <project.version>4.0.0</project.version>
+        <version.telegram>4.1</version.telegram>
+        <version.log4j>1.2.17</version.log4j>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.telegram</groupId>
             <artifactId>telegrambots</artifactId>
-            <version>4.1</version>
+            <version>${version.telegram}</version>
         </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${version.log4j}</version>
+        </dependency>
+
     </dependencies>
+
 
 </project>
