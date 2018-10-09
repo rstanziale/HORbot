@@ -2,6 +2,7 @@ package settings;
 
 import common.HORLogger;
 import common.PropertyUtilities;
+import common.RequestHTTP;
 import org.apache.log4j.Logger;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -16,7 +17,8 @@ public class HORBot extends TelegramLongPollingBot {
 
 
     // TELEGRAM COMMANDS
-    public final static String START = "/start";
+    private final static String START = "/start";
+    private final static String SETUSERNAME = "/setusername";
 
     /**
      * Get message from chat and send a new message
@@ -42,9 +44,24 @@ public class HORBot extends TelegramLongPollingBot {
             SendMessage message = new SendMessage() // Create a message object object
                     .setChatId(sender_id);
 
+            // START COMMAND
             if (received_text.equals(START)) {
                 message.setText("Ciao, per cominciare fornisci il tuo username di Myrror attraverso il comando /setusername!");
-            } else {
+
+            }
+            // SETUSERNAME COMMAND
+            else if (received_text.equals(SETUSERNAME)) {
+                RequestHTTP r = new RequestHTTP();
+                // TODO: send username
+                if (r.getUserMyrrorData("Cataldo") == 200) {
+                    message.setText("Username trovato.");
+                } else {
+                    message.setText("Username non trovato.");
+                }
+            }
+
+            // UNKNOWN COMMAND
+            else {
                 message.setText("Comando sconosciuto");
             }
 
@@ -54,7 +71,8 @@ public class HORBot extends TelegramLongPollingBot {
             try{
                 // Send answer
                 execute(message);
-            }catch(TelegramApiException e){
+
+            } catch(TelegramApiException e){
                 e.printStackTrace();
             }
         }
@@ -75,5 +93,4 @@ public class HORBot extends TelegramLongPollingBot {
     public String getBotToken() {
         return new PropertyUtilities().getProperty("token");
     }
-
 }
