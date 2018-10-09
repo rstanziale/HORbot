@@ -43,7 +43,7 @@ public class HORBot extends TelegramLongPollingBot {
                     .setChatId(sender_id);
 
             if (received_text.equals(START)) {
-                message.setText("Ciao, iniziamo!");
+                message.setText("Ciao, per cominciare fornisci il tuo username di Myrror attraverso il comando /setUsername!");
             } else {
                 message.setText("Comando sconosciuto");
             }
