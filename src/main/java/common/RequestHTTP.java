@@ -8,6 +8,12 @@ import java.net.URLEncoder;
 import java.util.Map;
 import java.util.HashMap;
 
+/**
+ * Define Request HTTP class
+ *
+ * @author Roberto B. Stanziale
+ * @version 1.0
+ */
 public class RequestHTTP {
 
     // URL Request for Myrror API
@@ -16,10 +22,18 @@ public class RequestHTTP {
     // Myrror developer Token
     private String myrrorToken;
 
+    /**
+     * Constructor
+     */
     public RequestHTTP() {
         this.myrrorToken = new PropertyUtilities().getProperty("myrrorToken");
     }
 
+    /**
+     * GET request HTTP for myrror collection
+     * @param username (String) Myrror username
+     * @return (int) HTTP response code
+     */
     public int getUserMyrrorData(String username) {
         URL url;
         HttpURLConnection con = null;
@@ -48,6 +62,12 @@ public class RequestHTTP {
         return responseCode;
     }
 
+    /**
+     * Put GET requesta params on the URL
+     * @param params (MAP<String, String>) Request param key/value
+     * @return (String) Query params for URL
+     * @throws UnsupportedEncodingException
+     */
     private String getParamsString(Map<String, String> params) throws UnsupportedEncodingException {
         StringBuilder result = new StringBuilder();
 

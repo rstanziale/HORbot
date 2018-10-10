@@ -11,7 +11,8 @@ public class HORLogger {
      * @param bot_answer message to the user
      */
     public String logUserInfo(String first_name, String last_name, String user_name, String user_id, String txt, String bot_answer) {
-        return "Message from " + first_name + " " + last_name + ". (username = " + user_name + " + id = " + user_id + ") "
-                + "\nText: " + txt + "\nBot answer: " + bot_answer + "\n";
+        return "Message from " + first_name + " " + last_name
+                + " (username = " + user_name + " + id = " + user_id + "). "
+                + "Text: \'" + txt + "\'";
     }
 }

@@ -9,12 +9,16 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+/**
+ * Define HORBot class
+ *
+ * @author Roberto B. Stanziale
+ * @version 1.0
+ */
 public class HORBot extends TelegramLongPollingBot {
-
 
     // LOGGER
     private final static Logger logger = Logger.getLogger(HORBot.class);
-
 
     // TELEGRAM COMMANDS
     private final static String START = "/start";
@@ -53,7 +57,9 @@ public class HORBot extends TelegramLongPollingBot {
             else if (received_text.equals(SETUSERNAME)) {
                 RequestHTTP r = new RequestHTTP();
                 // TODO: send username
-                if (r.getUserMyrrorData("Cataldo") == 200) {
+                int res = r.getUserMyrrorData("Cataldo");
+                logger.info("Request code: " + res);
+                if (res == 200) {
                     message.setText("Username trovato.");
                 } else {
                     message.setText("Username non trovato.");
