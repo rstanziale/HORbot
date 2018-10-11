@@ -1,8 +1,8 @@
-package beans;
+package beans.facets;
 
-import beans.values.AffectsValue;
-import beans.values.InterestsValue;
-import beans.values.SocialRelationsValue;
+import beans.facets.values.AffectsValue;
+import beans.facets.values.InterestsValue;
+import beans.facets.values.SocialRelationsValue;
 
 import java.util.List;
 

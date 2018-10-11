@@ -1,5 +1,6 @@
 package common;
 
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
@@ -17,7 +18,8 @@ import java.util.HashMap;
 public class RequestHTTP {
 
     // URL Request for Myrror API
-    private static String url = "http://localhost:5000/api/profile/";
+    private static String profileURL = "http://localhost:5000/api/profile/";
+    private static String loginURL = "http://localhost:5000/auth/login";
 
     // Myrror developer Token
     private String myrrorToken;
@@ -30,7 +32,7 @@ public class RequestHTTP {
     }
 
     /**
-     * GET request HTTP for myrror collection
+     * GET request HTTP for Myrror collection
      * @param username (String) Myrror username
      * @return (int) HTTP response code
      */
@@ -44,7 +46,7 @@ public class RequestHTTP {
             parameters.put("l", "10");
             parameters.put("f", "Affects");
 
-            url = new URL(this.url + username + this.getParamsString(parameters));
+            url = new URL(this.profileURL + "?" + username + this.getParamsGetString(parameters));
             con = (HttpURLConnection) url.openConnection();
 
             con.setRequestProperty("x-access-token", this.myrrorToken);
@@ -62,16 +64,50 @@ public class RequestHTTP {
         return responseCode;
     }
 
+    public int userLogin(String email, String password) {
+        URL url;
+        HttpURLConnection con = null;
+        int responseCode = -1;
+
+        try {
+            url = new URL(this.loginURL);
+
+            con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("Accept-Charset", "UTF-8");
+
+            Map<String, String> params = new HashMap<String, String>();
+            params.put("email", email);
+            params.put("password", password);
+
+            con.setDoOutput(true);
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            out.writeBytes(this.getParamsGetString(params));
+            out.flush();
+            out.close();
+
+            System.out.println(email);
+
+            responseCode = con.getResponseCode();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            con.disconnect();
+        }
+
+        return responseCode;
+
+    }
+
     /**
      * Put GET requesta params on the URL
      * @param params (MAP<String, String>) Request param key/value
      * @return (String) Query params for URL
      * @throws UnsupportedEncodingException
      */
-    private String getParamsString(Map<String, String> params) throws UnsupportedEncodingException {
+    private String getParamsGetString(Map<String, String> params) throws UnsupportedEncodingException {
         StringBuilder result = new StringBuilder();
 
-        result.append("?");
         for (Map.Entry<String, String> entry : params.entrySet()) {
             result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
             result.append("=");

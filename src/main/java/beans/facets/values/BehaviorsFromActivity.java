@@ -1,4 +1,4 @@
-package beans.values;
+package beans.facets.values;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package beans.values;
+package beans.facets.values;
 
 /**
  * Define a generic heart element for Physical States facet

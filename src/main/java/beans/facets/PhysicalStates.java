@@ -1,9 +1,9 @@
-package beans;
+package beans.facets;
 
-import beans.values.PhysicalHeart;
-import beans.values.PhysicalsBody;
-import beans.values.PhysicalsFood;
-import beans.values.PhysicalsSleep;
+import beans.facets.values.PhysicalHeart;
+import beans.facets.values.PhysicalsBody;
+import beans.facets.values.PhysicalsFood;
+import beans.facets.values.PhysicalsSleep;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package beans;
+package beans.facets;
 
-import beans.values.BehaviorsFromActivity;
-import beans.values.BehaviorsFromText;
+import beans.facets.values.BehaviorsFromActivity;
+import beans.facets.values.BehaviorsFromText;
 
 import java.util.List;
 

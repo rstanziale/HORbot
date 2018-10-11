@@ -1,6 +1,6 @@
-package beans;
+package beans.facets;
 
-import beans.values.DemographicsValue;
+import beans.facets.values.DemographicsValue;
 
 import java.util.List;
 import java.util.Map;

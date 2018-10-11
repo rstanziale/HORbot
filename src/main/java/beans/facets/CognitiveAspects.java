@@ -1,7 +1,7 @@
-package beans;
+package beans.facets;
 
-import beans.values.CognitiveEmpathy;
-import beans.values.CognitivePersonality;
+import beans.facets.values.CognitiveEmpathy;
+import beans.facets.values.CognitivePersonality;
 
 import java.util.List;
 
