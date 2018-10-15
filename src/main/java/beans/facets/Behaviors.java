@@ -1,33 +1,60 @@
+
 package beans.facets;
 
-import beans.facets.values.BehaviorsFromActivity;
-import beans.facets.values.BehaviorsFromText;
+import com.fasterxml.jackson.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
- * Define Behaviors facet
+ * Define behaviors values from Myrror facets
  *
  * @author Roberto B. Stanziale
  * @version 1.0
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+    "fromText",
+    "fromActivity"
+})
 public class Behaviors {
-    private List<BehaviorsFromText> fromText;
-    private List<BehaviorsFromActivity> fromActivity;
 
-    public List<BehaviorsFromText> getFromText() {
+    @JsonProperty("fromText")
+    private List<FromText> fromText = null;
+    @JsonProperty("fromActivity")
+    private List<FromActivity> fromActivity = null;
+    @JsonIgnore
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+    @JsonProperty("fromText")
+    public List<FromText> getFromText() {
         return fromText;
     }
 
-    public void setFromText(List<BehaviorsFromText> fromText) {
+    @JsonProperty("fromText")
+    public void setFromText(List<FromText> fromText) {
         this.fromText = fromText;
     }
 
-    public List<BehaviorsFromActivity> getFromActivity() {
+    @JsonProperty("fromActivity")
+    public List<FromActivity> getFromActivity() {
         return fromActivity;
     }
 
-    public void setFromActivity(List<BehaviorsFromActivity> fromActivity) {
+    @JsonProperty("fromActivity")
+    public void setFromActivity(List<FromActivity> fromActivity) {
         this.fromActivity = fromActivity;
     }
+
+    @JsonAnyGetter
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    @JsonAnySetter
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
+    }
+
 }

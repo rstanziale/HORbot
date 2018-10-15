@@ -1,47 +1,86 @@
+
 package beans.facets;
 
-import beans.facets.values.PhysicalHeart;
-import beans.facets.values.PhysicalsBody;
-import beans.facets.values.PhysicalsFood;
-import beans.facets.values.PhysicalsSleep;
+import com.fasterxml.jackson.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+/**
+ * Define Physical state values from Myrror facets
+ *
+ * @author Roberto B. Stanziale
+ * @version 1.0
+ */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+    "heart",
+    "sleep",
+    "food",
+    "body"
+})
 public class PhysicalStates {
-    private List<PhysicalHeart> heart;
-    private List<PhysicalsSleep> sleep;
-    private List<PhysicalsFood> food;
-    private List<PhysicalsBody> body;
 
-    public List<PhysicalHeart> getHeart() {
+    @JsonProperty("heart")
+    private List<Heart> heart = null;
+    @JsonProperty("sleep")
+    private List<Sleep> sleep = null;
+    @JsonProperty("food")
+    private List<Food> food = null;
+    @JsonProperty("body")
+    private List<Object> body = null;
+    @JsonIgnore
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+    @JsonProperty("heart")
+    public List<Heart> getHeart() {
         return heart;
     }
 
-    public void setHeart(List<PhysicalHeart> heart) {
+    @JsonProperty("heart")
+    public void setHeart(List<Heart> heart) {
         this.heart = heart;
     }
 
-    public List<PhysicalsSleep> getSleep() {
+    @JsonProperty("sleep")
+    public List<Sleep> getSleep() {
         return sleep;
     }
 
-    public void setSleep(List<PhysicalsSleep> sleep) {
+    @JsonProperty("sleep")
+    public void setSleep(List<Sleep> sleep) {
         this.sleep = sleep;
     }
 
-    public List<PhysicalsFood> getFood() {
+    @JsonProperty("food")
+    public List<Food> getFood() {
         return food;
     }
 
-    public void setFood(List<PhysicalsFood> food) {
+    @JsonProperty("food")
+    public void setFood(List<Food> food) {
         this.food = food;
     }
 
-    public List<PhysicalsBody> getBody() {
+    @JsonProperty("body")
+    public List<Object> getBody() {
         return body;
     }
 
-    public void setBody(List<PhysicalsBody> body) {
+    @JsonProperty("body")
+    public void setBody(List<Object> body) {
         this.body = body;
     }
+
+    @JsonAnyGetter
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    @JsonAnySetter
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
+    }
+
 }

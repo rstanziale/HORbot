@@ -1,159 +1,229 @@
+
 package beans.facets;
 
-import beans.facets.values.DemographicsValue;
+import com.fasterxml.jackson.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
-* Define Demographics facet
-*
-* @author Roberto B. Stanziale
-* @version 1.0
-*/
+ * Define Demographics values from Myrror facets
+ *
+ * @author Roberto B. Stanziale
+ * @version 1.0
+ */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+    "name",
+    "location",
+    "image",
+    "email",
+    "gender",
+    "language",
+    "work",
+    "industry",
+    "height",
+    "weight",
+    "dateOfBirth",
+    "country",
+    "device",
+    "website",
+    "bio"
+})
 public class Demographics {
-    private String user;
-    private Map<String, String> name;
-    private List<DemographicsValue> location;
-    private List<DemographicsValue> image;
-    private List<DemographicsValue> email;
-    private DemographicsValue gender;
-    private List<DemographicsValue> language;
-    private List<DemographicsValue> work;
-    private List<DemographicsValue> industry;
-    private List<DemographicsValue> weight;
-    private List<DemographicsValue> height;
-    private DemographicsValue dateOfBirth;
-    private List<DemographicsValue> country;
-    private List<DemographicsValue> device;
-    private List<DemographicsValue> website;
-    private List<DemographicsValue> bio;
 
-    public String getUser() {
-        return user;
-    }
+    @JsonProperty("name")
+    private Name name;
+    @JsonProperty("location")
+    private List<Location> location = null;
+    @JsonProperty("image")
+    private List<Image> image = null;
+    @JsonProperty("email")
+    private List<Email> email = null;
+    @JsonProperty("gender")
+    private Gender gender;
+    @JsonProperty("language")
+    private List<Language> language = null;
+    @JsonProperty("work")
+    private List<Object> work = null;
+    @JsonProperty("industry")
+    private List<Industry> industry = null;
+    @JsonProperty("height")
+    private List<Object> height = null;
+    @JsonProperty("weight")
+    private List<Object> weight = null;
+    @JsonProperty("dateOfBirth")
+    private DateOfBirth dateOfBirth;
+    @JsonProperty("country")
+    private List<Object> country = null;
+    @JsonProperty("device")
+    private List<Object> device = null;
+    @JsonProperty("website")
+    private List<Object> website = null;
+    @JsonProperty("bio")
+    private List<Bio> bio = null;
+    @JsonIgnore
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public Map<String, String> getName() {
+    @JsonProperty("name")
+    public Name getName() {
         return name;
     }
 
-    public void setName(Map<String, String> name) {
+    @JsonProperty("name")
+    public void setName(Name name) {
         this.name = name;
     }
 
-    public List<DemographicsValue> getLocation() {
+    @JsonProperty("location")
+    public List<Location> getLocation() {
         return location;
     }
 
-    public void setLocation(List<DemographicsValue> location) {
+    @JsonProperty("location")
+    public void setLocation(List<Location> location) {
         this.location = location;
     }
 
-    public List<DemographicsValue> getImage() {
+    @JsonProperty("image")
+    public List<Image> getImage() {
         return image;
     }
 
-    public void setImage(List<DemographicsValue> image) {
+    @JsonProperty("image")
+    public void setImage(List<Image> image) {
         this.image = image;
     }
 
-    public List<DemographicsValue> getEmail() {
+    @JsonProperty("email")
+    public List<Email> getEmail() {
         return email;
     }
 
-    public void setEmail(List<DemographicsValue> email) {
+    @JsonProperty("email")
+    public void setEmail(List<Email> email) {
         this.email = email;
     }
 
-    public DemographicsValue getGender() {
+    @JsonProperty("gender")
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(DemographicsValue gender) {
+    @JsonProperty("gender")
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
-    public List<DemographicsValue> getLanguage() {
+    @JsonProperty("language")
+    public List<Language> getLanguage() {
         return language;
     }
 
-    public void setLanguage(List<DemographicsValue> language) {
+    @JsonProperty("language")
+    public void setLanguage(List<Language> language) {
         this.language = language;
     }
 
-    public List<DemographicsValue> getWork() {
+    @JsonProperty("work")
+    public List<Object> getWork() {
         return work;
     }
 
-    public void setWork(List<DemographicsValue> work) {
+    @JsonProperty("work")
+    public void setWork(List<Object> work) {
         this.work = work;
     }
 
-    public List<DemographicsValue> getIndustry() {
+    @JsonProperty("industry")
+    public List<Industry> getIndustry() {
         return industry;
     }
 
-    public void setIndustry(List<DemographicsValue> industry) {
+    @JsonProperty("industry")
+    public void setIndustry(List<Industry> industry) {
         this.industry = industry;
     }
 
-    public List<DemographicsValue> getWeight() {
-        return weight;
-    }
-
-    public void setWeight(List<DemographicsValue> weight) {
-        this.weight = weight;
-    }
-
-    public List<DemographicsValue> getHeight() {
+    @JsonProperty("height")
+    public List<Object> getHeight() {
         return height;
     }
 
-    public void setHeight(List<DemographicsValue> height) {
+    @JsonProperty("height")
+    public void setHeight(List<Object> height) {
         this.height = height;
     }
 
-    public DemographicsValue getDateOfBirth() {
+    @JsonProperty("weight")
+    public List<Object> getWeight() {
+        return weight;
+    }
+
+    @JsonProperty("weight")
+    public void setWeight(List<Object> weight) {
+        this.weight = weight;
+    }
+
+    @JsonProperty("dateOfBirth")
+    public DateOfBirth getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(DemographicsValue dateOfBirth) {
+    @JsonProperty("dateOfBirth")
+    public void setDateOfBirth(DateOfBirth dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public List<DemographicsValue> getCountry() {
+    @JsonProperty("country")
+    public List<Object> getCountry() {
         return country;
     }
 
-    public void setCountry(List<DemographicsValue> country) {
+    @JsonProperty("country")
+    public void setCountry(List<Object> country) {
         this.country = country;
     }
 
-    public List<DemographicsValue> getDevice() {
+    @JsonProperty("device")
+    public List<Object> getDevice() {
         return device;
     }
 
-    public void setDevice(List<DemographicsValue> device) {
+    @JsonProperty("device")
+    public void setDevice(List<Object> device) {
         this.device = device;
     }
 
-    public List<DemographicsValue> getWebsite() {
+    @JsonProperty("website")
+    public List<Object> getWebsite() {
         return website;
     }
 
-    public void setWebsite(List<DemographicsValue> website) {
+    @JsonProperty("website")
+    public void setWebsite(List<Object> website) {
         this.website = website;
     }
 
-    public List<DemographicsValue> getBio() {
+    @JsonProperty("bio")
+    public List<Bio> getBio() {
         return bio;
     }
 
-    public void setBio(List<DemographicsValue> bio) {
+    @JsonProperty("bio")
+    public void setBio(List<Bio> bio) {
         this.bio = bio;
     }
+
+    @JsonAnyGetter
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    @JsonAnySetter
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
+    }
+
 }

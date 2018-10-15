@@ -1,11 +1,16 @@
 package common;
 
+import beans.auth.Login;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import ioinformarics.oss.jackson.module.jsonld.JsonldModule;
+
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Collections;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -46,7 +51,7 @@ public class RequestHTTP {
             parameters.put("l", "10");
             parameters.put("f", "Affects");
 
-            url = new URL(this.profileURL + "?" + username + this.getParamsGetString(parameters));
+            url = new URL(this.profileURL +  username + this.getParamsGetString(parameters));
             con = (HttpURLConnection) url.openConnection();
 
             con.setRequestProperty("x-access-token", this.myrrorToken);
@@ -65,6 +70,9 @@ public class RequestHTTP {
     }
 
     public int userLogin(String email, String password) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JsonldModule(Collections::emptyList));
+
         URL url;
         HttpURLConnection con = null;
         int responseCode = -1;
@@ -85,9 +93,10 @@ public class RequestHTTP {
             out.flush();
             out.close();
 
-            System.out.println(email);
-
             responseCode = con.getResponseCode();
+            Login login = objectMapper.readValue(con.getInputStream(), Login.class);
+
+            // TODO: request 'getUserMyrrorData(login.getUsername())'
 
         } catch (IOException e) {
             e.printStackTrace();
