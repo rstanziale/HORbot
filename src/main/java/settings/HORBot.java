@@ -57,16 +57,10 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface{
                 message.setText("Inviami le credenziali secondo questo modello:\n\nemail\npassword");
             }
             else if (!received_text.equals(SETUSERNAME) && this.command.equals(SETUSERNAME)) {
-                String email;
-                String password;
-
-                // TODO: check \n in message
-                String m[] = received_text.split("\n");
-                email = m[0];
-                password = m[1];
+                String login[] = received_text.split("\n");
 
                 RequestHTTP r = new RequestHTTP();
-                int res = r.userLogin(email, password);
+                int res = r.userLogin(login[0], login[1]);
 
                 logger.info("Request code: " + res);
 
@@ -85,7 +79,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface{
             }
 
             // Log message values
-            logger.info(new HORLogger().logUserInfo(user_first_name, user_last_name, user_username, Long.toString(user_id), received_text, message.getText()));
+            logger.info(new HORLogger().logUserInfo(user_first_name, user_last_name, user_username, Long.toString(user_id)));
 
             try{
                 // Send answer

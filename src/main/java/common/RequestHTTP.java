@@ -1,6 +1,7 @@
 package common;
 
 import beans.auth.Login;
+import beans.facets.Ontology;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ioinformarics.oss.jackson.module.jsonld.JsonldModule;
 
@@ -26,49 +27,17 @@ public class RequestHTTP {
     private static String profileURL = "http://localhost:5000/api/profile/";
     private static String loginURL = "http://localhost:5000/auth/login";
 
-    // Myrror developer Token
-    private String myrrorToken;
-
     /**
      * Constructor
      */
-    public RequestHTTP() {
-        this.myrrorToken = new PropertyUtilities().getProperty("myrrorToken");
-    }
+    public RequestHTTP() { }
 
     /**
-     * GET request HTTP for Myrror collection
-     * @param username (String) Myrror username
+     * Get info Myrror login
+     * @param email of user
+     * @param password of user
      * @return (int) HTTP response code
      */
-    public int getUserMyrrorData(String username) {
-        URL url;
-        HttpURLConnection con = null;
-        int responseCode = -1;
-
-        try {
-            Map<String, String> parameters = new HashMap<String, String>();
-            parameters.put("l", "10");
-            parameters.put("f", "Affects");
-
-            url = new URL(this.profileURL +  username + this.getParamsGetString(parameters));
-            con = (HttpURLConnection) url.openConnection();
-
-            con.setRequestProperty("x-access-token", this.myrrorToken);
-
-            // TODO: create beans from resolve
-
-            responseCode = con.getResponseCode();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            con.disconnect();
-        }
-
-        return responseCode;
-    }
-
     public int userLogin(String email, String password) {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JsonldModule(Collections::emptyList));
@@ -96,7 +65,7 @@ public class RequestHTTP {
             responseCode = con.getResponseCode();
             Login login = objectMapper.readValue(con.getInputStream(), Login.class);
 
-            // TODO: request 'getUserMyrrorData(login.getUsername())'
+            this.getUserMyrrorData(login);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -105,7 +74,41 @@ public class RequestHTTP {
         }
 
         return responseCode;
+    }
 
+    /**
+     * GET request HTTP for Myrror collection
+     * @param login (Login) Myrror login info
+     * @return (int) HTTP response code
+     */
+    private int getUserMyrrorData(Login login) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JsonldModule(Collections::emptyList));
+
+        URL url;
+        HttpURLConnection con = null;
+        int responseCode = -1;
+
+        try {
+            // TODO: check parameters
+            Map<String, String> parameters = new HashMap<String, String>();
+            parameters.put("l", "10");
+
+            url = new URL(this.profileURL + login.getUsername() + "?" + this.getParamsGetString(parameters));
+            con = (HttpURLConnection) url.openConnection();
+
+            con.setRequestProperty("x-access-token", login.getToken());
+
+            Ontology ontology = objectMapper.readValue(con.getInputStream(), Ontology.class);
+            responseCode = con.getResponseCode();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            con.disconnect();
+        }
+
+        return responseCode;
     }
 
     /**

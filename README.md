@@ -8,7 +8,7 @@ Per sviluppare il sistema è stato fatto uso delle seguenti **tecnologie**:
 * [Telegram API](https://core.telegram.org/)
 * [Maven](https://maven.apache.org/)
 * [Log4j](https://logging.apache.org/log4j/2.x/)
-* [Jackson](https://github.com/FasterXML/jackson)
+* [Jackson](https://github.com/FasterXML/jackson-databind)
 
 ## Configurazione
 
