@@ -24,8 +24,8 @@ import java.util.HashMap;
 public class RequestHTTP {
 
     // URL Request for Myrror API
-    private static String profileURL = "http://localhost:5000/api/profile/";
-    private static String loginURL = "http://localhost:5000/auth/login";
+    private static String profileURL = "http://90.147.102.243:5000/api/profile/";
+    private static String loginURL = "http://90.147.102.243:5000/auth/login";
 
     /**
      * Constructor
