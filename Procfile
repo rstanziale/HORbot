@@ -1,1 +1,1 @@
-web: java -jar target/hor_bot-1.0.jar
+web: java -cp target/classes:"target/dependency/*" Main

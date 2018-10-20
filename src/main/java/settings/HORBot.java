@@ -14,7 +14,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
  * @author Roberto B. Stanziale
  * @version 1.0
  */
-public class HORBot extends TelegramLongPollingBot implements LoggerInterface{
+public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
 
     // TELEGRAM COMMANDS
     private final static String START = "/start";

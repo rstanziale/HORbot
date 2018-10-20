@@ -37,7 +37,9 @@
 ehthumbs.db
 Thumbs.db
 
-# Files
+# Files #
+#########
 
-# Directories
+# Directories #
+###############
 /.idea/*
