@@ -1,1 +1,1 @@
-web: java -cp target/classes:"target/dependency/*" TelegramBot
+web: java -cp target/classes:"target/dependency/*" HORBot
