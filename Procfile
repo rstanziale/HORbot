@@ -1,1 +1,1 @@
-web: java -cp target/classes:"target/dependency/*" HORBot
+telegrambot: sh target/bin/telegrambot
