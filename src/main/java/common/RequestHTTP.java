@@ -62,8 +62,8 @@ public class RequestHTTP {
             out.flush();
             out.close();
 
-            responseCode = con.getResponseCode();
             Login login = objectMapper.readValue(con.getInputStream(), Login.class);
+            responseCode = con.getResponseCode();
 
             this.getUserMyrrorData(login);
 

@@ -18,7 +18,8 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
 
     // TELEGRAM COMMANDS
     private final static String START = "/start";
-    private final static String SETUSERNAME = "/setusername";
+    private final static String LOGIN = "/login";
+    private final static String HELP = "/help";
     private String command = "UnknownCommand";
 
     /**
@@ -48,15 +49,15 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             // START COMMAND
             if (received_text.equals(START)) {
                 this.command = START;
-                message.setText("Ciao, per cominciare fornisci il tuo username di Myrror attraverso il comando /setusername!");
+                message.setText("Ciao, per cominciare effettua il login per Myrror attraverso il comando /login!");
 
             }
             // SETUSERNAME COMMAND
-            else if (received_text.equals(SETUSERNAME)) {
-                this.command = SETUSERNAME;
+            else if (received_text.equals(LOGIN)) {
+                this.command = LOGIN;
                 message.setText("Inviami le credenziali secondo questo modello:\n\nemail\npassword");
             }
-            else if (!received_text.equals(SETUSERNAME) && this.command.equals(SETUSERNAME)) {
+            else if (!received_text.equals(LOGIN) && this.command.equals(LOGIN)) {
                 String login[] = received_text.split("\n");
 
                 RequestHTTP r = new RequestHTTP();
@@ -66,11 +67,15 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
 
                 if (res == 200) {
                     message.setText("Username trovato.");
-                    this.command = "Unknown command";
+                    this.command = "Comando sconosciuto";
                 } else {
-                    message.setText("Username non trovato. Clicca /setusername per riprovare");
-                    this.command = "Unknown command";
+                    message.setText("Username non trovato. Usa /login per riprovare.");
+                    this.command = "Comando sconosciuto";
                 }
+            }
+            // HELP COMMAND
+            else if (received_text.equals(HELP)) {
+                message.setText("Puoi utilizzarmi con i seguenti comandi:\n\n/login - Effettua il login per Myrror\n/help - Informazioni sui comandi");
             }
 
             // UNKNOWN COMMAND
