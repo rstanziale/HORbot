@@ -52,7 +52,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                 message.setText("Ciao, per cominciare effettua il login per Myrror attraverso il comando /login!");
 
             }
-            // SETUSERNAME COMMAND
+            // LOGIN COMMAND
             else if (received_text.equals(LOGIN)) {
                 this.command = LOGIN;
                 message.setText("Inviami le credenziali secondo questo modello:\n\nemail\npassword");
