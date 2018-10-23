@@ -3,10 +3,16 @@ package settings;
 import common.HORLogger;
 import common.PropertyUtilities;
 import common.RequestHTTP;
+import common.Survey;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Define HORBot class
@@ -19,8 +25,12 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
     // TELEGRAM COMMANDS
     private final static String START = "/start";
     private final static String LOGIN = "/login";
+    private final static String SURVEY = "/survey";
     private final static String HELP = "/help";
     private String command = "UnknownCommand";
+
+    // SURVEYS
+    private Survey s = new Survey("questions.txt");
 
     /**
      * Get message from chat and send a new message
@@ -73,14 +83,73 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                     this.command = "Comando sconosciuto";
                 }
             }
+            // SURVEY COMMAND
+            else if (received_text.equals(SURVEY)) {
+                this.command = SURVEY;
+
+                // TODO: manda la prima domanda
+                message.setText(s.getNextQuestion());
+
+                // Create ReplyKeyboardMarkup object
+                ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
+
+                // Create the keyboard (list of keyboard rows)
+                List<KeyboardRow> keyboard = new ArrayList<KeyboardRow>();
+
+                // Create a keyboard row
+                KeyboardRow row = new KeyboardRow();
+
+                // Set each button, you can also use KeyboardButton objects if you need something else than text
+                row.add("1");
+                row.add("2");
+                row.add("3");
+                row.add("4");
+                row.add("5");
+
+                // Add the first row to the keyboard
+                keyboard.add(row);
+
+                // Set the keyboard to the markup
+                keyboardMarkup.setKeyboard(keyboard);
+
+                // Add it to the message
+                message.setReplyMarkup(keyboardMarkup);
+            }
+            else if (!received_text.equals(SURVEY) && this.command.equals(SURVEY)) {
+                // TODO: assegna risposta e manda prossima domanda se ancora disponibili altrimenti messaggio di fine
+
+                // Create ReplyKeyboardMarkup object
+                ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
+
+                // Create the keyboard (list of keyboard rows)
+                List<KeyboardRow> keyboard = new ArrayList<KeyboardRow>();
+
+                // Create a keyboard row
+                KeyboardRow row = new KeyboardRow();
+
+                // Set each button, you can also use KeyboardButton objects if you need something else than text
+                row.add("1");
+                row.add("2");
+                row.add("3");
+                row.add("4");
+                row.add("5");
+
+                // Add the first row to the keyboard
+                keyboard.add(row);
+
+                // Set the keyboard to the markup
+                keyboardMarkup.setKeyboard(keyboard);
+
+                // Add it to the message
+                message.setReplyMarkup(keyboardMarkup);
+            }
             // HELP COMMAND
             else if (received_text.equals(HELP)) {
                 message.setText("Puoi utilizzarmi con i seguenti comandi:\n\n/login - Effettua il login per Myrror\n/help - Informazioni sui comandi");
             }
-
             // UNKNOWN COMMAND
             else {
-                message.setText("Comando sconosciuto");
+                message.setText("Comando sconosciuto: " + received_text);
             }
 
             // Log message values
