@@ -8,6 +8,7 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardRemove;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
@@ -26,6 +27,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
     private final static String START = "/start";
     private final static String LOGIN = "/login";
     private final static String SURVEY = "/survey";
+    private final static String SHOWANSWER = "/showAnswer";
     private final static String HELP = "/help";
     private String command = "UnknownCommand";
 
@@ -87,7 +89,6 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             else if (received_text.equals(SURVEY)) {
                 this.command = SURVEY;
 
-                // TODO: manda la prima domanda
                 message.setText(s.getNextQuestion());
 
                 // Create ReplyKeyboardMarkup object
@@ -116,32 +117,45 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                 message.setReplyMarkup(keyboardMarkup);
             }
             else if (!received_text.equals(SURVEY) && this.command.equals(SURVEY)) {
-                // TODO: assegna risposta e manda prossima domanda se ancora disponibili altrimenti messaggio di fine
+                s.setNextAnswer(received_text);
 
-                // Create ReplyKeyboardMarkup object
-                ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
+                if (!s.isComplete()) {
+                    message.setText(s.getNextQuestion());
 
-                // Create the keyboard (list of keyboard rows)
-                List<KeyboardRow> keyboard = new ArrayList<KeyboardRow>();
+                    // Create ReplyKeyboardMarkup object
+                    ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
 
-                // Create a keyboard row
-                KeyboardRow row = new KeyboardRow();
+                    // Create the keyboard (list of keyboard rows)
+                    List<KeyboardRow> keyboard = new ArrayList<KeyboardRow>();
 
-                // Set each button, you can also use KeyboardButton objects if you need something else than text
-                row.add("1");
-                row.add("2");
-                row.add("3");
-                row.add("4");
-                row.add("5");
+                    // Create a keyboard row
+                    KeyboardRow row = new KeyboardRow();
 
-                // Add the first row to the keyboard
-                keyboard.add(row);
+                    // Set each button, you can also use KeyboardButton objects if you need something else than text
+                    row.add("1");
+                    row.add("2");
+                    row.add("3");
+                    row.add("4");
+                    row.add("5");
 
-                // Set the keyboard to the markup
-                keyboardMarkup.setKeyboard(keyboard);
+                    // Add the first row to the keyboard
+                    keyboard.add(row);
 
-                // Add it to the message
-                message.setReplyMarkup(keyboardMarkup);
+                    // Set the keyboard to the markup
+                    keyboardMarkup.setKeyboard(keyboard);
+
+                    // Add it to the message
+                    message.setReplyMarkup(keyboardMarkup);
+                } else {
+                    message.setText("Questionario completato.");
+                    ReplyKeyboardRemove keyboardMarkup = new ReplyKeyboardRemove();
+                    message.setReplyMarkup(keyboardMarkup);
+                    this.command = "Comando sconosciuto";
+                }
+            }
+            // SHOW ANSWER COMMAND
+            else if (received_text.equals(SHOWANSWER)) {
+                message.setText(s.toString());
             }
             // HELP COMMAND
             else if (received_text.equals(HELP)) {

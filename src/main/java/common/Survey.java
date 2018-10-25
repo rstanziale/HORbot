@@ -18,7 +18,6 @@ import java.util.Map;
  */
 public class Survey {
     private Map<Integer, Question> survey;
-//    private Map<Integer, Question> survey;
 
     /**
      * Constructor of the survey
@@ -87,5 +86,35 @@ public class Survey {
         } while (index < this.survey.values().size() && value);
 
         return q.getQuestion();
+    }
+
+    /**
+     * Set next answer
+     * @param answer of first question without answer
+     */
+    public void setNextAnswer(String answer) {
+        Question q;
+        int index = 0;
+        boolean value = true;
+
+        do {
+            q = this.survey.get(index);
+
+            if (q.getAnswer() == 0) {
+                q.setAnswer(Integer.valueOf(answer));
+                value = false;
+            }
+
+            index++;
+        } while (index < this.survey.values().size() && value);
+    }
+
+    @Override
+    public String toString() {
+        String s = "";
+        for (Question q : survey.values()) {
+            s += q.toString() + "\n";
+        }
+        return s;
     }
 }

@@ -26,4 +26,10 @@ public class Question {
     public void setAnswer(int answer) {
         this.answer = answer;
     }
+
+    @Override
+    public String toString() {
+        return "'Q: " + question + '\'' +
+                "\nA: " + answer + '\n';
+    }
 }
