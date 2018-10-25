@@ -1,19 +1,14 @@
 package settings;
 
 import common.HORLogger;
+import common.HORmessages;
 import common.PropertyUtilities;
-import common.RequestHTTP;
 import common.Survey;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardRemove;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Define HORBot class
@@ -55,14 +50,13 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             String received_text = update.getMessage().getText();
 
             // Set message structure
-            SendMessage message = new SendMessage() // Create a message object object
+            SendMessage message = new SendMessage()
                     .setChatId(sender_id);
 
             // START COMMAND
             if (received_text.equals(START)) {
                 this.command = START;
                 message.setText("Ciao, per cominciare effettua il login per Myrror attraverso il comando /login!");
-
             }
             // LOGIN COMMAND
             else if (received_text.equals(LOGIN)) {
@@ -70,20 +64,8 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                 message.setText("Inviami le credenziali secondo questo modello:\n\nemail\npassword");
             }
             else if (!received_text.equals(LOGIN) && this.command.equals(LOGIN)) {
-                String login[] = received_text.split("\n");
-
-                RequestHTTP r = new RequestHTTP();
-                int res = r.userLogin(login[0], login[1]);
-
-                logger.info("Request code: " + res);
-
-                if (res == 200) {
-                    message.setText("Username trovato.");
-                    this.command = "Comando sconosciuto";
-                } else {
-                    message.setText("Username non trovato. Usa /login per riprovare.");
-                    this.command = "Comando sconosciuto";
-                }
+                this.command = "Comando sconosciuto";
+                message.setText(HORmessages.messageLogin(received_text));
             }
             // SURVEY COMMAND
             else if (received_text.equals(SURVEY)) {
@@ -91,30 +73,8 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
 
                 message.setText(s.getNextQuestion());
 
-                // Create ReplyKeyboardMarkup object
-                ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
-
-                // Create the keyboard (list of keyboard rows)
-                List<KeyboardRow> keyboard = new ArrayList<KeyboardRow>();
-
-                // Create a keyboard row
-                KeyboardRow row = new KeyboardRow();
-
-                // Set each button, you can also use KeyboardButton objects if you need something else than text
-                row.add("1");
-                row.add("2");
-                row.add("3");
-                row.add("4");
-                row.add("5");
-
-                // Add the first row to the keyboard
-                keyboard.add(row);
-
-                // Set the keyboard to the markup
-                keyboardMarkup.setKeyboard(keyboard);
-
-                // Add it to the message
-                message.setReplyMarkup(keyboardMarkup);
+                // Add keyboard to message
+                message.setReplyMarkup(HORmessages.setKeyboard());
             }
             else if (!received_text.equals(SURVEY) && this.command.equals(SURVEY)) {
                 s.setNextAnswer(received_text);
@@ -122,32 +82,12 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                 if (!s.isComplete()) {
                     message.setText(s.getNextQuestion());
 
-                    // Create ReplyKeyboardMarkup object
-                    ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
-
-                    // Create the keyboard (list of keyboard rows)
-                    List<KeyboardRow> keyboard = new ArrayList<KeyboardRow>();
-
-                    // Create a keyboard row
-                    KeyboardRow row = new KeyboardRow();
-
-                    // Set each button, you can also use KeyboardButton objects if you need something else than text
-                    row.add("1");
-                    row.add("2");
-                    row.add("3");
-                    row.add("4");
-                    row.add("5");
-
-                    // Add the first row to the keyboard
-                    keyboard.add(row);
-
-                    // Set the keyboard to the markup
-                    keyboardMarkup.setKeyboard(keyboard);
-
-                    // Add it to the message
-                    message.setReplyMarkup(keyboardMarkup);
+                    // Add keyboard to message
+                    message.setReplyMarkup(HORmessages.setKeyboard());
                 } else {
                     message.setText("Questionario completato.");
+
+                    // Remove keyboard from message
                     ReplyKeyboardRemove keyboardMarkup = new ReplyKeyboardRemove();
                     message.setReplyMarkup(keyboardMarkup);
                     this.command = "Comando sconosciuto";

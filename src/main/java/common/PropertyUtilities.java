@@ -12,7 +12,7 @@ public class PropertyUtilities {
      * @return property value
      */
     public String getProperty(String property) {
-        InputStream inputStream = null;
+        InputStream inputStream;
         String result = "";
 
         try {
