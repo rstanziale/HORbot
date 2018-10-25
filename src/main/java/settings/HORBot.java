@@ -27,7 +27,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
     private final static String START = "/start";
     private final static String LOGIN = "/login";
     private final static String SURVEY = "/survey";
-    private final static String SHOWANSWER = "/showAnswer";
+    private final static String SHOWANSWER = "/showanswer";
     private final static String HELP = "/help";
     private String command = "UnknownCommand";
 
