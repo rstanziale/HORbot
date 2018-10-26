@@ -1,21 +1,43 @@
 # HORBot - RecSys
 
-HorBot è un chat bot sviluppato con le API di Telegram utilizzato come Recommender System che mediante i dati raccolti da Myrror (attraverso le sue API) e dei questionari, è in grado di raccomandare un'attività all'utente che utilizza il chatbot.
-Il seguente repository è stato creato per lo sviluppo del lavoro di tesi di Accesso Intelligente all'Informazione ed Elaborazione del Linguaggio Naturale dell'Università degli Studi di Bari.
+Italian chat bot developed with Telegram API and used as Recommender System of point of interests with Myrror facets (through its API) and surveys.
 
-Per sviluppare il sistema è stato fatto uso delle seguenti **tecnologie**:
+The following **technologies** have been used to develop the system:
 * [IntelliJ](https://www.jetbrains.com/idea/)
 * [Telegram API](https://core.telegram.org/)
 * [Maven](https://maven.apache.org/)
+* [Heroku](https://devcenter.heroku.com/categories/deployment)
 * [Log4j](https://logging.apache.org/log4j/2.x/)
 * [Jackson](https://github.com/FasterXML/jackson-databind)
 
-## Configurazione
+## Configuration
 
-Aggiungere nella directory _resources_ un file _horbot.properties_ settandolo come segue:
+Add a file _horbot.properties_ to the _resources_ directory and set it as follows:
 
 ```
 # HORBot properties
 username=<YOUR_CHATBOT_NAME>
 token=<YOUR_CHATBOT_TOKEN>
+```
+
+## Deploy
+
+The following [guide](https://devcenter.heroku.com/articles/run-non-web-java-processes-on-heroku) has been used for deploying, the commands used are:
+
+```
+git init
+git add .
+git commit -m "Ready to deploy"
+heroku create
+git push heroku master
+```
+
+## Telegram commands
+
+```
+/start - Inizia ad usare il RecSys
+/login - Effettua il login per Myrror
+/survey - Inizia il questionario
+/showanswer - Visualizza le risposte del questionario
+/help - Informazioni sui comandi
 ```
