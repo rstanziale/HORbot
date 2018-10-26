@@ -45,6 +45,7 @@ public class HORmessages implements LoggerInterface {
     public static ReplyKeyboardMarkup setKeyboard() {
         // Create ReplyKeyboardMarkup object
         ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
+        keyboardMarkup.setResizeKeyboard(true);
 
         // Create the keyboard (list of keyboard rows)
         List<KeyboardRow> keyboard = new ArrayList<>();

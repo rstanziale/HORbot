@@ -58,6 +58,18 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                 this.command = START;
                 message.setText("Ciao, per cominciare effettua il login per Myrror attraverso il comando /login!");
             }
+            // SHOW ANSWER COMMAND
+            else if (received_text.equals(SHOWANSWER)) {
+                message.setText(s.toString());
+            }
+            // HELP COMMAND
+            else if (received_text.equals(HELP)) {
+                message.setText("Puoi utilizzarmi con i seguenti comandi:\n\n" +
+                        "/login - Effettua il login per Myrror\n" +
+                        "/survey - Inizia il questionario\n" +
+                        "/showanswer - Visualizza le risposte del questionario\n" +
+                        "/help - Informazioni sui comandi");
+            }
             // LOGIN COMMAND
             else if (received_text.equals(LOGIN)) {
                 this.command = LOGIN;
@@ -71,10 +83,14 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             else if (received_text.equals(SURVEY)) {
                 this.command = SURVEY;
 
-                message.setText(s.getNextQuestion());
+                if (!s.isComplete()) {
+                    message.setText(s.getNextQuestion());
 
-                // Add keyboard to message
-                message.setReplyMarkup(HORmessages.setKeyboard());
+                    // Add keyboard to message
+                    message.setReplyMarkup(HORmessages.setKeyboard());
+                } else {
+                    message.setText("Questionario già completato.");
+                }
             }
             else if (!received_text.equals(SURVEY) && this.command.equals(SURVEY)) {
                 s.setNextAnswer(received_text);
@@ -92,14 +108,6 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                     message.setReplyMarkup(keyboardMarkup);
                     this.command = "Comando sconosciuto";
                 }
-            }
-            // SHOW ANSWER COMMAND
-            else if (received_text.equals(SHOWANSWER)) {
-                message.setText(s.toString());
-            }
-            // HELP COMMAND
-            else if (received_text.equals(HELP)) {
-                message.setText("Puoi utilizzarmi con i seguenti comandi:\n\n/login - Effettua il login per Myrror\n/help - Informazioni sui comandi");
             }
             // UNKNOWN COMMAND
             else {

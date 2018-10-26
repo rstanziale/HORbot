@@ -34,6 +34,8 @@ git push heroku master
 
 ## Telegram commands
 
+The following is a list of the commands used by the chat bot:
+
 ```
 /start - Inizia ad usare il RecSys
 /login - Effettua il login per Myrror
