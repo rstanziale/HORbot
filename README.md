@@ -37,9 +37,10 @@ git push heroku master
 The following is a list of the commands used by the chat bot:
 
 ```
-/start - Inizia ad usare il RecSys
-/login - Effettua il login per Myrror
-/survey - Inizia il questionario
-/showanswer - Visualizza le risposte del questionario
-/help - Informazioni sui comandi
+* /start - Inizia ad usare il RecSys
+* /login - Effettua il login per Myrror
+* /survey - Inizia il questionario
+* /showanswer - Visualizza le risposte del questionario
+* /resetanswer - Reimposta le risposte del questionario
+* /help - Informazioni sui comandi
 ```
