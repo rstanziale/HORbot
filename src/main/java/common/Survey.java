@@ -2,10 +2,7 @@ package common;
 
 import beans.survey.Question;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,12 +21,10 @@ public class Survey {
      * @param filePath string representing the path of file
      */
     public Survey(String filePath) {
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource(filePath).getFile());
-
         this.survey = new HashMap<>();
+        InputStream in = getClass().getResourceAsStream(filePath);
 
-        try(BufferedReader br = new BufferedReader(new FileReader(file))) {
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(in))) {
             int index = 0;
 
             for(String line; (line = br.readLine()) != null; ) {

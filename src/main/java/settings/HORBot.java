@@ -28,7 +28,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
     private String command = "UnknownCommand";
 
     // SURVEYS
-    private Survey s = new Survey("questions.txt");
+    private Survey s = new Survey("/questions.txt");
 
     /**
      * Get message from chat and send a new message
