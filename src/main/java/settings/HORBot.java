@@ -10,6 +10,9 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardRemove;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Define HORBot class
  *
@@ -28,7 +31,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
     private String command = "UnknownCommand";
 
     // SURVEYS
-    private Survey s = new Survey("/questions.txt");
+    private Map<Integer, Survey> surveys = new HashMap<>();
 
     /**
      * Get message from chat and send a new message
@@ -43,6 +46,11 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             String user_last_name = update.getMessage().getChat().getLastName();
             String user_username = update.getMessage().getChat().getUserName();
             long user_id = update.getMessage().getChat().getId();
+
+            // Survey for this user
+            if (!surveys.containsKey((int)(long) user_id)) {
+                surveys.put((int)(long) user_id, new Survey("/questions.txt"));
+            }
 
             // Set chat ID
             Long sender_id = update.getMessage().getChatId();
@@ -62,12 +70,12 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             // SHOW ANSWER COMMAND
             else if (received_text.equals(SHOWANSWER)) {
                 this.command = SHOWANSWER;
-                message.setText(s.toString());
+                message.setText(surveys.get((int)(long) user_id).toString());
             }
             // RESET ANSWERS
             else if (received_text.equals(RESETANSWER)) {
                 this.command = RESETANSWER;
-                s.resetAnswers();
+                surveys.get((int)(long) user_id).resetAnswers();
                 message.setText("Risposte del questionario reimpostate.");
             }
             // HELP COMMAND
@@ -93,8 +101,8 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             else if (received_text.equals(SURVEY)) {
                 this.command = SURVEY;
 
-                if (!s.isComplete()) {
-                    message.setText(s.getNextQuestion());
+                if (!surveys.get((int)(long) user_id).isComplete()) {
+                    message.setText(surveys.get((int)(long) user_id).getNextQuestion());
 
                     // Add keyboard to message
                     message.setReplyMarkup(HORmessages.setKeyboard());
@@ -103,10 +111,10 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                 }
             }
             else if (!received_text.equals(SURVEY) && this.command.equals(SURVEY)) {
-                s.setNextAnswer(received_text);
+                surveys.get((int)(long) user_id).setNextAnswer(received_text);
 
-                if (!s.isComplete()) {
-                    message.setText(s.getNextQuestion());
+                if (!surveys.get((int)(long) user_id).isComplete()) {
+                    message.setText(surveys.get((int)(long) user_id).getNextQuestion());
 
                     // Add keyboard to message
                     message.setReplyMarkup(HORmessages.setKeyboard());
