@@ -39,7 +39,7 @@ public class Survey {
 
     /**
      * Get all questions
-     * @return a collection of Q&A
+     * @return a collection of Questions and Answers
      */
     public Collection<Question> getSurvey() {
         return survey.values();

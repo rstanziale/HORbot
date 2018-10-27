@@ -113,9 +113,9 @@ public class RequestHTTP {
 
     /**
      * Put GET requesta params on the URL
-     * @param params (MAP<String, String>) Request param key/value
-     * @return (String) Query params for URL
-     * @throws UnsupportedEncodingException
+     * @param params Request param key/value
+     * @return Query params for URL
+     * @throws UnsupportedEncodingException for encode exception
      */
     private String getParamsGetString(Map<String, String> params) throws UnsupportedEncodingException {
         StringBuilder result = new StringBuilder();
