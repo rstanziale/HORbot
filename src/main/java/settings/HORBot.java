@@ -23,6 +23,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
     private final static String LOGIN = "/login";
     private final static String SURVEY = "/survey";
     private final static String SHOWANSWER = "/showanswer";
+    private final static String RESETANSWER = "/resetanswer";
     private final static String HELP = "/help";
     private String command = "UnknownCommand";
 
@@ -60,14 +61,23 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             }
             // SHOW ANSWER COMMAND
             else if (received_text.equals(SHOWANSWER)) {
+                this.command = SHOWANSWER;
                 message.setText(s.toString());
+            }
+            // RESET ANSWERS
+            else if (received_text.equals(RESETANSWER)) {
+                this.command = RESETANSWER;
+                s.resetAnswers();
+                message.setText("Risposte del questionario reimpostate.");
             }
             // HELP COMMAND
             else if (received_text.equals(HELP)) {
+                this.command = HELP;
                 message.setText("Puoi utilizzarmi con i seguenti comandi:\n\n" +
                         "/login - Effettua il login per Myrror\n" +
                         "/survey - Inizia il questionario\n" +
                         "/showanswer - Visualizza le risposte del questionario\n" +
+                        "/resetanswer - Reimposta le risposte del questionario\n" +
                         "/help - Informazioni sui comandi");
             }
             // LOGIN COMMAND

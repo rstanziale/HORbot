@@ -109,6 +109,15 @@ public class Survey {
         } while (index < this.survey.values().size() && value);
     }
 
+    /**
+     * Reset answers if user wants to do survey again
+     */
+    public void resetAnswers() {
+        for (Question q : survey.values()) {
+            q.setAnswer(0);
+        }
+    }
+
     @Override
     public String toString() {
         String s = "";
