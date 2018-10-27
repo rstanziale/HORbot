@@ -25,7 +25,7 @@ public class HORmessages implements LoggerInterface {
         String login[] = received_text.split("\n");
 
         RequestHTTP r = new RequestHTTP();
-        int res = r.userLogin(login[0], login[1]);
+        int res = r.userLogin(login[0].toLowerCase(), login[1]);
 
         logger.info("Request code: " + res);
 
