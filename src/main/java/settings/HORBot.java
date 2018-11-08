@@ -28,7 +28,9 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
     private final static String SHOWANSWER = "/showanswer";
     private final static String RESETANSWER = "/resetanswer";
     private final static String HELP = "/help";
-    private String command = "UnknownCommand";
+
+    // USER COMMAND
+    private Map<Integer, String> userCommand = new HashMap<>();
 
     // SURVEYS
     private Map<Integer, Survey> surveys = new HashMap<>();
@@ -50,6 +52,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             // Survey for this user
             if (!surveys.containsKey((int)(long) user_id)) {
                 surveys.put((int)(long) user_id, new Survey("/questions.txt"));
+                userCommand.put((int)(long) user_id, "Comando sconosciuto");
             }
 
             // Set chat ID
@@ -64,23 +67,23 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
 
             // START COMMAND
             if (received_text.equals(START)) {
-                this.command = START;
+                userCommand.replace((int)(long) user_id, START);
                 message.setText("Ciao, per cominciare effettua il login per Myrror attraverso il comando /login!");
             }
             // SHOW ANSWER COMMAND
             else if (received_text.equals(SHOWANSWER)) {
-                this.command = SHOWANSWER;
+                userCommand.replace((int)(long) user_id, SHOWANSWER);
                 message.setText(surveys.get((int)(long) user_id).toString());
             }
             // RESET ANSWERS
             else if (received_text.equals(RESETANSWER)) {
-                this.command = RESETANSWER;
+                userCommand.replace((int)(long) user_id, RESETANSWER);
                 surveys.get((int)(long) user_id).resetAnswers();
                 message.setText("Risposte del questionario reimpostate.");
             }
             // HELP COMMAND
             else if (received_text.equals(HELP)) {
-                this.command = HELP;
+                userCommand.replace((int)(long) user_id, HELP);
                 message.setText("Puoi utilizzarmi con i seguenti comandi:\n\n" +
                         "/login - Effettua il login per Myrror\n" +
                         "/survey - Inizia il questionario\n" +
@@ -90,16 +93,16 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             }
             // LOGIN COMMAND
             else if (received_text.equals(LOGIN)) {
-                this.command = LOGIN;
+                userCommand.replace((int)(long) user_id, LOGIN);
                 message.setText("Inviami le credenziali secondo questo modello:\n\nemail\npassword");
             }
-            else if (!received_text.equals(LOGIN) && this.command.equals(LOGIN)) {
-                this.command = "Comando sconosciuto";
+            else if (!received_text.equals(LOGIN) && this.userCommand.get((int)(long) user_id).equals(LOGIN)) {
+                userCommand.replace((int)(long) user_id, "Comando sconosciuto");
                 message.setText(HORmessages.messageLogin(received_text));
             }
             // SURVEY COMMAND
             else if (received_text.equals(SURVEY)) {
-                this.command = SURVEY;
+                userCommand.replace((int)(long) user_id, SURVEY);
 
                 if (!surveys.get((int)(long) user_id).isComplete()) {
                     message.setText(surveys.get((int)(long) user_id).getNextQuestion());
@@ -110,7 +113,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                     message.setText("Questionario già completato.");
                 }
             }
-            else if (!received_text.equals(SURVEY) && this.command.equals(SURVEY)) {
+            else if (!received_text.equals(SURVEY) && this.userCommand.get((int)(long) user_id).equals(SURVEY)) {
                 surveys.get((int)(long) user_id).setNextAnswer(received_text);
 
                 if (!surveys.get((int)(long) user_id).isComplete()) {
@@ -124,7 +127,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                     // Remove keyboard from message
                     ReplyKeyboardRemove keyboardMarkup = new ReplyKeyboardRemove();
                     message.setReplyMarkup(keyboardMarkup);
-                    this.command = "Comando sconosciuto";
+                    userCommand.replace((int)(long) user_id, "Comando sconosciuto");
                 }
             }
             // UNKNOWN COMMAND
