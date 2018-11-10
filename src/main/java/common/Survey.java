@@ -90,13 +90,30 @@ public class Survey {
     public void setNextAnswer(String answer) {
         Question q;
         int index = 0;
+        int answerCoded = 0;
         boolean value = true;
+
+        // Set answer from user message
+        switch (answer) {
+            case "In disaccordo":
+                answerCoded = 1;
+                break;
+            case "Parzialmente d'accordo":
+                answerCoded = 2;
+                break;
+            case "Abbastanza d'accordo":
+                answerCoded = 3;
+                break;
+            case "D'accordo":
+                answerCoded = 4;
+                break;
+        }
 
         do {
             q = this.survey.get(index);
 
             if (q.getAnswer() == 0) {
-                q.setAnswer(Integer.valueOf(answer));
+                q.setAnswer(answerCoded);
                 value = false;
             }
 

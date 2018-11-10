@@ -98,14 +98,16 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             }
             else if (!received_text.equals(LOGIN) && this.userCommand.get((int)(long) user_id).equals(LOGIN)) {
                 userCommand.replace((int)(long) user_id, "Comando sconosciuto");
-                message.setText(HORmessages.messageLogin(received_text));
+                message.setText(HORmessages.messageLogin(received_text) + "\n" +
+                        "Inizia il questionario con il comando /survey.");
             }
             // SURVEY COMMAND
             else if (received_text.equals(SURVEY)) {
                 userCommand.replace((int)(long) user_id, SURVEY);
 
                 if (!surveys.get((int)(long) user_id).isComplete()) {
-                    message.setText(surveys.get((int)(long) user_id).getNextQuestion());
+                    message.setText("Indica quanto sei d'accordo con le seguenti affermazioni \n\n" +
+                            surveys.get((int)(long) user_id).getNextQuestion());
 
                     // Add keyboard to message
                     message.setReplyMarkup(HORmessages.setKeyboard());

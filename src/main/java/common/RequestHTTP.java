@@ -92,7 +92,7 @@ public class RequestHTTP {
         try {
             // TODO: check parameters
             Map<String, String> parameters = new HashMap<String, String>();
-            parameters.put("l", "10");
+            parameters.put("l", "20");
 
             url = new URL(this.profileURL + login.getUsername() + "?" + this.getParamsGetString(parameters));
             con = (HttpURLConnection) url.openConnection();

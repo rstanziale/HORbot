@@ -40,9 +40,17 @@ public class HORmessages implements LoggerInterface {
 
     /**
      * Set keyboard for survey
-     * @return keyboard for message with values from 1 to 5
+     * @return keyboard for message with answer values
      */
     public static ReplyKeyboardMarkup setKeyboard() {
+
+        // Set answers
+        String[] answers = new String[4];
+        answers[0] = "In disaccordo";
+        answers[1] = "Parzialmente d'accordo";
+        answers[2] = "Abbastanza d'accordo";
+        answers[3] = "D'accordo";
+
         // Create ReplyKeyboardMarkup object
         ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
         keyboardMarkup.setResizeKeyboard(true);
@@ -54,14 +62,11 @@ public class HORmessages implements LoggerInterface {
         KeyboardRow row = new KeyboardRow();
 
         // Set each button, you can also use KeyboardButton objects if you need something else than text
-        row.add("1");
-        row.add("2");
-        row.add("3");
-        row.add("4");
-        row.add("5");
-
-        // Add the first row to the keyboard
-        keyboard.add(row);
+        for (String answer : answers) {
+            row.add(answer);
+            keyboard.add(row);
+            row = new KeyboardRow();
+        }
 
         // Set the keyboard to the markup
         keyboardMarkup.setKeyboard(keyboard);
