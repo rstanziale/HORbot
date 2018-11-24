@@ -1,1 +1,1 @@
-telegrambot: sh target/bin/telegrambot
+horBot: sh target/bin/horBot
