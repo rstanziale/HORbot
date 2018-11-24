@@ -4,6 +4,12 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Properties;
 
+/**
+ * Define PropertyUtilities class
+ *
+ * @author Roberto B. Stanziale
+ * @version 1.0
+ */
 public class PropertyUtilities {
 
     /**

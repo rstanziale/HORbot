@@ -1,6 +1,4 @@
-package common;
-
-import beans.survey.Question;
+package beans.survey;
 
 import java.io.*;
 import java.util.Collection;

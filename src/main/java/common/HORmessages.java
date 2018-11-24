@@ -1,6 +1,9 @@
 package common;
 
+import beans.survey.SurveyContext;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import settings.LoggerInterface;
 
@@ -42,7 +45,7 @@ public class HORmessages implements LoggerInterface {
      * Set keyboard for survey
      * @return keyboard for message with answer values
      */
-    public static ReplyKeyboardMarkup setKeyboard() {
+    public static ReplyKeyboardMarkup setReplyKeyboard() {
 
         // Set answers
         String[] answers = new String[4];
@@ -72,5 +75,48 @@ public class HORmessages implements LoggerInterface {
         keyboardMarkup.setKeyboard(keyboard);
 
         return keyboardMarkup;
+    }
+
+    /**
+     * Set keyboard for survey  contexts
+     * @param surveyContext SurveyContext representing the information about contexts chosen by user
+     * @return keyboard for message with context indexes
+     */
+    public static InlineKeyboardMarkup setInlineKeyboard(SurveyContext surveyContext) {
+        // Create ReplyKeyboardMarkup object
+        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+
+        // Create the keyboard (list of keyboard rows)
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+
+        // Create a keyboard row
+        List<InlineKeyboardButton> rowInline = new ArrayList<>();
+
+        for (int i = 0; i < surveyContext.getSurveyContext().size(); i++) {
+            // Create a new line each five buttons
+            if (i % 5 == 0) {
+                rowsInline.add(rowInline);
+                rowInline = new ArrayList<>();
+            }
+
+            // Add button to rowline
+            rowInline.add(new InlineKeyboardButton()
+                    .setText(String.valueOf(i+1))
+                    .setCallbackData(String.valueOf(i+1)));
+        }
+        rowsInline.add(rowInline);
+        rowInline = new ArrayList<>();
+
+        if (surveyContext.isComplete()) {
+            rowInline.add(new InlineKeyboardButton()
+                    .setText("Invia contesti")
+                    .setCallbackData("send_contexts"));
+            rowsInline.add(rowInline);
+        }
+
+        // Add it to the message
+        markupInline.setKeyboard(rowsInline);
+
+        return markupInline;
     }
 }

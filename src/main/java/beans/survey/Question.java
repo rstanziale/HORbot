@@ -46,7 +46,24 @@ public class Question {
 
     @Override
     public String toString() {
+        String answerCoded = "";
+
+        // Set answer from user message
+        switch (answer) {
+            case 1:
+                answerCoded = "In disaccordo";
+                break;
+            case 2:
+                answerCoded = "Parzialmente d'accordo";
+                break;
+            case 3:
+                answerCoded = "Abbastanza d'accordo";
+                break;
+            case 4:
+                answerCoded = "D'accordo";
+                break;
+        }
         return "Q: '" + question + '\'' +
-                "\nA: " + answer + '\n';
+                "\nA: " + answerCoded + '\n';
     }
 }
