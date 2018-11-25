@@ -49,14 +49,6 @@ public class Context {
         return contextName;
     }
 
-    /**
-     * Set the name of the context
-     * @param contextName String representing the name of the context
-     */
-    public void setContextName(String contextName) {
-        this.contextName = contextName;
-    }
-
     @Override
     public String toString() {
         return this.checked ? ":ballot_box_with_check:" + " " + this.contextName

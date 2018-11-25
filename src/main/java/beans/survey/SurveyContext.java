@@ -82,6 +82,26 @@ public class SurveyContext {
         }
     }
 
+    /**
+     * Get list of activities chosen by user
+     * @return String representing list of activities chosen by user
+     */
+    public String showContextChosen() {
+        String s = "";
+
+        for (Context c : surveyContext.values()) {
+            if (c.isChecked()) {
+                s += c.toString() + "\n";
+            }
+        }
+
+        if (s.equals("")) {
+            s = "Nessuna attività scelta.";
+        }
+
+        return s;
+    }
+
     @Override
     public String toString() {
         String s = "";

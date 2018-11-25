@@ -40,7 +40,10 @@ The following is a list of the commands used by the chat bot:
 /start - Inizia ad usare il RecSys
 /login - Effettua il login per Myrror
 /survey - Inizia il questionario
+/setcontexts - Scegli i contesti
 /showanswer - Visualizza le risposte del questionario
+/showcontexts - Visualizza le attività scelte
 /resetanswer - Reimposta le risposte del questionario
+/resetcontexts - Reimposta i contesti
 /help - Informazioni sui comandi
 ```

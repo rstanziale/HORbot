@@ -109,7 +109,7 @@ public class HORmessages implements LoggerInterface {
 
         if (surveyContext.isComplete()) {
             rowInline.add(new InlineKeyboardButton()
-                    .setText("Invia contesti")
+                    .setText("Salva attività")
                     .setCallbackData("send_contexts"));
             rowsInline.add(rowInline);
         }
