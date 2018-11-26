@@ -1,5 +1,7 @@
 package common;
 
+import beans.facets.Ontology;
+import beans.survey.Location;
 import beans.survey.Survey;
 import beans.survey.SurveyContext;
 
@@ -12,6 +14,8 @@ import beans.survey.SurveyContext;
 public class UserPreferences {
     private Survey survey;
     private SurveyContext surveyContext;
+    private Ontology ontology;
+    private Location location;
 
     /**
      * Constructor of the UserPreferences
@@ -37,5 +41,37 @@ public class UserPreferences {
      */
     public SurveyContext getSurveyContext() {
         return surveyContext;
+    }
+
+    /**
+     * Get the ontology returned from Myrror after user login
+     * @return Ontology user data
+     */
+    public Ontology getOntology() {
+        return ontology;
+    }
+
+    /**
+     * Set the user ontology data
+     * @param ontology Ontology user data returned from Myrror after user login
+     */
+    public void setOntology(Ontology ontology) {
+        this.ontology = ontology;
+    }
+
+    /**
+     * Get the location set from user
+     * @return Location representing the user position
+     */
+    public Location getLocation() {
+        return location;
+    }
+
+    /**
+     * Set the user location
+     * @param location Location representing the user position
+     */
+    public void setLocation(Location location) {
+        this.location = location;
     }
 }

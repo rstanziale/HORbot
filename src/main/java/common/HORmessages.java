@@ -19,11 +19,12 @@ import java.util.List;
 public class HORmessages implements LoggerInterface {
 
     /**
-     *
+     * Set the message login answer
      * @param received_text message received from user
+     * @param userPreferences user preferences obtained by user interaction
      * @return text message when command is /login
      */
-    public static String messageLogin(String received_text) {
+    public static String messageLogin(String received_text, UserPreferences userPreferences) {
         String text;
         String login[] = received_text.split("\n");
 
@@ -34,6 +35,7 @@ public class HORmessages implements LoggerInterface {
 
         if (res == 200) {
             text = "Username trovato.";
+            userPreferences.setOntology(r.getOntology());
         } else {
             text = "Username non trovato. Usa /login per riprovare.";
         }

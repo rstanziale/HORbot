@@ -1,5 +1,6 @@
 package settings;
 
+import beans.survey.Location;
 import com.vdurmont.emoji.EmojiParser;
 import common.HORLogger;
 import common.HORmessages;
@@ -28,6 +29,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
     private final static String START = "/start";
     private final static String LOGIN = "/login";
     private final static String SURVEY = "/survey";
+    private final static String SETLOCATION = "/setlocation";
     private final static String SETCONTEXTS = "/setcontexts";
     private final static String SHOWANSWER = "/showanswer";
     private final static String SHOWCONTEXTS = "/showcontexts";
@@ -47,7 +49,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
      */
     public void onUpdateReceived(Update update) {
         // Check text message
-        if(update.hasMessage() && update.getMessage().hasText()) {
+        if(update.hasMessage() && update.getMessage().hasText() || update.getMessage().hasLocation()) {
 
             // Set user info for logging
             String user_first_name = update.getMessage().getChat().getFirstName();
@@ -65,7 +67,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             Long sender_id = update.getMessage().getChatId();
 
             // Set text received
-            String received_text = update.getMessage().getText();
+            String received_text = update.getMessage().hasText() ? update.getMessage().getText() : "";
 
             // Set message structure
             SendMessage message = new SendMessage()
@@ -109,8 +111,21 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             }
             else if (!received_text.equals(LOGIN) && this.userCommand.get(toIntExact(user_id)).equals(LOGIN)) {
                 userCommand.replace(toIntExact(user_id), "Comando sconosciuto");
-                message.setText(HORmessages.messageLogin(received_text) + "\n" +
+                message.setText(HORmessages.messageLogin(received_text, userPreferences.get(toIntExact(user_id))) + "\n" +
                         "Inizia il questionario con il comando /survey.");
+            }
+            // SET POSITION COMMAND
+            else if (received_text.equals(SETLOCATION)) {
+                userCommand.replace(toIntExact(user_id), SETLOCATION);
+                message.setText("Inviami la tua posizione");
+            }
+            else if (update.getMessage().hasLocation() && this.userCommand.get(toIntExact(user_id)).equals(SETLOCATION)) {
+                Location l = new Location(update.getMessage().getLocation().getLongitude(), update.getMessage().getLocation().getLatitude());
+                this.userPreferences.get(toIntExact(user_id)).setLocation(l);
+
+                message.setText("Posizione salvata.");
+
+                userCommand.replace(toIntExact(user_id), "Comando sconosciuto");
             }
             // SURVEY COMMAND
             else if (received_text.equals(SURVEY)) {

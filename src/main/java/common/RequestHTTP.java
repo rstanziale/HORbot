@@ -27,10 +27,21 @@ public class RequestHTTP {
     private static String profileURL = "http://90.147.102.243:5000/api/profile/";
     private static String loginURL = "http://90.147.102.243:5000/auth/login";
 
+    // ONTOLOGY GET FROM MYRROR
+    private Ontology ontology;
+
     /**
      * Constructor
      */
     public RequestHTTP() { }
+
+    /**
+     * Get the ontology requested by user login
+     * @return Ontology returned from Myrror after login request
+     */
+    public Ontology getOntology() {
+        return ontology;
+    }
 
     /**
      * Get info Myrror login
@@ -99,7 +110,7 @@ public class RequestHTTP {
 
             con.setRequestProperty("x-access-token", login.getToken());
 
-            Ontology ontology = objectMapper.readValue(con.getInputStream(), Ontology.class);
+            this.ontology = objectMapper.readValue(con.getInputStream(), Ontology.class);
             responseCode = con.getResponseCode();
 
         } catch (IOException e) {
