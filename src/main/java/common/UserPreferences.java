@@ -22,9 +22,9 @@ public class UserPreferences {
      * @param questionPath String representing the path of the questions
      * @param contextsPath String representing the path of the contexts
      */
-    public UserPreferences(String questionPath, String contextsPath) {
+    public UserPreferences(String questionPath, String contextsPath, String activitiesPath) {
         this.survey = new Survey(questionPath);
-        this.surveyContext = new SurveyContext(contextsPath);
+        this.surveyContext = new SurveyContext(contextsPath, activitiesPath);
     }
 
     /**

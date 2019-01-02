@@ -1,5 +1,6 @@
 package settings;
 
+import beans.survey.Context;
 import beans.survey.Location;
 import com.vdurmont.emoji.EmojiParser;
 import common.HORLogger;
@@ -15,6 +16,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import static java.lang.Math.toIntExact;
 
 /**
@@ -49,7 +51,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
      */
     public void onUpdateReceived(Update update) {
         // Check text message
-        if(update.hasMessage() && update.getMessage().hasText() || update.getMessage().hasLocation()) {
+        if(update.hasMessage() && update.getMessage().hasText()) {
 
             // Set user info for logging
             String user_first_name = update.getMessage().getChat().getFirstName();
@@ -59,7 +61,11 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
 
             // Survey for this user
             if (!userPreferences.containsKey(toIntExact(user_id))) {
-                userPreferences.put(toIntExact(user_id), new UserPreferences("/questions.txt", "/activities.txt"));
+                userPreferences.put(toIntExact(user_id),
+                        new UserPreferences("/questions.txt",
+                                "/contexts.txt",
+                                "/activities.txt"));
+
                 userCommand.put(toIntExact(user_id), "Comando sconosciuto");
             }
 
@@ -76,7 +82,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             // START COMMAND
             if (received_text.equals(START)) {
                 userCommand.replace(toIntExact(user_id), START);
-                message.setText("Ciao, per cominciare effettua il login per Myrror attraverso il comando /login!");
+                message.setText(HORmessages.MESSAGE_START);
             }
             // SHOW ANSWER COMMAND
             else if (received_text.equals(SHOWANSWER)) {
@@ -92,38 +98,33 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             else if (received_text.equals(RESETANSWER)) {
                 userCommand.replace(toIntExact(user_id), RESETANSWER);
                 userPreferences.get(toIntExact(user_id)).getSurvey().resetAnswers();
-                message.setText("Risposte del questionario reimpostate.");
+                message.setText(HORmessages.MESSAGE_SURVEY_RESET);
             }
             // HELP COMMAND
             else if (received_text.equals(HELP)) {
                 userCommand.replace(toIntExact(user_id), HELP);
-                message.setText("Puoi utilizzarmi con i seguenti comandi:\n\n" +
-                        "/login - Effettua il login per Myrror\n" +
-                        "/survey - Inizia il questionario\n" +
-                        "/showanswer - Visualizza le risposte del questionario\n" +
-                        "/resetanswer - Reimposta le risposte del questionario\n" +
-                        "/help - Informazioni sui comandi");
+                message.setText(HORmessages.MESSAGE_HELP);
             }
             // LOGIN COMMAND
             else if (received_text.equals(LOGIN)) {
                 userCommand.replace(toIntExact(user_id), LOGIN);
-                message.setText("Inviami le credenziali secondo questo modello:\n\nemail\npassword");
+                message.setText(HORmessages.MESSAGE_LOGIN);
             }
             else if (!received_text.equals(LOGIN) && this.userCommand.get(toIntExact(user_id)).equals(LOGIN)) {
                 userCommand.replace(toIntExact(user_id), "Comando sconosciuto");
                 message.setText(HORmessages.messageLogin(received_text, userPreferences.get(toIntExact(user_id))) + "\n" +
-                        "Inizia il questionario con il comando /survey.");
+                        HORmessages.MESSAGE_LOGIN_COMPLETE);
             }
             // SET POSITION COMMAND
             else if (received_text.equals(SETLOCATION)) {
                 userCommand.replace(toIntExact(user_id), SETLOCATION);
-                message.setText("Inviami la tua posizione");
+                message.setText(HORmessages.MESSAGE_POSITION);
             }
             else if (update.getMessage().hasLocation() && this.userCommand.get(toIntExact(user_id)).equals(SETLOCATION)) {
                 Location l = new Location(update.getMessage().getLocation().getLongitude(), update.getMessage().getLocation().getLatitude());
                 this.userPreferences.get(toIntExact(user_id)).setLocation(l);
 
-                message.setText("Posizione salvata.");
+                message.setText(HORmessages.MESSAGE_POSITION_SAVED);
 
                 userCommand.replace(toIntExact(user_id), "Comando sconosciuto");
             }
@@ -132,13 +133,13 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                 userCommand.replace(toIntExact(user_id), SURVEY);
 
                 if (!userPreferences.get(toIntExact(user_id)).getSurvey().isComplete()) {
-                    message.setText("Indica quanto sei d'accordo con le seguenti affermazioni \n\n" +
+                    message.setText(HORmessages.MESSAGE_SURVEY_START +
                             userPreferences.get(toIntExact(user_id)).getSurvey().getNextQuestion());
 
                     // Add keyboard to message
                     message.setReplyMarkup(HORmessages.setReplyKeyboard());
                 } else {
-                    message.setText("Questionario già completato.");
+                    message.setText(HORmessages.MESSAGE_SURVEY_ALREADY_COMPLETE);
                 }
             }
             else if (!received_text.equals(SURVEY) && this.userCommand.get(toIntExact(user_id)).equals(SURVEY)) {
@@ -150,7 +151,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                     // Add keyboard to message
                     message.setReplyMarkup(HORmessages.setReplyKeyboard());
                 } else {
-                    message.setText("Questionario completato.");
+                    message.setText(HORmessages.MESSAGE_SURVEY_COMPLETE);
 
                     // Remove keyboard from message
                     ReplyKeyboardRemove keyboardMarkup = new ReplyKeyboardRemove();
@@ -163,25 +164,28 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                 userCommand.replace(toIntExact(user_id), SETCONTEXTS);
 
                 if (!userPreferences.get(toIntExact(user_id)).getSurveyContext().isComplete()) {
-                    message.setText(EmojiParser.parseToUnicode("Scegli tre attività che ti interessano \n\n" +
-                            userPreferences.get(toIntExact(user_id)).getSurveyContext()));
+                    Context c = userPreferences.get(toIntExact(user_id)).getSurveyContext().getNextContext();
+                    message.setText(EmojiParser.parseToUnicode(c.toString()))
+                            .setParseMode("markdown");
 
                     // Add keyboard to message
-                    message.setReplyMarkup(HORmessages.setInlineKeyboard(userPreferences.get(toIntExact(user_id)).getSurveyContext()));
+                    message.setReplyMarkup(HORmessages.setInlineKeyboard(c));
                 } else {
-                    message.setText("Attività già scelte.");
+                    message.setText(HORmessages.MESSAGE_ACTIVITIES_CHOSEN);
                 }
 
             }
             else if (received_text.equals(RESETCONTEXTS)) {
                 userCommand.replace(toIntExact(user_id), RESETCONTEXTS);
 
-                userPreferences.get(toIntExact(user_id)).getSurveyContext().resetCheckValues();
-                message.setText("Attività resettate.");
+                for (Context c : userPreferences.get(toIntExact(user_id)).getSurveyContext().getSurveyValues()) {
+                    c.resetCheckValues();
+                }
+                message.setText(HORmessages.MESSAGE_ACTIVITIES_RESET);
             }
             // UNKNOWN COMMAND
             else {
-                message.setText("Comando sconosciuto: " + received_text);
+                message.setText(HORmessages.UNKNOWN_COMMAND + received_text);
             }
 
             // Log message values
@@ -201,22 +205,28 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             long user_id = update.getCallbackQuery().getMessage().getChat().getId();
 
             EditMessageText new_message;
+            Context c = userPreferences.get(toIntExact(user_id)).getSurveyContext().getNextContext();
 
             if (call_data.equals("send_contexts")) {
+                String text = userPreferences.get(toIntExact(user_id)).getSurveyContext().isComplete()
+                        ? HORmessages.MESSAGE_ACTIVITIES_SAVED
+                        : HORmessages.MESSAGE_ACTIVITIES_SAVED_WITH_CONTEXTS + SETCONTEXTS;
+
                 new_message = new EditMessageText()
                         .setChatId(chat_id)
                         .setMessageId(toIntExact(message_id))
-                        .setText("Attività salvate.");
-
+                        .setText(text);
             } else {
-                userPreferences.get(toIntExact(user_id)).getSurveyContext().setContextCheck(Integer.valueOf(call_data));
+                c.setActivityCheck(Integer.valueOf(call_data));
 
                 new_message = new EditMessageText()
                         .setChatId(chat_id)
                         .setMessageId(toIntExact(message_id))
-                        .setText(EmojiParser.parseToUnicode(userPreferences.get(toIntExact(user_id)).getSurveyContext().toString()));
+                        .setText(EmojiParser.parseToUnicode(c.toString()))
+                        .setParseMode("markdown");
 
-                new_message.setReplyMarkup(HORmessages.setInlineKeyboard(userPreferences.get(toIntExact(user_id)).getSurveyContext()));
+                // Add keyboard to message
+                new_message.setReplyMarkup(HORmessages.setInlineKeyboard(c));
             }
 
             try {

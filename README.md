@@ -9,6 +9,7 @@ The following **technologies** have been used to develop the system:
 * [Heroku](https://devcenter.heroku.com/categories/deployment)
 * [Log4j](https://logging.apache.org/log4j/2.x/)
 * [Jackson](https://github.com/FasterXML/jackson-databind)
+* [Lucene](https://lucene.apache.org/core/)
 
 ## Configuration
 

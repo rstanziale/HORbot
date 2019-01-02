@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -20,17 +21,17 @@ public class SurveyContext {
 
     /**
      * Constructor of the survey context
-     * @param filePath string representing the path of file
+     * @param contextsPath string representing the path of file
      */
-    public SurveyContext(String filePath) {
+    public SurveyContext(String contextsPath, String activitiesPath) {
         this.surveyContext = new HashMap<>();
-        InputStream in = getClass().getResourceAsStream(filePath);
+        InputStream in = getClass().getResourceAsStream(contextsPath);
 
         try(BufferedReader br = new BufferedReader(new InputStreamReader(in))) {
             int index = 1;
 
             for(String line; (line = br.readLine()) != null; ) {
-                this.surveyContext.put(index, new Context(line));
+                this.surveyContext.put(index, new Context(line, activitiesPath));
                 index++;
             }
 
@@ -43,74 +44,63 @@ public class SurveyContext {
      * Get all contexts
      * @return a collection of Contexts
      */
-    public Collection<Context> getSurveyContext() {
+    public Collection<Context> getSurveyValues() {
         return surveyContext.values();
     }
 
     /**
-     * Check if the survey context is complete
-     * @return true if the survey context has three checked items else false
+     * Get next context incomplete
+     * @return Context incomplete
      */
-    public boolean isComplete() {
-        int value = 0;
+    public Context getNextContext() {
+        Context c;
+        int index = 1;
+        boolean value = true;
 
-        for (Context c : this.surveyContext.values()) {
-            if (c.isChecked()) {
-                value++;
+        do {
+            c = this.surveyContext.get(index);
+
+            if (!c.isComplete()) {
+                value = false;
             }
-        }
 
-        return value == 3;
+            index++;
+        } while (index <= this.surveyContext.values().size() && value);
+
+        return c;
     }
 
     /**
-     * Update context with the new checked value
-     * @param index int representing the index of the context
-     */
-    public void setContextCheck(int index) {
-        Context c = this.surveyContext.get(index);
-        c.setChecked();
-        this.surveyContext.replace(index, c);
-    }
-
-    /**
-     * Reset check values if user wants to do survey context again
-     */
-    public void resetCheckValues() {
-        for (Context c : surveyContext.values()) {
-            c.resetChecked();
-        }
-    }
-
-    /**
-     * Get list of activities chosen by user
-     * @return String representing list of activities chosen by user
+     * Get activities for each context
+     * @return String representing chosen activities for each context
      */
     public String showContextChosen() {
         String s = "";
 
         for (Context c : surveyContext.values()) {
-            if (c.isChecked()) {
-                s += c.toString() + "\n";
-            }
+            s += c.getContextName() + ":\n" +
+                    c.showActivitiesChosen() +
+                    "\n\n";
         }
-
-        if (s.equals("")) {
-            s = "Nessuna attività scelta.";
-        }
-
         return s;
     }
 
-    @Override
-    public String toString() {
-        String s = "";
-        int i = 1;
+    /**
+     * Check if all the contexts are completed
+     * @return boolean representing if the survey context are completed
+     */
+    public boolean isComplete() {
+        boolean value = true;
 
-        for (Context c : surveyContext.values()) {
-            s += String.valueOf(i) + ". " + c.toString() + "\n";
-            i++;
+        Iterator<Context> itr = surveyContext.values().iterator();
+
+        while(itr.hasNext() && value) {
+            Context element = itr.next();
+            if (!element.isComplete()) {
+                value = false;
+            }
         }
-        return s;
+
+        return value;
     }
 }

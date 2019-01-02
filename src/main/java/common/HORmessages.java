@@ -1,6 +1,6 @@
 package common;
 
-import beans.survey.SurveyContext;
+import beans.survey.Context;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
@@ -17,6 +17,28 @@ import java.util.List;
  * @version 1.0
  */
 public class HORmessages implements LoggerInterface {
+
+    // HOR MESSAGES
+    public static String MESSAGE_START = "Ciao, per cominciare effettua il login per Myrror attraverso il comando /login!";
+    public static String MESSAGE_LOGIN = "Inviami le credenziali secondo questo modello:\n\nemail\npassword";
+    public static String MESSAGE_LOGIN_COMPLETE = "Inizia il questionario con il comando /survey.";
+    public static String MESSAGE_HELP = "Puoi utilizzarmi con i seguenti comandi:\n\n" +
+            "/login - Effettua il login per Myrror\n" +
+            "/survey - Inizia il questionario\n" +
+            "/showanswer - Visualizza le risposte del questionario\n" +
+            "/resetanswer - Reimposta le risposte del questionario\n" +
+            "/help - Informazioni sui comandi";
+    public static String MESSAGE_POSITION = "Inviami la tua posizione";
+    public static String MESSAGE_POSITION_SAVED = "Posizione salvata.";
+    public static String MESSAGE_SURVEY_START = "Indica quanto sei d'accordo con le seguenti affermazioni \\n\\n";
+    public static String MESSAGE_SURVEY_ALREADY_COMPLETE = "Questionario già completato.";
+    public static String MESSAGE_SURVEY_COMPLETE = "Questionario completato.";
+    public static String MESSAGE_SURVEY_RESET = "Risposte del questionario reimpostate.";
+    public static String MESSAGE_ACTIVITIES_CHOSEN = "Attività già scelte.";
+    public static String MESSAGE_ACTIVITIES_RESET = "Attività resettate.";
+    public static String MESSAGE_ACTIVITIES_SAVED = "Attività salvate.";
+    public static String MESSAGE_ACTIVITIES_SAVED_WITH_CONTEXTS = "Attività salvate. Continua con gli altri contesti con ";
+    public static String UNKNOWN_COMMAND = "Commando sconosciuto: ";
 
     /**
      * Set the message login answer
@@ -80,11 +102,11 @@ public class HORmessages implements LoggerInterface {
     }
 
     /**
-     * Set keyboard for survey  contexts
-     * @param surveyContext SurveyContext representing the information about contexts chosen by user
+     * Set keyboard for survey contexts
+     * @param context Context representing the information about contexts chosen by user
      * @return keyboard for message with context indexes
      */
-    public static InlineKeyboardMarkup setInlineKeyboard(SurveyContext surveyContext) {
+    public static InlineKeyboardMarkup setInlineKeyboard(Context context) {
         // Create ReplyKeyboardMarkup object
         InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
 
@@ -94,7 +116,7 @@ public class HORmessages implements LoggerInterface {
         // Create a keyboard row
         List<InlineKeyboardButton> rowInline = new ArrayList<>();
 
-        for (int i = 0; i < surveyContext.getSurveyContext().size(); i++) {
+        for (int i = 0; i < context.getActivities().size(); i++) {
             // Create a new line each five buttons
             if (i % 5 == 0) {
                 rowsInline.add(rowInline);
@@ -103,13 +125,13 @@ public class HORmessages implements LoggerInterface {
 
             // Add button to rowline
             rowInline.add(new InlineKeyboardButton()
-                    .setText(String.valueOf(i+1))
-                    .setCallbackData(String.valueOf(i+1)));
+                    .setText(String.valueOf(i + 1))
+                    .setCallbackData(String.valueOf(i + 1)));
         }
         rowsInline.add(rowInline);
         rowInline = new ArrayList<>();
 
-        if (surveyContext.isComplete()) {
+        if (context.isComplete()) {
             rowInline.add(new InlineKeyboardButton()
                     .setText("Salva attività")
                     .setCallbackData("send_contexts"));
@@ -120,5 +142,12 @@ public class HORmessages implements LoggerInterface {
         markupInline.setKeyboard(rowsInline);
 
         return markupInline;
+    }
+
+    public void setActivityFlags(Context context, String[] values) {
+        // TODO: add controls on values and single value
+        for (String value : values) {
+            context.setActivityCheck(Integer.valueOf(value));
+        }
     }
 }
