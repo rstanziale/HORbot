@@ -21,6 +21,7 @@ public class UserPreferences {
      * Constructor of the UserPreferences
      * @param questionPath String representing the path of the questions
      * @param contextsPath String representing the path of the contexts
+     * @param activitiesPath String representing the path of the activities
      */
     public UserPreferences(String questionPath, String contextsPath, String activitiesPath) {
         this.survey = new Survey(questionPath);

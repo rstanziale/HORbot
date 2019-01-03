@@ -9,7 +9,6 @@ import common.PropertyUtilities;
 import common.UserPreferences;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardRemove;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
@@ -51,7 +50,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
      */
     public void onUpdateReceived(Update update) {
         // Check text message
-        if(update.hasMessage() && update.getMessage().hasText()) {
+        if(update.hasMessage() && update.getMessage().hasText() || update.getMessage().hasLocation()) {
 
             // Set user info for logging
             String user_first_name = update.getMessage().getChat().getFirstName();
@@ -167,15 +166,24 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                     Context c = userPreferences.get(toIntExact(user_id)).getSurveyContext().getNextContext();
                     message.setText(EmojiParser.parseToUnicode(c.toString()))
                             .setParseMode("markdown");
-
-                    // Add keyboard to message
-                    message.setReplyMarkup(HORmessages.setInlineKeyboard(c));
                 } else {
                     message.setText(HORmessages.MESSAGE_ACTIVITIES_CHOSEN);
                 }
-
             }
-            else if (received_text.equals(RESETCONTEXTS)) {
+            else if (!received_text.equals(SETCONTEXTS) && this.userCommand.get(toIntExact(user_id)).equals(SETCONTEXTS)) {
+                Context c = userPreferences.get(toIntExact(user_id)).getSurveyContext().getNextContext();
+                if (HORmessages.setActivityFlags(c, received_text.split(" "))) {
+                    String text = userPreferences.get(toIntExact(user_id)).getSurveyContext().isComplete()
+                            ? HORmessages.MESSAGE_ACTIVITIES_SAVED
+                            : userPreferences.get(toIntExact(user_id)).getSurveyContext().getNextContext().toString();
+
+                    message.setText(EmojiParser.parseToUnicode(text))
+                            .setParseMode("markdown");
+                } else {
+                    message.setText(HORmessages.MESSAGE_ACTIVITIES_ERROR);
+                    userCommand.replace(toIntExact(user_id), "Comando sconosciuto");
+                }
+            } else if (received_text.equals(RESETCONTEXTS)) {
                 userCommand.replace(toIntExact(user_id), RESETCONTEXTS);
 
                 for (Context c : userPreferences.get(toIntExact(user_id)).getSurveyContext().getSurveyValues()) {
@@ -191,47 +199,11 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             // Log message values
             logger.info(new HORLogger().logUserInfo(user_first_name, user_last_name, user_username, Long.toString(user_id)));
 
-            try{
+            try {
                 // Send answer
                 execute(message);
 
             } catch(TelegramApiException e){
-                e.printStackTrace();
-            }
-        } else if (update.hasCallbackQuery()) {
-            String call_data = update.getCallbackQuery().getData();
-            long message_id = update.getCallbackQuery().getMessage().getMessageId();
-            long chat_id = update.getCallbackQuery().getMessage().getChatId();
-            long user_id = update.getCallbackQuery().getMessage().getChat().getId();
-
-            EditMessageText new_message;
-            Context c = userPreferences.get(toIntExact(user_id)).getSurveyContext().getNextContext();
-
-            if (call_data.equals("send_contexts")) {
-                String text = userPreferences.get(toIntExact(user_id)).getSurveyContext().isComplete()
-                        ? HORmessages.MESSAGE_ACTIVITIES_SAVED
-                        : HORmessages.MESSAGE_ACTIVITIES_SAVED_WITH_CONTEXTS + SETCONTEXTS;
-
-                new_message = new EditMessageText()
-                        .setChatId(chat_id)
-                        .setMessageId(toIntExact(message_id))
-                        .setText(text);
-            } else {
-                c.setActivityCheck(Integer.valueOf(call_data));
-
-                new_message = new EditMessageText()
-                        .setChatId(chat_id)
-                        .setMessageId(toIntExact(message_id))
-                        .setText(EmojiParser.parseToUnicode(c.toString()))
-                        .setParseMode("markdown");
-
-                // Add keyboard to message
-                new_message.setReplyMarkup(HORmessages.setInlineKeyboard(c));
-            }
-
-            try {
-                execute(new_message);
-            } catch (TelegramApiException e) {
                 e.printStackTrace();
             }
         }

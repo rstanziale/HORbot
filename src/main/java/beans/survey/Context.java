@@ -21,6 +21,7 @@ public class Context {
     /**
      * Constructor of the context
      * @param contextName String representing the name of the context
+     * @param activitiesPath String representing the path of activities
      */
     public Context(String contextName, String activitiesPath) {
         this.contextName = contextName;
@@ -114,7 +115,7 @@ public class Context {
     @Override
     public String toString() {
         String s = "*" + this.getContextName() +
-                "*:\n(Scegli tre attività che ti interessano)\n\n";
+                "*:\n(Scegli tre attività che ti interessano, separate da uno spazio)\n\n";
         int i = 1;
 
         for (Activity a : activities.values()) {

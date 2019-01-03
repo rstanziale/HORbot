@@ -22,6 +22,7 @@ public class SurveyContext {
     /**
      * Constructor of the survey context
      * @param contextsPath string representing the path of file
+     * @param activitiesPath String representing the path of file
      */
     public SurveyContext(String contextsPath, String activitiesPath) {
         this.surveyContext = new HashMap<>();

@@ -1,9 +1,7 @@
 package common;
 
 import beans.survey.Context;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import settings.LoggerInterface;
 
@@ -35,9 +33,9 @@ public class HORmessages implements LoggerInterface {
     public static String MESSAGE_SURVEY_COMPLETE = "Questionario completato.";
     public static String MESSAGE_SURVEY_RESET = "Risposte del questionario reimpostate.";
     public static String MESSAGE_ACTIVITIES_CHOSEN = "Attività già scelte.";
+    public static String MESSAGE_ACTIVITIES_ERROR = "Errore nell'input delle attività.";
     public static String MESSAGE_ACTIVITIES_RESET = "Attività resettate.";
     public static String MESSAGE_ACTIVITIES_SAVED = "Attività salvate.";
-    public static String MESSAGE_ACTIVITIES_SAVED_WITH_CONTEXTS = "Attività salvate. Continua con gli altri contesti con ";
     public static String UNKNOWN_COMMAND = "Commando sconosciuto: ";
 
     /**
@@ -102,52 +100,30 @@ public class HORmessages implements LoggerInterface {
     }
 
     /**
-     * Set keyboard for survey contexts
-     * @param context Context representing the information about contexts chosen by user
-     * @return keyboard for message with context indexes
+     * Set activity flags for the context taken input according input controls
+     * @param context representing the Context in exam
+     * @param values representing the values taken from user
+     * @return true if there is no problem, else false
      */
-    public static InlineKeyboardMarkup setInlineKeyboard(Context context) {
-        // Create ReplyKeyboardMarkup object
-        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+    public static boolean setActivityFlags(Context context, String[] values) {
+        boolean check = true;
 
-        // Create the keyboard (list of keyboard rows)
-        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+        for (int i = 0; i < values.length && values.length == 3; i++) {
+            try {
+                int value = Integer.parseInt(values[i]);
 
-        // Create a keyboard row
-        List<InlineKeyboardButton> rowInline = new ArrayList<>();
-
-        for (int i = 0; i < context.getActivities().size(); i++) {
-            // Create a new line each five buttons
-            if (i % 5 == 0) {
-                rowsInline.add(rowInline);
-                rowInline = new ArrayList<>();
+                if (value > 0 && value < 16) {
+                    context.setActivityCheck(value);
+                } else {
+                    check = false;
+                    context.resetCheckValues();
+                }
             }
-
-            // Add button to rowline
-            rowInline.add(new InlineKeyboardButton()
-                    .setText(String.valueOf(i + 1))
-                    .setCallbackData(String.valueOf(i + 1)));
+            catch (NumberFormatException e) {
+                check = false;
+                context.resetCheckValues();
+            }
         }
-        rowsInline.add(rowInline);
-        rowInline = new ArrayList<>();
-
-        if (context.isComplete()) {
-            rowInline.add(new InlineKeyboardButton()
-                    .setText("Salva attività")
-                    .setCallbackData("send_contexts"));
-            rowsInline.add(rowInline);
-        }
-
-        // Add it to the message
-        markupInline.setKeyboard(rowsInline);
-
-        return markupInline;
-    }
-
-    public void setActivityFlags(Context context, String[] values) {
-        // TODO: add controls on values and single value
-        for (String value : values) {
-            context.setActivityCheck(Integer.valueOf(value));
-        }
+        return check;
     }
 }

@@ -41,6 +41,7 @@ The following is a list of the commands used by the chat bot:
 /start - Inizia ad usare il RecSys
 /login - Effettua il login per Myrror
 /survey - Inizia il questionario
+/setlocation - Invia la posizione
 /setcontexts - Scegli i contesti
 /showanswer - Visualizza le risposte del questionario
 /showcontexts - Visualizza le attività scelte
