@@ -1,18 +1,18 @@
 package settings;
 
+import common.*;
+import beans.survey.Activity;
 import beans.survey.Context;
 import beans.survey.Location;
 import com.vdurmont.emoji.EmojiParser;
-import common.HORLogger;
-import common.HORmessages;
-import common.PropertyUtilities;
-import common.UserPreferences;
+import org.apache.lucene.queryparser.classic.ParseException;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardRemove;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,6 +36,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
     private final static String SHOWCONTEXTS = "/showcontexts";
     private final static String RESETANSWER = "/resetanswer";
     private final static String RESETCONTEXTS = "/resetcontexts";
+    private final static String GETRECOMMEND = "/getrecommend";
     private final static String HELP = "/help";
 
     // USER COMMAND
@@ -43,6 +44,10 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
 
     // USER PREFERENCES
     private Map<Integer, UserPreferences> userPreferences = new HashMap<>();
+
+    // Recommender module for send items to users
+    private Recommender recommenderForBari;
+    private Recommender recommenderForTorino;
 
     /**
      * Get message from chat and send a new message
@@ -104,16 +109,6 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                 userCommand.replace(toIntExact(user_id), HELP);
                 message.setText(HORmessages.MESSAGE_HELP);
             }
-            // LOGIN COMMAND
-            else if (received_text.equals(LOGIN)) {
-                userCommand.replace(toIntExact(user_id), LOGIN);
-                message.setText(HORmessages.MESSAGE_LOGIN);
-            }
-            else if (!received_text.equals(LOGIN) && this.userCommand.get(toIntExact(user_id)).equals(LOGIN)) {
-                userCommand.replace(toIntExact(user_id), "Comando sconosciuto");
-                message.setText(HORmessages.messageLogin(received_text, userPreferences.get(toIntExact(user_id))) + "\n" +
-                        HORmessages.MESSAGE_LOGIN_COMPLETE);
-            }
             // SET POSITION COMMAND
             else if (received_text.equals(SETLOCATION)) {
                 userCommand.replace(toIntExact(user_id), SETLOCATION);
@@ -126,6 +121,38 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                 message.setText(HORmessages.MESSAGE_POSITION_SAVED);
 
                 userCommand.replace(toIntExact(user_id), "Comando sconosciuto");
+            }
+            // GET RECOMMEND COMMAND
+            else if (received_text.equals(GETRECOMMEND)) {
+                try {
+                    if (userPreferences.get(toIntExact(user_id)).isComplete()) {
+                        Location location = userPreferences.get(toIntExact(user_id)).getLocation();
+                        this.initRecommender(location);
+
+                        if(!userPreferences.get(toIntExact(user_id)).checkListRecommendPOI()) {
+                            // General context
+                            userPreferences.get(toIntExact(user_id))
+                                    .setRecommendPOI(this.getRecommender(location)
+                                            .searchItems(this.generateQuery(toIntExact(user_id))));
+                        }
+
+                        message.setText(userPreferences.get(toIntExact(user_id)).getRecommendPOI().toString());
+                    } else {
+                        message.setText(HORmessages.MESSAGE_REFERENCES_NON_COMPLETE);
+                    }
+                } catch (IOException | ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+            // LOGIN COMMAND
+            else if (received_text.equals(LOGIN)) {
+                userCommand.replace(toIntExact(user_id), LOGIN);
+                message.setText(HORmessages.MESSAGE_LOGIN);
+            }
+            else if (!received_text.equals(LOGIN) && this.userCommand.get(toIntExact(user_id)).equals(LOGIN)) {
+                userCommand.replace(toIntExact(user_id), "Comando sconosciuto");
+                message.setText(HORmessages.messageLogin(received_text, userPreferences.get(toIntExact(user_id))) + "\n" +
+                        HORmessages.MESSAGE_LOGIN_COMPLETE);
             }
             // SURVEY COMMAND
             else if (received_text.equals(SURVEY)) {
@@ -168,6 +195,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                             .setParseMode("markdown");
                 } else {
                     message.setText(HORmessages.MESSAGE_ACTIVITIES_CHOSEN);
+                    userCommand.replace(toIntExact(user_id), "Comando sconosciuto");
                 }
             }
             else if (!received_text.equals(SETCONTEXTS) && this.userCommand.get(toIntExact(user_id)).equals(SETCONTEXTS)) {
@@ -183,7 +211,9 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                     message.setText(HORmessages.MESSAGE_ACTIVITIES_ERROR);
                     userCommand.replace(toIntExact(user_id), "Comando sconosciuto");
                 }
-            } else if (received_text.equals(RESETCONTEXTS)) {
+            }
+            // GET RESET CONTEXTS COMMAND
+            else if (received_text.equals(RESETCONTEXTS)) {
                 userCommand.replace(toIntExact(user_id), RESETCONTEXTS);
 
                 for (Context c : userPreferences.get(toIntExact(user_id)).getSurveyContext().getSurveyValues()) {
@@ -223,5 +253,62 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
      */
     public String getBotToken() {
         return new PropertyUtilities().getProperty("token");
+    }
+
+    /**
+     * Generate query with chosen activities for general context
+     * @param user_id representing user ID
+     * @return Query string
+     */
+    private String generateQuery(int user_id) {
+        String query = "";
+        Context c = userPreferences.get(toIntExact(user_id)).getSurveyContext().getSurveyValues().iterator().next();
+        for (Activity a : c.getActivities()) {
+            if (a.isChecked()) {
+                query += HORmessages.TAGS.get(a.getActivityName()) + " ";
+            }
+        }
+        return query;
+    }
+
+    /**
+     * Initialize recommender system according user position
+     * Bari: 41.1115511, 16.7419939
+     * Torino: 45.0702388, 7.6000489
+     * @param location representing the user position
+     */
+    private void initRecommender(Location location) {
+        double fromHereToBari = Utils.distance(location.getLatitude(), 41.1115511,
+                location.getLongitude(), 16.7419939,
+                0.0, 0.0);
+        double fromHereToTorino = Utils.distance(location.getLatitude(), 45.0702388,
+                location.getLongitude(), 7.6000489,
+                0.0, 0.0);
+
+        if (fromHereToBari < fromHereToTorino) {
+            this.recommenderForBari = new Recommender("/businesses_bari.csv");
+        } else {
+            this.recommenderForTorino = new Recommender("/businesses_torino.csv");
+        }
+    }
+
+    /**
+     * Get recommender according user position
+     * Bari: 41.1115511, 16.7419939
+     * Torino: 45.0702388, 7.6000489
+     * @param location representing the user position
+     * @return Recommender
+     */
+    private Recommender getRecommender(Location location) {
+        double fromHereToBari = Utils.distance(location.getLatitude(), 41.1115511,
+                location.getLongitude(), 16.7419939,
+                0.0, 0.0);
+        double fromHereToTorino = Utils.distance(location.getLatitude(), 45.0702388,
+                location.getLongitude(), 7.6000489,
+                0.0, 0.0);
+
+        return  fromHereToBari < fromHereToTorino
+                ? this.recommenderForBari
+                : this.recommenderForTorino;
     }
 }

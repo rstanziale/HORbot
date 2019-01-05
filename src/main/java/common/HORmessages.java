@@ -6,7 +6,9 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.Keyboard
 import settings.LoggerInterface;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Define HORMessages class
@@ -36,7 +38,32 @@ public class HORmessages implements LoggerInterface {
     public static String MESSAGE_ACTIVITIES_ERROR = "Errore nell'input delle attività.";
     public static String MESSAGE_ACTIVITIES_RESET = "Attività resettate.";
     public static String MESSAGE_ACTIVITIES_SAVED = "Attività salvate.";
+    public static String MESSAGE_REFERENCES_NON_COMPLETE = "Impossibile suggerire un evento, fornisci posizione e/o questionario.";
     public static String UNKNOWN_COMMAND = "Commando sconosciuto: ";
+    public static String CSV_SPLIT = ",";
+    public static Map<String, String> TAGS = createMap();
+
+    private static Map<String, String> createMap() {
+        Map<String,String> myMap = new HashMap<String, String>();
+
+        myMap.put("Mangiare un gelato", "Yogurterie Gelaterie Dolci Pasticcerie");
+        myMap.put("Mangiare in pizzeria", "Pizzerie Panzerotti Panini Sandwich Friggitorie");
+        myMap.put("Mangiare street food", "Hamburger Food Truck Panini Sandwich Panzerotti");
+        myMap.put("Mangiare in un ristorante italiano", "Piatti a base di pesce, Cucina italiana, Cucina mediterranea");
+        myMap.put("Mangiare in un ristorante etnico (giapponese, etc.)", "Cucina cinese Cucina giapponese sushi cucina messicana");
+        myMap.put("Andare al cinema", "Cinema Teatri");
+        myMap.put("Andare a un concerto", "Cucina irlandese Arene Sale da concerto Pub");
+        myMap.put("Andare a fare un aperitivo", "Cocktail bar Wine bar Caffetteria Caffè Panini Sandwich");
+        myMap.put("Andare in un pub", "Pub Cucina irlandese Friggitorie Hamburger");
+        myMap.put("Andare in discoteca", "Arene Sale da concerto Discoteche");
+        myMap.put("Andare a teatro", "Opera Danza classica Arene Sale da concerto Teatri");
+        myMap.put("Andare in palestra", "Istruttori e personal trainer Palestre Arti marziali Fitness");
+        myMap.put("Andare al parco", "Parchi di divertimento Luna park Parchi");
+        myMap.put("Andare in libreria", "Librerie Giornali e riviste");
+        myMap.put("Restare a casa", "");
+
+        return myMap;
+    }
 
     /**
      * Set the message login answer
@@ -46,7 +73,7 @@ public class HORmessages implements LoggerInterface {
      */
     public static String messageLogin(String received_text, UserPreferences userPreferences) {
         String text;
-        String login[] = received_text.split("\n");
+        String[] login = received_text.split("\n");
 
         RequestHTTP r = new RequestHTTP();
         int res = r.userLogin(login[0].toLowerCase(), login[1]);

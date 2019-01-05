@@ -1,9 +1,12 @@
 package common;
 
 import beans.facets.Ontology;
+import beans.recommender.Item;
 import beans.survey.Location;
 import beans.survey.Survey;
 import beans.survey.SurveyContext;
+
+import java.util.List;
 
 /**
  * Define UserPreferences class
@@ -16,6 +19,7 @@ public class UserPreferences {
     private SurveyContext surveyContext;
     private Ontology ontology;
     private Location location;
+    private List<Item> recommendPOI;
 
     /**
      * Constructor of the UserPreferences
@@ -74,5 +78,51 @@ public class UserPreferences {
      */
     public void setLocation(Location location) {
         this.location = location;
+    }
+
+    /**
+     * Check if the list of recommend Item is populate
+     * @return boolean flag
+     */
+    public boolean checkListRecommendPOI() {
+        return this.recommendPOI != null;
+    }
+
+    /**
+     * Get the first non recommended Item
+     * @return First Item non recommended to the user
+     */
+    public Item getRecommendPOI() {
+        Item item;
+        int index = 0;
+        boolean value = true;
+
+        do {
+            item = this.recommendPOI.get(index);
+            if (!item.isRecommended()) {
+                value = false;
+                item.setRecommended();
+            }
+            index++;
+
+        } while (value && index < this.recommendPOI.size());
+
+        return item;
+    }
+
+    /**
+     * Check if the UserPreferences are complete before recommend an item
+     * @return boolean flag
+     */
+    public boolean isComplete() {
+        return this.location != null && this.surveyContext != null;
+    }
+
+    /**
+     * Set recommendPOI given by Lucen search
+     * @param recommendPOI List of Item
+     */
+    public void setRecommendPOI(List<Item> recommendPOI) {
+        this.recommendPOI = recommendPOI;
     }
 }

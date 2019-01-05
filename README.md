@@ -47,5 +47,6 @@ The following is a list of the commands used by the chat bot:
 /showcontexts - Visualizza le attività scelte
 /resetanswer - Reimposta le risposte del questionario
 /resetcontexts - Reimposta i contesti
+/getrecommend - Ottieni un suggerimento di attività da svolgere
 /help - Informazioni sui comandi
 ```

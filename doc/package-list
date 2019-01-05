@@ -1,6 +1,7 @@
 
 beans.auth
 beans.facets
+beans.recommender
 beans.survey
 common
 settings
