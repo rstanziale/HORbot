@@ -66,7 +66,6 @@ public class Recommender {
      * @throws ParseException for search document exception
      */
     public List<Item> searchItems(String query, Location location) throws IOException, ParseException {
-        this.queryTransform(query);
         Query q = new QueryParser("tags", analyzer).parse(this.queryTransform(query));
 
         int hitsPerPage = 20;
