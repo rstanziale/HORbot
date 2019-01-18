@@ -1,6 +1,7 @@
 package common;
 
 import beans.recommender.Item;
+import beans.survey.Location;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -20,8 +21,7 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.RAMDirectory;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Define Recommender class
@@ -60,36 +60,44 @@ public class Recommender {
     /**
      * Lucene method for search into Index relevant document to recommend
      * @param query is string to querying the index
+     * @param location is user location
      * @return a list of relevant item to recommend
      * @throws IOException for Input/Output exception
      * @throws ParseException for search document exception
      */
-    public List<Item> searchItems(String query) throws IOException, ParseException {
-        Query q = new QueryParser("tags", this.analyzer).parse(query);
+    public List<Item> searchItems(String query, Location location) throws IOException, ParseException {
+        this.queryTransform(query);
+        Query q = new QueryParser("tags", analyzer).parse(this.queryTransform(query));
 
-        int hitsPerPage = 10;
-        IndexReader reader = DirectoryReader.open(this.index);
+        int hitsPerPage = 20;
+        IndexReader reader = DirectoryReader.open(index);
         IndexSearcher searcher = new IndexSearcher(reader);
+
         TopDocs docs = searcher.search(q, hitsPerPage);
         ScoreDoc[] hits = docs.scoreDocs;
 
-        List<Item> items = new ArrayList<Item>();
+        Set<Item> items = new TreeSet<Item>();
+        System.out.println("With these tags: " + query + " you have:" + hits.length);
         for (ScoreDoc hit : hits) {
             int docId = hit.doc;
             Document d = searcher.doc(docId);
-            Item i = new Item(d.get("website"),
-                    d.get("name"),
-                    d.get("address"),
-                    d.get("phone"),
-                    d.get("tags"),
-                    Float.valueOf(d.get("lat")),
-                    Float.valueOf(d.get("lng")));
-            i.setScore(hit.score);
-            items.add(i);
+
+            if (this.isNearbyItem(location.getLatitude(), Float.valueOf(d.get("lat")),
+                    location.getLongitude(), Float.valueOf(d.get("lng")))) {
+                Item i = new Item(d.get("website"),
+                        d.get("name"),
+                        d.get("address"),
+                        d.get("phone"),
+                        d.get("tags"),
+                        Float.valueOf(d.get("lat")),
+                        Float.valueOf(d.get("lng")));
+                i.setScore(hit.score);
+                items.add(i);
+            }
         }
         reader.close();
 
-        return items;
+        return new ArrayList<Item> (items);
     }
 
     /**
@@ -152,5 +160,50 @@ public class Recommender {
         doc.add(new StringField("lat", String.valueOf(lat), Field.Store.YES));
         doc.add(new StringField("lng", String.valueOf(lng), Field.Store.YES));
         w.addDocument(doc);
+    }
+
+    /**
+     * Count term by term of the input query
+     * @param query representing the query to trasnform
+     * @return transformed Query
+     */
+    private String queryTransform(String query) {
+        Map<String, Integer> fields = new HashMap<String, Integer>();
+
+        for (String s : query.split(" ")) {
+            if (fields.containsKey(s)) {
+                fields.put(s, fields.get(s) + 1);
+            } else {
+                fields.put(s, 1);
+            }
+        }
+
+        return this.getTransformedQuery(fields);
+    }
+
+    /**
+     * Transform mapped query in a Lucene string
+     * @param fields representing a map with the term as key and value as number of occurrences of term
+     * @return Transformed query
+     */
+    private String getTransformedQuery(Map<String, Integer> fields) {
+        String s = "";
+
+        for (String key : fields.keySet()) {
+            s += key + "^" + fields.get(key) + " ";
+        }
+        return s;
+    }
+
+    /**
+     * Check if two Items are close
+     * @param lat1 representing Item 1 latitude
+     * @param lat2 representing Item 2 latitude
+     * @param lon1 representing Item 1 longitude
+     * @param lon2 representing Item 2 longitude
+     * @return boolean flag
+     */
+    private boolean isNearbyItem(double lat1, double lat2, double lon1, double lon2) {
+        return Utils.distance(lat1, lat2, lon1, lon2, 0.0, 0.0) < HORmessages.THRESHOLD;
     }
 }

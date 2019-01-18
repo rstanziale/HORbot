@@ -19,6 +19,7 @@ import java.util.Map;
 public class HORmessages implements LoggerInterface {
 
     // HOR MESSAGES
+    public static int THRESHOLD = 1500;
     public static String MESSAGE_START = "Ciao, per cominciare effettua il login per Myrror attraverso il comando /login!";
     public static String MESSAGE_LOGIN = "Inviami le credenziali secondo questo modello:\n\nemail\npassword";
     public static String MESSAGE_LOGIN_COMPLETE = "Inizia il questionario con il comando /survey.";
