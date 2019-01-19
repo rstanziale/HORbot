@@ -136,7 +136,10 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                                             .searchItems(this.generateQuery(toIntExact(user_id)), location));
                         }
 
-                        message.setText(userPreferences.get(toIntExact(user_id)).getRecommendPOI().toString());
+                        String text = userPreferences.get(toIntExact(user_id)).getRecommendPOI() != null
+                                ? userPreferences.get(toIntExact(user_id)).getRecommendPOI().toString()
+                                : HORmessages.MESSAGE_NO_ACTIVITY;
+                        message.setText(text);
                     } else {
                         message.setText(HORmessages.MESSAGE_REFERENCES_NON_COMPLETE);
                     }

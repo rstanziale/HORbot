@@ -93,19 +93,18 @@ public class UserPreferences {
      * @return First Item non recommended to the user
      */
     public Item getRecommendPOI() {
-        Item item;
+        Item item = null;
         int index = 0;
         boolean value = true;
 
-        do {
+        while (value && index < this.recommendPOI.size()) {
             item = this.recommendPOI.get(index);
             if (!item.isRecommended()) {
                 value = false;
                 item.setRecommended();
             }
             index++;
-
-        } while (value && index < this.recommendPOI.size());
+        }
 
         return item;
     }

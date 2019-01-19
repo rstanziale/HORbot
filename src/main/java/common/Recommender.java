@@ -76,7 +76,6 @@ public class Recommender {
         ScoreDoc[] hits = docs.scoreDocs;
 
         Set<Item> items = new TreeSet<Item>();
-        System.out.println("With these tags: " + query + " you have:" + hits.length);
         for (ScoreDoc hit : hits) {
             int docId = hit.doc;
             Document d = searcher.doc(docId);

@@ -6,7 +6,7 @@ package beans.recommender;
  * @author Roberto B. Stanziale
  * @version 1.0
  */
-public class Item {
+public class Item implements Comparable<Item>  {
     private String name;
     private String website;
     private String address;
@@ -147,6 +147,16 @@ public class Item {
      */
     public void setRecommended() {
         this.recommended = !this.recommended;
+    }
+
+    public int compareTo(Item o) {
+        // Cannot use doubleToRawLongBits because of possibility of NaNs.
+        long thisBits    = Double.doubleToLongBits(this.score);
+        long anotherBits = Double.doubleToLongBits(o.score);
+
+        return (thisBits == anotherBits ?  1 : // Values are equal
+                (thisBits < anotherBits ? 1 : // (-0.0, 0.0) or (!NaN, NaN)
+                        -1));
     }
 
     @Override

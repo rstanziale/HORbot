@@ -40,6 +40,7 @@ public class HORmessages implements LoggerInterface {
     public static String MESSAGE_ACTIVITIES_RESET = "Attività resettate.";
     public static String MESSAGE_ACTIVITIES_SAVED = "Attività salvate.";
     public static String MESSAGE_REFERENCES_NON_COMPLETE = "Impossibile suggerire un evento, fornisci posizione e/o questionario.";
+    public static String MESSAGE_NO_ACTIVITY = "Nessuna attività da suggerire.";
     public static String UNKNOWN_COMMAND = "Commando sconosciuto: ";
     public static String CSV_SPLIT = ",";
     public static Map<String, String> TAGS = createMap();
