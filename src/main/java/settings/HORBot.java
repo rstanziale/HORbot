@@ -1,9 +1,7 @@
 package settings;
 
 import common.*;
-import beans.survey.Activity;
-import beans.survey.Context;
-import beans.survey.Location;
+import recommender.contentBased.services.Recommender;
 import com.vdurmont.emoji.EmojiParser;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -11,6 +9,9 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardRemove;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import survey.context.beans.Activity;
+import survey.context.beans.Context;
+import survey.context.beans.Location;
 
 import java.io.IOException;
 import java.util.HashMap;

@@ -1,10 +1,10 @@
 package common;
 
-import beans.facets.Ontology;
-import beans.recommender.Item;
-import beans.survey.Location;
-import beans.survey.Survey;
-import beans.survey.SurveyContext;
+import survey.context.beans.Location;
+import survey.context.sevices.SurveyContext;
+import survey.question.services.Survey;
+import ontology.beans.facets.Ontology;
+import recommender.contentBased.beans.Item;
 
 import java.util.List;
 
