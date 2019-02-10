@@ -1,4 +1,4 @@
-package common;
+package settings;
 
 public class HORLogger {
 
