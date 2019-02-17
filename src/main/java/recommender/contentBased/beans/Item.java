@@ -19,6 +19,7 @@ public class Item implements Comparable<Item>  {
     private float lng;
     private float score;
     private boolean recommended;
+    private int recommenderType;
 
     /**
      * Constructor of the item
@@ -149,6 +150,22 @@ public class Item implements Comparable<Item>  {
         this.recommended = !this.recommended;
     }
 
+    /**
+     * Get recommender type
+     * @return integer representing the recommender type
+     */
+    public int getRecommenderType() {
+        return recommenderType;
+    }
+
+    /**
+     * Set recommender type
+     * @param recommenderType integer representing the recommender type
+     */
+    public void setRecommenderType(int recommenderType) {
+        this.recommenderType = recommenderType;
+    }
+
     public int compareTo(Item o) {
         // Cannot use doubleToRawLongBits because of possibility of NaNs.
         long thisBits    = Double.doubleToLongBits(this.score);
@@ -164,7 +181,15 @@ public class Item implements Comparable<Item>  {
         String phone = this.phone.equals("") ? "Assente" : this.phone;
         return "Ti suggerisco '" + name + '\'' +
                 " in " + address + " (" + lat + ", " + lng + ")" +
-                " con punteggio: " + score +
+                " con punteggio: " + this.getReviewsStar() +
                 "\nSito: " + website + "\nTelefono: " +  phone;
+    }
+
+    private String getReviewsStar() {
+        String stars = ":star: ";
+        for (int i = 0; i < this.ratingAverage; i++) {
+            stars += stars;
+        }
+        return stars;
     }
 }

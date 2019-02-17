@@ -1,5 +1,6 @@
 package common;
 
+import recommender.contextAware.beans.UserContext;
 import survey.context.beans.Location;
 import survey.context.sevices.SurveyContext;
 import survey.question.services.Survey;
@@ -19,6 +20,7 @@ public class UserPreferences {
     private SurveyContext surveyContext;
     private Ontology ontology;
     private Location location;
+    private UserContext userContext;
     private List<Item> recommendPOI;
 
     /**
@@ -78,6 +80,22 @@ public class UserPreferences {
      */
     public void setLocation(Location location) {
         this.location = location;
+    }
+
+    /**
+     * Get user context
+     * @return user context when ask a recommend
+     */
+    public UserContext getUserContext() {
+        return userContext;
+    }
+
+    /**
+     * Set user context
+     * @param userContext user context when ask a recommend
+     */
+    public void setUserContext(UserContext userContext) {
+        this.userContext = userContext;
     }
 
     /**

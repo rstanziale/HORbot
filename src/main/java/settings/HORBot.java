@@ -9,6 +9,8 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardRemove;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import recommender.contextAware.beans.UserContext;
+import recommender.contextAware.services.ContextAwareRecommender;
 import survey.context.beans.Activity;
 import survey.context.beans.Context;
 import survey.context.beans.Location;
@@ -38,6 +40,10 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
     private final static String RESETANSWER = "/resetanswer";
     private final static String RESETCONTEXTS = "/resetcontexts";
     private final static String GETRECOMMEND = "/getrecommend";
+    private final static String SETCOMPANY = "/setcompany";
+    private final static String SETRESTED = "/setrested";
+    private final static String SETMOOD = "/setmood";
+    private final static String SETACTIVITY = "/setactivity";
     private final static String HELP = "/help";
 
     // USER COMMAND
@@ -127,20 +133,37 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             else if (received_text.equals(GETRECOMMEND)) {
                 try {
                     if (userPreferences.get(toIntExact(user_id)).isComplete()) {
-                        Location location = userPreferences.get(toIntExact(user_id)).getLocation();
-                        this.initRecommender(location);
+                        UserContext userContext = new UserContext(userPreferences.get(toIntExact(user_id)).getOntology());
+                        userPreferences.get(toIntExact(user_id)).setUserContext(userContext);
+                        int checkUserContext = ContextAwareRecommender.checkValuesUserContext(userContext);
 
-                        if(!userPreferences.get(toIntExact(user_id)).checkListRecommendPOI()) {
-                            // General context
-                            userPreferences.get(toIntExact(user_id))
-                                    .setRecommendPOI(this.getRecommender(location)
-                                            .searchItems(this.generateQuery(toIntExact(user_id)), location));
+                        if (checkUserContext == 0) {
+                            Location location = userPreferences.get(toIntExact(user_id)).getLocation();
+                            this.initRecommender(location);
+
+                            if(!userPreferences.get(toIntExact(user_id)).checkListRecommendPOI()) {
+                                // Pass to recommend general context preferences and contextual preferences
+                                userPreferences.get(toIntExact(user_id))
+                                        .setRecommendPOI(this.getRecommender(location)
+                                                .searchItems(this.generateGeneralContextQuery(toIntExact(user_id)),
+                                                        this.generateContextualQuery(toIntExact(user_id), userContext),
+                                                        location));
+                            }
+
+                            String text = userPreferences.get(toIntExact(user_id)).getRecommendPOI() != null
+                                    ? userPreferences.get(toIntExact(user_id)).getRecommendPOI().toString()
+                                    : HORmessages.MESSAGE_NO_ACTIVITY;
+                            message.setText(EmojiParser.parseToUnicode(text));
+                        } else if (checkUserContext == 1) {
+                            message.setText(HORmessages.MESSAGE_MISSING_COMPANY);
+                        } else if (checkUserContext == 2) {
+                            message.setText(HORmessages.MESSAGE_MISSING_RESTED);
+                        } else if (checkUserContext == 3) {
+                            message.setText(HORmessages.MESSAGE_MISSING_MOOD);
+                        } else if (checkUserContext == 4) {
+                            message.setText(HORmessages.MESSAGE_MISSING_ACTIVITY);
                         }
 
-                        String text = userPreferences.get(toIntExact(user_id)).getRecommendPOI() != null
-                                ? userPreferences.get(toIntExact(user_id)).getRecommendPOI().toString()
-                                : HORmessages.MESSAGE_NO_ACTIVITY;
-                        message.setText(text);
                     } else {
                         message.setText(HORmessages.MESSAGE_REFERENCES_NON_COMPLETE);
                     }
@@ -225,6 +248,8 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                 }
                 message.setText(HORmessages.MESSAGE_ACTIVITIES_RESET);
             }
+            // TODO: ADD USER CONTEXT COMMANDS FOR MISSING VALUES
+
             // UNKNOWN COMMAND
             else {
                 message.setText(HORmessages.UNKNOWN_COMMAND + received_text);
@@ -264,7 +289,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
      * @param user_id representing user ID
      * @return Query string
      */
-    private String generateQuery(int user_id) {
+    private String generateGeneralContextQuery(int user_id) {
         String query = "";
         Context c = userPreferences.get(toIntExact(user_id)).getSurveyContext().getSurveyValues().iterator().next();
         for (Activity a : c.getActivities()) {
@@ -273,6 +298,11 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             }
         }
         return query;
+    }
+
+    private String generateContextualQuery(int user_id, UserContext userContext) {
+        return ContextAwareRecommender.generateContextAwareQuery(userContext,
+                userPreferences.get(toIntExact(user_id)).getSurveyContext().getSurveyValues());
     }
 
     /**

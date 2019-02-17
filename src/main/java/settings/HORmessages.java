@@ -22,6 +22,7 @@ public class HORmessages implements LoggerInterface {
     // HOR MESSAGES
     public static int THRESHOLD = 1500;
     public static String CSV_SPLIT = ",";
+    public static Map<String, String> TAGS;
     static String MESSAGE_START = "Ciao, per cominciare effettua il login per Myrror attraverso il comando /login!";
     static String MESSAGE_LOGIN = "Inviami le credenziali secondo questo modello:\n\nemail\npassword";
     static String MESSAGE_LOGIN_COMPLETE = "Inizia il questionario con il comando /survey.";
@@ -43,8 +44,11 @@ public class HORmessages implements LoggerInterface {
     static String MESSAGE_ACTIVITIES_SAVED = "Attività salvate.";
     static String MESSAGE_REFERENCES_NON_COMPLETE = "Impossibile suggerire un evento, fornisci posizione e/o questionario.";
     static String MESSAGE_NO_ACTIVITY = "Nessuna attività da suggerire.";
+    static String MESSAGE_MISSING_COMPANY = "Non so con chi ti trovi, per dirmelo usa il comando /setcompany";
+    static String MESSAGE_MISSING_RESTED = "Non so se sei riposato, per dirmelo usa il comando /setrested";
+    static String MESSAGE_MISSING_MOOD = "Non so di che umore sei, per dirmelo usa il comando /setmood";
+    static String MESSAGE_MISSING_ACTIVITY = "Non so se hai fatto attività, per dirmelo usa il comando /setactivity";
     static String UNKNOWN_COMMAND = "Commando sconosciuto: ";
-    static Map<String, String> TAGS;
 
     static {
         TAGS = createMap();
