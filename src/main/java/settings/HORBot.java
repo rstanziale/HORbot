@@ -1,6 +1,8 @@
 package settings;
 
 import common.*;
+import recommender.RecommendUtils;
+import recommender.contentBased.beans.Item;
 import recommender.contentBased.services.Recommender;
 import com.vdurmont.emoji.EmojiParser;
 import org.apache.lucene.queryparser.classic.ParseException;
@@ -11,7 +13,6 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardRem
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import recommender.contextAware.beans.UserContext;
 import recommender.contextAware.services.ContextAwareRecommender;
-import survey.context.beans.Activity;
 import survey.context.beans.Context;
 import survey.context.beans.Location;
 
@@ -116,6 +117,70 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                 userCommand.replace(toIntExact(user_id), HELP);
                 message.setText(HORmessages.MESSAGE_HELP);
             }
+            // TODO: Check this interaction
+            else if (received_text.equals(SETCOMPANY)) {
+                userCommand.replace(toIntExact(user_id), SETCOMPANY);
+                // Add keyboard to message
+                message.setReplyMarkup(HORmessages.setReplyKeyboardForCompany());
+                message.setText(HORmessages.MESSAGE_COMPANY);
+            }
+            else if (userCommand.get(toIntExact(user_id)).equals(SETCOMPANY)) {
+                if (HORmessages.checkContextCompany(received_text)) {
+                    this.userPreferences.get(toIntExact(user_id)).getUserContext().setCompany(received_text);
+                    message.setText(HORmessages.MESSAGE_CONTEXT_UPDATE);
+                } else {
+                    message.setText(HORmessages.MESSAGE_CONTEXT_ERROR);
+                }
+                userCommand.replace(toIntExact(user_id), "Comando sconosciuto");
+            }
+            // SET RESTED COMMAND
+            else if (received_text.equals(SETRESTED)) {
+                userCommand.replace(toIntExact(user_id), SETRESTED);
+                message.setReplyMarkup(HORmessages.setReplyKeyboardBoolean());
+                message.setText(HORmessages.MESSAGE_RESTED);
+            }
+            else if (userCommand.get(toIntExact(user_id)).equals(SETRESTED)) {
+                if (HORmessages.checkContextBoolean(received_text)) {
+                    this.userPreferences.get(toIntExact(user_id)).getUserContext()
+                            .setRested(received_text.equals("Sì"));
+                    message.setText(HORmessages.MESSAGE_CONTEXT_UPDATE);
+                } else {
+                    message.setText(HORmessages.MESSAGE_CONTEXT_ERROR);
+                }
+                userCommand.replace(toIntExact(user_id), "Comando sconosciuto");
+            }
+            // SET ACTIVITY COMMAND
+            else if (received_text.equals(SETACTIVITY)) {
+                userCommand.replace(toIntExact(user_id), SETACTIVITY);
+                message.setReplyMarkup(HORmessages.setReplyKeyboardBoolean());
+                message.setText(HORmessages.MESSAGE_ACTIVITY);
+            }
+            else if (userCommand.get(toIntExact(user_id)).equals(SETACTIVITY)) {
+                if (HORmessages.checkContextBoolean(received_text)) {
+                    this.userPreferences.get(toIntExact(user_id)).getUserContext()
+                            .setActivity(received_text.equals("Sì"));
+                    message.setText(HORmessages.MESSAGE_CONTEXT_UPDATE);
+                } else {
+                    message.setText(HORmessages.MESSAGE_CONTEXT_ERROR);
+                }
+                userCommand.replace(toIntExact(user_id), "Comando sconosciuto");
+            }
+            // SET MOOD COMMAND
+            else if (received_text.equals(SETMOOD)) {
+                userCommand.replace(toIntExact(user_id), SETMOOD);
+                message.setReplyMarkup(HORmessages.setReplyKeyboardForMood());
+                message.setText(HORmessages.MESSAGE_MOOD);
+            }
+            else if (userCommand.get(toIntExact(user_id)).equals(SETMOOD)) {
+                if (HORmessages.checkContextMood(received_text)) {
+                    this.userPreferences.get(toIntExact(user_id)).getUserContext()
+                            .setMood(received_text.equals("Buon umore"));
+                    message.setText(HORmessages.MESSAGE_CONTEXT_UPDATE);
+                } else {
+                    message.setText(HORmessages.MESSAGE_CONTEXT_ERROR);
+                }
+                userCommand.replace(toIntExact(user_id), "Comando sconosciuto");
+            }
             // SET POSITION COMMAND
             else if (received_text.equals(SETLOCATION)) {
                 userCommand.replace(toIntExact(user_id), SETLOCATION);
@@ -124,9 +189,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             else if (update.getMessage().hasLocation() && this.userCommand.get(toIntExact(user_id)).equals(SETLOCATION)) {
                 Location l = new Location(update.getMessage().getLocation().getLongitude(), update.getMessage().getLocation().getLatitude());
                 this.userPreferences.get(toIntExact(user_id)).setLocation(l);
-
                 message.setText(HORmessages.MESSAGE_POSITION_SAVED);
-
                 userCommand.replace(toIntExact(user_id), "Comando sconosciuto");
             }
             // GET RECOMMEND COMMAND
@@ -141,18 +204,27 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                             Location location = userPreferences.get(toIntExact(user_id)).getLocation();
                             this.initRecommender(location);
 
+                            int recommendType = RecommendUtils.getRecommendType();
                             if(!userPreferences.get(toIntExact(user_id)).checkListRecommendPOI()) {
-                                // Pass to recommend general context preferences and contextual preferences
+                                // TODO: check this logic for chose recommend type
+                                String query = RecommendUtils.generateQueryAccordingRecommendType(
+                                        userPreferences.get(toIntExact(user_id)),
+                                        userContext,
+                                        recommendType);
                                 userPreferences.get(toIntExact(user_id))
                                         .setRecommendPOI(this.getRecommender(location)
-                                                .searchItems(this.generateGeneralContextQuery(toIntExact(user_id)),
-                                                        this.generateContextualQuery(toIntExact(user_id), userContext),
-                                                        location));
+                                                .searchItems(query, location));
                             }
 
-                            String text = userPreferences.get(toIntExact(user_id)).getRecommendPOI() != null
-                                    ? userPreferences.get(toIntExact(user_id)).getRecommendPOI().toString()
-                                    : HORmessages.MESSAGE_NO_ACTIVITY;
+                            String text;
+                            if (userPreferences.get(toIntExact(user_id)).getRecommendPOI() != null) {
+                                Item i = userPreferences.get(toIntExact(user_id)).getRecommendPOI();
+                                i.setRecommenderType(recommendType);
+                                text = i.toString();
+                            } else {
+                                text = HORmessages.MESSAGE_NO_ACTIVITY;
+                            }
+
                             message.setText(EmojiParser.parseToUnicode(text));
                         } else if (checkUserContext == 1) {
                             message.setText(HORmessages.MESSAGE_MISSING_COMPANY);
@@ -190,7 +262,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                             userPreferences.get(toIntExact(user_id)).getSurvey().getNextQuestion());
 
                     // Add keyboard to message
-                    message.setReplyMarkup(HORmessages.setReplyKeyboard());
+                    message.setReplyMarkup(HORmessages.setReplyKeyboardForSurvey());
                 } else {
                     message.setText(HORmessages.MESSAGE_SURVEY_ALREADY_COMPLETE);
                 }
@@ -202,7 +274,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                     message.setText(userPreferences.get(toIntExact(user_id)).getSurvey().getNextQuestion());
 
                     // Add keyboard to message
-                    message.setReplyMarkup(HORmessages.setReplyKeyboard());
+                    message.setReplyMarkup(HORmessages.setReplyKeyboardForSurvey());
                 } else {
                     message.setText(HORmessages.MESSAGE_SURVEY_COMPLETE);
 
@@ -248,8 +320,6 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                 }
                 message.setText(HORmessages.MESSAGE_ACTIVITIES_RESET);
             }
-            // TODO: ADD USER CONTEXT COMMANDS FOR MISSING VALUES
-
             // UNKNOWN COMMAND
             else {
                 message.setText(HORmessages.UNKNOWN_COMMAND + received_text);
@@ -261,7 +331,6 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             try {
                 // Send answer
                 execute(message);
-
             } catch(TelegramApiException e){
                 e.printStackTrace();
             }
@@ -282,27 +351,6 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
      */
     public String getBotToken() {
         return new PropertyUtilities().getProperty("token");
-    }
-
-    /**
-     * Generate query with chosen activities for general context
-     * @param user_id representing user ID
-     * @return Query string
-     */
-    private String generateGeneralContextQuery(int user_id) {
-        String query = "";
-        Context c = userPreferences.get(toIntExact(user_id)).getSurveyContext().getSurveyValues().iterator().next();
-        for (Activity a : c.getActivities()) {
-            if (a.isChecked()) {
-                query += HORmessages.TAGS.get(a.getActivityName()) + " ";
-            }
-        }
-        return query;
-    }
-
-    private String generateContextualQuery(int user_id, UserContext userContext) {
-        return ContextAwareRecommender.generateContextAwareQuery(userContext,
-                userPreferences.get(toIntExact(user_id)).getSurveyContext().getSurveyValues());
     }
 
     /**

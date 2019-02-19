@@ -38,7 +38,6 @@ public class Recommender {
 
     private StandardAnalyzer analyzer;
     private Directory index;
-    private int recommendType;
 
     /**
      * Constructor of Recommender
@@ -65,16 +64,14 @@ public class Recommender {
 
     /**
      * Lucene method for search into Index relevant document to recommend
-     * @param generalContextQuery is string to representing the general context query
-     * @param contextAwareQuery is a string representing contextual query
+     * @param query is string to representing the query for Lucene index
      * @param location is user location
      * @return a list of relevant item to recommend
      * @throws IOException for Input/Output exception
      * @throws ParseException for search document exception
      */
-    public List<Item> searchItems(String generalContextQuery, String contextAwareQuery, Location location) throws IOException, ParseException {
-        this.recommendType = getRandomIntegerBetweenRange(1, 3);
-        Query q = new QueryParser("tags", analyzer).parse(this.checkRecommendType(generalContextQuery, contextAwareQuery));
+    public List<Item> searchItems(String query, Location location) throws IOException, ParseException {
+        Query q = new QueryParser("tags", analyzer).parse(query);
 
         int hitsPerPage = 20;
         IndexReader reader = DirectoryReader.open(index);
@@ -83,7 +80,7 @@ public class Recommender {
         TopDocs docs = searcher.search(q, hitsPerPage);
         ScoreDoc[] hits = docs.scoreDocs;
 
-        Set<Item> items = new TreeSet<Item>();
+        Set<Item> items = new TreeSet<>();
         for (ScoreDoc hit : hits) {
             int docId = hit.doc;
             Document d = searcher.doc(docId);
@@ -98,13 +95,12 @@ public class Recommender {
                         Float.valueOf(d.get("lat")),
                         Float.valueOf(d.get("lng")));
                 i.setScore(hit.score);
-                i.setRecommenderType(this.recommendType);
                 items.add(i);
             }
         }
         reader.close();
 
-        return new ArrayList<Item> (items);
+        return new ArrayList<> (items);
     }
 
     /**
@@ -113,7 +109,7 @@ public class Recommender {
      * @return an item list
      */
     private List<Item> readCSV(String csvFile) {
-        List<Item> pois = new ArrayList<Item>();
+        List<Item> pois = new ArrayList<>();
         InputStream in = getClass().getResourceAsStream(csvFile);
         BufferedReader br = null;
         String line;
@@ -122,7 +118,7 @@ public class Recommender {
             br = new BufferedReader(new InputStreamReader(in));
 
             while ((line = br.readLine()) != null) {
-                // use comma as separator
+                // Use comma as separator
                 String[] items = line.split(HORmessages.CSV_SPLIT);
                 pois.add(new Item(items[0], items[1], items[2], items[3], items[4],
                                 items[5], Double.valueOf(items[6]), Integer.valueOf(items[7]),
@@ -170,39 +166,6 @@ public class Recommender {
     }
 
     /**
-     * Count term by term of the input query
-     * @param query representing the query to transform
-     * @return transformed Query
-     */
-    private String queryTransform(String query) {
-        Map<String, Integer> fields = new HashMap<String, Integer>();
-
-        for (String s : query.split(" ")) {
-            if (fields.containsKey(s)) {
-                fields.put(s, fields.get(s) + 1);
-            } else {
-                fields.put(s, 1);
-            }
-        }
-
-        return this.getTransformedQuery(fields);
-    }
-
-    /**
-     * Transform mapped query in a Lucene string
-     * @param fields representing a map with the term as key and value as number of occurrences of term
-     * @return Transformed query
-     */
-    private String getTransformedQuery(Map<String, Integer> fields) {
-        String s = "";
-
-        for (String key : fields.keySet()) {
-            s += key + "^" + fields.get(key) + " ";
-        }
-        return s;
-    }
-
-    /**
      * Check if two Items are close
      * @param lat1 representing Item 1 latitude
      * @param lat2 representing Item 2 latitude
@@ -212,36 +175,5 @@ public class Recommender {
      */
     private boolean isNearbyItem(double lat1, double lat2, double lon1, double lon2) {
         return Utils.distance(lat1, lat2, lon1, lon2, 0.0, 0.0) < HORmessages.THRESHOLD;
-    }
-
-    /**
-     * Return the query according recommend type
-     * @param generalContextQuery representing the general context query for the user
-     * @param contextualQuery representing the contextual query for the user
-     * @return a string representing the query for Lucene
-     */
-    private String checkRecommendType(String generalContextQuery, String contextualQuery) {
-        String query = "";
-
-        if (this.recommendType == 1) {
-            query = this.queryTransform(generalContextQuery);
-        } else if (this.recommendType == 2) {
-            query = this.queryTransform(contextualQuery);
-        } else if (this.recommendType == 3) {
-            query = this.queryTransform(generalContextQuery + " " + contextualQuery);
-        }
-
-        return query;
-    }
-
-    /**
-     * Get random value between two values
-     * @param min representing the minimum value
-     * @param max representing the max value
-     * @return integer value between min and max
-     */
-    private static int getRandomIntegerBetweenRange(int min, int max) {
-        Random r = new Random();
-        return r.nextInt((max - min) + 1) + min;
     }
 }

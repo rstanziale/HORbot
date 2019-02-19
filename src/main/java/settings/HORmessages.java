@@ -32,6 +32,12 @@ public class HORmessages implements LoggerInterface {
             "/showanswer - Visualizza le risposte del questionario\n" +
             "/resetanswer - Reimposta le risposte del questionario\n" +
             "/help - Informazioni sui comandi";
+    static String MESSAGE_COMPANY = "Con chi sei?";
+    static String MESSAGE_RESTED = "Ti senti riposato?";
+    static String MESSAGE_ACTIVITY = "Hai fatto molta attività fisica?";
+    static String MESSAGE_MOOD = "Di che umore sei?";
+    static String MESSAGE_CONTEXT_UPDATE = "Il tuo contesto è stato aggiornato.";
+    static String MESSAGE_CONTEXT_ERROR = "Il valore da inserito non è corretto.";
     static String MESSAGE_POSITION = "Inviami la tua posizione";
     static String MESSAGE_POSITION_SAVED = "Posizione salvata.";
     static String MESSAGE_SURVEY_START = "Indica quanto sei d'accordo con le seguenti affermazioni \\n\\n";
@@ -55,7 +61,7 @@ public class HORmessages implements LoggerInterface {
     }
 
     private static Map<String, String> createMap() {
-        Map<String, String> myMap = new HashMap<String, String>();
+        Map<String, String> myMap = new HashMap<>();
 
         myMap.put("Mangiare un gelato", "Yogurterie Gelaterie Dolci Pasticcerie");
         myMap.put("Mangiare in pizzeria", "Pizzerie Panzerotti Panini Sandwich Friggitorie");
@@ -103,11 +109,38 @@ public class HORmessages implements LoggerInterface {
     }
 
     /**
+     * Check if the answer for set context company is correct
+     * @param value user answer
+     * @return boolean flag
+     */
+    static boolean checkContextCompany(String value) {
+        return value.equals("Amici") || value.equals("Famiglia/Fidanzata-o") || value.equals("Colleghi");
+    }
+
+    /**
+     * Check if the answer for set context rested or activity is correct
+     * @param value user answer
+     * @return boolean flag
+     */
+    static boolean checkContextBoolean(String value) {
+        return value.equals("Sì") || value.equals("No");
+    }
+
+    /**
+     * Check if the answer for set context mood is correct
+     * @param value user answer
+     * @return boolean flag
+     */
+    static boolean checkContextMood(String value) {
+        return value.equals("Buon umore") || value.equals("Cattivo umore");
+    }
+
+    /**
      * Set keyboard for survey
      *
      * @return keyboard for message with answer values
      */
-    static ReplyKeyboardMarkup setReplyKeyboard() {
+    static ReplyKeyboardMarkup setReplyKeyboardForSurvey() {
 
         // Set answers
         String[] answers = new String[4];
@@ -115,6 +148,112 @@ public class HORmessages implements LoggerInterface {
         answers[1] = "Parzialmente d'accordo";
         answers[2] = "Abbastanza d'accordo";
         answers[3] = "D'accordo";
+
+        // Create ReplyKeyboardMarkup object
+        ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
+        keyboardMarkup.setResizeKeyboard(true);
+
+        // Create the keyboard (list of keyboard rows)
+        List<KeyboardRow> keyboard = new ArrayList<>();
+
+        // Create a keyboard row
+        KeyboardRow row = new KeyboardRow();
+
+        // Set each button, you can also use KeyboardButton objects if you need something else than text
+        for (String answer : answers) {
+            row.add(answer);
+            keyboard.add(row);
+            row = new KeyboardRow();
+        }
+
+        // Set the keyboard to the markup
+        keyboardMarkup.setKeyboard(keyboard);
+
+        return keyboardMarkup;
+    }
+
+    /**
+     * Set keyboard for missing context company
+     *
+     * @return keyboard for message with answer values
+     */
+    static ReplyKeyboardMarkup setReplyKeyboardForCompany() {
+
+        // Set answers
+        String[] answers = new String[3];
+        answers[0] = "Amici";
+        answers[1] = "Famiglia/Fidanzata-o";
+        answers[2] = "Colleghi";
+
+        // Create ReplyKeyboardMarkup object
+        ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
+        keyboardMarkup.setResizeKeyboard(true);
+
+        // Create the keyboard (list of keyboard rows)
+        List<KeyboardRow> keyboard = new ArrayList<>();
+
+        // Create a keyboard row
+        KeyboardRow row = new KeyboardRow();
+
+        // Set each button, you can also use KeyboardButton objects if you need something else than text
+        for (String answer : answers) {
+            row.add(answer);
+            keyboard.add(row);
+            row = new KeyboardRow();
+        }
+
+        // Set the keyboard to the markup
+        keyboardMarkup.setKeyboard(keyboard);
+
+        return keyboardMarkup;
+    }
+
+    /**
+     * Set keyboard for missing context mood
+     *
+     * @return keyboard for message with answer values
+     */
+    static ReplyKeyboardMarkup setReplyKeyboardForMood() {
+
+        // Set answers
+        String[] answers = new String[2];
+        answers[0] = "Buon umore";
+        answers[1] = "Cattivo umore";
+
+        // Create ReplyKeyboardMarkup object
+        ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
+        keyboardMarkup.setResizeKeyboard(true);
+
+        // Create the keyboard (list of keyboard rows)
+        List<KeyboardRow> keyboard = new ArrayList<>();
+
+        // Create a keyboard row
+        KeyboardRow row = new KeyboardRow();
+
+        // Set each button, you can also use KeyboardButton objects if you need something else than text
+        for (String answer : answers) {
+            row.add(answer);
+            keyboard.add(row);
+            row = new KeyboardRow();
+        }
+
+        // Set the keyboard to the markup
+        keyboardMarkup.setKeyboard(keyboard);
+
+        return keyboardMarkup;
+    }
+
+    /**
+     * Set keyboard for missing context rested
+     *
+     * @return keyboard for message with answer values
+     */
+    static ReplyKeyboardMarkup setReplyKeyboardBoolean() {
+
+        // Set answers
+        String[] answers = new String[2];
+        answers[0] = "Sì";
+        answers[1] = "No";
 
         // Create ReplyKeyboardMarkup object
         ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
