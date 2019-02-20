@@ -152,7 +152,7 @@ public class Item implements Comparable<Item>  {
 
     /**
      * Get recommender type
-     * @return integer representing the recommender type
+     * @return integer representing the recommend type
      */
     public int getRecommenderType() {
         return recommenderType;

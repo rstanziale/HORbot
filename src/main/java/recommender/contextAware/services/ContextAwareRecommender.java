@@ -62,7 +62,7 @@ public class ContextAwareRecommender {
         }
 
         for (Context context : contextMap.values()) {
-            query += generateQueryByContext(context) + " ";
+            query = query.concat(generateQueryByContext(context) + " ");
         }
 
         return query;
@@ -77,7 +77,7 @@ public class ContextAwareRecommender {
         String query = "";
         for (Activity a : context.getActivities()) {
             if (a.isChecked()) {
-                query += HORmessages.TAGS.get(a.getActivityName()) + " ";
+                query = query.concat(HORmessages.TAGS.get(a.getActivityName()) + " ");
             }
         }
         return query;

@@ -79,7 +79,7 @@ public class RecommendUtils {
         String s = "";
 
         for (String key : fields.keySet()) {
-            s += key + "^" + fields.get(key) + " ";
+            s = s.concat(key + "^" + fields.get(key) + " ");
         }
         return s;
     }
@@ -94,7 +94,7 @@ public class RecommendUtils {
         Context c = userPreferences.getSurveyContext().getSurveyValues().iterator().next();
         for (Activity a : c.getActivities()) {
             if (a.isChecked()) {
-                query += HORmessages.TAGS.get(a.getActivityName()) + " ";
+                query = query.concat(HORmessages.TAGS.get(a.getActivityName()) + " ");
             }
         }
         return query;

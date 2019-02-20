@@ -1,6 +1,5 @@
 package recommender.contentBased.services;
 
-import settings.HORmessages;
 import common.Utils;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -20,13 +19,14 @@ import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.RAMDirectory;
 import recommender.contentBased.beans.Item;
+import settings.HORmessages;
 import survey.context.beans.Location;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Define Recommender class
@@ -41,11 +41,9 @@ public class Recommender {
 
     /**
      * Constructor of Recommender
-     * @param CSVPath path of file
+     * @param pois list of Items
      */
-    public Recommender(String CSVPath) {
-        List<Item> pois = this.readCSV(CSVPath);
-
+    public Recommender(List<Item> pois) {
         this.analyzer = new StandardAnalyzer();
         this.index = new RAMDirectory();
         IndexWriterConfig config = new IndexWriterConfig(analyzer);
@@ -73,7 +71,7 @@ public class Recommender {
     public List<Item> searchItems(String query, Location location) throws IOException, ParseException {
         Query q = new QueryParser("tags", analyzer).parse(query);
 
-        int hitsPerPage = 20;
+        int hitsPerPage = 50;
         IndexReader reader = DirectoryReader.open(index);
         IndexSearcher searcher = new IndexSearcher(reader);
 
@@ -101,42 +99,6 @@ public class Recommender {
         reader.close();
 
         return new ArrayList<> (items);
-    }
-
-    /**
-     * Read items to recommend to user from a CSV file
-     * @param csvFile representing the file path of CSV file
-     * @return an item list
-     */
-    private List<Item> readCSV(String csvFile) {
-        List<Item> pois = new ArrayList<>();
-        InputStream in = getClass().getResourceAsStream(csvFile);
-        BufferedReader br = null;
-        String line;
-
-        try {
-            br = new BufferedReader(new InputStreamReader(in));
-
-            while ((line = br.readLine()) != null) {
-                // Use comma as separator
-                String[] items = line.split(HORmessages.CSV_SPLIT);
-                pois.add(new Item(items[0], items[1], items[2], items[3], items[4],
-                                items[5], Double.valueOf(items[6]), Integer.valueOf(items[7]),
-                                Float.valueOf(items[8]), Float.valueOf(items[9])));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (br != null) {
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        return pois;
     }
 
     /**

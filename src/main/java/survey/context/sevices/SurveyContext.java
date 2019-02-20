@@ -81,9 +81,9 @@ public class SurveyContext {
         String s = "";
 
         for (Context c : surveyContext.values()) {
-            s += c.getContextName() + ":\n" +
+            s = s.concat(c.getContextName() + ":\n" +
                     c.showActivitiesChosen() +
-                    "\n\n";
+                    "\n\n");
         }
         return s;
     }

@@ -134,7 +134,7 @@ public class Survey {
     public String toString() {
         String s = "";
         for (Question q : survey.values()) {
-            s += q.toString() + "\n";
+            s = s.concat(q.toString() + "\n");
         }
         return s;
     }

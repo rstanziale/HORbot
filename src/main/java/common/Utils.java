@@ -1,5 +1,12 @@
 package common;
 
+import recommender.contentBased.beans.Item;
+import settings.HORmessages;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Utils {
 
     /**
@@ -39,5 +46,67 @@ public class Utils {
         distance = Math.pow(distance, 2) + Math.pow(height, 2);
 
         return Math.sqrt(distance);
+    }
+
+    /**
+     * Read items to recommend to user from a CSV file
+     * @param csvFile representing the file path of CSV file
+     * @return an item list
+     */
+    public static List<Item> readCSV(String csvFile) {
+        List<Item> pois = new ArrayList<>();
+        InputStream in = Utils.class.getResourceAsStream(csvFile);
+        BufferedReader br = null;
+        String line;
+
+        try {
+            br = new BufferedReader(new InputStreamReader(in));
+
+            while ((line = br.readLine()) != null) {
+                // Use comma as separator
+                String[] items = line.split(HORmessages.CSV_SPLIT);
+                pois.add(new Item(items[0], items[1], items[2], items[3], items[4],
+                        items[5], Double.valueOf(items[6]), Integer.valueOf(items[7]),
+                        Float.valueOf(items[8]), Float.valueOf(items[9])));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return pois;
+    }
+
+    /**
+     * Create a document file of user recommend items
+     * @param user_id representing user id
+     * @param userPreferences representing user preferences
+     */
+    public static File createLogFile(long user_id, UserPreferences userPreferences) {
+        File logFile = new File("log.csv");
+        try (PrintWriter writer = new PrintWriter(logFile)) {
+            StringBuilder sb = new StringBuilder();
+            if (userPreferences.checkListRecommendPOI()) {
+                for (Item i : userPreferences.getListRecommendPOI()) {
+                    sb.append(user_id);
+                    sb.append(",");
+                    sb.append(i.getName());
+                    sb.append(",");
+                    sb.append(i.getRecommenderType());
+                    sb.append("\n");
+                    writer.write(sb.toString());
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return logFile;
     }
 }

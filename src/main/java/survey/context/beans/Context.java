@@ -66,7 +66,7 @@ public class Context {
 
         for (Activity a : activities.values()) {
             if (a.isChecked()) {
-                s += a.toString() + "\n";
+                s = s.concat(a.toString() + "\n");
             }
         }
 
@@ -119,7 +119,7 @@ public class Context {
         int i = 1;
 
         for (Activity a : activities.values()) {
-            s += String.valueOf(i) + ". " + a.toString() + "\n";
+            s = s.concat(i + ". " + a.toString() + "\n");
             i++;
         }
         return s;

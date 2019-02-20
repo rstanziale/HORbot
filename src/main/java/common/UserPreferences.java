@@ -7,6 +7,7 @@ import survey.question.services.Survey;
 import ontology.beans.facets.Ontology;
 import recommender.contentBased.beans.Item;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -104,6 +105,14 @@ public class UserPreferences {
      */
     public boolean checkListRecommendPOI() {
         return this.recommendPOI != null;
+    }
+
+    /**
+     * Get list of user recommend POI
+     * @return a collection of Item
+     */
+    public Collection<Item> getListRecommendPOI() {
+        return this.recommendPOI;
     }
 
     /**

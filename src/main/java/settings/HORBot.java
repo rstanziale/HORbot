@@ -1,6 +1,7 @@
 package settings;
 
 import common.*;
+import org.telegram.telegrambots.meta.api.methods.send.SendDocument;
 import recommender.RecommendUtils;
 import recommender.contentBased.beans.Item;
 import recommender.contentBased.services.Recommender;
@@ -16,6 +17,7 @@ import recommender.contextAware.services.ContextAwareRecommender;
 import survey.context.beans.Context;
 import survey.context.beans.Location;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -91,6 +93,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             SendMessage message = new SendMessage()
                     .setChatId(sender_id);
 
+            // TODO: use message handler here
             // START COMMAND
             if (received_text.equals(START)) {
                 userCommand.replace(toIntExact(user_id), START);
@@ -330,7 +333,14 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
 
             try {
                 // Send answer
-                execute(message);
+                // TODO: sbagliato qui, non deve riconoscere il documento ma solo inviarlo
+                if (this.userCommand.get(toIntExact(user_id)).equals("/log")) {
+                    this.sendDocUploadingAFile(user_id,
+                            Utils.createLogFile(user_id, userPreferences.get(toIntExact(user_id))),
+                            "Users log file.");
+                } else {
+                    execute(message);
+                }
             } catch(TelegramApiException e){
                 e.printStackTrace();
             }
@@ -368,9 +378,9 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                 0.0, 0.0);
 
         if (fromHereToBari < fromHereToTorino) {
-            this.recommenderForBari = new Recommender("/businesses_bari.csv");
+            this.recommenderForBari = new Recommender(Utils.readCSV("/businesses_bari.csv"));
         } else {
-            this.recommenderForTorino = new Recommender("/businesses_torino.csv");
+            this.recommenderForTorino = new Recommender(Utils.readCSV("/businesses_torino.csv"));
         }
     }
 
@@ -392,5 +402,20 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
         return  fromHereToBari < fromHereToTorino
                 ? this.recommenderForBari
                 : this.recommenderForTorino;
+    }
+
+    /**
+     * Generate request for send a preferences log file to user
+     * @param chatId representing chat user id
+     * @param logFile representing the file to send user
+     * @param caption representing the caption file
+     * @throws TelegramApiException for Telegram exception
+     */
+    private void sendDocUploadingAFile(Long chatId, File logFile, String caption) throws TelegramApiException {
+        SendDocument sendDocumentRequest = new SendDocument();
+        sendDocumentRequest.setChatId(chatId);
+        sendDocumentRequest.setDocument(logFile);
+        sendDocumentRequest.setCaption(caption);
+        execute(sendDocumentRequest);
     }
 }
