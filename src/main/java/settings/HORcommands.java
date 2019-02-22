@@ -11,8 +11,8 @@ public class HORcommands {
     public final static String START = "/start";
     public final static String LOGIN = "/login";
     public final static String SURVEY = "/survey";
-    public final static String SETLOCATION = "/setlocation";
-    public final static String SETCONTEXTS = "/setcontexts";
+    public final static String SET_LOCATION = "/setlocation";
+    public final static String SET_CONTEXTS = "/setcontexts";
     public final static String SHOWANSWER = "/showanswer";
     public final static String SHOWCONTEXTS = "/showcontexts";
     public final static String RESETANSWER = "/resetanswer";
@@ -23,5 +23,5 @@ public class HORcommands {
     public final static String SETMOOD = "/setmood";
     public final static String SETACTIVITY = "/setactivity";
     public final static String HELP = "/help";
-    public final static String LOG = "/log";
+    public final static String LOGFILE = "/logfile";
 }

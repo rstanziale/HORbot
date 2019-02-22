@@ -51,6 +51,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
 
     // USER COMMAND
     private Map<Integer, String> userCommand = new HashMap<>();
+    private HORMessageHandler messageHandler = new HORMessageHandler();
 
     // USER PREFERENCES
     private Map<Integer, UserPreferences> userPreferences = new HashMap<>();
@@ -81,6 +82,8 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                                 "/activities.txt"));
 
                 userCommand.put(toIntExact(user_id), "Comando sconosciuto");
+                this.messageHandler.initializeUser(user_id);
+
             }
 
             // Set chat ID
@@ -92,6 +95,13 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             // Set message structure
             SendMessage message = new SendMessage()
                     .setChatId(sender_id);
+
+            /* Use instanceof for recognize SendMessage or SendDocument
+            try {
+                execute((SendMessage)this.messageHandler.setMessage(user_id, userPreferences.get(toIntExact(user_id)), received_text));
+            } catch(TelegramApiException e){
+                e.printStackTrace();
+            }*/
 
             // TODO: use message handler here
             // START COMMAND
@@ -333,14 +343,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
 
             try {
                 // Send answer
-                // TODO: sbagliato qui, non deve riconoscere il documento ma solo inviarlo
-                if (this.userCommand.get(toIntExact(user_id)).equals("/log")) {
-                    this.sendDocUploadingAFile(user_id,
-                            Utils.createLogFile(user_id, userPreferences.get(toIntExact(user_id))),
-                            "Users log file.");
-                } else {
-                    execute(message);
-                }
+                execute(message);
             } catch(TelegramApiException e){
                 e.printStackTrace();
             }
@@ -352,7 +355,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
      * @return Bot Username
      */
     public String getBotUsername() {
-        return new PropertyUtilities().getProperty("username");
+        return Utils.getProperty("username");
     }
 
     /**
@@ -360,7 +363,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
      * @return Bot Token
      */
     public String getBotToken() {
-        return new PropertyUtilities().getProperty("token");
+        return Utils.getProperty("token");
     }
 
     /**
@@ -402,20 +405,5 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
         return  fromHereToBari < fromHereToTorino
                 ? this.recommenderForBari
                 : this.recommenderForTorino;
-    }
-
-    /**
-     * Generate request for send a preferences log file to user
-     * @param chatId representing chat user id
-     * @param logFile representing the file to send user
-     * @param caption representing the caption file
-     * @throws TelegramApiException for Telegram exception
-     */
-    private void sendDocUploadingAFile(Long chatId, File logFile, String caption) throws TelegramApiException {
-        SendDocument sendDocumentRequest = new SendDocument();
-        sendDocumentRequest.setChatId(chatId);
-        sendDocumentRequest.setDocument(logFile);
-        sendDocumentRequest.setCaption(caption);
-        execute(sendDocumentRequest);
     }
 }
