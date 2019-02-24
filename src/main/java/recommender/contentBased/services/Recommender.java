@@ -52,7 +52,15 @@ public class Recommender {
         try {
             w  = new IndexWriter(index, config);
             for (Item p : pois) {
-                addDoc(w, p.getWebsite(), p.getName(), p.getAddress(), p.getPhone(), p.getTags(), p.getLat(), p.getLng());
+                addDoc(w,
+                        p.getWebsite(),
+                        p.getName(),
+                        p.getAddress(),
+                        p.getPhone(),
+                        p.getTags(),
+                        p.getRatingAverage(),
+                        p.getLat(),
+                        p.getLng());
             }
             w.close();
         } catch (IOException e) {
@@ -90,6 +98,7 @@ public class Recommender {
                         d.get("address"),
                         d.get("phone"),
                         d.get("tags"),
+                        Double.valueOf(d.get("ratingAverage")),
                         Float.valueOf(d.get("lat")),
                         Float.valueOf(d.get("lng")));
                 i.setScore(hit.score);
@@ -109,19 +118,21 @@ public class Recommender {
      * @param address representing the address of item
      * @param phone representing the phone of item
      * @param tags representing the TAGS of item
+     * @param ratingAverage representing rating average
      * @param lat representing the latitude of item
      * @param lng representing the longitude of item
      * @throws IOException for Input/Output exception
      */
     private static void addDoc(IndexWriter w,
                                String website, String name, String address, String phone, String tags,
-                               float lat, float lng) throws IOException {
+                               double ratingAverage, float lat, float lng) throws IOException {
         Document doc = new Document();
         doc.add(new StringField("name", name, Field.Store.YES));
         doc.add(new StringField("website", website, Field.Store.YES));
         doc.add(new StringField("address", address, Field.Store.YES));
         doc.add(new StringField("phone", phone, Field.Store.YES));
         doc.add(new TextField("tags", tags, Field.Store.YES));
+        doc.add(new StringField("ratingAverage", String.valueOf(ratingAverage), Field.Store.YES));
         doc.add(new StringField("lat", String.valueOf(lat), Field.Store.YES));
         doc.add(new StringField("lng", String.valueOf(lng), Field.Store.YES));
         w.addDocument(doc);

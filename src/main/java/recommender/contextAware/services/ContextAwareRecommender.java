@@ -38,6 +38,8 @@ public class ContextAwareRecommender {
 
     /**
      * Generate contextual query for user according his preferences
+     * @param userContext representing user context
+     * @param contexts representing a collection of contexts
      * @return String representing the query
      */
     public static String generateContextAwareQuery(UserContext userContext, Collection<Context> contexts) {

@@ -20,7 +20,7 @@ import java.util.Map;
 public class HORmessages implements LoggerInterface {
 
     // HOR MESSAGES
-    public static int THRESHOLD = 1500;
+    public static int THRESHOLD = 2500;
     public static String CSV_SPLIT = ",";
     public static Map<String, String> TAGS;
     static String MESSAGE_START = "Ciao, per cominciare effettua il login per Myrror attraverso il comando /login!";
@@ -48,7 +48,7 @@ public class HORmessages implements LoggerInterface {
     static String MESSAGE_ACTIVITIES_ERROR = "Errore nell'input delle attività.";
     static String MESSAGE_ACTIVITIES_RESET = "Attività resettate.";
     static String MESSAGE_ACTIVITIES_SAVED = "Attività salvate.";
-    static String MESSAGE_REFERENCES_NON_COMPLETE = "Impossibile suggerire un evento, fornisci posizione e/o questionario.";
+    static String MESSAGE_REFERENCES_NON_COMPLETE = "Impossibile suggerire un evento, controlla se hai effettuato il login e fornisci posizione e/o questionario.";
     static String MESSAGE_NO_ACTIVITY = "Nessuna attività da suggerire.";
     static String MESSAGE_MISSING_COMPANY = "Non so con chi ti trovi, per dirmelo usa il comando /setcompany";
     static String MESSAGE_MISSING_RESTED = "Non so se sei riposato, per dirmelo usa il comando /setrested";

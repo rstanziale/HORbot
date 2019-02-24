@@ -3,8 +3,11 @@ common
 ontology.beans.auth
 ontology.beans.facets
 ontology.services
+recommender
 recommender.contentBased.beans
 recommender.contentBased.services
+recommender.contextAware.beans
+recommender.contextAware.services
 settings
 survey.context.beans
 survey.context.sevices

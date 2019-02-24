@@ -27,26 +27,30 @@ public class UserContext {
         calendar.setTime(new Date());
         this.week = ((calendar.get(Calendar.DAY_OF_WEEK) >= Calendar.MONDAY) &&
                 (calendar.get(Calendar.DAY_OF_WEEK) <= Calendar.FRIDAY));
-        if (ontology.getBehaviors().getFromActivity() != null) {
+        if (ontology.getBehaviors().getFromActivity() != null
+                && ontology.getBehaviors().getFromActivity().size() > 0) {
             this.activity = ontology.getBehaviors()
                     .getFromActivity()
-                    .get(ontology.getBehaviors().getFromActivity().size())
+                    .get(ontology.getBehaviors().getFromActivity().size() - 1)
                     .getNameActivity().equals("veryActive");
         }
-        if (ontology.getAffects() != null) {
+        if (ontology.getAffects() != null
+                && ontology.getAffects().size() > 0) {
             this.mood = ontology.getAffects()
-                    .get(ontology.getAffects().size())
+                    .get(ontology.getAffects().size() - 1)
                     .getEmotion().equals("joy")
                     || ontology.getAffects()
-                            .get(ontology.getAffects().size())
+                            .get(ontology.getAffects().size() - 1)
                             .getEmotion().equals("surprise")
                     || ontology.getAffects()
-                            .get(ontology.getAffects().size())
+                            .get(ontology.getAffects().size() - 1)
                             .getEmotion().equals("neutrality");
         }
-        if (ontology.getPhysicalStates() != null && ontology.getPhysicalStates().getSleep() != null) {
+        if (ontology.getPhysicalStates() != null
+                && ontology.getPhysicalStates().getSleep() != null
+                && ontology.getPhysicalStates().getSleep().size() > 0) {
             this.rested = ontology.getPhysicalStates()
-                    .getSleep().get(ontology.getPhysicalStates().getSleep().size())
+                    .getSleep().get(ontology.getPhysicalStates().getSleep().size() - 1)
                     .getMinutesAsleep() >= 360; // 6 hours for rested
         }
     }

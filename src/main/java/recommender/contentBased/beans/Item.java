@@ -57,16 +57,18 @@ public class Item implements Comparable<Item>  {
      * @param address representing the item address
      * @param phone representing the item phone number
      * @param tags representing the item tag list
+     * @param ratingAverage representing the item rating average
      * @param lat representing the item latitude
      * @param lng representing the item longitude
      */
     public Item(String website, String name, String address, String phone, String tags,
-                float lat, float lng) {
+                double ratingAverage, float lat, float lng) {
         this.website = website;
         this.name = name;
         this.address = address;
         this.phone = phone.equals("null") ? "" : phone;
         this.tags = tags;
+        this.ratingAverage = ratingAverage;
         this.lat = lat;
         this.lng = lng;
     }
@@ -109,6 +111,14 @@ public class Item implements Comparable<Item>  {
      */
     public String getTags() {
         return tags;
+    }
+
+    /**
+     * Get the Item rating average
+     * @return Item rating average
+     */
+    public double getRatingAverage() {
+        return ratingAverage;
     }
 
     /**
@@ -182,14 +192,15 @@ public class Item implements Comparable<Item>  {
         return "Ti suggerisco '" + name + '\'' +
                 " in " + address + " (" + lat + ", " + lng + ")" +
                 " con punteggio: " + this.getReviewsStar() +
-                "\nSito: " + website + "\nTelefono: " +  phone;
+                "\nSito: " + website + "\nTelefono: +39 " +  phone;
     }
 
     private String getReviewsStar() {
-        String stars = ":star: ";
-        for (int i = 0; i < this.ratingAverage; i++) {
-            stars += stars;
+        String stars = ":star:";
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < Math.round(this.ratingAverage); i++){
+            sb.append(stars);
         }
-        return stars;
+        return sb.toString();
     }
 }

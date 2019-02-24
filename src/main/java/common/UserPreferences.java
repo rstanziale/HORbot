@@ -141,7 +141,7 @@ public class UserPreferences {
      * @return boolean flag
      */
     public boolean isComplete() {
-        return this.location != null && this.surveyContext != null;
+        return this.location != null && this.surveyContext != null && this.ontology != null;
     }
 
     /**
