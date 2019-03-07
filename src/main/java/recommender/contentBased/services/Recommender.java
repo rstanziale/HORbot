@@ -76,7 +76,7 @@ public class Recommender {
      * @throws IOException for Input/Output exception
      * @throws ParseException for search document exception
      */
-    public List<Item> searchItems(String query, Location location) throws IOException, ParseException {
+    public List<Item> recommend(String query, Location location) throws IOException, ParseException {
         Query q = new QueryParser("tags", analyzer).parse(query);
 
         int hitsPerPage = 50;

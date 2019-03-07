@@ -11,9 +11,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Define Request HTTP class
@@ -22,10 +21,6 @@ import java.util.Map;
  * @version 1.0
  */
 public class RequestHTTP {
-
-    // URL Request for Myrror API
-    private static String profileURL = "http://90.147.102.243:5000/api/profile/";
-    private static String loginURL = "http://90.147.102.243:5000/auth/login";
 
     // ONTOLOGY GET FROM MYRROR
     private Ontology ontology;
@@ -58,12 +53,13 @@ public class RequestHTTP {
         int responseCode = -1;
 
         try {
-            url = new URL(this.loginURL);
+            String loginURL = "http://90.147.102.243:5000/auth/login";
+            url = new URL(loginURL);
 
             con = (HttpURLConnection) url.openConnection();
             con.setRequestProperty("Accept-Charset", "UTF-8");
 
-            Map<String, String> params = new HashMap<String, String>();
+            Map<String, String> params = new HashMap<>();
             params.put("email", email);
             params.put("password", password);
 
@@ -81,7 +77,9 @@ public class RequestHTTP {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            con.disconnect();
+            if (con != null) {
+                con.disconnect();
+            }
         }
 
         return responseCode;
@@ -90,36 +88,39 @@ public class RequestHTTP {
     /**
      * GET request HTTP for Myrror collection
      * @param login (Login) Myrror login info
-     * @return (int) HTTP response code
      */
-    private int getUserMyrrorData(Login login) {
+    private void getUserMyrrorData(Login login) {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JsonldModule(Collections::emptyList));
 
         URL url;
         HttpURLConnection con = null;
-        int responseCode = -1;
 
         try {
-            // TODO: check parameters
-            Map<String, String> parameters = new HashMap<String, String>();
-            parameters.put("l", "20");
+            long DAY_IN_MS = 1000 * 60 * 60 * 24;
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String fromDate = simpleDateFormat.format(new Date(System.currentTimeMillis() - (10 * DAY_IN_MS)));
 
-            url = new URL(this.profileURL + login.getUsername() + "?" + this.getParamsGetString(parameters));
+            Map<String, String> parameters = new HashMap<>();
+            parameters.put("l", "25");
+            parameters.put("fromDate", fromDate);
+
+            // URL Request for Myrror API
+            String profileURL = "http://90.147.102.243:5000/api/profile/";
+            url = new URL(profileURL + login.getUsername() + "?" + this.getParamsGetString(parameters));
             con = (HttpURLConnection) url.openConnection();
 
             con.setRequestProperty("x-access-token", login.getToken());
 
             this.ontology = objectMapper.readValue(con.getInputStream(), Ontology.class);
-            responseCode = con.getResponseCode();
 
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            con.disconnect();
+            if (con != null) {
+                con.disconnect();
+            }
         }
-
-        return responseCode;
     }
 
     /**

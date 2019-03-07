@@ -39,13 +39,17 @@ public class RecommendUtils {
                                                              int recommendType) {
         String query = "";
 
-        if (recommendType == 1) {
-            query = queryTransform(generateGeneralContextQuery(userPreferences));
-        } else if (recommendType == 2) {
-            query = queryTransform(generateContextualQuery(userPreferences, userContext));
-        } else if (recommendType == 3) {
-            query = queryTransform(generateGeneralContextQuery(userPreferences)
-                    + " " + generateContextualQuery(userPreferences, userContext));
+        switch (recommendType) {
+            case 1:
+                query = queryTransform(generateGeneralContextQuery(userPreferences));
+                break;
+            case 2:
+                query = queryTransform(generateContextualQuery(userPreferences, userContext));
+                break;
+            case 3:
+                query = queryTransform(generateGeneralContextQuery(userPreferences)
+                        + " " + generateContextualQuery(userPreferences, userContext));
+                break;
         }
 
         return query;

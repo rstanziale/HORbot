@@ -160,7 +160,7 @@ public class HORMessageHandler {
                                         userContext,
                                         recommendType);
                                 userPreferences.setRecommendPOI(this.getRecommender(location)
-                                                .searchItems(query, location));
+                                                .recommend(query, location));
                             }
 
                             String text;
