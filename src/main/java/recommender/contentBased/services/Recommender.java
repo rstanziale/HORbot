@@ -1,5 +1,6 @@
 package recommender.contentBased.services;
 
+import common.UserPreferences;
 import common.Utils;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -18,15 +19,14 @@ import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.RAMDirectory;
+import recommender.RecommendUtils;
 import recommender.contentBased.beans.Item;
+import recommender.contextAware.beans.UserContext;
 import settings.HORmessages;
 import survey.context.beans.Location;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * Define Recommender class
@@ -70,13 +70,21 @@ public class Recommender {
 
     /**
      * Lucene method for search into Index relevant document to recommend
-     * @param query is string to representing the query for Lucene index
+     * @param userPreferences representing user preferences
+     * @param userContext representing user context
      * @param location is user location
      * @return a list of relevant item to recommend
      * @throws IOException for Input/Output exception
      * @throws ParseException for search document exception
      */
-    public List<Item> recommend(String query, Location location) throws IOException, ParseException {
+    public List<Item> recommend(UserPreferences userPreferences,
+                                UserContext userContext,
+                                Location location) throws IOException, ParseException {
+        int recommendType = RecommendUtils.getRecommendType();
+        String query = RecommendUtils.generateQueryAccordingRecommendType(
+                userPreferences,
+                userContext,
+                recommendType);
         Query q = new QueryParser("tags", analyzer).parse(query);
 
         int hitsPerPage = 50;
@@ -102,6 +110,7 @@ public class Recommender {
                         Float.valueOf(d.get("lat")),
                         Float.valueOf(d.get("lng")));
                 i.setScore(hit.score);
+                i.setRecommenderType(recommendType);
                 items.add(i);
             }
         }

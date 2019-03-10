@@ -1,5 +1,6 @@
 package recommender.contextAware.services;
 
+import org.telegram.telegrambots.meta.api.objects.stickers.Sticker;
 import recommender.contextAware.beans.UserContext;
 import settings.HORmessages;
 import survey.context.beans.Activity;
@@ -50,7 +51,7 @@ public class ContextAwareRecommender {
         contextMap.put("week", userContext.isWeek() ? contextList.get(1) : contextList.get(2));
         contextMap.put("rested", userContext.isRested() ? contextList.get(9) : contextList.get(10));
         contextMap.put("mood", userContext.isMood() ? contextList.get(3) : contextList.get(4));
-        contextMap.put("activity", userContext.isActivity() ? contextList.get(8) : null); // TODO: check this
+        contextMap.put("activity", userContext.isActivity() ? contextList.get(8) : null);
         switch (userContext.getCompany()) {
             case "Amici":
                 contextMap.put("company", contextList.get(5));
@@ -67,6 +68,14 @@ public class ContextAwareRecommender {
             query = query.concat(generateQueryByContext(context) + " ");
         }
 
+
+        // If there are interests that it is possible to use with Yelp
+        if (userContext.getPreferencesMapped() != null) {
+            for (String interest : userContext.getPreferencesMapped()) {
+                query = query.concat(interest + " ");
+            }
+        }
+
         return query;
     }
 
@@ -77,9 +86,11 @@ public class ContextAwareRecommender {
      */
     private static String generateQueryByContext(Context context) {
         String query = "";
-        for (Activity a : context.getActivities()) {
-            if (a.isChecked()) {
-                query = query.concat(HORmessages.TAGS.get(a.getActivityName()) + " ");
+        if (context != null) {
+            for (Activity a : context.getActivities()) {
+                if (a.isChecked()) {
+                    query = query.concat(HORmessages.TAGS.get(a.getActivityName()) + " ");
+                }
             }
         }
         return query;

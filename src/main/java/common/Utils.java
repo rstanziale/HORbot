@@ -6,7 +6,10 @@ import settings.HORmessages;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
+
+import static java.lang.Math.toIntExact;
 
 public class Utils {
 
@@ -118,29 +121,54 @@ public class Utils {
     }
 
     /**
-     * Create a document file of user recommend items
-     * @param user_id representing user id
-     * @param userPreferences representing user preferences
-     * @return aa File representing the log file of user recommended items
+     * Create log file of HOR users about their interactions
+     * @param userPreferences representing users preferences
+     * @return a file to send to admin
      */
-    public static File createLogFile(long user_id, UserPreferences userPreferences) {
+    public static File createLogFile(Map<Integer, UserPreferences>  userPreferences) {
         File logFile = new File("log.csv");
         try (PrintWriter writer = new PrintWriter(logFile)) {
             StringBuilder sb = new StringBuilder();
-            if (userPreferences.checkListRecommendPOI()) {
-                for (Item i : userPreferences.getListRecommendPOI()) {
-                    sb.append(user_id);
-                    sb.append(",");
-                    sb.append(i.getName());
-                    sb.append(",");
-                    sb.append(i.getRecommenderType());
-                    sb.append("\n");
-                    writer.write(sb.toString());
-                }
+            for (long user_id : userPreferences.keySet()) {
+                writer.write(createLogFileByUser(user_id, userPreferences.get(toIntExact(user_id)), sb).toString());
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         return logFile;
+    }
+
+    /**
+     * Create a document file of user recommend items
+     * @param user_id representing user id
+     * @param userPreferences representing user preferences
+     * @param sb StringBuilder to set with user information
+     * @return a StringBuilder to write into file
+     */
+    private static StringBuilder createLogFileByUser(long user_id, UserPreferences userPreferences, StringBuilder sb) {
+        if (userPreferences.checkListRecommendPOI()) {
+            int index = 0;
+            while (index < userPreferences.getListRecommendPOI().size()) {
+                Item i = (Item)userPreferences.getListRecommendPOI().toArray()[index];
+                if (i.isRecommended()) {
+                    sb.append(user_id);
+                    sb.append(',');
+                    sb.append(userPreferences.isMyrrorUsed());
+                    sb.append(',');
+                    sb.append(i.getName());
+                    sb.append(',');
+                    sb.append(i.getRecommenderType());
+                    sb.append(',');
+                    sb.append(index + 1);
+                    sb.append(',');
+                    sb.append(i.isLiked());
+                    sb.append(',');
+                    sb.append(i.getInteractionTime());
+                    sb.append('\n');
+                }
+                index++;
+            }
+        }
+        return sb;
     }
 }

@@ -1,15 +1,13 @@
 package settings;
 
+import com.vdurmont.emoji.EmojiParser;
 import common.UserPreferences;
 import ontology.services.RequestHTTP;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import survey.context.beans.Context;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Define HORMessages class
@@ -23,9 +21,13 @@ public class HORmessages implements LoggerInterface {
     public static int THRESHOLD = 2500;
     public static String CSV_SPLIT = ",";
     public static Map<String, String> TAGS;
-    static String MESSAGE_START = "Ciao, per cominciare effettua il login per Myrror attraverso il comando /login!";
+    static String MESSAGE_START = "Ciao, per cominciare effettua il login per Myrror attraverso il comando /login " +
+            "oppure crea il tuo contesto con il comando /setcontext!";
     static String MESSAGE_LOGIN = "Inviami le credenziali secondo questo modello:\n\nemail\npassword";
-    static String MESSAGE_LOGIN_COMPLETE = "Inizia il questionario con il comando /survey.";
+    static String MESSAGE_LOGIN_COMPLETE = "Login completato, visualizza il tuo contesto con /showcontext";
+    static String MESSAGE_CONTEXT_START = "Per impostare il tuo contesto usa questi comandi:\n" +
+            " - /setcompany\n - /setrested\n - /setmood\n - /setactivity";
+    static String MESSAGE_CONTEXT_EDIT = "Per modificare il tuo contesto usa il comando /setcontext";
     static String MESSAGE_HELP = "Puoi utilizzarmi con i seguenti comandi:\n\n" +
             "/login - Effettua il login per Myrror\n" +
             "/survey - Inizia il questionario\n" +
@@ -48,8 +50,11 @@ public class HORmessages implements LoggerInterface {
     static String MESSAGE_ACTIVITIES_ERROR = "Errore nell'input delle attività.";
     static String MESSAGE_ACTIVITIES_RESET = "Attività resettate.";
     static String MESSAGE_ACTIVITIES_SAVED = "Attività salvate.";
-    static String MESSAGE_REFERENCES_NON_COMPLETE = "Impossibile suggerire un evento, controlla se hai effettuato il login e fornisci posizione e/o questionario.";
+    static String MESSAGE_REFERENCES_NON_COMPLETE = "Impossibile suggerire un evento, " +
+            "controlla se hai impostato il tuo contesto (/setcontext) e fornito la tua posizione (/setlocation)" +
+            " e/o preferenze (/buildprofile).";
     static String MESSAGE_NO_ACTIVITY = "Nessuna attività da suggerire.";
+    static String MESSAGE_ITEM_VOTED = "Item votato.";
     static String MESSAGE_MISSING_COMPANY = "Non so con chi ti trovi, per dirmelo usa il comando /setcompany";
     static String MESSAGE_MISSING_RESTED = "Non so se sei riposato, per dirmelo usa il comando /setrested";
     static String MESSAGE_MISSING_MOOD = "Non so di che umore sei, per dirmelo usa il comando /setmood";
@@ -233,9 +238,8 @@ public class HORmessages implements LoggerInterface {
         // Set each button, you can also use KeyboardButton objects if you need something else than text
         for (String answer : answers) {
             row.add(answer);
-            keyboard.add(row);
-            row = new KeyboardRow();
         }
+        keyboard.add(row);
 
         // Set the keyboard to the markup
         keyboardMarkup.setKeyboard(keyboard);
@@ -268,9 +272,42 @@ public class HORmessages implements LoggerInterface {
         // Set each button, you can also use KeyboardButton objects if you need something else than text
         for (String answer : answers) {
             row.add(answer);
-            keyboard.add(row);
-            row = new KeyboardRow();
         }
+        keyboard.add(row);
+
+        // Set the keyboard to the markup
+        keyboardMarkup.setKeyboard(keyboard);
+
+        return keyboardMarkup;
+    }
+
+    /**
+     * Set keyboard for evaluate item
+     *
+     * @return keyboard for message with answer values
+     */
+    static ReplyKeyboardMarkup setReplyKeyboardLike() {
+
+        // Set answers
+        String[] answers = new String[2];
+        answers[0] = EmojiParser.parseToUnicode(":thumbsup:");
+        answers[1] = EmojiParser.parseToUnicode(":thumbsdown:");
+
+        // Create ReplyKeyboardMarkup object
+        ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
+        keyboardMarkup.setResizeKeyboard(true);
+
+        // Create the keyboard (list of keyboard rows)
+        List<KeyboardRow> keyboard = new ArrayList<>();
+
+        // Create a keyboard row
+        KeyboardRow row = new KeyboardRow();
+
+        // Set each button, you can also use KeyboardButton objects if you need something else than text
+        for (String answer : answers) {
+            row.add(answer);
+        }
+        keyboard.add(row);
 
         // Set the keyboard to the markup
         keyboardMarkup.setKeyboard(keyboard);

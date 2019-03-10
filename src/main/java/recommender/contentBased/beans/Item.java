@@ -20,6 +20,8 @@ public class Item implements Comparable<Item>  {
     private float score;
     private boolean recommended;
     private int recommenderType;
+    private boolean liked;
+    private long interactionTime;
 
     /**
      * Constructor of the item
@@ -176,6 +178,38 @@ public class Item implements Comparable<Item>  {
         this.recommenderType = recommenderType;
     }
 
+    /**
+     * Check if the item is liked by user
+     * @return boolean flag
+     */
+    public boolean isLiked() {
+        return liked;
+    }
+
+    /**
+     * Set item preference about recommend item
+     * @param liked boolean flag
+     */
+    public void setLiked(boolean liked) {
+        this.liked = liked;
+    }
+
+    /**
+     * Get time when user has liked an item
+     * @return long representing stop time
+     */
+    public long getInteractionTime() {
+        return interactionTime;
+    }
+
+    /**
+     * Set time when user starts recommend and stop when user liked an item
+     * @param interactionTime representing time in millis
+     */
+    public void setInteractionTime(long interactionTime) {
+        this.interactionTime = interactionTime;
+    }
+
     public int compareTo(Item o) {
         // Cannot use doubleToRawLongBits because of possibility of NaNs.
         long thisBits    = Double.doubleToLongBits(this.score);
@@ -195,6 +229,10 @@ public class Item implements Comparable<Item>  {
                 "\nSito: " + website + "\nTelefono: +39 " +  phone;
     }
 
+    /**
+     * Build stars to show into recommend item message
+     * @return a list of stars :D
+     */
     private String getReviewsStar() {
         String stars = ":star:";
         StringBuilder sb = new StringBuilder();

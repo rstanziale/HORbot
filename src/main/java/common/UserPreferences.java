@@ -1,12 +1,13 @@
 package common;
 
+import ontology.beans.facets.Ontology;
+import recommender.contentBased.beans.Item;
 import recommender.contextAware.beans.UserContext;
 import survey.context.beans.Location;
 import survey.context.sevices.SurveyContext;
 import survey.question.services.Survey;
-import ontology.beans.facets.Ontology;
-import recommender.contentBased.beans.Item;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -23,6 +24,8 @@ public class UserPreferences {
     private Location location;
     private UserContext userContext;
     private List<Item> recommendPOI;
+    private boolean myrrorUsed;
+    private long startRecommendTime;
 
     /**
      * Constructor of the UserPreferences
@@ -33,6 +36,7 @@ public class UserPreferences {
     public UserPreferences(String questionPath, String contextsPath, String activitiesPath) {
         this.survey = new Survey(questionPath);
         this.surveyContext = new SurveyContext(contextsPath, activitiesPath);
+        this.recommendPOI = new ArrayList<>();
     }
 
     /**
@@ -116,7 +120,39 @@ public class UserPreferences {
     }
 
     /**
-     * Get the first non recommended Item
+     * Check if the user has used Myrror
+     * @return boolean flag
+     */
+    public boolean isMyrrorUsed() {
+        return myrrorUsed;
+    }
+
+    /**
+     * Set flag if the user has used Myrror
+     * @param myrrorUsed true if user has used Myror, else false
+     */
+    public void setMyrrorUsed(boolean myrrorUsed) {
+        this.myrrorUsed = myrrorUsed;
+    }
+
+    /**
+     * Get time when user starts to use recommender system
+     * @return long representing start time
+     */
+    public long getStartRecommendTime() {
+        return startRecommendTime;
+    }
+
+    /**
+     * Set time when user starts to use recommender system
+     * @param startRecommendTime representing start time
+     */
+    public void setStartRecommendTime(long startRecommendTime) {
+        this.startRecommendTime = startRecommendTime;
+    }
+
+    /**
+     * Get the first non recommended Item and set it as recommended
      * @return First Item non recommended to the user
      */
     public Item getRecommendPOI() {
@@ -137,18 +173,84 @@ public class UserPreferences {
     }
 
     /**
+     * Get last recommend item to user
+     * @return Last Item recommended to the user
+     */
+    public Item getLastRecommendPOI() {
+        Item item = null;
+        int index = 0;
+        boolean value = true;
+
+        while (value && index < this.recommendPOI.size()) {
+            item = this.recommendPOI.get(index);
+            Item nextItem = (index + 1 < this.recommendPOI.size())
+                    ? this.recommendPOI.get(index + 1)
+                    : this.recommendPOI.get(this.recommendPOI.size() - 1);
+            if (item.isRecommended() && !nextItem.isRecommended()) {
+                value = false;
+            }
+            index++;
+        }
+
+        return item;
+    }
+
+    /**
      * Check if the UserPreferences are complete before recommend an item
      * @return boolean flag
      */
     public boolean isComplete() {
-        return this.location != null && this.surveyContext != null && this.ontology != null;
+        return this.location != null && this.surveyContext.isComplete() && this.userContext != null;
     }
 
     /**
-     * Set recommendPOI given by Lucen search
+     * Set recommendPOI given by Lucene search
      * @param recommendPOI List of Item
      */
     public void setRecommendPOI(List<Item> recommendPOI) {
-        this.recommendPOI = recommendPOI;
+        boolean flag = false;
+        int index = 0;
+
+        while (!flag && index < recommendPOI.size()) {
+            if (this.addRecommendPOI(recommendPOI.get(index))) {
+                flag = true;
+            }
+            index++;
+        }
+    }
+
+    /**
+     * Add an item to recommend item list
+     * @param item representing recommend item
+     * @return boolean flag
+     */
+    private boolean addRecommendPOI(Item item) {
+        boolean flag = false;
+
+        if (!this.checkItemInRecommendList(item)) {
+            this.recommendPOI.add(item);
+            flag = true;
+        }
+
+        return flag;
+    }
+
+    /**
+     * Check if an item is present in recommend item list
+     * @param item representing recommend item
+     * @return boolean flag
+     */
+    private boolean checkItemInRecommendList(Item item) {
+        boolean flag = false;
+        int index = 0;
+
+        while (!flag && index < this.recommendPOI.size()) {
+            if (item.getName().equals(this.recommendPOI.get(index).getName())) {
+                flag = true;
+            }
+            index++;
+        }
+
+        return flag;
     }
 }

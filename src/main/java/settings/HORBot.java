@@ -49,7 +49,6 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                                 "/activities.txt"));
 
                 this.messageHandler.initializeUser(user_id);
-
             }
 
             // Set chat ID
@@ -76,6 +75,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                 } else {
                     sendDocument = (SendDocument) message;
                     sendDocument.setChatId(sender_id);
+                    sendDocument.setDocument(Utils.createLogFile(userPreferences));
                     execute(sendDocument);
                 }
             } catch(TelegramApiException e){

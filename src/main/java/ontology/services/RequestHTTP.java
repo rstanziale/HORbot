@@ -103,7 +103,7 @@ public class RequestHTTP {
 
             Map<String, String> parameters = new HashMap<>();
             parameters.put("l", "25");
-            parameters.put("fromDate", fromDate);
+            //parameters.put("fromDate", fromDate);
 
             // URL Request for Myrror API
             String profileURL = "http://90.147.102.243:5000/api/profile/";

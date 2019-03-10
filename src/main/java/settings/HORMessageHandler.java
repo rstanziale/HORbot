@@ -8,7 +8,6 @@ import org.telegram.telegrambots.meta.api.methods.send.SendDocument;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardRemove;
-import recommender.RecommendUtils;
 import recommender.contentBased.beans.Item;
 import recommender.contentBased.services.Recommender;
 import recommender.contextAware.beans.UserContext;
@@ -16,7 +15,6 @@ import recommender.contextAware.services.ContextAwareRecommender;
 import survey.context.beans.Context;
 import survey.context.beans.Location;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -77,7 +75,16 @@ public class HORMessageHandler {
 
             case HORCommands.LOGIN:
                 userCommand.replace(toIntExact(user_id), HORCommands.LOGIN);
+                userPreferences.setStartRecommendTime(0);
                 sendMessage.setText(HORmessages.MESSAGE_LOGIN);
+                break;
+
+            case HORCommands.SET_CONTEXT:
+                userCommand.replace(toIntExact(user_id), HORCommands.SET_CONTEXT);
+                userPreferences.setStartRecommendTime(0);
+                userPreferences.setMyrrorUsed(false);
+                userPreferences.setUserContext(new UserContext());
+                sendMessage.setText(HORmessages.MESSAGE_CONTEXT_START);
                 break;
 
             case HORCommands.SURVEY:
@@ -98,8 +105,8 @@ public class HORMessageHandler {
                 sendMessage.setText(HORmessages.MESSAGE_POSITION);
                 break;
 
-            case HORCommands.SET_CONTEXTS:
-                userCommand.replace(toIntExact(user_id), HORCommands.SET_CONTEXTS);
+            case HORCommands.BUILD_PROFILE:
+                userCommand.replace(toIntExact(user_id), HORCommands.BUILD_PROFILE);
 
                 if (!userPreferences.getSurveyContext().isComplete()) {
                     Context c = userPreferences.getSurveyContext().getNextContext();
@@ -111,13 +118,19 @@ public class HORMessageHandler {
                 }
                 break;
 
+            case HORCommands.SHOW_CONTEXT:
+                userCommand.replace(toIntExact(user_id), HORCommands.SHOW_CONTEXT);
+                sendMessage.setText(userPreferences.getUserContext().toString() + "\n" +
+                        HORmessages.MESSAGE_CONTEXT_EDIT);
+                break;
+
             case HORCommands.SHOW_ANSWER:
                 userCommand.replace(toIntExact(user_id), HORCommands.SHOW_ANSWER);
                 sendMessage.setText(userPreferences.getSurvey().toString());
                 break;
 
-            case HORCommands.SHOW_CONTEXTS:
-                userCommand.replace(toIntExact(user_id), HORCommands.SHOW_CONTEXTS);
+            case HORCommands.SHOW_PROFILE:
+                userCommand.replace(toIntExact(user_id), HORCommands.SHOW_PROFILE);
                 sendMessage.setText(EmojiParser.parseToUnicode(userPreferences.getSurveyContext().showContextChosen()));
                 break;
 
@@ -127,8 +140,8 @@ public class HORMessageHandler {
                 sendMessage.setText(HORmessages.MESSAGE_SURVEY_RESET);
                 break;
 
-            case HORCommands.RESET_CONTEXTS:
-                userCommand.replace(toIntExact(user_id), HORCommands.RESET_CONTEXTS);
+            case HORCommands.RESET_PROFILE:
+                userCommand.replace(toIntExact(user_id), HORCommands.RESET_PROFILE);
 
                 for (Context c : userPreferences.getSurveyContext().getSurveyValues()) {
                     c.resetCheckValues();
@@ -136,38 +149,25 @@ public class HORMessageHandler {
                 sendMessage.setText(HORmessages.MESSAGE_ACTIVITIES_RESET);
                 break;
 
-            case HORCommands.GET_RECOMMEND:
+            case HORCommands.RECOMMEND:
                 try {
                     if (userPreferences.isComplete()) {
-                        UserContext userContext;
-                        if (userPreferences.getUserContext() == null) {
-                            userContext = new UserContext(userPreferences.getOntology());
-                        } else {
-                            userContext = userPreferences.getUserContext();
-                        }
-                        userPreferences.setUserContext(userContext);
+                        userPreferences.setStartRecommendTime(System.currentTimeMillis());
+                        UserContext userContext = userPreferences.getUserContext();
                         int checkUserContext = ContextAwareRecommender.checkValuesUserContext(userContext);
 
                         if (checkUserContext == 0) {
                             Location location = userPreferences.getLocation();
                             this.initRecommender(location);
 
-                            int recommendType = RecommendUtils.getRecommendType();
-                            if(!userPreferences.checkListRecommendPOI()) {
-                                // TODO: check this logic for chose recommend type
-                                String query = RecommendUtils.generateQueryAccordingRecommendType(
-                                        userPreferences,
-                                        userContext,
-                                        recommendType);
-                                userPreferences.setRecommendPOI(this.getRecommender(location)
-                                                .recommend(query, location));
-                            }
+                            userPreferences.setRecommendPOI(this.getRecommender(location)
+                                            .recommend(userPreferences, userContext, location));
 
                             String text;
-                            if (userPreferences.getRecommendPOI() != null) {
-                                Item i = userPreferences.getRecommendPOI();
-                                i.setRecommenderType(recommendType);
-                                text = i.toString();
+                            Item item = userPreferences.getRecommendPOI();
+                            if (item != null) {
+                                text = item.toString();
+                                sendMessage.setReplyMarkup(HORmessages.setReplyKeyboardLike());
                             } else {
                                 text = HORmessages.MESSAGE_NO_ACTIVITY;
                             }
@@ -222,13 +222,22 @@ public class HORMessageHandler {
                 break;
 
             case HORCommands.LOGFILE:
-                this.sendDocUploadingAFile(sendDocument,
-                        Utils.createLogFile(user_id, userPreferences));
+                sendDocument.setCaption("Users log file.");
                 break;
 
             default:
-                sendMessage.setText(HORmessages.UNKNOWN_COMMAND + received_text);
                 noCommand = true;
+                if (received_text.equals(EmojiParser.parseToUnicode(":thumbsup:"))) {
+                    userCommand.replace(toIntExact(user_id), "voteItem");
+                    Item item = userPreferences.getLastRecommendPOI();
+                    item.setLiked(true);
+                    item.setInteractionTime(System.currentTimeMillis() - userPreferences.getStartRecommendTime());
+                } else if (received_text.equals(EmojiParser.parseToUnicode(":thumbsdown:"))) {
+                    userCommand.replace(toIntExact(user_id), "voteItem");
+                    userPreferences.getLastRecommendPOI().setLiked(false);
+                } else {
+                    sendMessage.setText(HORmessages.UNKNOWN_COMMAND + received_text);
+                }
                 break;
         }
         /*
@@ -243,6 +252,10 @@ public class HORMessageHandler {
                     userCommand.replace(toIntExact(user_id), "unknown");
                     sendMessage.setText(HORmessages.messageLogin(received_text, userPreferences) + "\n" +
                             HORmessages.MESSAGE_LOGIN_COMPLETE);
+                    if (userPreferences.getOntology() != null) {
+                        userPreferences.setMyrrorUsed(true);
+                        userPreferences.setUserContext(new UserContext(userPreferences.getOntology()));
+                    }
                     break;
 
                 case HORCommands.SURVEY:
@@ -269,7 +282,7 @@ public class HORMessageHandler {
                     userCommand.replace(toIntExact(user_id), "unknown");
                     break;
 
-                case HORCommands.SET_CONTEXTS:
+                case HORCommands.BUILD_PROFILE:
                     Context c = userPreferences.getSurveyContext().getNextContext();
                     if (HORmessages.setActivityFlags(c, received_text.split(" "))) {
                         String text = userPreferences.getSurveyContext().isComplete()
@@ -338,10 +351,18 @@ public class HORMessageHandler {
                     sendMessage.setReplyMarkup(keyboardMarkup);
                     userCommand.replace(toIntExact(user_id), "unknown");
                     break;
+
+                case "voteItem":
+                    // Remove keyboard from message
+                    keyboardMarkup = new ReplyKeyboardRemove();
+                    sendMessage.setReplyMarkup(keyboardMarkup);
+                    sendMessage.setText(HORmessages.MESSAGE_ITEM_VOTED);
+                    userCommand.replace(toIntExact(user_id), "unknown");
+                    break;
             }
         }
 
-        if (sendDocument.getDocument() != null) {
+        if (sendDocument.getCaption() != null) {
             return sendDocument;
         } else {
             return sendMessage;
@@ -387,15 +408,5 @@ public class HORMessageHandler {
         return  fromHereToBari < fromHereToTorino
                 ? this.recommenderForBari
                 : this.recommenderForTorino;
-    }
-
-    /**
-     * Generate request for send a preferences log file to user
-     * @param sendDocumentRequest representing document to send to user
-     * @param logFile representing the file to send user
-     */
-    private void sendDocUploadingAFile(SendDocument sendDocumentRequest, File logFile) {
-        sendDocumentRequest.setDocument(logFile);
-        sendDocumentRequest.setCaption("Users log file.");
     }
 }

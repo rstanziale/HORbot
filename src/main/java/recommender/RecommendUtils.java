@@ -64,10 +64,12 @@ public class RecommendUtils {
         Map<String, Integer> fields = new HashMap<>();
 
         for (String s : query.split(" ")) {
-            if (fields.containsKey(s)) {
-                fields.put(s, fields.get(s) + 1);
-            } else {
-                fields.put(s, 1);
+            if (!s.equals("")) {
+                if (fields.containsKey(s)) {
+                    fields.put(s.trim(), fields.get(s) + 1);
+                } else {
+                    fields.put(s.trim(), 1);
+                }
             }
         }
 

@@ -1,9 +1,10 @@
 package recommender.contextAware.beans;
 
+import ontology.beans.facets.Interest;
 import ontology.beans.facets.Ontology;
+import settings.HORmessages;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
 
 /**
  * Define User Context class
@@ -17,6 +18,7 @@ public class UserContext {
     private Boolean rested; // True for rested, false for tired
     private Boolean mood; // True for good humor, false for bad humor
     private Boolean activity; // True for activity done, false for activity not done
+    private List<String> interests;
 
     /**
      * Constructor of context
@@ -53,6 +55,17 @@ public class UserContext {
                     .getSleep().get(ontology.getPhysicalStates().getSleep().size() - 1)
                     .getMinutesAsleep() >= 360; // 6 hours for rested
         }
+        if (ontology.getInterests().size() > 0) {
+            this.interests = new ArrayList<>();
+            this.setPreferencesMapped(ontology.getInterests());
+        }
+    }
+
+    public UserContext() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        this.week = ((calendar.get(Calendar.DAY_OF_WEEK) >= Calendar.MONDAY) &&
+                (calendar.get(Calendar.DAY_OF_WEEK) <= Calendar.FRIDAY));
     }
 
     /**
@@ -125,5 +138,44 @@ public class UserContext {
      */
     public void setActivity(boolean activity) {
         this.activity = activity;
+    }
+
+    /**
+     * Get Myrror interests mapped with Yelp categories
+     * @return a list of interests
+     */
+    public Collection<String> getPreferencesMapped() {
+        return this.interests;
+    }
+
+    @Override
+    public String toString() {
+        String company = "Amici".equals(this.company) ?  "Sei in compagnia di amici"
+                : "Famiglia/Fidanzata-o".equals(this.company) ? "Sei in compagnia di Famiglia/Fidanzata-o"
+                : "Colleghi".equals(this.company) ? "Sei in compagnia di colleghi"
+                : "Non so con chi sei";
+        String rested = this.rested == null ? "Non so se sei riposato" : this.rested ? "Sei riposato" : "Non sei riposato";
+        String mood = this.mood == null ? "Non so se di che umore sei" : this.mood ? "Sei di buon umore" : "Non sei ddi bon umore";
+        String activity = this.activity == null ? "Non so se hai fatto attività fisica" : this.activity ? "Hai fatto attività fisica" : "Non hai fatto attività fisica";
+
+        return "Il tuo contesto risulta: \n" +
+                " - " + company + "\n" +
+                " - " + rested + "\n" +
+                " - " + mood + "\n" +
+                " - " + activity;
+    }
+
+    /**
+     * Mapping user Myrror interests with Yelp categories
+     * @param interests representing user Myrorr interests
+     */
+    private void setPreferencesMapped(List<Interest> interests) {
+        for (Interest interest : interests) {
+            for (String activity : HORmessages.TAGS.keySet()) {
+                if (activity.contains(interest.getValue())) {
+                    this.interests.add(HORmessages.TAGS.get(activity));
+                }
+            }
+        }
     }
 }
