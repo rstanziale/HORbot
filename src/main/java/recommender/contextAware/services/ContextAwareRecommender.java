@@ -1,7 +1,7 @@
 package recommender.contextAware.services;
 
 import recommender.contextAware.beans.UserContext;
-import settings.HORmessages;
+import settings.HORMessages;
 import survey.context.beans.Activity;
 import survey.context.beans.Context;
 
@@ -88,7 +88,7 @@ public class ContextAwareRecommender {
         if (context != null) {
             for (Activity a : context.getActivities()) {
                 if (a.isChecked()) {
-                    query = query.concat(HORmessages.TAGS.get(a.getActivityName()) + " ");
+                    query = query.concat(HORMessages.TAGS.get(a.getActivityName()) + " ");
                 }
             }
         }

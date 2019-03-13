@@ -2,7 +2,7 @@ package recommender.contextAware.beans;
 
 import ontology.beans.facets.Interest;
 import ontology.beans.facets.Ontology;
-import settings.HORmessages;
+import settings.HORMessages;
 
 import java.util.*;
 
@@ -169,7 +169,7 @@ public class UserContext {
                 : "Colleghi".equals(this.company) ? "Sei in compagnia di colleghi"
                 : "Non so con chi sei";
         String rested = this.rested == null ? "Non so se sei riposato" : this.rested ? "Sei riposato" : "Non sei riposato";
-        String mood = this.mood == null ? "Non so se di che umore sei" : this.mood ? "Sei di buon umore" : "Non sei ddi bon umore";
+        String mood = this.mood == null ? "Non so se di che umore sei" : this.mood ? "Sei di buon umore" : "Non sei di buon umore";
         String activity = this.activity == null ? "Non so se hai fatto attività fisica" : this.activity ? "Hai fatto attività fisica" : "Non hai fatto attività fisica";
 
         return "Il tuo contesto risulta: \n" +
@@ -185,9 +185,9 @@ public class UserContext {
      */
     private void setPreferencesMapped(List<Interest> interests) {
         for (Interest interest : interests) {
-            for (String activity : HORmessages.TAGS.keySet()) {
+            for (String activity : HORMessages.TAGS.keySet()) {
                 if (activity.contains(interest.getValue())) {
-                    this.interests.add(HORmessages.TAGS.get(activity));
+                    this.interests.add(HORMessages.TAGS.get(activity));
                 }
             }
         }

@@ -1,7 +1,7 @@
 package common;
 
 import recommender.contentBased.beans.Item;
-import settings.HORmessages;
+import settings.HORMessages;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -100,7 +100,7 @@ public class Utils {
 
             while ((line = br.readLine()) != null) {
                 // Use comma as separator
-                String[] items = line.split(HORmessages.CSV_SPLIT);
+                String[] items = line.split(HORMessages.CSV_SPLIT);
                 pois.add(new Item(items[0], items[1], items[2], items[3], items[4],
                         items[5], Double.valueOf(items[6]), Integer.valueOf(items[7]),
                         Float.valueOf(items[8]), Float.valueOf(items[9])));

@@ -70,13 +70,13 @@ public class HORMessageHandler {
         switch (received_text) {
             case HORCommands.START:
                 this.userCommand.replace(toIntExact(user_id), HORCommands.START);
-                sendMessage.setText(HORmessages.MESSAGE_START);
+                sendMessage.setText(HORMessages.MESSAGE_START);
                 break;
 
             case HORCommands.LOGIN:
                 userCommand.replace(toIntExact(user_id), HORCommands.LOGIN);
                 userPreferences.setStartRecommendTime(0);
-                sendMessage.setText(HORmessages.MESSAGE_LOGIN);
+                sendMessage.setText(HORMessages.MESSAGE_LOGIN);
                 break;
 
             case HORCommands.SET_CONTEXT:
@@ -84,25 +84,25 @@ public class HORMessageHandler {
                 userPreferences.setStartRecommendTime(0);
                 userPreferences.setMyrrorUsed(false);
                 userPreferences.setUserContext(new UserContext());
-                sendMessage.setText(HORmessages.MESSAGE_CONTEXT_START);
+                sendMessage.setText(HORMessages.MESSAGE_CONTEXT_START);
                 break;
 
             case HORCommands.SURVEY:
                 userCommand.replace(toIntExact(user_id), HORCommands.SURVEY);
 
                 if (!userPreferences.getSurvey().isComplete()) {
-                    sendMessage.setText(HORmessages.MESSAGE_SURVEY_START +
+                    sendMessage.setText(HORMessages.MESSAGE_SURVEY_START +
                             userPreferences.getSurvey().getNextQuestion());
                     // Add keyboard to message
-                    sendMessage.setReplyMarkup(HORmessages.setReplyKeyboardForSurvey());
+                    sendMessage.setReplyMarkup(HORMessages.setReplyKeyboardForSurvey());
                 } else {
-                    sendMessage.setText(HORmessages.MESSAGE_SURVEY_ALREADY_COMPLETE);
+                    sendMessage.setText(HORMessages.MESSAGE_SURVEY_ALREADY_COMPLETE);
                 }
                 break;
 
             case HORCommands.SET_LOCATION:
                 userCommand.replace(toIntExact(user_id), HORCommands.SET_LOCATION);
-                sendMessage.setText(HORmessages.MESSAGE_POSITION);
+                sendMessage.setText(HORMessages.MESSAGE_POSITION);
                 break;
 
             case HORCommands.BUILD_PROFILE:
@@ -113,7 +113,7 @@ public class HORMessageHandler {
                     sendMessage.setText(EmojiParser.parseToUnicode(c.toString()))
                             .setParseMode("markdown");
                 } else {
-                    sendMessage.setText(HORmessages.MESSAGE_ACTIVITIES_CHOSEN);
+                    sendMessage.setText(HORMessages.MESSAGE_ACTIVITIES_CHOSEN);
                     userCommand.replace(toIntExact(user_id), "unknown");
                 }
                 break;
@@ -121,7 +121,7 @@ public class HORMessageHandler {
             case HORCommands.SHOW_CONTEXT:
                 userCommand.replace(toIntExact(user_id), HORCommands.SHOW_CONTEXT);
                 sendMessage.setText(userPreferences.getUserContext().toString() + "\n" +
-                        HORmessages.MESSAGE_CONTEXT_EDIT);
+                        HORMessages.MESSAGE_CONTEXT_EDIT);
                 break;
 
             case HORCommands.SHOW_ANSWER:
@@ -137,7 +137,7 @@ public class HORMessageHandler {
             case HORCommands.RESET_ANSWER:
                 userCommand.replace(toIntExact(user_id), HORCommands.RESET_ANSWER);
                 userPreferences.getSurvey().resetAnswers();
-                sendMessage.setText(HORmessages.MESSAGE_SURVEY_RESET);
+                sendMessage.setText(HORMessages.MESSAGE_SURVEY_RESET);
                 break;
 
             case HORCommands.RESET_PROFILE:
@@ -146,7 +146,7 @@ public class HORMessageHandler {
                 for (Context c : userPreferences.getSurveyContext().getSurveyValues()) {
                     c.resetCheckValues();
                 }
-                sendMessage.setText(HORmessages.MESSAGE_ACTIVITIES_RESET);
+                sendMessage.setText(HORMessages.MESSAGE_ACTIVITIES_RESET);
                 break;
 
             case HORCommands.RECOMMEND:
@@ -167,24 +167,24 @@ public class HORMessageHandler {
                             Item item = userPreferences.getRecommendPOI();
                             if (item != null) {
                                 text = item.toString();
-                                sendMessage.setReplyMarkup(HORmessages.setReplyKeyboardLike());
+                                sendMessage.setReplyMarkup(HORMessages.setReplyKeyboardLike());
                             } else {
-                                text = HORmessages.MESSAGE_NO_ACTIVITY;
+                                text = HORMessages.MESSAGE_NO_ACTIVITY;
                             }
 
                             sendMessage.setText(EmojiParser.parseToUnicode(text));
                         } else if (checkUserContext == 1) {
-                            sendMessage.setText(HORmessages.MESSAGE_MISSING_COMPANY);
+                            sendMessage.setText(HORMessages.MESSAGE_MISSING_COMPANY);
                         } else if (checkUserContext == 2) {
-                            sendMessage.setText(HORmessages.MESSAGE_MISSING_RESTED);
+                            sendMessage.setText(HORMessages.MESSAGE_MISSING_RESTED);
                         } else if (checkUserContext == 3) {
-                            sendMessage.setText(HORmessages.MESSAGE_MISSING_MOOD);
+                            sendMessage.setText(HORMessages.MESSAGE_MISSING_MOOD);
                         } else if (checkUserContext == 4) {
-                            sendMessage.setText(HORmessages.MESSAGE_MISSING_ACTIVITY);
+                            sendMessage.setText(HORMessages.MESSAGE_MISSING_ACTIVITY);
                         }
 
                     } else {
-                        sendMessage.setText(HORmessages.MESSAGE_REFERENCES_NON_COMPLETE);
+                        sendMessage.setText(HORMessages.MESSAGE_REFERENCES_NON_COMPLETE);
                     }
                 } catch (IOException | ParseException e) {
                     e.printStackTrace();
@@ -194,31 +194,31 @@ public class HORMessageHandler {
             case HORCommands.SET_COMPANY:
                 userCommand.replace(toIntExact(user_id), HORCommands.SET_COMPANY);
                 // Add keyboard to message
-                sendMessage.setReplyMarkup(HORmessages.setReplyKeyboardForCompany());
-                sendMessage.setText(HORmessages.MESSAGE_COMPANY);
+                sendMessage.setReplyMarkup(HORMessages.setReplyKeyboardForCompany());
+                sendMessage.setText(HORMessages.MESSAGE_COMPANY);
                 break;
 
             case HORCommands.SET_RESTED:
                 userCommand.replace(toIntExact(user_id), HORCommands.SET_RESTED);
-                sendMessage.setReplyMarkup(HORmessages.setReplyKeyboardBoolean());
-                sendMessage.setText(HORmessages.MESSAGE_RESTED);
+                sendMessage.setReplyMarkup(HORMessages.setReplyKeyboardBoolean());
+                sendMessage.setText(HORMessages.MESSAGE_RESTED);
                 break;
 
             case HORCommands.SET_MOOD:
                 userCommand.replace(toIntExact(user_id), HORCommands.SET_MOOD);
-                sendMessage.setReplyMarkup(HORmessages.setReplyKeyboardForMood());
-                sendMessage.setText(HORmessages.MESSAGE_MOOD);
+                sendMessage.setReplyMarkup(HORMessages.setReplyKeyboardForMood());
+                sendMessage.setText(HORMessages.MESSAGE_MOOD);
                 break;
 
             case HORCommands.SET_ACTIVITY:
                 userCommand.replace(toIntExact(user_id), HORCommands.SET_ACTIVITY);
-                sendMessage.setReplyMarkup(HORmessages.setReplyKeyboardBoolean());
-                sendMessage.setText(HORmessages.MESSAGE_ACTIVITY);
+                sendMessage.setReplyMarkup(HORMessages.setReplyKeyboardBoolean());
+                sendMessage.setText(HORMessages.MESSAGE_ACTIVITY);
                 break;
 
             case HORCommands.HELP:
                 userCommand.replace(toIntExact(user_id), HORCommands.HELP);
-                sendMessage.setText(HORmessages.MESSAGE_HELP);
+                sendMessage.setText(HORMessages.MESSAGE_HELP);
                 break;
 
             case HORCommands.LOGFILE:
@@ -236,7 +236,7 @@ public class HORMessageHandler {
                     userCommand.replace(toIntExact(user_id), "voteItem");
                     userPreferences.getLastRecommendPOI().setLiked(false);
                 } else {
-                    sendMessage.setText(HORmessages.UNKNOWN_COMMAND + received_text);
+                    sendMessage.setText(HORMessages.UNKNOWN_COMMAND + received_text);
                 }
                 break;
         }
@@ -250,8 +250,8 @@ public class HORMessageHandler {
             switch (this.userCommand.get(toIntExact(user_id))) {
                 case HORCommands.LOGIN:
                     userCommand.replace(toIntExact(user_id), "unknown");
-                    sendMessage.setText(HORmessages.messageLogin(received_text, userPreferences) + "\n" +
-                            HORmessages.MESSAGE_LOGIN_COMPLETE);
+                    sendMessage.setText(HORMessages.messageLogin(received_text, userPreferences) + "\n" +
+                            HORMessages.MESSAGE_LOGIN_COMPLETE);
                     if (userPreferences.getOntology() != null) {
                         userPreferences.setMyrrorUsed(true);
                         userPreferences.setUserContext(new UserContext(userPreferences.getOntology()));
@@ -264,9 +264,9 @@ public class HORMessageHandler {
                     if (!userPreferences.getSurvey().isComplete()) {
                         sendMessage.setText(userPreferences.getSurvey().getNextQuestion());
                         // Add keyboard to message
-                        sendMessage.setReplyMarkup(HORmessages.setReplyKeyboardForSurvey());
+                        sendMessage.setReplyMarkup(HORMessages.setReplyKeyboardForSurvey());
                     } else {
-                        sendMessage.setText(HORmessages.MESSAGE_SURVEY_COMPLETE);
+                        sendMessage.setText(HORMessages.MESSAGE_SURVEY_COMPLETE);
 
                         // Remove keyboard from message
                         keyboardMarkup = new ReplyKeyboardRemove();
@@ -278,32 +278,32 @@ public class HORMessageHandler {
                 case HORCommands.SET_LOCATION:
                     Location l = new Location(message.getLocation().getLongitude(), message.getLocation().getLatitude());
                     userPreferences.setLocation(l);
-                    sendMessage.setText(HORmessages.MESSAGE_POSITION_SAVED);
+                    sendMessage.setText(HORMessages.MESSAGE_POSITION_SAVED);
                     userCommand.replace(toIntExact(user_id), "unknown");
                     break;
 
                 case HORCommands.BUILD_PROFILE:
                     Context c = userPreferences.getSurveyContext().getNextContext();
-                    if (HORmessages.setActivityFlags(c, received_text.split(" "))) {
+                    if (HORMessages.setActivityFlags(c, received_text.split(" "))) {
                         String text = userPreferences.getSurveyContext().isComplete()
-                                ? HORmessages.MESSAGE_ACTIVITIES_SAVED
+                                ? HORMessages.MESSAGE_ACTIVITIES_SAVED
                                 : userPreferences.getSurveyContext().getNextContext().toString();
 
                         sendMessage.setText(EmojiParser.parseToUnicode(text))
                                 .setParseMode("markdown");
                     } else {
-                        sendMessage.setText(HORmessages.MESSAGE_ACTIVITIES_ERROR);
+                        sendMessage.setText(HORMessages.MESSAGE_ACTIVITIES_ERROR);
                         userCommand.replace(toIntExact(user_id), "unknown");
                     }
                     break;
 
                 case HORCommands.SET_COMPANY:
-                    if (HORmessages.checkContextCompany(received_text)) {
+                    if (HORMessages.checkContextCompany(received_text)) {
                         userPreferences.getUserContext().setCompany(received_text);
                         userPreferences.addLabelToMyrrorUpdated("Company");
-                        sendMessage.setText(HORmessages.MESSAGE_CONTEXT_UPDATE);
+                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_UPDATE);
                     } else {
-                        sendMessage.setText(HORmessages.MESSAGE_CONTEXT_ERROR);
+                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_ERROR);
                     }
                     // Remove keyboard from message
                     keyboardMarkup = new ReplyKeyboardRemove();
@@ -312,13 +312,13 @@ public class HORMessageHandler {
                     break;
 
                 case HORCommands.SET_RESTED:
-                    if (HORmessages.checkContextBoolean(received_text)) {
+                    if (HORMessages.checkContextBoolean(received_text)) {
                         userPreferences.getUserContext()
                                 .setRested(received_text.equals("Sì"));
                         userPreferences.addLabelToMyrrorUpdated("Rested");
-                        sendMessage.setText(HORmessages.MESSAGE_CONTEXT_UPDATE);
+                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_UPDATE);
                     } else {
-                        sendMessage.setText(HORmessages.MESSAGE_CONTEXT_ERROR);
+                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_ERROR);
                     }
                     // Remove keyboard from message
                     keyboardMarkup = new ReplyKeyboardRemove();
@@ -327,13 +327,13 @@ public class HORMessageHandler {
                     break;
 
                 case HORCommands.SET_ACTIVITY:
-                    if (HORmessages.checkContextBoolean(received_text)) {
+                    if (HORMessages.checkContextBoolean(received_text)) {
                         userPreferences.getUserContext()
                                 .setActivity(received_text.equals("Sì"));
                         userPreferences.addLabelToMyrrorUpdated("Activity");
-                        sendMessage.setText(HORmessages.MESSAGE_CONTEXT_UPDATE);
+                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_UPDATE);
                     } else {
-                        sendMessage.setText(HORmessages.MESSAGE_CONTEXT_ERROR);
+                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_ERROR);
                     }
                     // Remove keyboard from message
                     keyboardMarkup = new ReplyKeyboardRemove();
@@ -342,13 +342,13 @@ public class HORMessageHandler {
                     break;
 
                 case HORCommands.SET_MOOD:
-                    if (HORmessages.checkContextMood(received_text)) {
+                    if (HORMessages.checkContextMood(received_text)) {
                         userPreferences.getUserContext()
                                 .setMood(received_text.equals("Buon umore"));
                         userPreferences.addLabelToMyrrorUpdated("Mood");
-                        sendMessage.setText(HORmessages.MESSAGE_CONTEXT_UPDATE);
+                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_UPDATE);
                     } else {
-                        sendMessage.setText(HORmessages.MESSAGE_CONTEXT_ERROR);
+                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_ERROR);
                     }
                     // Remove keyboard from message
                     keyboardMarkup = new ReplyKeyboardRemove();
@@ -360,7 +360,7 @@ public class HORMessageHandler {
                     // Remove keyboard from message
                     keyboardMarkup = new ReplyKeyboardRemove();
                     sendMessage.setReplyMarkup(keyboardMarkup);
-                    sendMessage.setText(HORmessages.MESSAGE_ITEM_VOTED);
+                    sendMessage.setText(HORMessages.MESSAGE_ITEM_VOTED);
                     userCommand.replace(toIntExact(user_id), "unknown");
                     break;
             }

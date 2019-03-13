@@ -22,7 +22,7 @@ import org.apache.lucene.store.RAMDirectory;
 import recommender.RecommendUtils;
 import recommender.contentBased.beans.Item;
 import recommender.contextAware.beans.UserContext;
-import settings.HORmessages;
+import settings.HORMessages;
 import survey.context.beans.Location;
 
 import java.io.IOException;
@@ -156,6 +156,6 @@ public class Recommender {
      * @return boolean flag
      */
     private boolean isNearbyItem(double lat1, double lat2, double lon1, double lon2) {
-        return Utils.distance(lat1, lat2, lon1, lon2, 0.0, 0.0) < HORmessages.THRESHOLD;
+        return Utils.distance(lat1, lat2, lon1, lon2, 0.0, 0.0) < HORMessages.THRESHOLD;
     }
 }

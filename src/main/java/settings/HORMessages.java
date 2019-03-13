@@ -15,7 +15,7 @@ import java.util.*;
  * @author Roberto B. Stanziale
  * @version 1.0
  */
-public class HORmessages implements LoggerInterface {
+public class HORMessages implements LoggerInterface {
 
     // HOR MESSAGES
     public static int THRESHOLD = 2500;
@@ -30,10 +30,15 @@ public class HORmessages implements LoggerInterface {
     static String MESSAGE_CONTEXT_EDIT = "Per modificare il tuo contesto usa il comando /setcontext";
     static String MESSAGE_HELP = "Puoi utilizzarmi con i seguenti comandi:\n\n" +
             "/login - Effettua il login per Myrror\n" +
-            "/survey - Inizia il questionario\n" +
+            "/setlocation - Invia la posizione\n" +
+            "/setcontext - Imposta il tuo contesto attuale\n" +
+            "/buildprofile - Imposta le tue preferenze\n" +
             "/showanswer - Visualizza le risposte del questionario\n" +
+            "/showprofile - Visualizza le attività scelte\n" +
+            "/showcontext - Visualizza il tuo contesto\n" +
             "/resetanswer - Reimposta le risposte del questionario\n" +
-            "/help - Informazioni sui comandi";
+            "/resetprofile - Reimposta il tuo profilo\n" +
+            "/recommend - Ottieni un suggerimento di attività da svolgere";
     static String MESSAGE_COMPANY = "Con chi sei?";
     static String MESSAGE_RESTED = "Ti senti riposato?";
     static String MESSAGE_ACTIVITY = "Hai fatto molta attività fisica?";
