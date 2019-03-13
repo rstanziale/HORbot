@@ -28,25 +28,25 @@ public class Activity {
     }
 
     /**
+     * Get the activity name
+     * @return String representing the activity name
+     */
+    public String getActivityName() {
+        return activityName;
+    }
+
+    /**
      * Change the activity check value
      */
-    public void setChecked() {
+    void setChecked() {
         this.checked = !this.checked;
     }
 
     /**
      * Reset the checked value
      */
-    public void resetChecked() {
+    void resetChecked() {
         this.checked = false;
-    }
-
-    /**
-     * Get the activity name
-     * @return String representing the activity name
-     */
-    public String getActivityName() {
-        return activityName;
     }
 
     @Override

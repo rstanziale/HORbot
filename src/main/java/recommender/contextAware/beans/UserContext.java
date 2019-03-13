@@ -19,12 +19,14 @@ public class UserContext {
     private Boolean mood; // True for good humor, false for bad humor
     private Boolean activity; // True for activity done, false for activity not done
     private List<String> interests;
+    private List<String> myrrorData;
 
     /**
      * Constructor of context
      * @param ontology get from Myrror
      */
     public UserContext(Ontology ontology) {
+        this.myrrorData = new ArrayList<>();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         this.week = ((calendar.get(Calendar.DAY_OF_WEEK) >= Calendar.MONDAY) &&
@@ -35,6 +37,7 @@ public class UserContext {
                     .getFromActivity()
                     .get(ontology.getBehaviors().getFromActivity().size() - 1)
                     .getNameActivity().equals("veryActive");
+            this.addMyrrorData("Activity");
         }
         if (ontology.getAffects() != null
                 && ontology.getAffects().size() > 0) {
@@ -47,6 +50,7 @@ public class UserContext {
                     || ontology.getAffects()
                             .get(ontology.getAffects().size() - 1)
                             .getEmotion().equals("neutrality");
+            this.addMyrrorData("Mood");
         }
         if (ontology.getPhysicalStates() != null
                 && ontology.getPhysicalStates().getSleep() != null
@@ -54,6 +58,7 @@ public class UserContext {
             this.rested = ontology.getPhysicalStates()
                     .getSleep().get(ontology.getPhysicalStates().getSleep().size() - 1)
                     .getMinutesAsleep() >= 360; // 6 hours for rested
+            this.addMyrrorData("Rested");
         }
         if (ontology.getInterests().size() > 0) {
             this.interests = new ArrayList<>();
@@ -62,6 +67,7 @@ public class UserContext {
     }
 
     public UserContext() {
+        this.myrrorData = new ArrayList<>();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         this.week = ((calendar.get(Calendar.DAY_OF_WEEK) >= Calendar.MONDAY) &&
@@ -148,6 +154,14 @@ public class UserContext {
         return this.interests;
     }
 
+    /**
+     * Get Myrror data returned from Myrror after login
+     * @return a list of String
+     */
+    public List<String> getMyrrorData() {
+        return myrrorData;
+    }
+
     @Override
     public String toString() {
         String company = "Amici".equals(this.company) ?  "Sei in compagnia di amici"
@@ -177,5 +191,13 @@ public class UserContext {
                 }
             }
         }
+    }
+
+    /**
+     * Add a label that identify Myrror data returned after login
+     * @param label representing Myrror facet
+     */
+    private void addMyrrorData(String label) {
+        this.myrrorData.add(label);
     }
 }

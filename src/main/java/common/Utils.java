@@ -128,9 +128,8 @@ public class Utils {
     public static File createLogFile(Map<Integer, UserPreferences>  userPreferences) {
         File logFile = new File("log.csv");
         try (PrintWriter writer = new PrintWriter(logFile)) {
-            StringBuilder sb = new StringBuilder();
             for (long user_id : userPreferences.keySet()) {
-                writer.write(createLogFileByUser(user_id, userPreferences.get(toIntExact(user_id)), sb).toString());
+                writer.write(createLogFileByUser(user_id, userPreferences.get(toIntExact(user_id))));
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -142,33 +141,37 @@ public class Utils {
      * Create a document file of user recommend items
      * @param user_id representing user id
      * @param userPreferences representing user preferences
-     * @param sb StringBuilder to set with user information
-     * @return a StringBuilder to write into file
+     * @return a String to write into file
      */
-    private static StringBuilder createLogFileByUser(long user_id, UserPreferences userPreferences, StringBuilder sb) {
+    private static String createLogFileByUser(long user_id, UserPreferences userPreferences) {
+        StringBuilder sb = new StringBuilder();
         if (userPreferences.checkListRecommendPOI()) {
             int index = 0;
             while (index < userPreferences.getListRecommendPOI().size()) {
                 Item i = (Item)userPreferences.getListRecommendPOI().toArray()[index];
                 if (i.isRecommended()) {
-                    sb.append(user_id);
-                    sb.append(',');
-                    sb.append(userPreferences.isMyrrorUsed());
-                    sb.append(',');
-                    sb.append(i.getName());
-                    sb.append(',');
-                    sb.append(i.getRecommenderType());
-                    sb.append(',');
-                    sb.append(index + 1);
-                    sb.append(',');
-                    sb.append(i.isLiked());
-                    sb.append(',');
-                    sb.append(i.getInteractionTime());
+                    sb.append(user_id); // User id
+                    sb.append(';');
+                    sb.append(userPreferences.isMyrrorUsed()); // True if user did login
+                    sb.append(';');
+                    sb.append(userPreferences.getUserContext().getMyrrorData()); // Data returned after login
+                    sb.append(';');
+                    sb.append(userPreferences.getMyrrorUpdated()); // Data updated by user
+                    sb.append(';');
+                    sb.append(i.getName()); // Recommend item name
+                    sb.append(';');
+                    sb.append(i.getRecommenderType()); // Recommend type
+                    sb.append(';');
+                    sb.append(index + 1); // Index of item in the list of user recommend items
+                    sb.append(';');
+                    sb.append(i.isLiked()); // True if user like it
+                    sb.append(';');
+                    sb.append(i.getInteractionTime()); // Time from start recommend and first like
                     sb.append('\n');
                 }
                 index++;
             }
         }
-        return sb;
+        return sb.toString();
     }
 }

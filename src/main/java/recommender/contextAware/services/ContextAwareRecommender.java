@@ -1,6 +1,5 @@
 package recommender.contextAware.services;
 
-import org.telegram.telegrambots.meta.api.objects.stickers.Sticker;
 import recommender.contextAware.beans.UserContext;
 import settings.HORmessages;
 import survey.context.beans.Activity;

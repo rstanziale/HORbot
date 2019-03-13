@@ -25,6 +25,7 @@ public class UserPreferences {
     private UserContext userContext;
     private List<Item> recommendPOI;
     private boolean myrrorUsed;
+    private List<String> myrrorUpdated;
     private long startRecommendTime;
 
     /**
@@ -37,6 +38,7 @@ public class UserPreferences {
         this.survey = new Survey(questionPath);
         this.surveyContext = new SurveyContext(contextsPath, activitiesPath);
         this.recommendPOI = new ArrayList<>();
+        this.myrrorUpdated = new ArrayList<>();
     }
 
     /**
@@ -104,30 +106,6 @@ public class UserPreferences {
     }
 
     /**
-     * Check if the list of recommend Item is populate
-     * @return boolean flag
-     */
-    public boolean checkListRecommendPOI() {
-        return this.recommendPOI != null;
-    }
-
-    /**
-     * Get list of user recommend POI
-     * @return a collection of Item
-     */
-    public Collection<Item> getListRecommendPOI() {
-        return this.recommendPOI;
-    }
-
-    /**
-     * Check if the user has used Myrror
-     * @return boolean flag
-     */
-    public boolean isMyrrorUsed() {
-        return myrrorUsed;
-    }
-
-    /**
      * Set flag if the user has used Myrror
      * @param myrrorUsed true if user has used Myror, else false
      */
@@ -135,6 +113,13 @@ public class UserPreferences {
         this.myrrorUsed = myrrorUsed;
     }
 
+    /**
+     * Add label that identify context attribute modified by user
+     * @param label representing context attribute
+     */
+    public void addLabelToMyrrorUpdated(String label) {
+        this.myrrorUpdated.add(label);
+    }
     /**
      * Get time when user starts to use recommender system
      * @return long representing start time
@@ -217,6 +202,38 @@ public class UserPreferences {
             }
             index++;
         }
+    }
+
+    /**
+     * Check if the list of recommend Item is populate
+     * @return boolean flag
+     */
+    boolean checkListRecommendPOI() {
+        return this.recommendPOI != null;
+    }
+
+    /**
+     * Get list of user recommend POI
+     * @return a collection of Item
+     */
+    Collection<Item> getListRecommendPOI() {
+        return this.recommendPOI;
+    }
+
+    /**
+     * Check if the user has used Myrror
+     * @return boolean flag
+     */
+    boolean isMyrrorUsed() {
+        return myrrorUsed;
+    }
+
+    /**
+     * Get list of context attributes updated by user
+     * @return list of String
+     */
+    List<String> getMyrrorUpdated() {
+        return this.myrrorUpdated;
     }
 
     /**

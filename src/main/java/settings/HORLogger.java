@@ -10,7 +10,7 @@ public class HORLogger {
      * @param user_id of the user
      * @return message log
      */
-    public String logUserInfo(String first_name, String last_name, String user_name, String user_id) {
+    String logUserInfo(String first_name, String last_name, String user_name, String user_id) {
         return "Message from " + first_name + " " + last_name
                 + " (username = " + user_name + " + id = " + user_id + ").";
     }

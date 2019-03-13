@@ -47,7 +47,7 @@ public class HORMessageHandler {
      * Initialize user command
      * @param user_id representing user id
      */
-    public void initializeUser(long user_id) {
+    void initializeUser(long user_id) {
         this.userCommand.put(toIntExact(user_id), "unknown");
     }
 
@@ -58,7 +58,7 @@ public class HORMessageHandler {
      * @param message representing received message from user
      * @return a text message or a document message
      */
-    public Object setMessage(long user_id,
+    Object setMessage(long user_id,
                              UserPreferences userPreferences,
                              Message message) {
         String received_text = message.hasText() ? message.getText() : "";
@@ -300,6 +300,7 @@ public class HORMessageHandler {
                 case HORCommands.SET_COMPANY:
                     if (HORmessages.checkContextCompany(received_text)) {
                         userPreferences.getUserContext().setCompany(received_text);
+                        userPreferences.addLabelToMyrrorUpdated("Company");
                         sendMessage.setText(HORmessages.MESSAGE_CONTEXT_UPDATE);
                     } else {
                         sendMessage.setText(HORmessages.MESSAGE_CONTEXT_ERROR);
@@ -314,6 +315,7 @@ public class HORMessageHandler {
                     if (HORmessages.checkContextBoolean(received_text)) {
                         userPreferences.getUserContext()
                                 .setRested(received_text.equals("Sì"));
+                        userPreferences.addLabelToMyrrorUpdated("Rested");
                         sendMessage.setText(HORmessages.MESSAGE_CONTEXT_UPDATE);
                     } else {
                         sendMessage.setText(HORmessages.MESSAGE_CONTEXT_ERROR);
@@ -328,6 +330,7 @@ public class HORMessageHandler {
                     if (HORmessages.checkContextBoolean(received_text)) {
                         userPreferences.getUserContext()
                                 .setActivity(received_text.equals("Sì"));
+                        userPreferences.addLabelToMyrrorUpdated("Activity");
                         sendMessage.setText(HORmessages.MESSAGE_CONTEXT_UPDATE);
                     } else {
                         sendMessage.setText(HORmessages.MESSAGE_CONTEXT_ERROR);
@@ -342,6 +345,7 @@ public class HORMessageHandler {
                     if (HORmessages.checkContextMood(received_text)) {
                         userPreferences.getUserContext()
                                 .setMood(received_text.equals("Buon umore"));
+                        userPreferences.addLabelToMyrrorUpdated("Mood");
                         sendMessage.setText(HORmessages.MESSAGE_CONTEXT_UPDATE);
                     } else {
                         sendMessage.setText(HORmessages.MESSAGE_CONTEXT_ERROR);
