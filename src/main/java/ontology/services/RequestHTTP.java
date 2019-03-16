@@ -102,8 +102,8 @@ public class RequestHTTP {
             String fromDate = simpleDateFormat.format(new Date(System.currentTimeMillis() - (10 * DAY_IN_MS)));
 
             Map<String, String> parameters = new HashMap<>();
-            parameters.put("l", "25");
-            //parameters.put("fromDate", fromDate);
+            parameters.put("l", "10");
+            parameters.put("fromDate", fromDate);
 
             // URL Request for Myrror API
             String profileURL = "http://90.147.102.243:5000/api/profile/";
@@ -111,6 +111,7 @@ public class RequestHTTP {
             con = (HttpURLConnection) url.openConnection();
 
             con.setRequestProperty("x-access-token", login.getToken());
+            con.setRequestProperty("Content-Length", "300000");
 
             this.ontology = objectMapper.readValue(con.getInputStream(), Ontology.class);
 

@@ -42,11 +42,13 @@ The following is a list of the commands used by the chat bot:
 /login - Effettua il login per Myrror
 /survey - Inizia il questionario
 /setlocation - Invia la posizione
-/setcontexts - Scegli i contesti
+/setcontext - Imposta il tuo contesto attuale
+/buildprofile - Imposta le tue preferenze
 /showanswer - Visualizza le risposte del questionario
-/showcontexts - Visualizza le attività scelte
+/showprofile - Visualizza le attività scelte
+/showcontext - Visualizza il tuo contesto
 /resetanswer - Reimposta le risposte del questionario
-/resetcontexts - Reimposta i contesti
-/getrecommend - Ottieni un suggerimento di attività da svolgere
+/resetprofile - Reimposta il tuo profilo
+/recommend - Ottieni un suggerimento di attività da svolgere
 /help - Informazioni sui comandi
 ```

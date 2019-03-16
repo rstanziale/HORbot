@@ -163,16 +163,16 @@ public class HORMessageHandler {
                             userPreferences.setRecommendPOI(this.getRecommender(location)
                                             .recommend(userPreferences, userContext, location));
 
-                            String text;
+                            String textRecommend;
                             Item item = userPreferences.getRecommendPOI();
                             if (item != null) {
-                                text = item.toString();
+                                textRecommend = item.toString();
                                 sendMessage.setReplyMarkup(HORMessages.setReplyKeyboardLike());
                             } else {
-                                text = HORMessages.MESSAGE_NO_ACTIVITY;
+                                textRecommend = HORMessages.MESSAGE_NO_ACTIVITY;
                             }
 
-                            sendMessage.setText(EmojiParser.parseToUnicode(text));
+                            sendMessage.setText(EmojiParser.parseToUnicode(textRecommend));
                         } else if (checkUserContext == 1) {
                             sendMessage.setText(HORMessages.MESSAGE_MISSING_COMPANY);
                         } else if (checkUserContext == 2) {
@@ -250,12 +250,16 @@ public class HORMessageHandler {
             switch (this.userCommand.get(toIntExact(user_id))) {
                 case HORCommands.LOGIN:
                     userCommand.replace(toIntExact(user_id), "unknown");
-                    sendMessage.setText(HORMessages.messageLogin(received_text, userPreferences) + "\n" +
-                            HORMessages.MESSAGE_LOGIN_COMPLETE);
+                    String textLogin = HORMessages.messageLogin(received_text, userPreferences);
                     if (userPreferences.getOntology() != null) {
                         userPreferences.setMyrrorUsed(true);
                         userPreferences.setUserContext(new UserContext(userPreferences.getOntology()));
+                        textLogin = textLogin.concat("\n" + HORMessages.MESSAGE_LOGIN_COMPLETE);
+                    } else {
+                        userPreferences.setMyrrorUsed(false);
+                        userPreferences.setUserContext(new UserContext());
                     }
+                    sendMessage.setText(textLogin);
                     break;
 
                 case HORCommands.SURVEY:
@@ -285,11 +289,11 @@ public class HORMessageHandler {
                 case HORCommands.BUILD_PROFILE:
                     Context c = userPreferences.getSurveyContext().getNextContext();
                     if (HORMessages.setActivityFlags(c, received_text.split(" "))) {
-                        String text = userPreferences.getSurveyContext().isComplete()
+                        String textProfile = userPreferences.getSurveyContext().isComplete()
                                 ? HORMessages.MESSAGE_ACTIVITIES_SAVED
                                 : userPreferences.getSurveyContext().getNextContext().toString();
 
-                        sendMessage.setText(EmojiParser.parseToUnicode(text))
+                        sendMessage.setText(EmojiParser.parseToUnicode(textProfile))
                                 .setParseMode("markdown");
                     } else {
                         sendMessage.setText(HORMessages.MESSAGE_ACTIVITIES_ERROR);
