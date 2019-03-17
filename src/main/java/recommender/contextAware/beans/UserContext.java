@@ -18,6 +18,7 @@ public class UserContext {
     private Boolean rested; // True for rested, false for tired
     private Boolean mood; // True for good humor, false for bad humor
     private Boolean activity; // True for activity done, false for activity not done
+    private boolean interestsUsed; // True if user wants to use interest loaded from Myrror, else false
     private List<String> interests;
     private List<String> myrrorData;
 
@@ -144,6 +145,22 @@ public class UserContext {
      */
     public void setActivity(boolean activity) {
         this.activity = activity;
+    }
+
+    /**
+     * Check if user wants to use interest loaded from Myrror
+     * @return boolean flag
+     */
+    public boolean isInterestsUsed() {
+        return interestsUsed;
+    }
+
+    /**
+     * Set boolean flag if user wants to use interests loaded from Myrror
+     * @param interestsUsed boolean flag
+     */
+    public void setInterestsUsed(boolean interestsUsed) {
+        this.interestsUsed = interestsUsed;
     }
 
     /**

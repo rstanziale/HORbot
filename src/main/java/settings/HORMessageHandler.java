@@ -70,6 +70,7 @@ public class HORMessageHandler {
         switch (received_text) {
             case HORCommands.START:
                 this.userCommand.replace(toIntExact(user_id), HORCommands.START);
+                userPreferences.setContextTime(System.currentTimeMillis());
                 sendMessage.setText(HORMessages.MESSAGE_START);
                 break;
 
@@ -157,6 +158,7 @@ public class HORMessageHandler {
                         int checkUserContext = ContextAwareRecommender.checkValuesUserContext(userContext);
 
                         if (checkUserContext == 0) {
+                            userPreferences.setContextTime(System.currentTimeMillis() - userPreferences.getContextTime());
                             Location location = userPreferences.getLocation();
                             this.initRecommender(location);
 
@@ -216,13 +218,31 @@ public class HORMessageHandler {
                 sendMessage.setText(HORMessages.MESSAGE_ACTIVITY);
                 break;
 
+            case HORCommands.SET_INTERESTS:
+                userCommand.replace(toIntExact(user_id), HORCommands.SET_INTERESTS);
+                sendMessage.setReplyMarkup(HORMessages.setReplyKeyboardBoolean());
+                String textInterests = HORMessages.MESSAGE_INTERESTS;
+                if (userPreferences.getUserContext().getPreferencesMapped() != null) {
+                    String interests = "";
+                    for (String interest : userPreferences.getUserContext().getPreferencesMapped()) {
+                        interests = interests.concat(" - " + interest + "\n");
+                    }
+                    textInterests = textInterests.concat("\n\n" + interests);
+                }
+                sendMessage.setText(textInterests);
+                break;
+
             case HORCommands.HELP:
                 userCommand.replace(toIntExact(user_id), HORCommands.HELP);
                 sendMessage.setText(HORMessages.MESSAGE_HELP);
                 break;
 
             case HORCommands.LOGFILE:
-                sendDocument.setCaption("Users log file.");
+                sendDocument.setCaption(Utils.CAPTION_LOGFILE);
+                break;
+
+            case HORCommands.LOG_PREFERENCES_FILE:
+                sendDocument.setCaption(Utils.CAPTION_PREFERENCES_LOGFILE);
                 break;
 
             default:
@@ -335,6 +355,20 @@ public class HORMessageHandler {
                         userPreferences.getUserContext()
                                 .setActivity(received_text.equals("Sì"));
                         userPreferences.addLabelToMyrrorUpdated("Activity");
+                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_UPDATE);
+                    } else {
+                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_ERROR);
+                    }
+                    // Remove keyboard from message
+                    keyboardMarkup = new ReplyKeyboardRemove();
+                    sendMessage.setReplyMarkup(keyboardMarkup);
+                    userCommand.replace(toIntExact(user_id), "unknown");
+                    break;
+
+                case HORCommands.SET_INTERESTS:
+                    if (HORMessages.checkContextBoolean(received_text)) {
+                        userPreferences.getUserContext()
+                                .setInterestsUsed(received_text.equals("Sì"));
                         sendMessage.setText(HORMessages.MESSAGE_CONTEXT_UPDATE);
                     } else {
                         sendMessage.setText(HORMessages.MESSAGE_CONTEXT_ERROR);

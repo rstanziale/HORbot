@@ -2,6 +2,8 @@ package common;
 
 import recommender.contentBased.beans.Item;
 import settings.HORMessages;
+import survey.context.beans.Activity;
+import survey.context.beans.Context;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -12,6 +14,9 @@ import java.util.Properties;
 import static java.lang.Math.toIntExact;
 
 public class Utils {
+
+    public static final String CAPTION_LOGFILE = "Users log file.";
+    public static final String CAPTION_PREFERENCES_LOGFILE = "Users preferences log file.";
 
     /**
      * Get Bot property
@@ -138,6 +143,23 @@ public class Utils {
     }
 
     /**
+     * Create log file of HOR users about their preferences
+     * @param userPreferences representing users preferences
+     * @return a file to send to admin
+     */
+    public static File createPreferencesLogFile(Map<Integer, UserPreferences>  userPreferences) {
+        File logFile = new File("logPreferences.csv");
+        try (PrintWriter writer = new PrintWriter(logFile)) {
+            for (long user_id : userPreferences.keySet()) {
+                writer.write(createPreferencesLogFileByUser(user_id, userPreferences.get(toIntExact(user_id))));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return logFile;
+    }
+
+    /**
      * Create a document file of user recommend items
      * @param user_id representing user id
      * @param userPreferences representing user preferences
@@ -158,6 +180,8 @@ public class Utils {
                     sb.append(';');
                     sb.append(userPreferences.getMyrrorUpdated()); // Data updated by user
                     sb.append(';');
+                    sb.append(userPreferences.getContextTime()); // Time for set user context
+                    sb.append(';');
                     sb.append(i.getName()); // Recommend item name
                     sb.append(';');
                     sb.append(i.getRecommenderType()); // Recommend type
@@ -171,6 +195,31 @@ public class Utils {
                 }
                 index++;
             }
+        }
+        return sb.toString();
+    }
+
+    /**
+     * Create a document file of user preferences
+     * @param user_id representing user id
+     * @param userPreferences representing user preferences
+     * @return a String to write into file
+     */
+    private static String createPreferencesLogFileByUser(long user_id, UserPreferences userPreferences) {
+        StringBuilder sb = new StringBuilder();
+        for (Context context : userPreferences.getSurveyContext().getSurveyValues()) {
+            List<String> activities = new ArrayList<>();
+            for (Activity activity : context.getActivities()) {
+                if (activity.isChecked()) {
+                    activities.add(activity.getActivityName());
+                }
+            }
+            sb.append(user_id);
+            sb.append(';');
+            sb.append(context.getContextName());
+            sb.append(';');
+            sb.append(activities);
+            sb.append('\n');
         }
         return sb.toString();
     }

@@ -67,9 +67,8 @@ public class ContextAwareRecommender {
             query = query.concat(generateQueryByContext(context) + " ");
         }
 
-
         // If there are interests that it is possible to use with Yelp
-        if (userContext.getPreferencesMapped() != null) {
+        if (userContext.isInterestsUsed() && userContext.getPreferencesMapped() != null) {
             for (String interest : userContext.getPreferencesMapped()) {
                 query = query.concat(interest + " ");
             }

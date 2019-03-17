@@ -26,7 +26,7 @@ public class HORMessages implements LoggerInterface {
     static String MESSAGE_LOGIN = "Inviami le credenziali secondo questo modello:\n\nemail\npassword";
     static String MESSAGE_LOGIN_COMPLETE = "Login completato, visualizza il tuo contesto con /showcontext";
     static String MESSAGE_CONTEXT_START = "Per impostare il tuo contesto usa questi comandi:\n" +
-            " - /setcompany\n - /setrested\n - /setmood\n - /setactivity";
+            " - /setcompany\n - /setrested\n - /setmood\n - /setactivity\n - /setinterests";
     static String MESSAGE_CONTEXT_EDIT = "Per modificare il tuo contesto usa il comando /setcontext";
     static String MESSAGE_HELP = "Puoi utilizzarmi con i seguenti comandi:\n\n" +
             "/login - Effettua il login per Myrror\n" +
@@ -42,6 +42,7 @@ public class HORMessages implements LoggerInterface {
     static String MESSAGE_COMPANY = "Con chi sei?";
     static String MESSAGE_RESTED = "Ti senti riposato?";
     static String MESSAGE_ACTIVITY = "Hai fatto molta attività fisica?";
+    static String MESSAGE_INTERESTS = "Vuoi usare gli interessi caricati da Myrror?";
     static String MESSAGE_MOOD = "Di che umore sei?";
     static String MESSAGE_CONTEXT_UPDATE = "Il tuo contesto è stato aggiornato.";
     static String MESSAGE_CONTEXT_ERROR = "Il valore da inserito non è corretto.";

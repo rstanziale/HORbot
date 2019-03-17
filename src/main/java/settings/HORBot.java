@@ -75,7 +75,11 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                 } else {
                     sendDocument = (SendDocument) message;
                     sendDocument.setChatId(sender_id);
-                    sendDocument.setDocument(Utils.createLogFile(userPreferences));
+                    if (sendDocument.getCaption().equals(Utils.CAPTION_LOGFILE)) {
+                        sendDocument.setDocument(Utils.createLogFile(userPreferences));
+                    } else {
+                        sendDocument.setDocument(Utils.createPreferencesLogFile(userPreferences));
+                    }
                     execute(sendDocument);
                 }
             } catch(TelegramApiException e){

@@ -26,6 +26,7 @@ public class UserPreferences {
     private List<Item> recommendPOI;
     private boolean myrrorUsed;
     private List<String> myrrorUpdated;
+    private long contextTime;
     private long startRecommendTime;
 
     /**
@@ -120,12 +121,29 @@ public class UserPreferences {
     public void addLabelToMyrrorUpdated(String label) {
         this.myrrorUpdated.add(label);
     }
+
     /**
      * Get time when user starts to use recommender system
      * @return long representing start time
      */
     public long getStartRecommendTime() {
         return startRecommendTime;
+    }
+
+    /**
+     * Set time when user starts to set own context
+     * @param contextTime representing start time
+     */
+    public void setContextTime(long contextTime) {
+        this.contextTime = contextTime;
+    }
+
+    /**
+     * Get time when user starts to set own context
+     * @return long representing start time
+     */
+    public long getContextTime() {
+        return contextTime;
     }
 
     /**

@@ -24,6 +24,8 @@ public class HORCommands {
     final static String SET_RESTED = "/setrested";
     final static String SET_MOOD = "/setmood";
     final static String SET_ACTIVITY = "/setactivity";
+    final static String SET_INTERESTS = "/setinterests";
     final static String HELP = "/help";
     final static String LOGFILE = "/logfile";
+    final static String LOG_PREFERENCES_FILE = "/logpreferencesfile";
 }
