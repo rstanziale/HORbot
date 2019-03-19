@@ -22,6 +22,7 @@ public class Item implements Comparable<Item>  {
     private int recommenderType;
     private boolean liked;
     private long interactionTime;
+    private String query;
 
     /**
      * Constructor of the item
@@ -208,6 +209,22 @@ public class Item implements Comparable<Item>  {
      */
     public void setInteractionTime(long interactionTime) {
         this.interactionTime = interactionTime;
+    }
+
+    /**
+     * Get query used for this item
+     * @return String
+     */
+    public String getQuery() {
+        return query;
+    }
+
+    /**
+     * Set query used for this Item
+     * @param query String
+     */
+    public void setQuery(String query) {
+        this.query = query;
     }
 
     public int compareTo(Item o) {

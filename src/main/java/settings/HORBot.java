@@ -27,6 +27,10 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
     // USER PREFERENCES
     private Map<Integer, UserPreferences> userPreferences = new HashMap<>();
 
+    // ADMIN STATE
+    private String adminCommand;
+    private int configuration;
+
     /**
      * Get message from chat and send a new message
      * @param update message received
@@ -60,11 +64,30 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                     user_username,
                     Long.toString(user_id)));
 
+            Object message;
             SendMessage sendMessage;
             SendDocument sendDocument;
-            Object message = messageHandler.setMessage(user_id,
-                    userPreferences.get(toIntExact(user_id)),
-                    update.getMessage());
+            if (update.getMessage().getText().equals(HORCommands.SET_CONF)) {
+                this.adminCommand = HORCommands.SET_CONF;
+                message = new SendMessage();
+                ((SendMessage) message).setText("Imposta configurazione: ");
+            } else if (this.adminCommand.equals(HORCommands.SET_CONF)) {
+                this.configuration = Integer.valueOf(update.getMessage().getText());
+                for (long user: this.userPreferences.keySet()) {
+                    this.userPreferences.get(toIntExact(user)).setConfiguration(this.configuration);
+                }
+                message = new SendMessage();
+                this.adminCommand = "unknown";
+                ((SendMessage) message).setText("Configurazione impostata.");
+            } if (update.getMessage().getText().equals(HORCommands.CONF)) {
+                this.adminCommand = HORCommands.CONF;
+                message = new SendMessage();
+                ((SendMessage) message).setText(String.valueOf(this.configuration));
+            } else {
+                message = messageHandler.setMessage(user_id,
+                        userPreferences.get(toIntExact(user_id)),
+                        update.getMessage());
+            }
 
             try {
                 // Send answer

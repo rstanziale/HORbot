@@ -245,6 +245,10 @@ public class HORMessageHandler {
                 sendDocument.setCaption(Utils.CAPTION_PREFERENCES_LOGFILE);
                 break;
 
+            case HORCommands.SHOW_TAGS:
+                sendMessage.setText(userPreferences.getLastRecommendPOI().getQuery());
+                break;
+
             default:
                 noCommand = true;
                 if (received_text.equals(EmojiParser.parseToUnicode(":thumbsup:"))) {

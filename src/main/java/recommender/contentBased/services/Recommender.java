@@ -80,7 +80,12 @@ public class Recommender {
     public List<Item> recommend(UserPreferences userPreferences,
                                 UserContext userContext,
                                 Location location) throws IOException, ParseException {
-        int recommendType = RecommendUtils.getRecommendType();
+        int recommendType;
+        if (userPreferences.getConfiguration() > 0 && userPreferences.getConfiguration() < 4) {
+            recommendType = userPreferences.getConfiguration();
+        } else {
+            recommendType = RecommendUtils.getRecommendType();
+        }
         String query = RecommendUtils.generateQueryAccordingRecommendType(
                 userPreferences,
                 userContext,
@@ -111,6 +116,7 @@ public class Recommender {
                         Float.valueOf(d.get("lng")));
                 i.setScore(hit.score);
                 i.setRecommenderType(recommendType);
+                i.setQuery(query);
                 items.add(i);
             }
         }

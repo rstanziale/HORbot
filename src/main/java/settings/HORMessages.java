@@ -24,7 +24,8 @@ public class HORMessages implements LoggerInterface {
     static String MESSAGE_START = "Ciao, per cominciare effettua il login per Myrror attraverso il comando /login " +
             "oppure crea il tuo contesto con il comando /setcontext!";
     static String MESSAGE_LOGIN = "Inviami le credenziali secondo questo modello:\n\nemail\npassword";
-    static String MESSAGE_LOGIN_COMPLETE = "Login completato, visualizza il tuo contesto con /showcontext";
+    static String MESSAGE_LOGIN_COMPLETE = "Login completato, visualizza il tuo contesto con /showcontext " +
+            "oppure imposta la tua posizione con /setlocation o imposta le tue preferenze con /buildprofile.";
     static String MESSAGE_CONTEXT_START = "Per impostare il tuo contesto usa questi comandi:\n" +
             " - /setcompany\n - /setrested\n - /setmood\n - /setactivity\n - /setinterests";
     static String MESSAGE_CONTEXT_EDIT = "Per modificare il tuo contesto usa il comando /setcontext";
@@ -48,14 +49,15 @@ public class HORMessages implements LoggerInterface {
     static String MESSAGE_CONTEXT_ERROR = "Il valore da inserito non è corretto.";
     static String MESSAGE_POSITION = "Inviami la tua posizione";
     static String MESSAGE_POSITION_SAVED = "Posizione salvata.";
-    static String MESSAGE_SURVEY_START = "Indica quanto sei d'accordo con le seguenti affermazioni \\n\\n";
+    static String MESSAGE_SURVEY_START = "Indica quanto sei d'accordo con le seguenti affermazioni\n\n";
     static String MESSAGE_SURVEY_ALREADY_COMPLETE = "Questionario già completato.";
     static String MESSAGE_SURVEY_COMPLETE = "Questionario completato.";
     static String MESSAGE_SURVEY_RESET = "Risposte del questionario reimpostate.";
     static String MESSAGE_ACTIVITIES_CHOSEN = "Attività già scelte.";
     static String MESSAGE_ACTIVITIES_ERROR = "Errore nell'input delle attività.";
     static String MESSAGE_ACTIVITIES_RESET = "Attività resettate.";
-    static String MESSAGE_ACTIVITIES_SAVED = "Attività salvate.";
+    static String MESSAGE_ACTIVITIES_SAVED = "Attività salvate. Digita /recommend per ricevere i tuoi suggerimenti " +
+            "o /setcontext per settare il tuo contesto attuale\n";
     static String MESSAGE_REFERENCES_NON_COMPLETE = "Impossibile suggerire un evento, " +
             "controlla se hai impostato il tuo contesto (/setcontext) e fornito la tua posizione (/setlocation)" +
             " e/o preferenze (/buildprofile).";
@@ -331,7 +333,7 @@ public class HORMessages implements LoggerInterface {
     static boolean setActivityFlags(Context context, String[] values) {
         boolean check = true;
 
-        for (int i = 0; i < values.length && values.length == 3; i++) {
+        for (int i = 0; i < values.length && values.length <= 3; i++) {
             try {
                 int value = Integer.parseInt(values[i]);
 

@@ -28,6 +28,7 @@ public class UserPreferences {
     private List<String> myrrorUpdated;
     private long contextTime;
     private long startRecommendTime;
+    private int configuration;
 
     /**
      * Constructor of the UserPreferences
@@ -220,6 +221,22 @@ public class UserPreferences {
             }
             index++;
         }
+    }
+
+    /**
+     * Get system configuration of this user
+     * @return int
+     */
+    public int getConfiguration() {
+        return configuration;
+    }
+
+    /**
+     * Set configuration of this user
+     * @param configuration int
+     */
+    public void setConfiguration(int configuration) {
+        this.configuration = configuration;
     }
 
     /**

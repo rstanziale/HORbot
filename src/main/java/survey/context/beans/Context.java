@@ -90,7 +90,7 @@ public class Context {
             }
         }
 
-        return value == 3;
+        return value > 0 && value <= 3;
     }
 
     /**
@@ -115,7 +115,7 @@ public class Context {
     @Override
     public String toString() {
         String s = "*" + this.getContextName() +
-                "*:\n(Scegli tre attività che ti interessano, separate da uno spazio)\n\n";
+                "*:\n(Scegli massimo tre attività che ti descrivono meglio, separate da uno spazio)\n\n";
         int i = 1;
 
         for (Activity a : activities.values()) {
