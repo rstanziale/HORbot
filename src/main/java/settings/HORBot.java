@@ -67,46 +67,54 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
             Object message;
             SendMessage sendMessage;
             SendDocument sendDocument;
-            if (update.getMessage().getText().equals(HORCommands.SET_CONF)) {
-                this.adminCommand = HORCommands.SET_CONF;
-                message = new SendMessage();
-                ((SendMessage) message).setText("Imposta configurazione: ");
-            } else if (this.adminCommand.equals(HORCommands.SET_CONF)) {
-                this.configuration = Integer.valueOf(update.getMessage().getText());
-                for (long user: this.userPreferences.keySet()) {
-                    this.userPreferences.get(toIntExact(user)).setConfiguration(this.configuration);
-                }
-                message = new SendMessage();
-                this.adminCommand = "unknown";
-                ((SendMessage) message).setText("Configurazione impostata.");
-            } if (update.getMessage().getText().equals(HORCommands.CONF)) {
-                this.adminCommand = HORCommands.CONF;
-                message = new SendMessage();
-                ((SendMessage) message).setText(String.valueOf(this.configuration));
-            } else {
-                message = messageHandler.setMessage(user_id,
-                        userPreferences.get(toIntExact(user_id)),
-                        update.getMessage());
-            }
-
-            try {
-                // Send answer
-                if (message instanceof SendMessage) {
-                    sendMessage = (SendMessage) message;
-                    sendMessage.setChatId(sender_id);
-                    execute(sendMessage);
-                } else {
-                    sendDocument = (SendDocument) message;
-                    sendDocument.setChatId(sender_id);
-                    if (sendDocument.getCaption().equals(Utils.CAPTION_LOGFILE)) {
-                        sendDocument.setDocument(Utils.createLogFile(userPreferences));
-                    } else {
-                        sendDocument.setDocument(Utils.createPreferencesLogFile(userPreferences));
+            if (update.getMessage() != null) {
+                if (update.getMessage() != null &&
+                        update.getMessage().getText() != null &&
+                        update.getMessage().getText().equals(HORCommands.SET_CONF)) {
+                    this.adminCommand = HORCommands.SET_CONF;
+                    message = new SendMessage();
+                    ((SendMessage) message).setText("Imposta configurazione: ");
+                } else if (update.getMessage() != null &&
+                        this.adminCommand != null &&
+                        this.adminCommand.equals(HORCommands.SET_CONF)) {
+                    this.configuration = Integer.valueOf(update.getMessage().getText());
+                    for (long user : this.userPreferences.keySet()) {
+                        this.userPreferences.get(toIntExact(user)).setConfiguration(this.configuration);
                     }
-                    execute(sendDocument);
+                    message = new SendMessage();
+                    this.adminCommand = "unknown";
+                    ((SendMessage) message).setText("Configurazione impostata.");
+                } else if (update.getMessage() != null &&
+                        update.getMessage().getText() != null &&
+                        update.getMessage().getText().equals(HORCommands.CONF)) {
+                    this.adminCommand = HORCommands.CONF;
+                    message = new SendMessage();
+                    ((SendMessage) message).setText(String.valueOf(this.configuration));
+                } else {
+                    message = messageHandler.setMessage(user_id,
+                            userPreferences.get(toIntExact(user_id)),
+                            update.getMessage());
                 }
-            } catch(TelegramApiException e){
-                e.printStackTrace();
+
+                try {
+                    // Send answer
+                    if (message instanceof SendMessage) {
+                        sendMessage = (SendMessage) message;
+                        sendMessage.setChatId(sender_id);
+                        execute(sendMessage);
+                    } else {
+                        sendDocument = (SendDocument) message;
+                        sendDocument.setChatId(sender_id);
+                        if (sendDocument.getCaption().equals(Utils.CAPTION_LOGFILE)) {
+                            sendDocument.setDocument(Utils.createLogFile(userPreferences));
+                        } else {
+                            sendDocument.setDocument(Utils.createPreferencesLogFile(userPreferences));
+                        }
+                        execute(sendDocument);
+                    }
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
