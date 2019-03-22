@@ -29,7 +29,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
 
     // ADMIN STATE
     private String adminCommand;
-    private int configuration;
+    private int configuration = 0;
 
     /**
      * Get message from chat and send a new message
@@ -53,6 +53,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                                 "/activities.txt"));
 
                 this.messageHandler.initializeUser(user_id);
+                this.userPreferences.get(toIntExact(user_id)).setConfiguration(this.configuration);
             }
 
             // Set chat ID
@@ -73,7 +74,11 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                         update.getMessage().getText().equals(HORCommands.SET_CONF)) {
                     this.adminCommand = HORCommands.SET_CONF;
                     message = new SendMessage();
-                    ((SendMessage) message).setText("Imposta configurazione: ");
+                    ((SendMessage) message).setText("Imposta configurazione\n" +
+                            "0 - random\n" +
+                            "1 - Content-based\n" +
+                            "2 - Context-aware pre-filtering\n" +
+                            "3 - Context-aware post-filtering");
                 } else if (update.getMessage() != null &&
                         this.adminCommand != null &&
                         this.adminCommand.equals(HORCommands.SET_CONF)) {
@@ -105,10 +110,16 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                     } else {
                         sendDocument = (SendDocument) message;
                         sendDocument.setChatId(sender_id);
-                        if (sendDocument.getCaption().equals(Utils.CAPTION_LOGFILE)) {
-                            sendDocument.setDocument(Utils.createLogFile(userPreferences));
-                        } else {
-                            sendDocument.setDocument(Utils.createPreferencesLogFile(userPreferences));
+                        switch (sendDocument.getCaption()) {
+                            case Utils.CAPTION_LOGFILE:
+                                sendDocument.setDocument(Utils.createLogFile(userPreferences));
+                                break;
+                            case Utils.CAPTION_PREFERENCES_LOGFILE:
+                                sendDocument.setDocument(Utils.createPreferencesLogFile(userPreferences));
+                                break;
+                            case Utils.CAPTION_SURVEY_LOGFILE:
+                                sendDocument.setDocument(Utils.createSurveyLogFile(userPreferences));
+                                break;
                         }
                         execute(sendDocument);
                     }

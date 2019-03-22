@@ -4,6 +4,7 @@ import recommender.contentBased.beans.Item;
 import settings.HORMessages;
 import survey.context.beans.Activity;
 import survey.context.beans.Context;
+import survey.question.beans.Question;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class Utils {
 
     public static final String CAPTION_LOGFILE = "Users log file.";
     public static final String CAPTION_PREFERENCES_LOGFILE = "Users preferences log file.";
+    public static final String CAPTION_SURVEY_LOGFILE = "Users survey log file.";
 
     /**
      * Get Bot property
@@ -160,6 +162,23 @@ public class Utils {
     }
 
     /**
+     * Create log file of HOR users about their survey
+     * @param userPreferences representing users preferences
+     * @return a file to send to admin
+     */
+    public static File createSurveyLogFile(Map<Integer, UserPreferences>  userPreferences) {
+        File logFile = new File("logSurvey.csv");
+        try (PrintWriter writer = new PrintWriter(logFile)) {
+            for (long user_id : userPreferences.keySet()) {
+                writer.write(createSurveyLogFileByUser(user_id, userPreferences.get(toIntExact(user_id))));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return logFile;
+    }
+
+    /**
      * Create a document file of user recommend items
      * @param user_id representing user id
      * @param userPreferences representing user preferences
@@ -219,6 +238,25 @@ public class Utils {
             sb.append(context.getContextName());
             sb.append(';');
             sb.append(activities);
+            sb.append('\n');
+        }
+        return sb.toString();
+    }
+
+    /**
+     * Create a document file of user survey
+     * @param user_id representing user id
+     * @param userPreferences representing user preferences
+     * @return a String to write into file
+     */
+    private static String createSurveyLogFileByUser(long user_id, UserPreferences userPreferences) {
+        StringBuilder sb = new StringBuilder();
+        for (Question question : userPreferences.getSurvey().getSurvey()) {
+            sb.append(user_id);
+            sb.append(';');
+            sb.append(question.getQuestion());
+            sb.append(';');
+            sb.append(question.getAnswer()); // From 1 to 4
             sb.append('\n');
         }
         return sb.toString();

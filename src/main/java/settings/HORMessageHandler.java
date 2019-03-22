@@ -59,8 +59,8 @@ public class HORMessageHandler {
      * @return a text message or a document message
      */
     Object setMessage(long user_id,
-                             UserPreferences userPreferences,
-                             Message message) {
+                      UserPreferences userPreferences,
+                      Message message) {
         String received_text = message.hasText() ? message.getText() : "";
         SendMessage sendMessage = new SendMessage();
         SendDocument sendDocument = new SendDocument();
@@ -83,8 +83,10 @@ public class HORMessageHandler {
             case HORCommands.SET_CONTEXT:
                 userCommand.replace(toIntExact(user_id), HORCommands.SET_CONTEXT);
                 userPreferences.setStartRecommendTime(0);
-                userPreferences.setMyrrorUsed(false);
-                userPreferences.setUserContext(new UserContext());
+                if (!userPreferences.isMyrrorUsed()) {
+                    userPreferences.setMyrrorUsed(false);
+                    userPreferences.setUserContext(new UserContext());
+                }
                 sendMessage.setText(HORMessages.MESSAGE_CONTEXT_START);
                 break;
 
@@ -243,6 +245,10 @@ public class HORMessageHandler {
 
             case HORCommands.LOG_PREFERENCES_FILE:
                 sendDocument.setCaption(Utils.CAPTION_PREFERENCES_LOGFILE);
+                break;
+
+            case HORCommands.LOG_SURVEY_FILE:
+                sendDocument.setCaption(Utils.CAPTION_SURVEY_LOGFILE);
                 break;
 
             case HORCommands.SHOW_TAGS:

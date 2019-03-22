@@ -186,7 +186,7 @@ public class UserContext {
                 : "Colleghi".equals(this.company) ? "Sei in compagnia di colleghi"
                 : "Non so con chi sei";
         String rested = this.rested == null ? "Non so se sei riposato" : this.rested ? "Sei riposato" : "Non sei riposato";
-        String mood = this.mood == null ? "Non so se di che umore sei" : this.mood ? "Sei di buon umore" : "Non sei di buon umore";
+        String mood = this.mood == null ? "Non so di che umore sei" : this.mood ? "Sei di buon umore" : "Non sei di buon umore";
         String activity = this.activity == null ? "Non so se hai fatto attività fisica" : this.activity ? "Hai fatto attività fisica" : "Non hai fatto attività fisica";
 
         return "Il tuo contesto risulta: \n" +

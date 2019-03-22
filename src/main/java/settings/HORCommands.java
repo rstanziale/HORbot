@@ -28,6 +28,7 @@ public class HORCommands {
     final static String HELP = "/help";
     final static String LOGFILE = "/logfile";
     final static String LOG_PREFERENCES_FILE = "/logpreferencesfile";
+    final static String LOG_SURVEY_FILE = "/logsurveyfile";
     final static String SET_CONF = "/setconf";
     final static String CONF = "/conf";
     final static String SHOW_TAGS = "/showtags";

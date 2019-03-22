@@ -240,6 +240,14 @@ public class UserPreferences {
     }
 
     /**
+     * Check if the user has used Myrror
+     * @return boolean flag
+     */
+    public boolean isMyrrorUsed() {
+        return myrrorUsed;
+    }
+
+    /**
      * Check if the list of recommend Item is populate
      * @return boolean flag
      */
@@ -253,14 +261,6 @@ public class UserPreferences {
      */
     Collection<Item> getListRecommendPOI() {
         return this.recommendPOI;
-    }
-
-    /**
-     * Check if the user has used Myrror
-     * @return boolean flag
-     */
-    boolean isMyrrorUsed() {
-        return myrrorUsed;
     }
 
     /**
