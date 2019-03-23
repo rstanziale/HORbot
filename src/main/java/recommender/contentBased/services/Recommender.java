@@ -7,22 +7,20 @@ import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.StringField;
 import org.apache.lucene.document.TextField;
-import org.apache.lucene.index.DirectoryReader;
-import org.apache.lucene.index.IndexReader;
-import org.apache.lucene.index.IndexWriter;
-import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.index.*;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
-import org.apache.lucene.search.IndexSearcher;
-import org.apache.lucene.search.Query;
-import org.apache.lucene.search.ScoreDoc;
-import org.apache.lucene.search.TopDocs;
+import org.apache.lucene.search.*;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.RAMDirectory;
 import recommender.RecommendUtils;
 import recommender.contentBased.beans.Item;
 import recommender.contextAware.beans.UserContext;
+import recommender.graph.GraphRecommender;
+import recommender.graph.GraphSettings;
 import settings.HORMessages;
+import survey.context.beans.Activity;
+import survey.context.beans.Context;
 import survey.context.beans.Location;
 
 import java.io.IOException;
@@ -38,12 +36,14 @@ public class Recommender {
 
     private StandardAnalyzer analyzer;
     private Directory index;
+    private String city;
 
     /**
      * Constructor of Recommender
      * @param pois list of Items
      */
-    public Recommender(List<Item> pois) {
+    public Recommender(List<Item> pois, String city) {
+        this.city = city;
         this.analyzer = new StandardAnalyzer();
         this.index = new RAMDirectory();
         IndexWriterConfig config = new IndexWriterConfig(analyzer);
@@ -81,48 +81,92 @@ public class Recommender {
                                 UserContext userContext,
                                 Location location) throws IOException, ParseException {
         int recommendType;
-        if (userPreferences.getConfiguration() > 0 && userPreferences.getConfiguration() < 4) {
+        if (userPreferences.getConfiguration() > 0 && userPreferences.getConfiguration() <= 4) {
             recommendType = userPreferences.getConfiguration();
         } else {
             recommendType = RecommendUtils.getRecommendType();
         }
-        String query = RecommendUtils.generateQueryAccordingRecommendType(
-                userPreferences,
-                userContext,
-                recommendType);
-        Query q = new QueryParser("tags", analyzer).parse(query);
+        if (recommendType >=0 && recommendType < 4) {
+            String query = RecommendUtils.generateQueryAccordingRecommendType(
+                    userPreferences,
+                    userContext,
+                    recommendType);
+            Query q = new QueryParser("tags", analyzer).parse(query);
 
-        int hitsPerPage = 50;
-        IndexReader reader = DirectoryReader.open(index);
-        IndexSearcher searcher = new IndexSearcher(reader);
+            int hitsPerPage = 50;
+            IndexReader reader = DirectoryReader.open(index);
+            IndexSearcher searcher = new IndexSearcher(reader);
 
-        TopDocs docs = searcher.search(q, hitsPerPage);
-        ScoreDoc[] hits = docs.scoreDocs;
+            TopDocs docs = searcher.search(q, hitsPerPage);
+            ScoreDoc[] hits = docs.scoreDocs;
 
-        Set<Item> items = new TreeSet<>();
-        for (ScoreDoc hit : hits) {
-            int docId = hit.doc;
-            Document d = searcher.doc(docId);
+            Set<Item> items = new TreeSet<>();
+            for (ScoreDoc hit : hits) {
+                int docId = hit.doc;
+                Document d = searcher.doc(docId);
 
-            if (this.isNearbyItem(location.getLatitude(), Float.valueOf(d.get("lat")),
-                    location.getLongitude(), Float.valueOf(d.get("lng")))) {
-                Item i = new Item(d.get("website"),
-                        d.get("name"),
-                        d.get("address"),
-                        d.get("phone"),
-                        d.get("tags"),
-                        Double.valueOf(d.get("ratingAverage")),
-                        Float.valueOf(d.get("lat")),
-                        Float.valueOf(d.get("lng")));
-                i.setScore(hit.score);
-                i.setRecommenderType(recommendType);
-                i.setQuery(query);
-                items.add(i);
+                if (this.isNearbyItem(location.getLatitude(), Float.valueOf(d.get("lat")),
+                        location.getLongitude(), Float.valueOf(d.get("lng")))) {
+                    Item i = new Item(d.get("website"),
+                            d.get("name"),
+                            d.get("address"),
+                            d.get("phone"),
+                            d.get("tags"),
+                            Double.valueOf(d.get("ratingAverage")),
+                            Float.valueOf(d.get("lat")),
+                            Float.valueOf(d.get("lng")));
+                    i.setScore(hit.score);
+                    i.setRecommenderType(recommendType);
+                    i.setQuery(query);
+                    items.add(i);
+                }
             }
-        }
-        reader.close();
+            reader.close();
 
-        return new ArrayList<> (items);
+            return new ArrayList<>(items);
+        } else {
+            GraphSettings gs = new GraphSettings();
+            gs.setCity(this.city);
+
+            Map<String, String[]> contextForGraph = this.setContextForGraphRecommend(userPreferences);
+            gs.setContesto(contextForGraph.keySet().toArray(new String[0]));
+            gs.setHistory(contextForGraph);
+
+            GraphRecommender graph = new GraphRecommender(gs);
+            HashMap<String, Double> map = graph.Pagerank();
+
+            Set<Item> items = new TreeSet<>();
+            for (String contextQuery : map.keySet())  {
+                Term term = new Term("name", contextQuery);
+                Query q = new TermQuery(term);
+
+                int hitsPerPage = 1;
+                IndexReader reader = DirectoryReader.open(index);
+                IndexSearcher searcher = new IndexSearcher(reader);
+
+                TopDocs docs = searcher.search(q, hitsPerPage);
+                ScoreDoc[] hits = docs.scoreDocs;
+                for (ScoreDoc hit : hits) {
+                    int docId = hit.doc;
+                    Document d = searcher.doc(docId);
+                    Item i = new Item(d.get("website"),
+                            d.get("name"),
+                            d.get("address"),
+                            d.get("phone"),
+                            d.get("tags"),
+                            Double.valueOf(d.get("ratingAverage")),
+                            Float.valueOf(d.get("lat")),
+                            Float.valueOf(d.get("lng")));
+                    i.setScore(hit.score);
+                    i.setRecommenderType(recommendType);
+                    i.setQuery(contextQuery);
+                    items.add(i);
+                }
+                reader.close();
+            }
+
+            return new ArrayList<>(items);
+        }
     }
 
     /**
@@ -163,5 +207,24 @@ public class Recommender {
      */
     private boolean isNearbyItem(double lat1, double lat2, double lon1, double lon2) {
         return Utils.distance(lat1, lat2, lon1, lon2, 0.0, 0.0) < HORMessages.THRESHOLD;
+    }
+
+    /**
+     * Set map for graph-based recommend
+     * @param userPreferences representing user preferences
+     * @return a map of context, activities
+     */
+    private Map<String, String[]> setContextForGraphRecommend(UserPreferences userPreferences) {
+        Map<String, String[]> contextForGraph = new HashMap<>();
+        for (Context c : userPreferences.getSurveyContext().getSurveyValues()) {
+            List<String> activities = new ArrayList<>();
+            for (Activity a : c.getActivities()) {
+                if (a.isChecked()) {
+                    Collections.addAll(activities, HORMessages.TAGS.get(a.getActivityName()).split(" "));
+                }
+            }
+            contextForGraph.put(c.getContextName(), activities.toArray(new String[0]));
+        }
+        return contextForGraph;
     }
 }

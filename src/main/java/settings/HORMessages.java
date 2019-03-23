@@ -34,6 +34,7 @@ public class HORMessages implements LoggerInterface {
             "/setlocation - Invia la posizione\n" +
             "/setcontext - Imposta il tuo contesto attuale\n" +
             "/buildprofile - Imposta le tue preferenze\n" +
+            "/survey - Effettua il questionario sulle tue preferenze\n" +
             "/showanswer - Visualizza le risposte del questionario\n" +
             "/showprofile - Visualizza le attività scelte\n" +
             "/showcontext - Visualizza il tuo contesto\n" +

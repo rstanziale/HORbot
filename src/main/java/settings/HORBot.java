@@ -78,7 +78,8 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                             "0 - random\n" +
                             "1 - Content-based\n" +
                             "2 - Context-aware pre-filtering\n" +
-                            "3 - Context-aware post-filtering");
+                            "3 - Context-aware post-filtering\n" +
+                            "4 - Graph-based");
                 } else if (update.getMessage() != null &&
                         this.adminCommand != null &&
                         this.adminCommand.equals(HORCommands.SET_CONF)) {

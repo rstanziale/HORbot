@@ -1,0 +1,192 @@
+Url,Name,Address,Phone,Latitude,Longitude,Category,Price,RatingAverage,TotalReviews
+https://www.yelp.it/biz/da-paolo-bari,'Da Paolo','Via Quintino Sella 13A 70122 Bari','080 5211662',?,?,'Pizzerie; Cucina italiana; Piatti a base di pesce',2,4.5,7
+https://www.yelp.it/biz/frulez-bari,Frulez,'Piazza Umberto I 14 70121 Bari','080 5239827',?,?,'Dolci; Bistrot; Frullati/Succhi/Centrifugati',2,4.5,8
+https://www.yelp.it/biz/antica-gelateria-gentile-bari,'Antica Gelateria Gentile','Piazza Federico II di Svevia 33 70122 Bari','339 1316681',?,?,Gelaterie,1,5,4
+https://www.yelp.it/biz/la-uascezze-bari,'La Uascezze','Vico Sant  Agostino 2 70129 Bari','080 5236023',?,?,'Cucina italiana',2,4.5,5
+https://www.yelp.it/biz/sandrino-bari-2,Sandrino,'Piazza Mercantile 3 70122 Bari','389 5993966',?,?,'Yogurterie; Gelaterie; Dolci',1,5,4
+https://www.yelp.it/biz/shodai-bari,Shodai,'Piazza Giuseppe Massari 23 70122 Bari','080 5283589',?,?,'Cucina giapponese; Sushi bar',4,4,8
+https://www.yelp.it/biz/pizzeria-di-cosimo-bari,'Pizzeria di Cosimo','Via Giovanni Modugno 31 70124 Bari','080 5041513',?,?,'Pizzerie; Panzerotti',1,5,3
+https://www.yelp.it/biz/biancofiore-bari,Biancofiore,'Corso Vittorio Emanuele II 13 70122 Bari','080 5235446',?,?,'Cucina pugliese',2,4,6
+https://www.yelp.it/biz/osteria-sopravento-bari-2,'Osteria Sopravento','Strada Vallisa 56 70122 Bari','335 6301019',?,?,'Cucina italiana; Trattorie',2,4,5
+https://www.yelp.it/biz/martinucci-bari-2,Martinucci,'Piazza Mercantile 3 70122 Bari','080 5211142',?,?,'Dolci; Caffè; Pasticcerie',2,5,3
+https://www.yelp.it/biz/bar-telebari-bari,'Bar Telebari','Giuseppe Fanelli 221/C Via 70019 Bari','080 5020626',?,?,Gelaterie,1,4.5,5
+https://www.yelp.it/biz/gyrosteria-yannis-bari-2,'Gyrosteria Yannis','Via Domenico Nicolai 11 70121 Bari','080 5214797',?,?,'Cucina greca',2,4.5,4
+https://www.yelp.it/biz/osteria-al-gambero-bari,'Osteria Al Gambero','Corso Antonio de Tullio 8 70122 Bari','080 5216018',?,?,'Cucina italiana; Piatti a base di pesce',2,4.5,3
+https://www.yelp.it/biz/eataly-bari,Eataly,'Lungomare Starita 4 70123 Bari',null,?,?,'Cucina italiana',3,4,4
+https://www.yelp.it/biz/ai-2-ghiottoni-bari-2,'AI 2 Ghiottoni','Via Nicolo  Putignani 11B 70122 Bari','080 5232240',?,?,'Cucina italiana; Piatti a base di pesce',3,4,6
+https://www.yelp.it/biz/bari-napoli-bari,'Bari Napoli','Via Piccinni 187 70122 Bari','080 9905452',?,?,'Pizzerie; Cucina napoletana',2,4,8
+https://www.yelp.it/biz/il-rustico-bari,'Il Rustico','Via Quintino Sella 95 70122 Bari','080 5216727',?,?,Pizzerie,1,4.5,4
+https://www.yelp.it/biz/joys-pub-bari,'Joy’s Pub','Corso Sonnino Sidney 137 70121 Bari','080 5542854',?,?,'Cucina irlandese; Arene/Sale da concerto; Pub',1,4.5,3
+https://www.yelp.it/biz/blue-eyes-bari,'Blue Eyes','Via Muciacia 70125 Bari',null,?,?,'Cucina italiana; Bistrot',1,5,2
+https://www.yelp.it/biz/pizzeria-enzo-e-ciro-di-fraddosio-v-c-bari,'Pizzeria Enzo e Ciro di Fraddosio V. C.','Via Imbriani 79 70121 Bari','080 5541535',?,?,Pizzerie,2,4,5
+https://www.yelp.it/biz/napul-e-bari,'Napul’ E','Via Scipione Crisanzio 47 70122 Bari','080 9909934',?,?,Pizzerie,2,5,2
+https://www.yelp.it/biz/matti-brown-bari,'Matti Brown','Piazza del Ferrarese 17 70122 Bari','392 3689925',?,?,Bar,2,5,2
+https://www.yelp.it/biz/la-tana-del-polpo-bari,'La Tana del Polpo','Via Vallisa 50 70122 Bari','080 9753338',?,?,'Cucina italiana',3,4.5,3
+https://www.yelp.it/biz/el-churrasco-bari-2,'El Churrasco','Via Guido Dorso 57 70125 Bari','080 5024367',?,?,'Cucina italiana',2,4.5,3
+https://www.yelp.it/biz/la-cecchina-bari,'La Cecchina','Piazza Mercantile 31 70122 Bari','080 5214147',?,?,'Cucina italiana',2,4.5,4
+https://www.yelp.it/biz/ristopizza-giampaolo-bari,'Ristopizza Giampaolo','Via Francesco Lombardi 18 70122 Bari','080 5238828',?,?,Pizzerie,3,5,3
+https://www.yelp.it/biz/il-gelatiere-bari-3,'Il Gelatiere','Viale Antonio Salandra 37 70124 Bari','080 5424203',?,?,Gelaterie,1,5,2
+https://www.yelp.it/biz/ciclatera-sotto-il-mare-bari,'Ciclatera sotto il Mare','Via Venezia 16 70122 Bari','375 5695737',?,?,'Cocktail bar; Pub; Caffè',2,5,2
+https://www.yelp.it/biz/gasperini-bari,Gasperini,'corso cavour Bari',null,?,?,Gelaterie,1,4.5,2
+https://www.yelp.it/biz/osteria-le-arpie-bari,'Osteria Le Arpie','Vico Arco Del Carmine 1 Bari','080 5217988',?,?,Bistrot,3,4.5,2
+https://www.yelp.it/biz/dublin-house-bari,'Dublin House','Strada Calvani 70125 Bari',null,?,?,'Irish pub',4,4,3
+https://www.yelp.it/biz/pizzeria-da-donato-bari,'Pizzeria Da Donato','Via Francesco Lattanzio 59 70126 Bari','080 5542903',?,?,Pizzerie,2,3.5,5
+'https://www.yelp.it/biz/bilab\%C3\%AC-bari',Bilabì,'Via Adolfo Omodeo 12 70125 Bari','080 8976081',?,?,'Birreria; Panini/Sandwich',2,5,1
+https://www.yelp.it/biz/hagakure-bari,Hagakure,'Via Posca 11 Ex Prol Via Caccuri 70124 Bari','080 5042462',?,?,'Cucina giapponese; Cucina fusion asiatica',2,4.5,2
+https://www.yelp.it/biz/botta-bari,Botta,'Via Gian Giuseppe Carulli 71 70121 Bari','080 5588603',?,?,'Pizzerie; Trattorie; Cucina pugliese',2,4.5,2
+https://www.yelp.it/biz/gadi-bari,Gadi,'Via Niccolò Piccinni 14 70122 Bari',null,?,?,Yogurterie,null,5,1
+https://www.yelp.it/biz/porto-di-bari-bari-2,'Porto di Bari','Molo San Vito 70123 Bari',null,?,?,'Monumenti/Luoghi storici e d interesse',null,4,2
+https://www.yelp.it/biz/tadadatta-pub-bari,'tadadatta pub','via Corsioli 10 Bari',null,?,?,Pub,2,4,2
+https://www.yelp.it/biz/mojiteria-bari-2,Mojiteria,'Via Manfredi Azzarita 2 70124 Bari','392 3608124',?,?,Bar,2,5,1
+https://www.yelp.it/biz/osteria-antichi-sapori-bari,'Osteria Antichi Sapori','Via Re Manfredi 16 70122 Bari','366 1443881',?,?,'Dolci; Piatti a base di pesce; Cucina pugliese',2,4.5,2
+https://www.yelp.it/biz/black-e-white-bari,'Black & White','Piazza Mercantile 77 70122 Bari','080 5217193',?,?,'Cucina italiana',3,4,2
+https://www.yelp.it/biz/osteria-dei-quattro-gatti-bari,'Osteria dei Quattro Gatti','Via Ciasca Cardinale Agostino 17 70124 Bari','080 5043446',?,?,'Cucina pugliese',2,5,1
+https://www.yelp.it/biz/parco-2-giugno-bari,'Parco 2 giugno','Via della Costituente 70125 Bari',null,?,?,Parchi,null,5,1
+https://www.yelp.it/biz/pizzeria-baraonda-bari,'Pizzeria Baraonda','Via Devitofrancesco 29 70124 Bari','329 4372563',?,?,Pizzerie,2,5,1
+https://www.yelp.it/biz/il-rosticciere-bari,'Il Rosticciere','Via Re David Bari',null,?,?,'Cucina italiana',3,5,1
+https://www.yelp.it/biz/cantinero-de-cuba-bari,'Cantinero De Cuba','Via Francesco Lattanzio 14 70126 Bari','080 9640740',?,?,Bar,3,5,1
+https://www.yelp.it/biz/storie-del-vecchio-sud-bari,'Storie del Vecchio Sud','Via Buccari 120 70124 Bari','347 6368837',?,?,Pub,1,5,1
+https://www.yelp.it/biz/perbacco-bari,Perbacco,'Via Francesco Saverio Abbrescia 99 70121 Bari','080 5588563',?,?,'Cucina pugliese',2,5,1
+'https://www.yelp.it/biz/max-caff\%C3\%A9-bari','Max caffé','Via Paolo Lembo 12 70124 Bari','390 805421155',?,?,'Caffè; Caffè/Tè; Caffetteria',1,5,1
+https://www.yelp.it/biz/le-grand-tabu-bari,'Le Grand Tabu’','Via De Rossi 187 70122 Bari','080 5207098',?,?,'Caffè; Bistrot; Cucina mediterranea',1,5,1
+https://www.yelp.it/biz/farmacia-dei-sani-bari,'Farmacia Dei Sani','Via Roberto Da Bari 104 70122 Bari',null,?,?,'Cucina italiana',2,5,1
+https://www.yelp.it/biz/stoppani-gaspare-bari-2,'Stoppani Gaspare','Via Roberto Da Bari 79 70122 Bari','080 5213563',?,?,'Bar; Caffè',1,5,1
+https://www.yelp.it/biz/il-dolcetto-bari,'Il Dolcetto','Via de Rossi 148 70122 Bari','080 9756749',?,?,'Creperie; Dolci; Caffè',1,5,1
+https://www.yelp.it/biz/al-savoia-bari,'Al Savoia','Via Alessandro Maria Calefati 61B 70121 Bari','080 5212525',?,?,'Caffè; Gelaterie',2,5,1
+https://www.yelp.it/biz/mastro-ciccio-bari,'Mastro Ciccio','Corso Vittorio Emanuele II 15 70122 Bari','080 5210001',?,?,'Pizzerie; Panini/Sandwich; Friggitorie',2,5,1
+https://www.yelp.it/biz/parco-don-tonino-bello-bari,'Parco Don Tonino Bello','viale de laurentis 70124 Bari',null,?,?,Parchi,null,5,1
+'https://www.yelp.it/biz/cib\%C3\%B2-bari',Cibò,'Piazza Mercantile 29 70122 Bari','339 7956736',?,?,'Cucina pugliese; Panzerotti',1,5,1
+'https://www.yelp.it/biz/ci\%C3\%A0nna-ci\%C3\%A0nne-bari','Ciànna Ciànne','Vico Corsioli 3 70122 Bari','8052 89382',?,?,'Cucina italiana',null,5,1
+https://www.yelp.it/biz/museo-nicolaiano-bari,'Museo Nicolaiano','Largo Abate Elia 13 70122 Bari',null,?,?,Musei,null,5,1
+https://www.yelp.it/biz/caffe-mozart-bari,'Caffe’ Mozart','Via Melo DA Bari 139 70121 Bari','080 5245015',?,?,Bar,1,4.5,2
+https://www.yelp.it/biz/al-111-bari-2,'Al 111','Corso Vittorio Emanuele II 111 70122 Bari','080 2370669',?,?,'Pizzerie; Piatti a base di pesce; Cucina italiana',1,4,2
+https://www.yelp.it/biz/castello-svevo-bari,'Castello Svevo','Corso Antonio de Tullio 1 70122 Bari','080 5286261',?,?,'Musei; Castelli; Monumenti/Luoghi storici e d interesse',2,3,3
+https://www.yelp.it/biz/dickens-inn-bari,'Dickens’ Inn','Via Demetrio Marin 37 70125 Bari','338 2135506',?,?,'Irish pub',4,3.5,3
+https://www.yelp.it/biz/emozioni-di-gusto-bari,'Emozioni di Gusto','Via Adriatica 170 70128 Bari','071 781170',?,?,'Cocktail bar; Caffetteria',2,5,1
+https://www.yelp.it/biz/bacco-bari,Bacco,'Corso Vittorio Emanuele II 126 70122 Bari','080 5275871',?,?,'Cucina italiana',3,4.5,2
+https://www.yelp.it/biz/opera-bari,Opera,'Via Nicolò Piccinni 151 70122 Bari','340 1774153',?,?,'Piatti a base di pesce; Cucina pugliese',null,3,2
+https://www.yelp.it/biz/sushitao-bari,Sushitao,'Via Giulio Petroni 69C 70124 Bari','080 2082088',?,?,'Cucina giapponese; Sushi bar',2,3,2
+'https://www.yelp.it/biz/tiffany-caff\%C3\%A8-bari','Tiffany Caffè','Via Argiro 137 70121 Bari','080 5232447',?,?,'Bar; Caffè',2,3,2
+https://www.yelp.it/biz/panificio-magda-bari,'Panificio Magda','Via Prospero Petroni 32 70121 Bari','080 5242207',?,?,Panifici,null,3.5,3
+https://www.yelp.it/biz/braceria-signorile-bari,'Braceria Signorile','Via Giulio Petroni 12 70124 Bari','080 5426105',?,?,'Cucina italiana',3,4,2
+https://www.yelp.it/biz/borgo-antico-bari,'Borgo Antico','Via Venezia 41 70122 Bari',null,?,?,'Cucina italiana',2,4,2
+https://www.yelp.it/biz/mastro-ciccio-di-mastrandrea-fabio-bari,'Mastro Ciccio Di Mastrandrea Fabio','Via De Rossi 133 70122 Bari','080 5243151',?,?,'Pizzerie; Fast food',2,3.5,2
+https://www.yelp.it/biz/mcdonalds-bari-3,McDonald’s,'Via Sparano da Bari 157 70121 Bari','080 5283038',?,?,'Fast food; Hamburger',2,3,3
+https://www.yelp.it/biz/terra-di-mezzo-di-polignano-davide-bari,'Terra Di Mezzo Di Polignano Davide','Via Vito Nicola Di Tullio 14 70124 Bari','080 5573692',?,?,Pizzerie,2,4,2
+https://www.yelp.it/biz/sandrino-bari,Sandrino,'Via Prospero Petroni 44 70121 Bari','080 5214699',?,?,'Dolci; Caffè; Gelaterie',2,4,1
+https://www.yelp.it/biz/pizzeria-tarantini-al-cancello-rotto-bari,'Pizzeria Tarantini AL Cancello Rotto','Via Giulio Petroni 114B 70124 Bari','080 5025352',?,?,Pizzerie,2,3.5,3
+https://www.yelp.it/biz/pizzeria-aladino-bari,'Pizzeria Aladino','Via Papa Giovanni Paolo I 6 70124 Bari','080 5026350',?,?,Pizzerie,1,4,1
+https://www.yelp.it/biz/bar-peroni-bari,'Bar Peroni','Situato dentro Aeroporto Internazionale Karol Wojtyla',null,?,?,Caffè,null,3.5,2
+https://www.yelp.it/biz/moderat-bari,Moderat,'Corso Vittorio Emanuele II 97 70122 Bari','342 8080319',?,?,'Cucina italiana; Piatti a base di pesce; Cocktail bar',2,4,1
+https://www.yelp.it/biz/osteria-della-travi-bari,'Osteria della Travi','Largo Ignazio Chiurlia 12 70100 Bari','339 1578848',?,?,'Piatti a base di pesce; Cucina italiana; Cucina mediterranea',3,3,2
+https://www.yelp.it/biz/basilica-di-san-nicola-bari,'Basilica di San Nicola','Largo Abate Elia 13 70122 Bari','080 5737111',?,?,'Monumenti/Luoghi storici e d interesse',null,4,1
+'https://www.yelp.it/biz/caff\%C3\%A8-borghese-bari','Caffè Borghese','Corso Vittorio Emanuele 122 70122 Bari','080 5242156',?,?,Colazioni/Brunch,1,4,1
+https://www.yelp.it/biz/i-tesori-bari,'I Tesori','Via Andrea da Bari 79 70121 Bari',null,?,?,'Dolci; Sale da tè; Caffè/Tè',4,4,1
+https://www.yelp.it/biz/la-parrilla-de-juan-bari,'La Parrilla De Juan','Piazza Mercantile 1 70122 Bari',null,?,?,'Cucina messicana',null,4,1
+https://www.yelp.it/biz/la-baita-bari,'La Baita','Via Meucci 70125 Bari',null,?,?,Creperie,null,4,1
+https://www.yelp.it/biz/the-stuart-pub-bari,'The Stuart Pub','Via Dalmazia 173 70121 Bari','080 5559590',?,?,Pub,2,4,1
+https://www.yelp.it/biz/dipierro-caffetteria-bari,'Dipierro Caffetteria','Vielle Q. Ennio 1 70124 Bari','329 9222043',?,?,Panini/Sandwich,null,4,1
+https://www.yelp.it/biz/bar-cavour-55-bari,'Bar Cavour 55','Via sparano 143 Bari','080 5230454',?,?,Pub,3,4,1
+https://www.yelp.it/biz/tiella-bari,Tiella,'Via Salvatore Cognetti 13 70121 Bari','080 5236960',?,?,'Pizzerie; Cucina pugliese',2,4,1
+https://www.yelp.it/biz/da-nathalie-bari,'Da Nathalie','Via Fanelli 206 70125 Bari','080 5648866',?,?,Pizzerie,2,4,1
+https://www.yelp.it/biz/my-sushi-bari,'My Sushi','Via De Rossi 62 70122 Bari','080 5282230',?,?,'Sushi bar',2,4,1
+https://www.yelp.it/biz/il-trabaccolo-bari,'il trabaccolo','vico s. agostino 4 70021 Bari',null,?,?,Pub,null,4,1
+'https://www.yelp.it/biz/stanza-caff\%C3\%A8-bari','Stanza Caffè','Via Pier l Eremita 19 70122 Bari','080 9147879',?,?,'Caffè; Panifici; Wine bar',1,4,1
+https://www.yelp.it/biz/shot-pub-bari,'shot pub','via de napoli Bari',null,?,?,Pub,null,4,1
+https://www.yelp.it/biz/factory-bari,Factory,'Via Milella 30 70132 Bari','080 2375446',?,?,'Pub; Panini/Sandwich',2,4,1
+https://www.yelp.it/biz/pizzeria-pizzabon-bari,'Pizzeria Pizzabon','Via Leopoldo Franchetti 1 70125 Bari','080 5475754',?,?,Pizzerie,null,2.5,2
+https://www.yelp.it/biz/pizzeria-al-buco-bari,'Pizzeria Al Buco','Via Nitto de Rossi 2A 70123 Bari','080 5740113',?,?,Pizzerie,null,3,2
+https://www.yelp.it/biz/pizzeria-chez-jo-bari,'Pizzeria Chez JO','Viale Luigi Einaudi 69 70125 Bari','080 5484836',?,?,Pizzerie,3,3,2
+https://www.yelp.it/biz/alberosole-bari,Alberosole,'Corso Vittorio Emanuele 13 98030 Bari','080 5235446',?,?,'Cucina italiana',3,3.5,2
+https://www.yelp.it/biz/pizzeria-continental-pizzorante-bari-2,'Pizzeria Continental Pizzorante','Corso Cavour 186 70121 Bari','080 5247277',?,?,Pizzerie,2,3.5,3
+https://www.yelp.it/biz/panificio-el-focacciaro-bari,'Panificio El Focacciaro','Via Cognetti 43 70100 Bari','080 5540998',?,?,Panifici,2,4,1
+https://www.yelp.it/biz/el-pedro-di-graziosi-michele-bari,'EL Pedro di Graziosi Michele','Via Niccolo  Piccinni 152 70122 Bari','080 5211294',?,?,'Cucina italiana',2,4,1
+https://www.yelp.it/biz/maltos-beer-bari,'Malto’s Beer','Via Aurelio Carrante 1 70124 Bari','080 2021106',?,?,'Pizzerie; Barbecue; Birreria',null,3,1
+https://www.yelp.it/biz/mercato-del-pesce-bari,'Mercato del pesce',Bari,null,?,?,'Piatti a base di pesce',null,3,1
+https://www.yelp.it/biz/al-sorso-preferito-bari,'Al Sorso Preferito','De Nicolo 46 70121 Bari','080 5235747',?,?,'Cucina italiana',null,3,1
+https://www.yelp.it/biz/cafe-rock-bari,'Cafe Rock','Piazza Giulio Cesare 30 70124 Bari','080 5576983',?,?,Caffè,null,3,1
+https://www.yelp.it/biz/le-tre-lanterne-bari,'Le Tre Lanterne','Viale Orazio Flacco 22A 70124 Bari','080 5616246',?,?,'Cucina italiana',null,4,1
+'https://www.yelp.it/biz/caf\%C3\%A9-murat-bari','Café Murat','Via Argiro 86 70121 Bari','080 2049109',?,?,Caffè,null,3,1
+https://www.yelp.it/biz/oolivoo-bari,Oolivoo,'Via Venezia 13 70056 Bari',null,?,?,'Cucina pugliese',2,3,1
+https://www.yelp.it/biz/pizzeria-bianco-farina-bari,'Pizzeria Bianco Farina','Corso Vittorio Emanuele 81 70122 Bari','080 5215515',?,?,Pizzerie,2,3,1
+https://www.yelp.it/biz/la-pignata-bari,'La Pignata','Corso Vittorio Emanuele II 173 70122 Bari','080 5232481',?,?,'Cucina italiana',3,4,1
+https://www.yelp.it/biz/gelateria-piccinni-bari,'Gelateria Piccinni','Via Nicolò Piccinni 131 70122 Bari','328 9537788',?,?,'Gelaterie; Senza glutine; Dolci',2,3,1
+https://www.yelp.it/biz/timeout-bari,Timeout,'Via Giuseppe Fanelli 285 70125 Bari','389 6954338',?,?,'Friggitorie; Pub; Panini/Sandwich',1,3,1
+https://www.yelp.it/biz/taiki-bari,Taiki,'Via Cardinale Agostino Ciasca 25 70124 Bari','080 5681000',?,?,'Cucina giapponese; Sushi bar; Zuppe',3,3,1
+https://www.yelp.it/biz/la-provolina-bari,'La Provolina','Lungomare Giambattista Starita 19 70123 Bari','080 5347593',?,?,'Cucina italiana',null,4,2
+https://www.yelp.it/biz/la-locanda-bari,'La Locanda','Piazza Mercantile 63 70122 Bari','080 5227705',?,?,'Cucina italiana',2,4,3
+https://www.yelp.it/biz/nuovo-fizzarotti-bari,'Nuovo Fizzarotti','Corso Vittorio Emanuele Ii 168 70122 Bari',null,?,?,'Cucina italiana',2,4.5,2
+https://www.yelp.it/biz/le-due-antenne-bari,'Le Due Antenne','Via Giustino Fortunato 10 70125 Bari','080 5010039',?,?,Pizzerie,1,3,2
+https://www.yelp.it/biz/younger-pub-bari,'Younger Pub','Corso Benedetto Croce 80 70125 Bari','339 3192275',?,?,'Cucina italiana; Pub',null,2,1
+https://www.yelp.it/biz/pizzeria-pizza-e-altro-bari,'Pizzeria Pizza e Altro','Via Antonio Salandra 9A 70124 Bari','080 5428587',?,?,'Pizzerie; Cucina pugliese',2,3,1
+https://www.yelp.it/biz/conchigliabar-bari,Conchigliabar,'Via Gimma Abate 39 70122 Bari','080 5242876',?,?,'Caffè; Panini/Sandwich',null,2,1
+https://www.yelp.it/biz/re-vittorio-bari,'Re Vittorio','Corso Vittorio Emanuele II 87 70122 Bari',null,?,?,Yogurterie,null,2,1
+https://www.yelp.it/biz/cult-bari,Cult,'Piazza Mercantile 69 70122 Bari',null,?,?,'Cucina italiana',null,2,1
+https://www.yelp.it/biz/hamp-bari,Hamp,'Corso Vittorio Emanuele II 92 70122 Bari','360 1063191',?,?,'Cucina pugliese; Hamburger',null,2,1
+https://www.yelp.it/biz/cinese-fang-xiang-bari,'Cinese Fang Xiang','Via Orazio Flacco 7 70124 Bari','080 5617802',?,?,'Cucina cinese',1,4,2
+https://www.yelp.it/biz/pizzeria-antipasteria-bistro-bari,'Pizzeria Antipasteria Bistro','Via Alighieri Dante 293 70122 Bari','080 5739772',?,?,'Pizzerie; Bistrot',2,5,1
+https://www.yelp.it/biz/tatami-bari,Tatami,'Via G Posca 7 70124 Bari','080 2025770',?,?,'Cucina giapponese; Sushi bar; Cucina fusion asiatica',3,5,1
+https://www.yelp.it/biz/urban-bari,Urban,'Via Nicolai 10 70122 Bari','080 5210203',?,?,'Cucina italiana; Cucina mediterranea',1,5,1
+https://www.yelp.it/biz/spaghetteria-70cento-bari,'Spaghetteria 70Cento','Via Abate Gimma 164 70122 Bari','080 9186804',?,?,'Pizzerie; Piatti a base di pesce; Cucina italiana',1,5,1
+'https://www.yelp.it/biz/caff\%C3\%A8-latino-bari-2','Caffè Latino','Via Gaetano Postiglione 1 70126 Bari','080 5534971',?,?,'Bar; Caffè; Caffè/Tè',2,5,1
+https://www.yelp.it/biz/pizzeria-la-tana-bari,'Pizzeria la Tana','Via G.Amendola 29 70126 Bari','080 2205593',?,?,Pizzerie,null,5,1
+https://www.yelp.it/biz/tabit-bari,Tabit,'Via Ottavio Serena 39 70126 Bari','080 5588191',?,?,'Pizzerie; Cucina vegana',2,5,1
+https://www.yelp.it/biz/colorado-caffe-bari,'Colorado Caffe','Via Filippo Turati 22 70125 Bari','080 2374279',?,?,Bar,1,5,1
+https://www.yelp.it/biz/bar-tolesco-antonio-bari,'Bar Tolesco Antonio','Via Michele Garruba 17 Bari','080 5216642',?,?,'Caffè; Caffè/Tè',null,5,1
+https://www.yelp.it/biz/grill-burger-house-bari,'Grill Burger House','Corso Vittorio Emanuele II 41 70122 Bari','377 9817806',?,?,'Hamburger; Birreria',2,5,1
+https://www.yelp.it/biz/la-pupetta-bari,'La Pupetta','Via Benedetto Cairoli 25 70122 Bari','080 5210216',?,?,Panifici,2,5,1
+https://www.yelp.it/biz/il-sedile-bari,'Il Sedile','Piazza Mercantile 84 70122 Bari',null,?,?,'Pizzerie; Cucina italiana; Insalate',1,5,1
+https://www.yelp.it/biz/prosepe-pasticceri-valenzano,'Prosepe Pasticceri','Via Vittorio Alfieri 42 70010 Valenzano','080 8492075',?,?,Yogurterie,null,5,1
+'https://www.yelp.it/biz/nd\%C3\%A8rre-a-la-lanze-bari','NDèrre a la lanze','Situato dentro Aeroporto Internazionale Karol Wojtyla',null,?,?,'Cucina pugliese',null,2,1
+https://www.yelp.it/biz/le-veronique-bari-2,'Le Veronique','Via Samuel F Hahnemann 4 70126 Bari','080 5461822',?,?,'Bar; Brasserie; Pizzerie',3,5,1
+https://www.yelp.it/biz/bar-miramare-bari,'Bar Miramare','Via Leopardi Torre a Mare 54 70126 Bari','080 5430252',?,?,Caffè,2,5,1
+https://www.yelp.it/biz/morelli-antonio-modugno,'Morelli / Antonio','Via Palese 12 70026 Modugno','080 5323071',?,?,Panifici,null,5,1
+https://www.yelp.it/biz/momo-bari,Momo’,'Corso Vittorio Emanuele II 25-87 70122 Bari',null,?,?,'Lounge bar; Gastropub',2,4,1
+https://www.yelp.it/biz/pizza-bon-bari,'Pizza Bon','via franchetti 70125 Bari',null,?,?,'Pizzerie; Cucina italiana',null,4,1
+https://www.yelp.it/biz/givaro-c-bari,'Givaro’ C.','Via Gaetano Salvemini 16 70125 Bari','080 5024856',?,?,Gelaterie,null,4,1
+https://www.yelp.it/biz/al-cantuccio-bari,'Al Cantuccio','Via Forze Armate 42 70126 Bari','080 5530058',?,?,Pizzerie,null,4,1
+https://www.yelp.it/biz/pizzeria-osteria-dal-vassallo-bari,'Pizzeria Osteria Dal Vassallo','Via Salvatore Cognetti 13 70121 Bari','080 5236960',?,?,Pizzerie,2,4,1
+https://www.yelp.it/biz/antica-osteria-cairoli-bari,'Antica Osteria Cairoli','Via Benedetto Cairoli 77 70122 Bari','080 5243554',?,?,'Caffè; Caffè/Tè',2,4,1
+https://www.yelp.it/biz/la-braciola-bari,'La Braciola','Via Dante Alighieri 198 70122 Bari','080 5214122',?,?,'Cucina italiana',null,4,1
+https://www.yelp.it/biz/biancofarina-bari,Biancofarina,'Corso Vittorio Emanuele II 81 70121 Bari','080 5215515',?,?,'Pizzerie; Cucina italiana',null,4,1
+https://www.yelp.it/biz/le-mura-bari,'Le Mura','Via Venezia 33 70122 Bari','080 5212376',?,?,Bar,2,4,1
+https://www.yelp.it/biz/la-battigia-di-schiralli-antonio-bari,'La Battigia di Schiralli Antonio','Via di Crollalanza 1 70121 Bari','080 5240022',?,?,'Cucina italiana',2,5,1
+https://www.yelp.it/biz/gulp-bari,Gulp,'Via Enrico Pappacena 4G 70124 Bari','080 9758460',?,?,'Wine bar; Norcinerie; Birreria',2,4,1
+https://www.yelp.it/biz/le-lupin-dei-f-lli-zambetta-bari,'LE Lupin dei F.lli Zambetta','Via Amendola 145 A/B 70126 Bari','080 2205730',?,?,Pizzerie,2,4,1
+https://www.yelp.it/biz/babayaga-bari,Babayaga,'Largo di Santo Spirito Cristoforo Colombo Bari',null,?,?,'Caffè; Gelaterie; Caffè/Tè',1,1,1
+'https://www.yelp.it/biz/pizzeria-dreher-dregh\%C3\%A8r-bari','Pizzeria Dreher dreghèr','Strada Palazzo dell Intendenza 20-43 70122 Bari',null,?,?,Caffè,1,5,1
+https://www.yelp.it/biz/pizzeria-d-autore-bari,'Pizzeria D’autore','Via Alessandro Maria Calefati 199 70122 Bari','080 5230726',?,?,Pizzerie,null,5,1
+https://www.yelp.it/biz/al-paradise-palese,'Al Paradise','Lungomare Saverio Noviello 70128 Palese','080 5306607',?,?,'Pizzerie; Piatti a base di pesce; Cucina italiana',3,5,1
+https://www.yelp.it/biz/terra-di-mezzo-bari,'Terra di Mezzo','Via Giovanni Amendola 133 70126 Bari','080 5573692',?,?,Pub,2,3,1
+https://www.yelp.it/biz/pizzeria-enzo-bari,'Pizzeria Enzo','Via Nizza 22 70126 Bari','080 5425743',?,?,Pizzerie,2,3,1
+https://www.yelp.it/biz/caffeteria-federico-ii-bari,'Caffeteria Federico II','Piazza Federico II di Svevia 85 70122 Bari','080 5213173',?,?,Caffetteria,null,5,1
+https://www.yelp.it/biz/grotta-azzurra-bari,'Grotta Azzurra','Corso Vittorio Emanuele II 187 70122 Bari','080 5230397',?,?,'Cucina italiana',2,5,1
+https://www.yelp.it/biz/al-raffaello-bari,'Al Raffaello','Via Principe Amedeo 224 70122 Bari','347 5313764',?,?,'Cucina pugliese; Barbecue; Cucina mediterranea',2,2,1
+https://www.yelp.it/biz/le-plus-bon-bari,'Le Plus Bon','Via Giuseppe Pavoncelli 135 70125 Bari','080 5026332',?,?,Pizzerie,1,4,1
+https://www.yelp.it/biz/al-pescatore-bari,'Al Pescatore','Piazza Federico II di Svevia 8 70122 Bari','080 5237039',?,?,'Cucina pugliese',4,1,2
+https://www.yelp.it/biz/pizzeria-il-pirata-bari,'Pizzeria Il Pirata','Via Fontana Nuova Torre A Mare 19 70126 Bari','080 5432799',?,?,'Cucina italiana',2,3,1
+https://www.yelp.it/biz/da-nicola-torre-a-mare,'Da Nicola','Via Principi di Piemonte Torre A Mare 3 70126 Torre a Mare','080 5430043',?,?,'Cucina italiana',2,3,3
+https://www.yelp.it/biz/il-covo-del-gusto-perduto-bari,'Il Covo del Gusto Perduto','Traversa 67 Giulio Petroni 63 70124 Bari','080 5422333',?,?,Pizzerie,null,2,1
+https://www.yelp.it/biz/hagakure-fusion-bari,'Hagakure - Fusion','Via Amendola 203 70125 Bari','080 5484792',?,?,'Cucina giapponese; Cucina fusion asiatica',null,1,1
+https://www.yelp.it/biz/cris-e-bio-bari,'Cris e Bio','Via Giuseppe Papalia 12 70126 Bari','080 5559317',?,?,Pizzerie,null,4,1
+https://www.yelp.it/biz/windigo-saloon-bari,'Windigo Saloon','Via Mauro Amoruso 31 70124 Bari','349 5669329',?,?,'Pub; Birreria',4,1,1
+https://www.yelp.it/biz/quanto-basta-bari,'Quanto Basta','Via di Torre a mare Monte Grappa 17 70126 Bari',null,?,?,'Pizzerie; Cucina napoletana',null,2,1
+https://www.yelp.it/biz/pizzeria-divina-bari,'Pizzeria Divina','Via Orazio Comes 55 70124 Bari','080 5615713',?,?,Pizzerie,3,3,1
+https://www.yelp.it/biz/il-fornaccio-bari,'Il Fornaccio','Via Crispi 87 70123 Bari','080 5740493',?,?,Pizzerie,null,4,1
+https://www.yelp.it/biz/l-antico-arco-cellamare,'L’antico Arco','Corso Roma 31 70010 Cellamare','080 4656280',?,?,'Pizzerie; Cucina italiana',2,4,1
+https://www.yelp.it/biz/pizzeria-da-vito-bari,'Pizzeria DA Vito','Via Filippo Turati 20 70125 Bari','080 5025000',?,?,Pizzerie,null,1,1
+https://www.yelp.it/biz/ghiaccio-bollente-bari-santo-spirito,'Ghiaccio Bollente','Lungomare Cristoforo Colombo 20 70050 Bari Santo Spirito','080 5336943',?,?,Bar,1,4,1
+https://www.yelp.it/biz/pizzeria-la-piazzetta-bitritto,'Pizzeria La Piazzetta','Piazza Umberto I 10 70020 Bitritto','080 631085',?,?,Pizzerie,2,4,1
+https://www.yelp.it/biz/pizza-rama-di-frisone-andrea-modugno,'Pizza Rama Di Frisone Andrea','Via Taormina 14 70026 Modugno','080 5354518',?,?,Pizzerie,null,3,1
+https://www.yelp.it/biz/home-burger-palese,'Home Burger','Situato dentro Aeroporto Internazionale Karol Wojtyla','041 4561111',?,?,'Tapas/snack; Cucina britannica; Hamburger',2,3,1
+https://www.yelp.it/biz/nouvel-vis-a-vis-modugno,'Nouvel VIS A VIS','Via Roma 102A 70026 Modugno','080 2020639',?,?,'Pizzerie; Cucina italiana',2,5,1
+https://www.yelp.it/biz/noha-parco-scizzo-parchitello,Noha,'Strada Provinciale 57 70016 Parco Scizzo-parchitello',null,?,?,'Cucina mediterranea',2,2,1
+https://www.yelp.it/biz/pizzeria-petit-roi-bitritto,'Pizzeria Petit Roi','Via Giuseppe Mazzini 25 70020 Bitritto','080 631339',?,?,Pizzerie,null,5,1
+https://www.yelp.it/biz/antichi-sapori-torre-a-mare,'Antichi Sapori','Piazza Vittorio Veneto Torre A Mare 5 70126 Torre a Mare','080 5431267',?,?,'Cucina italiana',null,4,2
+https://www.yelp.it/biz/biffi-valenzano,Biffi,'Via Alcide De Gasperi 13 70010 Valenzano',null,?,?,'Bar con sport in TV',2,4,1
+https://www.yelp.it/biz/las-vegas-torre-a-mare,'Las Vegas','Piazza Vittorio Veneto in Torre a Mare 70126 Torre a Mare',null,?,?,Caffè,2,5,1
+'https://www.yelp.it/biz/glamour-caff\%C3\%A8-lamie','Glamour Caffè','Via Andrej Sacharov 49 70010 Lamie',null,?,?,'Caffè; Bar',null,4,1
+https://www.yelp.it/biz/lo-sfizio-bitritto,'Lo Sfizio','Via Balenzano 70020 Bitritto','080 634641',?,?,'Cucina italiana',null,4,1
+https://www.yelp.it/biz/casablanca-bari,Casablanca,'Via Tenente Nicola Massaro 101-129 70128 Bari',null,?,?,Ristoranti,2,3,1
+https://www.yelp.it/biz/bar-italia-noicattaro,'Bar Italia','Piazza Umberto 70016 Noicattaro',null,?,?,Bar,null,4,1
+https://www.yelp.it/biz/ristorante-lo-scoglio-da-vito-bari-2,'Ristorante Lo Scoglio DA Vito','Lungomare Massaro 70128 Bari','080 2379238',?,?,'Cucina italiana',3,1,1

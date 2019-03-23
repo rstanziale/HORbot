@@ -436,9 +436,9 @@ public class HORMessageHandler {
                 0.0, 0.0);
 
         if (fromHereToBari < fromHereToTorino) {
-            this.recommenderForBari = new Recommender(Utils.readCSV("/businesses_bari.csv"));
+            this.recommenderForBari = new Recommender(Utils.readCSV("/businesses_bari.csv"), "bari");
         } else {
-            this.recommenderForTorino = new Recommender(Utils.readCSV("/businesses_torino.csv"));
+            this.recommenderForTorino = new Recommender(Utils.readCSV("/businesses_torino.csv"), "torino");
         }
     }
 

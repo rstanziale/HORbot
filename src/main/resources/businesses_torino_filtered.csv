@@ -1,0 +1,853 @@
+Url,Name,Address,Phone,Latitude,Longitude,Category,Price,RatingAverage,TotalReviews
+https://www.yelp.it/biz/museo-nazionale-del-cinema-torino,'Museo Nazionale del Cinema','Via Montebello 20 10124 Torino','011 8123565',?,?,Musei,null,4.5,52
+https://www.yelp.it/biz/museo-egizio-torino,'Museo Egizio','Via Accademia delle Scienze 6 10123 Torino','011 5617776',?,?,Musei,null,4.5,63
+https://www.yelp.it/biz/eataly-torino-torino,'Eataly Torino','Via Nizza 230 10126 Torino','011 19506801',?,?,'Cucina italiana; Negozi alimentari specializzati; Supermarket',2,4.0,80
+https://www.yelp.it/biz/mole-antonelliana-torino,'Mole Antonelliana','Via Montebello 20 10124 Torino','081 25658',?,?,'Monumenti/Luoghi storici e d interesse',null,4.5,36
+https://www.yelp.it/biz/amici-miei-torino,'Amici Miei','Corso Vittorio Emanuele II 94 10121 Torino','011 5069961',?,?,'Cucina italiana; Pizzerie',2,4.5,33
+https://www.yelp.it/biz/locanda-da-betty-torino,'Locanda da Betty','Via Bogino 17 10123 Torino','011 19694510',?,?,'Cucina italiana',2,5.0,16
+https://www.yelp.it/biz/baratti-e-milano-torino-2,'Baratti & Milano','Piazza Castello 27 10123 Torino','011 4407138',?,?,'Cucina italiana; Caffè',3,4.5,20
+https://www.yelp.it/biz/al-bicerin-torino,'Al Bicerin','Piazza della Consolata 5 10122 Torino','011 4369325',?,?,Caffè,2,4.0,29
+https://www.yelp.it/biz/signorvino-torino,Signorvino,'Via Giuseppe Luigi Lagrange 13 10123 Torino','011 4407490',?,?,'Cucina italiana; Wine bar; Cantine/Enoteche',3,5.0,11
+https://www.yelp.it/biz/gennaro-esposito-torino,'Gennaro Esposito','Via Passalacqua 1G 10122 Torino','011 535905',?,?,'Cucina italiana; Pizzerie',2,4.5,16
+'https://www.yelp.it/biz/fiorio-caff\%C3\%A8-torino','Fiorio Caffè','Via Po 8 10123 Torino','011 8173225',?,?,'Cucina italiana; Caffè; Caffè/Tè',2,4.0,34
+https://www.yelp.it/biz/parco-del-valentino-torino,'Parco del Valentino','Corso Massimo D Azeglio 10124 Torino',null,?,?,Parchi,null,4.5,15
+https://www.yelp.it/biz/grom-torino-2,Grom,'Via Accademia Delle Scienze 4 10123 Torino','011 5579095',?,?,'Gelaterie; Caffè/Tè',2,4.0,34
+https://www.yelp.it/biz/del-cambio-torino,'Del Cambio','Piazza Carignano 2 10123 Torino','011 546690',?,?,'Cucina italiana; Sale/Spazi per eventi',4,4.5,19
+https://www.yelp.it/biz/la-capannina-torino-2,'La Capannina','Via Donati 1 10121 Torino','011 545405',?,?,'Cucina italiana; Pizzerie; Cucina vegana',3,4.5,10
+https://www.yelp.it/biz/poormanger-torino,Poormanger,'Via Maria Vittoria 36B 10123 Torino','388 9426771',?,?,'Cucina italiana; Bistrot; Cucina mediterranea; ',2,4.5,11
+https://www.yelp.it/biz/palazzo-reale-di-torino-torino,'Palazzo Reale di Torino','Piazza Reale 1 10122 Torino','011 4361455',?,?,'Musei; Monumenti/Luoghi storici e d interesse',null,4.0,23
+https://www.yelp.it/biz/piola-cianci-torino,'Piola Cianci','Via Quattro Marzo 9B 10122 Torino','011 19879451',?,?,'Cucina piemontese; Trattorie; Bistrot',3,4.5,9
+'https://www.yelp.it/biz/caff\%C3\%A8-mulassano-torino-3','Caffè Mulassano','Piazza Castello 15 10124 Torino','011 547990',?,?,'Caffè; Caffè/Tè; Panini/Sandwich',2,4.0,15
+'https://www.yelp.it/biz/caff\%C3\%A8-torino-torino-2','Caffè Torino','Piazza San Carlo 204 10121 Torino','011 545118',?,?,'Caffè; Caffè/Tè',3,4.0,14
+https://www.yelp.it/biz/prima-e-poi-torino,'Prima e Poi','Via Lagrange 43 10123 Torino','011 5178698',?,?,'Cucina italiana',2,4.5,12
+'https://www.yelp.it/biz/\%C3\%A8-cucina-cesare-marretti-torino','È Cucina Cesare Marretti','Via Bertola 27A 10122 Torino','011 5629038',?,?,'Cucina italiana; Cucina vegetariana',2,4.5,9
+https://www.yelp.it/biz/museo-pietro-micca-torino,'Museo Pietro Micca','Via Guicciardini 7A 10121 Torino','011 546317',?,?,Musei,null,4.5,10
+https://www.yelp.it/biz/piazza-vittorio-veneto-torino,'Piazza Vittorio Veneto','Piazza Vittorio Veneto 10124 Torino',null,?,?,'Monumenti/Luoghi storici e d interesse; Piazze pubbliche',null,4.5,7
+https://www.yelp.it/biz/mercato-di-porta-palazzo-torino,'Mercato di Porta Palazzo','Piazza della Republica 10152 Torino',null,?,?,'Venditori ambulanti; Mercati ortofrutticoli',1,4.0,16
+https://www.yelp.it/biz/teapot-torino,Teapot,'Via Silvio Pellico 18 10125 Torino','011 19781481',?,?,'Colazioni/Brunch; Sale da tè',3,5.0,6
+https://www.yelp.it/biz/ristoranti-alba-torino,Ristoranti-Alba,'Via San Pio V 8 10100 Torino','011 6692054',?,?,'Cucina italiana',3,4.5,10
+https://www.yelp.it/biz/sicomoro-torino,Sicomoro,'Via Stampatori 6 10122 Torino','011 4407246',?,?,'Cucina italiana; Pizzerie',2,4.0,15
+https://www.yelp.it/biz/quattro-soldi-torino,'Quattro Soldi','Corso Castelfidardo 7 10128 Torino','011 5621290',?,?,'Cucina italiana',2,4.5,8
+'https://www.yelp.it/biz/cammaf\%C3\%A0-torino-4',Cammafà,'Piazza Galimberti 23B 10134 Torino','011 3017328',?,?,Pizzerie,2,4.0,17
+https://www.yelp.it/biz/ristoranti-taverna-delle-rose-torino-2,'Ristoranti: Taverna Delle Rose','Via Andrea Massena 24 10128 Torino','011 538345',?,?,'Cucina italiana',3,4.5,6
+https://www.yelp.it/biz/master-sandwich-torino,'Master Sandwich','Via Palazzo di Citta 6 10122 Torino','347 8498137',?,?,'Panini/Sandwich; Insalate',1,5.0,6
+https://www.yelp.it/biz/alberto-marchetti-torino,'Alberto Marchetti','Corso Vittorio Emanuele II 24bis 10123 Torino','011 8390879',?,?,Gelaterie,1,4.0,9
+https://www.yelp.it/biz/scannabue-torino,Scannabue,'Largo Saluzzo 25H 10125 Torino','011 6696693',?,?,'Cucina italiana; Caffè',3,4.0,9
+https://www.yelp.it/biz/m-bun-torino,M**Bun,'Corso Siccardi 8A 10122 Torino','011 5617097',?,?,'Cucina italiana; Hamburger; Fast food',2,4.0,12
+https://www.yelp.it/biz/mao-museo-d-arte-orientale-torino,'MAO - Museo d’Arte Orientale','via San Domenico 9-11 10122 Torino','011 4436927',?,?,Musei,null,4.0,12
+https://www.yelp.it/biz/fuzion-torino,Fuzion,'Via Alessandro Volta 4B 10123 Torino','011 5795783',?,?,'Pizzerie; Sushi bar; Cucina fusion asiatica',2,5.0,5
+https://www.yelp.it/biz/solferino-torino,Solferino,'Piazza Solferino 3 10121 Torino','011 535851',?,?,'Cucina italiana',3,4.0,11
+https://www.yelp.it/biz/catullo-torino-2,Catullo,'Corso Moncalieri 176 10133 Torino','011 6618336',?,?,'Cucina italiana; Piatti a base di pesce; Steak house',3,4.5,8
+https://www.yelp.it/biz/palazzo-madama-torino,'Palazzo Madama','Piazza Castello 10124 Torino','011 4433501',?,?,Musei,null,3.5,15
+https://www.yelp.it/biz/lobelix-torino,Lobelix,'Piazza Savoia 4 10122 Torino','011 4367206',?,?,'Bar; Caffè',2,3.5,18
+https://www.yelp.it/biz/busters-coffee-torino,'Busters Coffee','Via Cesare Battisti 7L 10123 Torino',null,?,?,'Caffè; Caffè/Tè',2,4.5,8
+https://www.yelp.it/biz/borgo-medioevale-torino,'Borgo Medioevale','Viale Virgilio 107 10126 Torino','011 4431701',?,?,'Monumenti/Luoghi storici e d interesse; Castelli',3,4.0,12
+https://www.yelp.it/biz/il-vicolo-torino,'Il Vicolo','Via Goia Melchiorre 3 10121 Torino','011 535233',?,?,'Cucina italiana',2,4.5,8
+https://www.yelp.it/biz/magorabin-torino,Magorabin,'Corso san maurizio 61 10124 Torino','011 8126808',?,?,'Cucina italiana',4,4.5,6
+https://www.yelp.it/biz/la-badessa-torino-2,'La Badessa','Piazza Carlo Emanuele II 17 10123 Torino','011 835940',?,?,'Cucina italiana',3,4.0,12
+https://www.yelp.it/biz/panperfocaccia-torino-2,Panperfocaccia,'Via Conte Verde 7A 10122 Torino','011 4396610',?,?,'Cucina italiana',2,4.5,6
+https://www.yelp.it/biz/museo-nazionale-dellautomobile-torino,'Museo Nazionale dell’Automobile','Corso Unità d Italia 40 10126 Torino','011 677666',?,?,Musei,null,4.0,11
+https://www.yelp.it/biz/guido-gobino-torino-3,'Guido Gobino','Via Lagrange Giuseppe Luigi 1 10123 Torino','011 5660707',?,?,'Panifici; Cioccolatai',3,4.0,9
+https://www.yelp.it/biz/seven-up-torino,'Seven Up','Via Andrea Doria 4 10123 Torino','011 543582',?,?,'Cucina italiana; Pizzerie',2,4.0,9
+https://www.yelp.it/biz/mare-nostrum-torino,'Mare Nostrum','Via Matteo Pescatore 16 10124 Torino','011 8394543',?,?,'Cucina italiana',3,5.0,4
+https://www.yelp.it/biz/imbarco-perosino-torino,'Imbarco Perosino','Via Virgilio 53 10126 Torino','011 657362',?,?,'Cucina italiana',2,5.0,5
+https://www.yelp.it/biz/pastificio-defilippis-torino,'Pastificio Defilippis','Via Giuseppe Luigi Lagrange 39 10123 Torino','011 542137',?,?,'Cucina italiana; Gastropub',2,4.5,6
+https://www.yelp.it/biz/fratelli-roselli-torino,'Fratelli Roselli','Corso Lione 58 10141 Torino','011 3828727',?,?,Pizzerie,2,4.5,5
+https://www.yelp.it/biz/sfashion-cafe-torino,'Sfashion Cafe’','Via Cesare Battisti 13 10123 Torino','011 5160085',?,?,Pizzerie,3,3.5,13
+https://www.yelp.it/biz/eno-libero-emporio-enogastronomico-torino,'Eno’ Libero Emporio Enogastronomico','Via B Galliari 12 10125 Torino','011 6596031',?,?,Bar,3,5.0,4
+https://www.yelp.it/biz/tre-galline-torino-2,'Tre Galline','Via Bellezia 37 10122 Torino','011 4366553',?,?,'Cucina italiana',3,4.0,10
+https://www.yelp.it/biz/l-birichin-torino-2,'‘L Birichin','Via Monti 16 10126 Torino','011 657457',?,?,'Cucina italiana',4,4.5,5
+https://www.yelp.it/biz/la-romana-torino-2,'La Romana','Corso Inghilterra 31A 10139 Torino','011 19915796',?,?,Gelaterie,1,5.0,4
+https://www.yelp.it/biz/pai-bikery-torino,'PAI Bikery','Via Cagliari 18D 10153 Torino','011 0360106',?,?,'Caffetteria; Hamburger; Pasticcerie',2,5.0,4
+https://www.yelp.it/biz/bistrot-turin-torino,'Bistrot Turin','Via Po 21 10124 Torino','011 6989032',?,?,'Wine bar; Bistrot; Cucina piemontese',3,4.5,5
+https://www.yelp.it/biz/kombu-torino,Kombu,'corso de gasperi 57c 10129 Torino','011 2072590',?,?,'Cucina giapponese',1,4.5,5
+https://www.yelp.it/biz/a-casa-di-pulcinella-torino,'A Casa di Pulcinella','Corso Carlo e Nello Rosselli 82 10129 Torino','011 595457',?,?,Pizzerie,2,4.5,4
+https://www.yelp.it/biz/grom-torino,Grom,'Piazza Pietro Paleocapa 1D 10121 Torino','011 5119067',?,?,Gelaterie,3,3.5,14
+https://www.yelp.it/biz/torteria-olsen-torino,'Torteria Olsen','Via Sant Agostino 4B 10122 Torino','011 4361573',?,?,'Dolci; Pasticcerie; Sale da tè',2,5.0,4
+https://www.yelp.it/biz/imbarchino-torino,Imbarchino,'Viale Umberto Cagni 10126 Torino',null,?,?,Bar,2,4.0,7
+https://www.yelp.it/biz/bicyclette-torino,Bicyclette,'Sant Agostino 4 10122 Torino','011 4369705',?,?,'Cocktail bar',2,5.0,3
+https://www.yelp.it/biz/tre-galli-torino-2,'TRE Galli','Via Sant   Agostino 25 10134 Torino','011 5216027',?,?,Bar,3,4.0,6
+https://www.yelp.it/biz/coox-torino,Coox,'Piazza Vittorio Veneto 8 10123 Torino','011 2630692',?,?,'Cucina vegana',2,4.5,5
+https://www.yelp.it/biz/osteria-antiche-sere-torino,'Osteria Antiche Sere','Via Cenischia 9 10139 Torino','011 3854347',?,?,'Cucina italiana',2,4.0,7
+https://www.yelp.it/biz/vanilla-torino,Vanilla,'Via Palazzo di Citta  7B 10122 Torino','011 4362745',?,?,Gelaterie,1,5.0,3
+https://www.yelp.it/biz/focacceria-riviera-ligure-torino,'Focacceria Riviera Ligure','Piazza Castello 153 10122 Torino',null,?,?,'Pizzerie; Fast food',2,3.5,15
+https://www.yelp.it/biz/m-bun-torino-3,'M Bun','Via Rattazzi 4 10123 Torino','011 19704606',?,?,'Cucina italiana',2,4.0,7
+https://www.yelp.it/biz/open-baladin-torino,'Open Baladin','Piazzale Valdo Fusi 10123 Torino','011 835863',?,?,'Cucina italiana',1,4.0,5
+https://www.yelp.it/biz/la-conca-torino,'La Conca','Via Assietta 4 10128 Torino','011 5171091',?,?,'Cucina italiana',3,4.0,5
+https://www.yelp.it/biz/soup-e-go-torino,Soup&Go,'Via San Dalmazzo 8A 10122 Torino','011 19887604',?,?,'Cucina vegetariana',1,5.0,4
+https://www.yelp.it/biz/da-ciro-torino,'da Ciro','Corso Vinzaglio 17 10121 Torino','011 531925',?,?,'Cucina italiana',2,4.0,12
+https://www.yelp.it/biz/gelateria-mondello-torino,'Gelateria Mondello','Piazza Emanuele Filiberto 8 10122 Torino','011 4360912',?,?,'Caffè; Gelaterie; Caffè/Tè',2,5.0,3
+https://www.yelp.it/biz/kipling-torino,Kipling,'Via Mazzini 10 10123 Torino','011 8126883',?,?,'Cucina italiana',2,3.5,8
+https://www.yelp.it/biz/karmacola-torino,Karmacola,'Lungo Dora Siena 12B 10100 Torino','011 4361707',?,?,'Cucina indiana',3,5.0,3
+https://www.yelp.it/biz/la-drogheria-torino,'La Drogheria','Piazza Vittorio Veneto 18 10100 Torino','0039 0118122414',?,?,Pub,2,4.0,5
+https://www.yelp.it/biz/platti-torino-2,Platti,'Corso Vittorio Emanuele Ii 72 10121 Torino','011 4407490',?,?,'Bar; Caffè; Caffè/Tè',3,4.0,6
+https://www.yelp.it/biz/napples-torino,Napples,'Via Sant Anselmo 36 10125 Torino','011 4270093',?,?,'Pizzerie; Friggitorie',2,5.0,3
+https://www.yelp.it/biz/augusto-torino,Augusto,'Via San Quintino 11 10121 Torino','011 5623173',?,?,'Cucina italiana; Pizzerie; Piatti a base di pesce',2,4.0,6
+https://www.yelp.it/biz/murphys-pub-torino,'murphys pub','Corso Vittorio Emanuele II 28 10123 Torino',null,?,?,Pub,2,5.0,4
+https://www.yelp.it/biz/osteria-del-fiat-torino,'Osteria Del Fiat','Via Giulio Biglieri 1 10126 Torino','011 6962651',?,?,'Cucina italiana',2,4.0,9
+https://www.yelp.it/biz/ottimo-torino,Ottimo,'Corso Stati Uniti 6 10128 Torino',null,?,?,'Gelaterie; Dolci',1,5.0,3
+https://www.yelp.it/biz/cinese-du-cheng-torino-2,'Cinese Du Cheng','Via Venti Settembre 62 10121 Torino','011 537375',?,?,'Cucina cinese',2,4.0,6
+https://www.yelp.it/biz/birrificio-torino-torino,'Birrificio Torino','Via Parma 30 10153 Torino','011 2876562',?,?,'Bar; Birreria',2,4.0,8
+https://www.yelp.it/biz/petit-baladin-torino,'Petit Baladin','Via Saluzzo 21 10125 Torino','011 6983360',?,?,'Hamburger; Beer garden',2,4.5,3
+https://www.yelp.it/biz/la-piramide-torino,'La Piramide','Via Po 43 10124 Torino',null,?,?,'Gelaterie; Fast food',2,4.0,6
+https://www.yelp.it/biz/silvano-torino-2,Silvano,'Via Nizza 142 10100 Torino','011 6677262',?,?,Gelaterie,2,4.0,8
+https://www.yelp.it/biz/t-bone-station-torino,'T Bone Station','Via Cernaia 3 10121 Torino','011 5628113',?,?,'Steak house',3,4.0,5
+https://www.yelp.it/biz/il-siculo-di-savona-monica-torino,'Il Siculo di Savona Monica','Via San Quintino 31H 10121 Torino','011 542529',?,?,'Gelaterie; Pasticcerie',1,4.0,7
+https://www.yelp.it/biz/alla-lettera-torino,'Alla Lettera','Via Giuseppe Mazzini 12 10123 Torino','011 882626',?,?,'Cucina italiana; Pizzerie',2,3.5,7
+https://www.yelp.it/biz/japs-torino-2,Japs!,'Via Carlo Alberto 27 10123 Torino','011 5069315',?,?,'Cucina giapponese; Sushi bar',2,4.0,6
+https://www.yelp.it/biz/la-fila-torino,'La Fila','Via Principe Amedeo 3 10123 Torino','011 530634',?,?,Pizzerie,2,4.5,4
+https://www.yelp.it/biz/pizzeria-gino-torino,'Pizzeria Gino','Via Monginevro 46 10141 Torino','011 3854335',?,?,Pizzerie,2,4.5,4
+https://www.yelp.it/biz/pepino-torino,Pepino,'Piazza Carignano 6 10123 Torino','011 542009',?,?,'Caffè; Gelaterie; Pasticcerie',2,3.5,8
+https://www.yelp.it/biz/giapponese-sakura-torino,'giapponese Sakura','Via Goito 4 10125 Torino','1119 716704',?,?,'Cucina giapponese',1,4.0,6
+https://www.yelp.it/biz/chiesa-della-gran-madre-di-dio-torino-2,'Chiesa della Gran Madre di Dio','Piazza Gran Madre di Dio 4 10131 Torino','011 8193572',?,?,'Monumenti/Luoghi storici e d interesse',null,4.5,4
+https://www.yelp.it/biz/piper-pub-torino,'Piper Pub','Via Del Ridotto 22 10147 Torino','011 251728',?,?,' Cucina italiana; Bar',1,4.0,5
+https://www.yelp.it/biz/wasabi-torino,Wasabi,'Corso Francesco Ferrucci 72 10138 Torino','011 4473812',?,?,'Cucina giapponese',4,4.5,3
+https://www.yelp.it/biz/ristrot-guviol-torino,'Ristrot Guviol','Via San Francesco da Paola 27 10123 Torino','011 8127318',?,?,'Cucina italiana',2,4.5,3
+https://www.yelp.it/biz/gufo-bianco-torino,'Gufo Bianco','Corso Dante 129 10126 Torino','011 6692577',?,?,'Cucina piemontese',3,4.0,6
+https://www.yelp.it/biz/burgheria-torino,Burgheria,'Via delle Rosine 1 10123 Torino','011 19716420',?,?,'Hamburger; Fast food',2,4.0,5
+https://www.yelp.it/biz/torteria-berlicabarbis-torino,'Torteria Berlicabarbis','Corso Moncalieri 214D 10133 Torino','011 2074508',?,?,'Cucina italiana; Bistrot; Panifici',2,4.5,4
+https://www.yelp.it/biz/la-taverna-dei-mercanti-turin,'La Taverna dei Mercanti','Via Santa Chiara 13 10122 Turin','011 5212017',?,?,'Cucina italiana; Cucina vegetariana; Cucina mediterranea',3,4.5,5
+https://www.yelp.it/biz/walima-torino,Walima,'Via Sant Agostino 13/g Quadrilatero Romano 10122 Torino','011 4310752',?,?,'Cucina marocchina',1,4.5,4
+https://www.yelp.it/biz/fratelli-la-cozza-torino-2,'Fratelli la Cozza','Via Regio Parco 39 10152 Torino','011 233337',?,?,Pizzerie,3,3.5,12
+https://www.yelp.it/biz/america-graffiti-torino,'America Graffiti','Via Andrea Doria 21H 10123 Torino','011 7633490',?,?,'Hamburger; Panini/Sandwich; Colazioni/Brunch',2,3.5,6
+https://www.yelp.it/biz/cornetti-night-torino-2,'Cornetti Night','Via delle Orfane 28 Quadrilatero Romano 10122 Torino','011 7653319',?,?,'Cucina italiana; Bar; Caffè',1,5.0,3
+https://www.yelp.it/biz/turet-torino,Turet,'Via Santa Teresa 23 10121 Torino','011 5063050',?,?,'Cucina italiana; Pizzerie; Cucina vegetariana',2,4.5,3
+https://www.yelp.it/biz/porto-di-savona-torino,'Porto di Savona','Piazza Vittorio Veneto 2 Torino','011 8173500',?,?,'Cucina italiana',3,3.5,8
+https://www.yelp.it/biz/istanbul-pizza-kebab-torino,'Istanbul Pizza Kebab','Corso Giulio Cesare 36 10152 Torino',null,?,?,'Pizzerie; Kebab; Cucina turca',1,4.5,3
+https://www.yelp.it/biz/duomo-di-torino-torino,'Duomo di Torino','Piazza San Giovanni 10122 Torino',null,?,?,'Musei',null,4.0,5
+https://www.yelp.it/biz/la-casa-del-demone-torino,'La Casa del Demone','Via San domenico 3B 10122 Torino','011 4367864',?,?,'Cucina italiana; Barbecue',2,4.5,4
+https://www.yelp.it/biz/manhattan-pub-torino,'manhattan pub','via Giachino 46 10149 Torino',null,?,?,Pub,1,4.5,4
+https://www.yelp.it/biz/cera-una-volta-torino,'C’era una volta','Corso Vittorio Emanuele II 41 10125 Torino','011 655498',?,?,'Cucina italiana',3,4.5,4
+https://www.yelp.it/biz/il-gelato-amico-torino,'Il Gelato Amico','Via San Massimo 34 10123 Torino','011 2072265',?,?,Gelaterie,2,5.0,2
+'https://www.yelp.it/biz/la-societ\%C3\%A0-dei-carbonari-torino','La Società dei Carbonari','Via Silvio Pellico 9 10125 Torino','011 19503652',?,?,'Cucina italiana',2,4.5,3
+https://www.yelp.it/biz/rivareno-torino,Rivareno,'Via Lagrange 29 10123 Torino',null,?,?,'Yogurterie; Gelaterie',3,5.0,2
+https://www.yelp.it/biz/via-roma-torino,'Via Roma','Via Roma 100 10123 Torino',null,?,?,'Monumenti/Luoghi storici e d interesse; Piazze pubbliche',null,4.0,4
+https://www.yelp.it/biz/monferrato-torino,Monferrato,'Via Monferrato 6 10100 Torino','011 8190674',?,?,'Cucina italiana',3,4.5,4
+https://www.yelp.it/biz/piu-di-un-gelato-torino,'Piu di un Gelato','Galleria Subalpina 30 Lato Piazza Carlo Alberto 10123 Torino',null,?,?,Yogurterie,2,5.0,2
+https://www.yelp.it/biz/ristorante-consorzio-torino,'Ristorante Consorzio','Via Monte di Pietà 23 10122 Torino','011 2767661',?,?,'Cucina italiana',3,4.5,3
+https://www.yelp.it/biz/simbad-kebab-torino,'Simbad Kebab','Via San Domenico 1 10122 Torino','1119 507809',?,?,'Fast food',1,4.5,3
+https://www.yelp.it/biz/gelateria-miretti-torino-7,'Gelateria Miretti','Corso Matteotti 5 10121 Torino','011 533687',?,?,'Caffè; Gelaterie',3,4.5,3
+https://www.yelp.it/biz/mamma-mia-torino-2,'Mamma Mia','Corso San Maurizio 32 Via Roero di Cortanze 4 10124 Torino','011 888309',?,?,'Cucina italiana; Pizzerie',2,4.0,5
+https://www.yelp.it/biz/ceccarelli-torino,Ceccarelli,'Via Santorre di Santarosa 7 10131 Torino','011 8193736',?,?,'Cucina piemontese',1,5.0,2
+https://www.yelp.it/biz/cafe-tabac-torino,'Cafe Tabac','Murazzi del Po 3 10123 Torino','324 9855670',?,?,'Caffè; Cucina piemontese',1,5.0,2
+https://www.yelp.it/biz/quadrilatero-romano-torino,'Quadrilatero Romano','Via Garibaldi 25 10122 Torino',null,?,?,'Monumenti/Luoghi storici e d interesse; Piazze pubbliche',null,5.0,2
+https://www.yelp.it/biz/la-cena-coi-fiocchi-torino,'La Cena Coi Fiocchi','Via Spano 16 10134 Torino','011 3187993',?,?,'Cucina italiana',3,4.5,3
+https://www.yelp.it/biz/taverna-i-miserabili-torino,'Taverna I Miserabili','Via Santa Giulia 3 10124 Torino','011 8390028',?,?,'Cucina italiana',2,4.5,3
+https://www.yelp.it/biz/blah-blah-torino,'Blah Blah','Via Po 21 10124 Torino','349 3172164',?,?,'Cucina italiana; Bar',1,5.0,2
+https://www.yelp.it/biz/les-arcades-tamango-torino,'Les Arcades Tamango','Via Fratelli Calandra 10 10123 Torino',null,?,?,'Cocktail bar',3,4.5,3
+https://www.yelp.it/biz/il-giglio-torino,'Il Giglio','Via San Domenico 4 10144 Torino','011 4365021',?,?,'Cucina italiana',3,5.0,2
+https://www.yelp.it/biz/delfino-blu-torino,'Delfino Blu','Corso Orbassano 277 10137 Torino','011 3115080',?,?,'Piatti a base di pesce',4,4.5,5
+https://www.yelp.it/biz/murphys-torino,Murphys,'Corso Vittorio Emanuele II 28 10123 Torino','011 887255',?,?,Pub,2,4.0,4
+https://www.yelp.it/biz/re-sole-torino-2,'Re Sole','Corso Moncalieri 349A 10131 Torino','011 6610158',?,?,'Bar; Pizzerie; Discoteche',3,4.0,6
+https://www.yelp.it/biz/soul-kitchen-torino,'Soul Kitchen','Via Santa Giulia 2 10124 Torino','011 884700',?,?,'Cucina vegetariana; Cucina vegana',3,5.0,2
+https://www.yelp.it/biz/trattoria-mombercelli-di-antico-elena-torino,'Trattoria Mombercelli di Antico Elena','Via San Paolo 10148 Torino','011 3855242',?,?,'Cucina italiana',2,5.0,2
+https://www.yelp.it/biz/orso-torino,Orso,'Via Berthollet 30 g 10125 Torino',null,?,?,Bar,2,4.0,4
+https://www.yelp.it/biz/shore-torino,Shore,'Piazza Emanuele Filiberto 10 10122 Torino','011 4363495',?,?,'Cocktail bar',1,4.5,3
+https://www.yelp.it/biz/cioccolato-peyrano-torino,'Cioccolato Peyrano','Cso Vittorio Emanuele 76 10121 Torino',null,?,?,'Panifici; Cioccolatai',2,4.5,3
+https://www.yelp.it/biz/granbar-torino,Granbar,'Piazza Gran Madre Di Dio 2 10131 Torino','011 8130871',?,?,Bar,4,4.5,3
+https://www.yelp.it/biz/gelateria-grom-torino-2,'Gelateria Grom','Via Garibaldi 11 10122 Torino','011 5618318',?,?,Gelaterie,2,4.5,3
+https://www.yelp.it/biz/diecicento-torino-2,Diecicento,'Via Antonio Giuseppe Bertola 24 10122 Torino','320 6234669',?,?,'Cucina italiana; Pizzerie',null,5.0,2
+https://www.yelp.it/biz/bruschetteria-pautasso-di-stecco-susanna-torino,'Bruschetteria Pautasso di Stecco Susanna','Piazza Emanuele Filiberto 4 10122 Torino','011 4366706',?,?,'Cucina italiana',3,5.0,2
+https://www.yelp.it/biz/huntsman-pub-torino,'Huntsman Pub','Corso Vittorio Emanuele 43 10125 Torino','011 6696605',?,?,'Cucina italiana; Pub',2,4.0,3
+'https://www.yelp.it/biz/soci\%C3\%A9te-lut\%C3\%A9ce-torino-2','Sociéte Lutéce','Piazza Carlo Emanuele II 21 10123 Torino','011 887644',?,?,'Cucina francese',2,4.5,3
+https://www.yelp.it/biz/mezzaluna-osteria-torino,'Mezzaluna Osteria','Via Bertola 57 10122 Torino','011 5185255',?,?,Bistrot,2,4.0,3
+https://www.yelp.it/biz/il-brigantino-torino,'Il Brigantino','Via Alpignano 16C 10143 Torino','339 2709637',?,?,'Piatti a base di pesce; Cucina vegetariana; Cucina vegana',3,4.5,3
+https://www.yelp.it/biz/rossopomodoro-torino,Rossopomodoro,'Via Nizza 262 10126 Torino',null,?,?,'Cucina italiana',2,4.5,3
+https://www.yelp.it/biz/monegato-torino,Monegato,'Piazza Madama Cristina 5 10125 Torino','011 6599986',?,?,'Fast food',1,4.0,3
+https://www.yelp.it/biz/cinque-lire-torino,'Cinque Lire','Via Milano 16 10122 Torino','1119 700204',?,?,'Cucina italiana',2,4.5,3
+https://www.yelp.it/biz/cantine-risso-torino,'Cantine Risso','Corso Casale 79 10132 Torino','011 8195531',?,?,'Cucina italiana',2,4.5,3
+https://www.yelp.it/biz/a-picciridda-torino,'A Picciridda','Piazza P. Repubblica 1 10122 Torino','0339 7735376',?,?,Pizzerie,2,3.5,7
+https://www.yelp.it/biz/horas-kebab-torino,'Horas Kebab','via Berthollet 24 10125 Torino',null,?,?,'Fast food; Kebab',1,4.5,3
+https://www.yelp.it/biz/km5-torino,Km5,'Via San Domenico 14/e Quadrilatero Romano 10122 Torino','380 3444956',?,?,Bar,2,3.5,7
+https://www.yelp.it/biz/exki-pietro-micca-torino,'EXKi Pietro Micca','Via Pietro Micca 2 10121 Torino','011 19700819',?,?,'Cucina vegetariana; Insalate; Senza glutine ',2,3.0,7
+https://www.yelp.it/biz/la-monachella-torino,'La Monachella','Via Santa Croce 2 10123 Torino','011 8138127',?,?,'Cucina italiana',2,3.5,6
+'https://www.yelp.it/biz/l-osto-d\%C3\%ABl-borgh-vej-torino','L’osto dël borgh vej','Via Torquato Tasso 7 10122 Torino','011 4364843',?,?,'Cucina italiana; Bistrot; Brasserie',2,4.0,4
+https://www.yelp.it/biz/one-apple-torino,'One Apple','Via Lovera di Maria 1 10122 Torino','011 19719445',?,?,'Cocktail bar; Lounge bar',3,3.5,4
+https://www.yelp.it/biz/girarrosto-santa-rita-torino,'Girarrosto Santa Rita','Corso Orbassano 272 10137 Torino','011 3112540',?,?,'Cucina italiana',null,4.5,4
+https://www.yelp.it/biz/enzo-e-grazia-di-matera-grazia-torino,'Enzo e Grazia di Matera Grazia','Via Capelli Carlo 42 10146 Torino','011 7419827',?,?,'Caffè/Tè; Cioccolatai',2,4.5,3
+https://www.yelp.it/biz/kokoroya-torino,Kokoroya,'Via Piave 9A 10122 Torino','011 4338748',?,?,'Cucina giapponese',3,5.0,2
+https://www.yelp.it/biz/palazzo-bricherasio-torino,'Palazzo Bricherasio','Via Lagrange 20 10123 Torino','011 544087',?,?,'Monumenti/Luoghi storici e d interesse',null,4.0,4
+https://www.yelp.it/biz/osteria-degli-ottoni-torino,'Osteria degli Ottoni','Via Giuseppe Pomba 6 10123 Torino','011 8600105',?,?,'Cucina italiana',3,4.0,3
+https://www.yelp.it/biz/kebab-samir-torino,'kebab Samir','piazza Adriano Torino',null,?,?,Kebab,1,5.0,2
+https://www.yelp.it/biz/japs-torino-3,Japs!,'Corso Alcide De Gasperi 8 10121 Torino','011 4349624',?,?,'Cucina giapponese; Sushi bar',2,4.5,2
+https://www.yelp.it/biz/sweet-lab-torino,'Sweet Lab','Via Principe Amedeo 37 10123 Torino','011 19457907',?,?,'Dolci; Pasticcerie; Cupcake',2,4.5,2
+https://www.yelp.it/biz/la-porta-rossa-torino,'La Porta Rossa','Via Passalacqua 3B 10122 Torino','011 530816',?,?,'Cucina italiana; Piatti a base di pesce',3,4.0,4
+https://www.yelp.it/biz/circolo-dei-lettori-torino,'Circolo dei lettori','Via Giambattista Bogino 9 10123 Torino','011 4326827',?,?,'Cucina italiana',1,4.0,3
+https://www.yelp.it/biz/vo-torino,Vo,'Via Andrea Provana 3 10123 Torino','011 8390288',?,?,'Cucina italiana',4,4.0,3
+https://www.yelp.it/biz/pinacoteca-giovanni-e-marella-agnelli-torino,'Pinacoteca Giovanni E Marella Agnelli','V. Nizza 230 10126 Torino','011 0062713',?,?,Musei,null,3.5,5
+https://www.yelp.it/biz/caffe-vittorio-veneto-torino,'Caffe Vittorio Veneto','Piazza Vittorio Veneto 2 Torino','011 8171756',?,?,'Caffè; Caffè/Tè',2,4.0,3
+https://www.yelp.it/biz/paco-torino,Paco,'Via Giuseppe Mazzini 4 10123 Torino','011 531096',?,?,'Cucina messicana',1,4.5,2
+https://www.yelp.it/biz/miagola-cafe-torino,'Miagola cafe','Via Giovanni Amendola 6D 10121 Torino',null,?,?,Caffè,3,4.5,2
+https://www.yelp.it/biz/passamaneria-torino,Passamaneria,'Via Botero 16 10122 Torino',null,?,?,'Cucina italiana',3,4.5,2
+https://www.yelp.it/biz/casale93-torino,Casale93,'Corso Casale 93 10132 Torino','011 8197864',?,?,'Cucina italiana',2,4.5,3
+https://www.yelp.it/biz/museo-della-sindone-torino,'Museo della Sindone','Via San Domenico 28 10122 Torino','011 4365832',?,?,Musei,null,4.0,3
+https://www.yelp.it/biz/messicano-mamasita-torino,'Messicano Mamasita','Corso Rosselli 1 10128 Torino','011 5538214',?,?,'Cucina messicana',3,4.5,2
+https://www.yelp.it/biz/focacceria-santagostino-torino-2,'Focacceria Sant’Agostino','Via Sant Agostino 6 10122 Torino','011 4365091',?,?,'Cucina italiana; Pizzerie',2,4.5,2
+https://www.yelp.it/biz/pollastrini-torino,Pollastrini,'Corso Palestro 2 10122 Torino','011 535031',?,?,'Cucina italiana; Cucina mediterranea',2,4.5,2
+'https://www.yelp.it/biz/caff\%C3\%A8-elena-storico-torino','Caffè Elena Storico','Piazza Vittorio Veneto 5 10124 Torino','011 9503395',?,?,'Bar Caffè',null,4.5,2
+https://www.yelp.it/biz/el-puig-d-estelles-torino,'El Puig d’Estelles','Via 20 Settembre 57R 10121 Torino',null,?,?,'Cucina italiana',3,4.5,2
+https://www.yelp.it/biz/oashi-torino,oashi,'corso Regina Margherita 167 10144 Torino','011 4732188',?,?,'Cucina giapponese',1,4.0,3
+'https://www.yelp.it/biz/convitto-torteria-caf\%C3\%A8-torino','Convitto Torteria Cafè','Via San Francesco da Paola 8D 10123 Torino','011 8154070',?,?,'Caffè; Dolci',1,4.0,3
+https://www.yelp.it/biz/oinos-torino,Oinos,'Via della Rocca 39G 10123 Torino','011 835084',?,?,'Cucina italiana',4,4.5,2
+'https://www.yelp.it/biz/vale-un-per\%C3\%B9-torino-2','Vale Un Perù','Via San Paolo 52B 10141 Torino','011 3835253',?,?,'Cucina peruviana',3,4.5,2
+https://www.yelp.it/biz/niva-cremeria-torino,'Niva Cremeria','Piazza Vittorio Veneto 7 10124 Torino','011 8125064',?,?,Gelaterie,1,4.5,2
+https://www.yelp.it/biz/volver-torino-2,Volver,'Via Botero 7 10122 Torino','329 9586494',?,?,'Steak house; Cucina argentina',2,3.5,5
+https://www.yelp.it/biz/eos-torino,EOS,'Via Cardinal Maurizio 14E 10131 Torino','011 8195831',?,?,'Cucina italiana',1,4.5,2
+'https://www.yelp.it/biz/xo-caf\%C3\%A8-torino-3','XO’ Cafè','Via Po 46 10100 Torino','011 8178329',?,?,'Bar; Discoteche',3,3.5,4
+https://www.yelp.it/biz/taglio-torino,Taglio,'Largo IV Marzo 17C 10122 Torino','011 5215575',?,?,Pizzerie,1,4.0,3
+https://www.yelp.it/biz/trattoria-valenza-torino,'Trattoria Valenza','Via Borgo Dora 39 10152 Torino','011 5213914',?,?,'Cucina italiana; Trattorie',2,4.0,4
+https://www.yelp.it/biz/porta-palatina-torino-2,'Porta Palatina','Via della Basilica 16 10122 Torino',null,?,?,Parchi,null,4.5,2
+'https://www.yelp.it/biz/ristorante-enoteca-parlap\%C3\%A0-torino-2','Ristorante Enoteca Parlapà','Corso Principe Eugenio 17 10122 Torino','011 4365899',?,?,'Cucina italiana; Cantine/Enoteche',3,4.5,2
+https://www.yelp.it/biz/le-rondini-torino,'Le Rondini','Piazza della Repubblica 1bis C 10122 Torino','011 4338743',?,?,'Cucina italiana; Pizzerie',2,3.5,4
+'https://www.yelp.it/biz/bene-cos\%C3\%AC-torino','Bene Così','Via Ercole Tommaso Roero di Cortanze 2C 10124 Torino','338 9514316',?,?,'Cucina italiana; Hamburger; Cucina americana (tradizionale)',3,4.5,2
+https://www.yelp.it/biz/galleria-sabauda-torino,'Galleria Sabauda','Piazzetta Reale 1 10122 Torino','011 530501',?,?,Musei,null,3.5,6
+https://www.yelp.it/biz/conte-verde-torino-2,'Conte Verde','Via Palazzo di Citta 21F 10122 Torino','011 5211056',?,?,'Cucina italiana; Pizzerie; Pasticcerie',1,3.0,5
+https://www.yelp.it/biz/dora-in-poi-torino,'Dora In Poi','Via Catania 21 10153 Torino','011 2409962',?,?,'Cucina italiana',2,4.5,2
+https://www.yelp.it/biz/costadoro-torino,Costadoro,'Lgdora Pietro Colletta 113/6 10153 Torino','011 2483804',?,?,Caffè/Tè,2,4.5,2
+https://www.yelp.it/biz/museo-carcere-le-nuove-torino,'Museo Carcere Le Nuove','Via Borsellino 3 10138 Torino',null,?,?,Musei,null,4.5,2
+https://www.yelp.it/biz/la-locanda-del-bollito-torino,'La Locanda del Bollito','Corso Palermo 22 10152 Torino','392 9306936',?,?,'Cucina italiana',2,4.5,2
+https://www.yelp.it/biz/l-accademia-del-panino-torino,'L’Accademia del Panino','Via San Ottovio 27A 10124 Torino','011 19694708',?,?,Panini/Sandwich,1,4.5,2
+https://www.yelp.it/biz/boja-fauss-torino-2,'Boja Fauss','Via Saluzzo 48 10125 Torino','011 6599464',?,?,'Cucina piemontese',2,3.5,4
+https://www.yelp.it/biz/old-wild-west-torino,'Old Wild West','Stazione Torino Porta Nuova Corso Vittorio Emanuele II 10125 Torino','011 4546179',?,?,'Fast food; Steak house',2,3.0,6
+https://www.yelp.it/biz/l-angolo-greco-torino,'L’Angolo Greco','Corso Vittorio Emanuele II 40 10123 Torino','011 888855',?,?,'Cucina greca',2,3.5,3
+https://www.yelp.it/biz/shamrock-inn-torino,'Shamrock inn','Corso Vittorio Emanuele II 34M 10123 Torino','345 9330379',?,?,'Pub; Hamburger',2,3.5,3
+https://www.yelp.it/biz/waxy-torino,Waxy,'Piazza Nizza 77/A 10126 Torino','011 6680649',?,?,Pub,2,3.5,4
+https://www.yelp.it/biz/pizzeria-fratelli-la-bufala-torino,'Pizzeria Fratelli La Bufala','Via Barbaroux 37A 10122 Torino','011 5185843',?,?,'Cucina italiana',3,3.0,7
+https://www.yelp.it/biz/bunet-torino,Bunet,'Piazza Sabotino 1 10138 Torino','011 19861053',?,?,Bar,2,4.5,2
+https://www.yelp.it/biz/el-centenario-torino,'El Centenario','Via Biancamano 3 10121 Torino','011 539506',?,?,'Cucina italiana; Caffè; Cucina messicana',3,2.5,6
+https://www.yelp.it/biz/lord-nelson-torino,'Lord Nelson','Via San Domenico 51 10122 Torino','335 5338896',?,?,'Pizzerie; Birreria; Karaoke',2,3.5,3
+'https://www.yelp.it/biz/pastarell-mont\%C3\%A0',Pastarell,'Corso San Martino 3 12046 Montà',null,?,?,'Dolci; Pasticcerie',2,5.0,2
+https://www.yelp.it/biz/mcdonalds-torino-3,McDonald’s,'Via Cossa Pietro 293 10151 Torino','011 4515029',?,?,'Hamburger; Fast food',1,4.5,3
+https://www.yelp.it/biz/ristorante-g-torino,'Ristorante G','Via Vincenzo Gioberti 24 10128 Torino','011 539842',?,?,'Cucina italiana',2,4.0,2
+https://www.yelp.it/biz/museo-di-scienze-naturali-torino,'Museo di Scienze Naturali','Via Giolitti 36 10123 Torino','011 4326354',?,?,Musei,null,3.0,6
+https://www.yelp.it/biz/lo-stonnato-torino,'Lo Stonnato','Via Giuseppe Baretti 10 10125 Torino','011 2631440',?,?,'Pizzerie; Cucina italiana',2,4.0,2
+https://www.yelp.it/biz/la-ristonomia-torino,'La Ristonomia','Via Antonio Giuseppe Bertola 41E 10122 Torino','011 19770446',?,?,'Cucina italiana; Caffetteria; Piatti a base di pesce',3,5.0,1
+https://www.yelp.it/biz/cecchi-torino,Cecchi,'Via Fabrizi Nicola 32 10145 Torino','011 7496394',?,?,Pizzerie,2,4.5,2
+https://www.yelp.it/biz/scapadaca-torino,Scapa’daca’,'Corso San Maurizio 48/B 10124 Torino',null,?,?,Bar,2,3.5,4
+https://www.yelp.it/biz/fiorfood-torino,Fiorfood,'Galleria San Federico 26 10121 Torino','011 511771',?,?,'Cucina italiana',3,4.0,2
+https://www.yelp.it/biz/villa-somis-torino,'Villa Somis','Strada Val Pattonera 138 10100 Torino','011 6312617',?,?,'Cucina italiana',4,4.5,2
+https://www.yelp.it/biz/jumping-jester-torino,'Jumping Jester','Via Giuseppe Mazzini 2 10123 Torino',null,?,?,Pub,3,3.0,4
+https://www.yelp.it/biz/adonis-torino,Adonis,'Via Saluzzo 25E 10125 Torino','011 0769491',?,?,Creperie,2,5.0,1
+https://www.yelp.it/biz/caffe-del-centro-torino,'Caffe’ del Centro','Via Venti Settembre 28 10121 Torino','011 5171950',?,?,'Pizzerie; Caffè',1,4.5,2
+https://www.yelp.it/biz/shaka-brah-torino,'Shaka Brah','Via Giuseppe Baretti 12E 10125 Torino','011 19665280',?,?,'Cocktail bar',2,5.0,1
+https://www.yelp.it/biz/barnum-torino,Barnum,'Via Saluzzo 23Bis 10125 Torino','011 655548',?,?,'Cucina italiana',2,5.0,1
+https://www.yelp.it/biz/jaipur-torino,Jaipur,'Corso Orbassano 230 10137 Torino',null,?,?,'Cucina indiana',null,3.0,8
+https://www.yelp.it/biz/bucks-g-d-34-torino-2,'Buck’s G.D. 34','Via Arsenale 34 10121 Torino','011 5119157',?,?,Bar,2,4.0,2
+https://www.yelp.it/biz/piazza-castello-torino,'Piazza Castello','Piazza Castello Torino',null,?,?,'Monumenti/Luoghi storici e d interesse',null,4.0,2
+'https://www.yelp.it/biz/frat\%C3\%B2-torino',Fratò,'Via Andrea Doria 21B 10123 Torino','011 19703744',?,?,'Cucina italiana',2,5.0,1
+https://www.yelp.it/biz/il-borgo-medievale-torino,'Il Borgo Medievale','Viale Virgilio 107 Parco del Valentino 10126 Torino',null,?,?,'Monumenti/Luoghi storici e d interesse',null,5.0,1
+https://www.yelp.it/biz/primaepoi-torino-3,Primaepoi,'Via Giuseppe Luigi Lagrange 38 10123 Torino',null,?,?,'Cucina italiana',2,5.0,1
+https://www.yelp.it/biz/el-centenario-torino-2,'El Centenario','Corso Giacomo Matteotti 17M 10121 Torino','011 539506',?,?,'Cucina tex-mex',2,3.5,3
+'https://www.yelp.it/biz/caff\%C3\%A8-petra-torino','Caffè Petra','Via B Galliari 16 10125 Torino','011 6508696',?,?,'Cucina italiana',2,4.0,2
+https://www.yelp.it/biz/rossosapore-torino,Rossosapore,'Via Urbano Rattazzi 3F 10123 Torino','011 4546961',?,?,'Cucina siciliana',2,4.0,2
+https://www.yelp.it/biz/st-martin-torino,'St. Martin','Corso San Martino 1 10122 Torino','011 5691762',?,?,'Pizzerie; Pub',null,4.0,2
+https://www.yelp.it/biz/le-putrelle-osteria-torino,'Le Putrelle Osteria','Via Tomm Valperga Caluso 11 10125 Torino','011 6692129',?,?,'Cucina italiana',1,4.0,2
+https://www.yelp.it/biz/vintage-torino,Vintage,'Piazza Solferino 16H 10121 Torino','011 535948',?,?,'Cucina italiana',4,4.0,2
+https://www.yelp.it/biz/palazzo-barolo-torino,'Palazzo Barolo','Via Delle Orfane 7 10122 Torino','011 4360311',?,?,Musei,null,3.0,5
+https://www.yelp.it/biz/cantina-babette-torino,'Cantina Babette','Via Vittorio Alfieri 16F 10121 Torino','011 547882',?,?,'Cucina italiana',3,4.0,2
+'https://www.yelp.it/biz/caff\%C3\%A9-montevecchio-torino','Caffé Montevecchio','Via San Secondo 19 10128 Torino',null,?,?,Caffè,null,5.0,1
+https://www.yelp.it/biz/serranos-torino,Serranos,'Vía San Massimo 11E 10123 Torino','011 0260265',?,?,'Tapas bar; Cucina spagnola',null,5.0,1
+https://www.yelp.it/biz/pizzeria-da-michele-torino,'Pizzeria Da Michele','Piazza Vittorio Veneto 4 10123 Torino','011 888836',?,?,Pizzerie,2,3.5,4
+https://www.yelp.it/biz/tasty-burger-torino,'Tasty Burger','Via San Secondo 7bis 10128 Torino','011 544577',?,?,'Cucina americana (tradizionale); Hamburger',null,5.0,1
+https://www.yelp.it/biz/taco-bang-torino,'Taco Bang','Via Madama Cristina 95E 10126 Torino','011 7900816',?,?,'Fast food; Cucina messicana',1,5.0,1
+https://www.yelp.it/biz/casa-fiore-torino,'Casa Fiore','Via della Rocca 39 10123 Torino','011 19584146',?,?,'Cucina piemontese',null,5.0,1
+https://www.yelp.it/biz/galante-torino,Galante,'Corso Palestro 15 10100 Torino','011 537757',?,?,'Cucina italiana',3,4.5,2
+https://www.yelp.it/biz/fondazione-pietro-accorsi-torino,'Fondazione Pietro Accorsi','V. Po 55 10124 Torino','011 8129116',?,?,Musei,null,4.0,3
+https://www.yelp.it/biz/nyc-caffe-torino,'NYC Caffe','Via Giuseppe Mazzini 35 10123 Torino',null,?,?,Caffè,2,5.0,1
+https://www.yelp.it/biz/il-tabisca-turin,'Il Tabisca','Piazza Vittorio Veneto 16 10123 Turin','011 0207682',?,?,'Cucina italiana; Pizzerie',3,5.0,2
+https://www.yelp.it/biz/la-pagoda-di-hu-lia-meng-torino,'La Pagoda di HU LIA Meng','Via Gioia Melchiorre 2 10100 Torino','011 539897',?,?,'Cucina italiana',2,5.0,1
+'https://www.yelp.it/biz/caff\%C3\%A8-palazzo-reale-torino-2','Caffè Palazzo Reale','Palazzo Reale 10122 Torino',null,?,?,Caffetteria,null,4.0,2
+https://www.yelp.it/biz/pizzeria-dual-torino,'Pizzeria Dual','Via Cesare Battisti 17 10123 Torino','011 8802647',?,?,'Cucina italiana; Pizzerie; Hamburger',2,5.0,1
+https://www.yelp.it/biz/faro-bar-torino,'Faro Bar','Via Po 30C 10124 Torino',null,?,?,'Caffetteria; Cucina vegana; Frullati/Succhi/Centrifugati; ',1,5.0,1
+https://www.yelp.it/biz/casa-amica-friski-torino,'Casa Amica Friski','Corso Galileo Ferraris 131 10128 Torino',null,?,?,'Cucina italiana',null,5.0,1
+https://www.yelp.it/biz/crepes-a-porter-torino,'Crepes a Porter','Via dell Arsenale 38 10121 Torino',null,?,?,Creperie,null,5.0,1
+https://www.yelp.it/biz/la-bottega-del-gusto-torino,'La Bottega Del Gusto','Via Andrea Doria 15 10123 Torino','011 6995030',?,?,'Cucina italiana',2,5.0,1
+https://www.yelp.it/biz/pastamaneria-torino,Pastamaneria,'Via Antonio Giuseppe Bertola 33 10122 Torino','011 19784921',?,?,'Cucina piemontese',3,5.0,1
+https://www.yelp.it/biz/matrioska-torino,Matrioska,'Via Saluzzo 42Bis 10125 Torino','011 7900691',?,?,'Cocktail bar',1,5.0,1
+https://www.yelp.it/biz/kiki-torino,Kiki,'via della rocca 39 10123 Torino','011 835084',?,?,'Cucina giapponese',null,4.0,2
+https://www.yelp.it/biz/il-padellino-torino,'Il Padellino','Corso Vinzaglio 21 10121 Torino','011 533730',?,?,'Cucina italiana; Pizzerie; Bistrot',2,5.0,1
+https://www.yelp.it/biz/baccanale-torino,Baccanale,'Via Delle Cacce 40B 10135 Torino',null,?,?,'Cucina italiana',3,4.5,2
+https://www.yelp.it/biz/oriental-daily-by-kiki-torino,'Oriental Daily by Kiki','Via Cesana 72 10139 Torino','011 4470067',?,?,'Cucina giapponese; Sushi bar',2,4.0,2
+https://www.yelp.it/biz/fassoneria-torino,Fassoneria,'Piazza Emanuele Filiberto 4 10122 Torino','346 2341996',?,?,Hamburger,2,5.0,1
+https://www.yelp.it/biz/astoria-torino,Astoria,'Via Claudio Luigi Berthollet 13 10125 Torino','389 7663731',?,?,'Cocktail bar; Bagel',2,5.0,1
+https://www.yelp.it/biz/500-calorie-torino,'500 Calorie','Via San Quintino 33C 10121 Torino','329 3985383',?,?,'Cucina italiana',null,5.0,1
+https://www.yelp.it/biz/il-ponte-torino-4,'Il Ponte','Via Giovanni da Verazzano 15 10129 Torino','011 597721',?,?,'Cucina italiana',3,5.0,1
+https://www.yelp.it/biz/biberon-torino,Biberon,'Via Silvio Pellico 2F 10125 Torino','328 2817954',?,?,Bar,1,5.0,1
+https://www.yelp.it/biz/grezzo-torino,Grezzo,'Via Giovanni Amendola 9D 10121 Torino','011 19213584',?,?,'Pasticcerie; Cioccolatai; Senza glutine',2,5.0,1
+https://www.yelp.it/biz/berbel-torino,Berbel,'Via San Domenico 33B 10144 Torino','011 4366778',?,?,'Cucina italiana',3,5.0,1
+https://www.yelp.it/biz/ortigia-bistrot-torino,'Ortigia Bistrot','Via Sant Agostino 15B 10122 Torino','011 2645290',?,?,'Piatti a base di pesce; Cucina mediterranea; Cucina siciliana',2,5.0,1
+https://www.yelp.it/biz/1610-bagel-torino,'1610 Bagel','Via XX Settembre 16B 10121 Torino','011 19877041',?,?,'Panini/Sandwich; Venditori ambulanti; Specialità alimentari; ',1,5.0,1
+https://www.yelp.it/biz/brasserie-bordeaux-torino-2,'Brasserie Bordeaux','10125 Torino',null,?,?,'Ristoranti; Cocktail bar',1,5.0,1
+https://www.yelp.it/biz/la-maison-de-marie-torino,'La Maison de Marie','Via Giuseppe Garibaldi 18 10122 Torino','011 5214875',?,?,Colazioni/Brunch,3,5.0,1
+https://www.yelp.it/biz/la-mansa-del-re-torino,'La Mansa del Re','Corso Vittorio Emanuele II 40A 10123 Torino','011 884350',?,?,'Cucina piemontese; Trattorie',3,5.0,1
+https://www.yelp.it/biz/olsen-di-caldi-cinzia-torino,'Olsen di Caldi Cinzia','Via Sant Agostino 4 10134 Torino','011 4361573',?,?,'Cucina vegetariana; Cioccolatai',null,5.0,1
+'https://www.yelp.it/biz/settes\%C3\%AC-torino-2',Settesì,'Via Andrea Provana 3B 10123 Torino','334 3330101',?,?,'Cucina italiana',3,5.0,1
+'https://www.yelp.it/biz/caf\%C3\%A9-accorsi-palace-torino','Café Accorsi Palace','Via Po 57 10124 Torino','011 5691738',?,?,'Caffè; Caffè/Tè',2,4.0,2
+https://www.yelp.it/biz/pan-cafe-torino,'Pan Cafe','Largo IV Marzo 9 10122 Torino','011 4360360',?,?,'Cucina italiana; Caffè',3,5.0,1
+https://www.yelp.it/biz/arigato-torino,Arigato,'Via Nizza 71 10126 Torino',null,?,?,'Cucina giapponese; All you can eat Crudo',2,5.0,1
+https://www.yelp.it/biz/la-via-della-seta-torino,'La Via della Seta','Corso Casale 160 10132 Torino','011 8190557',?,?,'Cucina italiana',2,3.5,3
+https://www.yelp.it/biz/la-cabane-torino-2,'La Cabane','Via della Rocca 10C 10123 Torino','011 03788308',?,?,'Bar; Cucina francese',3,5.0,1
+https://www.yelp.it/biz/gelateria-delle-alpi-torino,'Gelateria Delle Alpi','Via PO 18 10100 Torino','011 8125043',?,?,'Gelaterie; Caffè/Tè; Dolci',1,3.5,3
+https://www.yelp.it/biz/angolo-del-parin-torino,'Angolo del Parin','Via Bernardino Galliari 27 10125 Torino','011 6692040',?,?,'Cucina italiana',3,5.0,1
+https://www.yelp.it/biz/pastis-2020-torino,'Pastis 2020','Via Sant Agostino 10122 Torino','011 5211085',?,?,Bar,2,5.0,1
+https://www.yelp.it/biz/menodiciotto-torino,Menodiciotto,'Piazza Castello 71 Torino','011 2237825',?,?,Caffè,2,5.0,1
+https://www.yelp.it/biz/gusti-e-sapori-torino,'Gusti e Sapori','Via Boucheron Carlo 18 10122 Torino','011 541190',?,?,Pizzerie,2,3.0,4
+https://www.yelp.it/biz/a6-sciamadda-torino,'A6 Sciamadda','Via Maria Vittoria 32 10123 Torino','011 0205184',?,?,'Piatti a base di pesce',1,5.0,1
+https://www.yelp.it/biz/menupizza-torino,Menupizza,'Via Claudio Beaumont 34 10138 Torino','011 7654491',?,?,Pizzerie,1,5.0,1
+'https://www.yelp.it/biz/kirkuk-kaff\%C3\%A8-torino-2','Kirkuk Kaffè','Via Carlo Alberto 10 10123 Torino','011 530657',?,?,'Cucina mediorientale',2,3.5,3
+https://www.yelp.it/biz/officine-panino-torino,'Officine Panino','Via Carlo Alberto 18 10123 Torino','011 4546368',?,?,Panini/Sandwich,1,5.0,1
+https://www.yelp.it/biz/museo-nazionale-del-risorgimento-italiano-torino,'Museo Nazionale del Risorgimento Italiano','Via Accademia Delle Scienze 5 10123 Torino','011 5621147',?,?,Musei,null,3.5,4
+https://www.yelp.it/biz/habanero-torino-2,Habanero,'Via Michele Buniva 4 10124 Torino','011 19702328',?,?,'Cucina messicana',3,5.0,1
+https://www.yelp.it/biz/pizza-ad-hoc-torino,'Pizza Ad Hoc','Via Plana Giovanni 7B 10123 Torino','011 8128643',?,?,Pizzerie,1,5.0,1
+https://www.yelp.it/biz/la-cuite-torino,'La Cuite','Via IV Marzo 8 10122 Torino','329 3737845',?,?,Bistrot,2,5.0,1
+https://www.yelp.it/biz/maggazino-52-torino,'Maggazino 52','Via Giovanni Giolitti 52A 10123 Torino','011 4271938',?,?,'Cucina italiana',2,5.0,1
+https://www.yelp.it/biz/spazio-la-stampa-torino,'Spazio La Stampa','Via Lugaro 21 10126 Torino','011 6568319',?,?,Musei,null,5.0,1
+https://www.yelp.it/biz/bar-torrefazione-beccuti-torino,'Bar Torrefazione Beccuti','Via Micca Pietro 10 10122 Torino','011 5621704',?,?,Caffè,null,5.0,1
+https://www.yelp.it/biz/family-bar-torino,'Family Bar','Via Principi d Acaja 33 10143 Torino','011 4344865',?,?,'Caffè; Colazioni/Brunch',1,5.0,1
+'https://www.yelp.it/biz/caff\%C3\%A8-savoia-torino-3','Caffè Savoia','Via della Consolata 10122 Torino',null,?,?,Bar,null,5.0,1
+https://www.yelp.it/biz/tiffany-lounge-torino,'Tiffany Lounge','Via da Verazzano 43 10129 Torino',null,?,?,'Caffè; Caffè/Tè; Lounge bar',null,5.0,1
+'https://www.yelp.it/biz/caff\%C3\%A8-liber-torino','Caffè Liber','Via Barbaroux 25 10154 Torino','011 531679',?,?,'Pub; Cocktail bar',2,5.0,1
+https://www.yelp.it/biz/la-taverna-greca-torino-2,'La Taverna Greca','Via Monginevro 29 10138 Torino','011 337334',?,?,'Cucina Greca',2,null,0
+https://www.yelp.it/biz/quaglia-teresa-torino,'Quaglia Teresa','Via Barbaroux Giuseppe 10 10122 Torino','011 538818',?,?,'Fast food',1,5.0,1
+https://www.yelp.it/biz/la-via-del-sale-torino,'La Via del Sale','Via San Francesco Da Paola 2 10123 Torino','011 888389',?,?,'Cucina italiana',2,3.5,3
+https://www.yelp.it/biz/bar-lo-scudiero-torino,'Bar Lo Scudiero','Corso Massimo D Azeglio 60 10126 Torino','011 7940828',?,?,Caffè,2,5.0,1
+https://www.yelp.it/biz/antica-salumeria-torino,'Antica Salumeria','Via Giuseppe Garibaldi 12 10122 Torino','011 5212547',?,?,'Wine bar; Tapas bar; Salumerie',2,5.0,1
+https://www.yelp.it/biz/vasa-vasa-torino,'Vasa Vasa','Via Amendola 4 bis 10121 Torino',null,?,?,'Cucina italiana; Gelaterie',3,3.5,3
+https://www.yelp.it/biz/il-porto-torino,'Il Porto','Via Bellezia Angolo Via Corte D Appello Zona Quadrilatero Romano 10122 Torino','011 4367865',?,?,'Piatti a base di pesce',3,5.0,1
+'https://www.yelp.it/biz/bord\%C3\%B2-torino',Bordò,'Via Palazzo di Città 19A 10122 Torino',null,?,?,'Cucina italiana',2,5.0,1
+https://www.yelp.it/biz/pizzeria-pieros-torino,'Pizzeria Piero’s','Via Principe Amedeo 25 10123 Torino','011 8172254',?,?,Pizzerie,1,5.0,1
+https://www.yelp.it/biz/yoshi-bar-torino,'Yoshi bar','Via San Donato 6F 10144 Torino','011 0466614',?,?,'Sushi bar',3,5.0,1
+https://www.yelp.it/biz/cornetti-night-torino,'Cornetti Night','Via Piave 2 10122 Torino',null,?,?,Dolci,1,5.0,1
+https://www.yelp.it/biz/gaudenti-1971-torino,'Gaudenti 1971','Via Po 14A 10123 Torino',null,?,?,'Panifici; Pasticcerie; Colazioni/Brunch',2,5.0,1
+https://www.yelp.it/biz/museo-diffuso-della-resistenza-torino,'Museo Diffuso della Resistenza','Corso Valdocco 4A 10122 Torino','011 01120780',?,?,Musei,null,5.0,1
+https://www.yelp.it/biz/john-joy-torino,'John Joy','Lorenzo Valerio 5B Lorenzo Valerio 5b 10122 Torino',null,?,?,'Cucina italiana',2,5.0,1
+https://www.yelp.it/biz/pastis-torino,Pastis,'Piazza Emanuele Filiberto 9B 10122 Torino','011 5211085',?,?,'Cucina italiana',1,3.5,4
+https://www.yelp.it/biz/lady-bar-torino,'Lady Bar','Via Sant Ottavio 2 10124 Torino','011 8173569',?,?,'Bar; Caffetteria',3,5.0,1
+https://www.yelp.it/biz/la-bufala-torino,'La Bufala','Via del Carmine 22 10122 Torino','011 5217011',?,?,Pizzerie,1,5.0,1
+https://www.yelp.it/biz/il-picchio-torino,'Il Picchio','Corso Lione 40 10141 Torino','011 3859681',?,?,Pizzerie,2,3.0,4
+https://www.yelp.it/biz/trattoria-da-cinzia-torino,'Trattoria Da Cinzia','Via Madama Cristina 165 10126 Torino','011 6963515',?,?,'Cucina italiana',2,5.0,1
+https://www.yelp.it/biz/la-mela-stregata-torino,'La Mela Stregata','Piazza Carducci 122 10126 Torino','011 6598445',?,?,'Dolci; Caffè; Colazioni/Brunch',1,5.0,1
+https://www.yelp.it/biz/fetta-di-polenta-torino,'Fetta di Polenta','Via Giulia di Barolo 9 10124 Torino',null,?,?,'Monumenti/Luoghi storici e d interesse',null,5.0,1
+https://www.yelp.it/biz/l-osteria-di-pierantonio-torino,'L’Osteria Di Pierantonio','Via Bizzozero 15 10126 Torino','011 674528',?,?,'Cucina italiana',2,5.0,1
+https://www.yelp.it/biz/gelateria-popolare-torino,'Gelateria Popolare','Via Borgo Dora 3 10152 Torino',null,?,?,Gelaterie,2,5.0,1
+https://www.yelp.it/biz/barcollo-torino,Barcollo,'corso Regina 88 bis 10153 Torino',null,?,?,'Cocktail bar',1,5.0,1
+https://www.yelp.it/biz/il-cortiletto-torino-2,'Il Cortiletto','Via Borgo Dora 29 10152 Torino','011 4367183',?,?,'Cucina italiana',3,5.0,1
+https://www.yelp.it/biz/giapponese-ohashi-torino,'Giapponese Ohashi','Corso Regina Margherita 167 10122 Torino','011 4732188',?,?,'Cucina giapponese',1,5.0,1
+https://www.yelp.it/biz/tobiko-torino,Tobiko,'Via Vittorio Alfieri 20 10121 Torino','011 537923',?,?,'Cucina giapponese; Cucina coreana',2,3.5,2
+https://www.yelp.it/biz/raspino-lorenzo-torino,'Raspino / Lorenzo','C. Regio Parco 24 10152 Torino','011 850142',?,?,'Panifici; Cioccolatai',1,5.0,1
+https://www.yelp.it/biz/indiano-shri-ganesh-torino,'Indiano Shri Ganesh','Via Pigafetta Antonio 14 10129 Torino','011 595680',?,?,'Cucina indiana',4,3.0,4
+https://www.yelp.it/biz/gennaro-esposito-torino-2,'Gennaro Esposito','Via Vincenzo Gioberti 70 10128 Torino Baja California Messico','+52 33 419 27247',?,?,Pizzerie,2,5.0,1
+https://www.yelp.it/biz/la-briciola-torino,'La Briciola','Piazza Santa Giulia 11 10124 Torino','392 2912097',?,?,'Pizzerie; Panifici; Pasticcerie',2,5.0,1
+https://www.yelp.it/biz/distilleria-quaglia-torino,'Distilleria Quaglia','Via Giulia di Barolo 54 10124 Torino','349 8353693',?,?,'Cocktail bar',3,5.0,1
+https://www.yelp.it/biz/il-caffe-di-roma-torino,'Il Caffe’ Di Roma','Via Cernaia 2 Torino','011 5628253',?,?,'Caffè; Caffè/Tè',2,3.0,4
+https://www.yelp.it/biz/ponte-regina-torino,'Ponte Regina','Corso Tortona 4 10153 Torino','011 8391161',?,?,Pizzerie,null,5.0,1
+https://www.yelp.it/biz/vittoria-torino-3,Vittoria,'Via Carlo Alberto 34 10123 Torino','011 541923',?,?,'Cucina italiana',2,4.0,2
+https://www.yelp.it/biz/du-cesari-torino,'Du’ Cesari','Corso Regina Margherita 252 10144 Torino','011 484430',?,?,'Cucina romana',2,5.0,1
+https://www.yelp.it/biz/villa-regina-torino,'villa regina','villa regina 10131 Torino',null,?,?,'Monumenti/Luoghi storici e d interesse',null,5.0,1
+https://www.yelp.it/biz/monte-dei-cappuccini-torino,'Monte dei Cappuccini','Salita al Cai Torino 12 10131 Torino','011 6600302',?,?,'Cucina italiana; Pizzerie',2,4.0,2
+https://www.yelp.it/biz/sicily-bar-torino,'Sicily BAR','Via Bologna 39 10154 Torino','011 2470810',?,?,Bar,1,5.0,1
+https://www.yelp.it/biz/casa-vicina-torino,'Casa Vicina','Via Nizza 230 10126 Torino','011 19506840',?,?,'Cucina italiana',4,5.0,1
+https://www.yelp.it/biz/dellaferrera-torino,Dellaferrera,'Via filadelfia 132 10137 Torino','338 7671956',?,?,'Bar; Dolci; Caffetteria',1,5.0,1
+https://www.yelp.it/biz/antica-trattoria-del-sole-torino,'Antica Trattoria del Sole','Via Bardonecchia 100 10139 Torino',null,?,?,'Cucina italiana',2,5.0,1
+https://www.yelp.it/biz/sbrodolone-torino,sbrodolone,'corso unione sovietica 209 b 10134 Torino',null,?,?,Pizzerie,2,5.0,1
+https://www.yelp.it/biz/verdi-d-indivia-torino,'Verdi D’Indivia','Via Giuseppe Barbaroux 5 10122 Torino','011 7640109',?,?,'Cucina vegetariana; Colazioni/Brunch; Cucina vegana',2,4.0,2
+https://www.yelp.it/biz/museo-di-antropologia-criminale-torino,'Museo Di Antropologia Criminale','Corso Galileo Galilei 22 10126 Torino','011 6705912',?,?,Musei,null,3.5,4
+https://www.yelp.it/biz/arcadia-torino-4,Arcadia,'Galleria Subalpina 16 10123 Torino','011 5613898',?,?,'Cucina italiana; Cucina giapponese; Cucina fusion asiatica',3,3.0,4
+https://www.yelp.it/biz/fondazione-sandretto-re-rebaudengo-torino,'Fondazione Sandretto Re Rebaudengo','Via Modane 16 10141 Torino','1119 831616',?,?,'Musei',null,3.0,4
+https://www.yelp.it/biz/zheng-yang-torino-2,'Zheng Yang','via principi d acaja 61 10138 Torino','011 4476422',?,?,'Cucina cinese',2,4.0,2
+https://www.yelp.it/biz/ichi-torino,Ichi,'Corso Unione Sovietica 355 10135 Torino','011 19504923',?,?,'Cucina giapponese',2,4.0,2
+https://www.yelp.it/biz/sa-corte-noa-torino,'Sa Corte Noa','Via Milano 16 10122 Torino','011 5215557',?,?,'Cucina italiana',null,3.5,2
+https://www.yelp.it/biz/pizzeria-queendici-torino,'Pizzeria Queendici','Piazza Peyron 15 10143 Torino',null,?,?,'Cucina italiana',2,4.0,3
+https://www.yelp.it/biz/mexico-70-torino,'Mexico 70','C. Monte Grappa 38 10145 Torino','011 743853',?,?,Pizzerie,2,5.0,1
+https://www.yelp.it/biz/piano-b-torino,'Piano B','Via Mazzini 23C 10123 Torino','011 884377',?,?,'Cucina italiana; Pizzerie',2,3.5,2
+'https://www.yelp.it/biz/la-maison-di-chez-rino\%C3\%B2-torino','La Maison di Chez Rinoò','Via San Francesco da Paola 9 10123 Torino','011 8125125',?,?,'Cucina piemontese',2,2.5,5
+https://www.yelp.it/biz/sibiriaki-bugianen-torino,'Sibiriaki Bugianen','Via Gian Francesco Bellezia 8G 10122 Torino','011 4360738',?,?,'Cucina italiana; Cucina russa',3,3.5,2
+https://www.yelp.it/biz/l-osteria-le-ferriere-torino,'L’osteria Le Ferriere','Via Nole 61 10149 Torino','011 7933667',?,?,Pizzerie,2,5.0,1
+https://www.yelp.it/biz/luce-e-gas-torino-2,'luce e gas','via IV marzo 12/c 10122 Torino','011 4365483',?,?,'Cocktail bar',3,3.0,4
+https://www.yelp.it/biz/gramsci-torino-2,Gramsci,'Via Antonio Gramsci 12C 10123 Torino','011 540635',?,?,'Cucina italiana',3,3.5,3
+https://www.yelp.it/biz/the-governor-pub-torino,'The Governor Pub','Corso Cosenza 66 10137 Torino',null,?,?,Pub,2,5.0,1
+https://www.yelp.it/biz/il-caciucco-torino,'Il Caciucco','Via Errico Giachino 85 10100 Torino','011 214520',?,?,'Cucina italiana; Piatti a base di pesce',2,5.0,1
+https://www.yelp.it/biz/ristoranti-tromlin-torino,'Ristoranti: Tromlin','Via Parrocchia 7 10100 Torino','011 6613050',?,?,Ristoranti,2,5.0,1
+https://www.yelp.it/biz/mister-hu-torino,'Mister HU','Via Mercanti 16 10122 Torino','011 537171',?,?,'Cucina giapponese',1,3.5,3
+https://www.yelp.it/biz/pizzeria-giampy-di-mazzola-giuseppe-torino,'Pizzeria Giampy Di Mazzola Giuseppe','Piazza Nizza 39 10126 Torino','011 658875',?,?,'Cucina italiana',2,3.5,2
+https://www.yelp.it/biz/alla-portata-torino,'Alla Portata','Corso Vercelli 101 10155 Torino','346 6721393',?,?,'Cucina italiana; Pizzerie',null,5.0,1
+https://www.yelp.it/biz/my-ecosmartfood-torino-2,'My EcoSmartFood','Corso Regina Margherita 80B 10153 Torino','011 7653305',?,?,'Cucina italiana; Cucina vegetariana; Cucina vegana',2,4.0,2
+https://www.yelp.it/biz/le-vitel-etonne-torino,'Le Vitel Etonne','Via San Francesco Da Paola 4 10123 Torino','1181 24621',?,?,'Cucina italiana',3,3.5,2
+https://www.yelp.it/biz/trattoria-spirito-santo-torino-2,'Trattoria Spirito Santo','Largo 4 Marzo 11 10122 Torino','011 4360877',?,?,'Cucina italiana',4,3.5,2
+https://www.yelp.it/biz/dolce-mania-di-lepori-raffaele-torino,'Dolce Mania di Lepori Raffaele','Via Gudo Reni 205A 10100 Torino','011 3140580',?,?,Gelaterie,null,5.0,1
+'https://www.yelp.it/biz/hafa-caf\%C3\%A9-torino-2','Hafa Café','Via Sant Agostino 23C 10122 Torino','011 4367091',?,?,'Caffè; Cocktail bar; Cucina marocchina',3,3.0,3
+https://www.yelp.it/biz/pasticceria-lovreglio-torino,'pasticceria Lovreglio','via pertinace 10137 Torino',null,?,?,Panifici,null,5.0,1
+https://www.yelp.it/biz/juice-torino,Juice,'Via Lorenzo Valerio 5/b Quadrilatero Romano 10122 Torino','347 7506257',?,?,'Cocktail bar',2,3.5,3
+'https://www.yelp.it/biz/manz\%C3\%B2-torino',Manzò,'Via Antonio Gramsci 1 10121 Torino','011 0208230',?,?,'Cucina italiana',3,4.0,2
+https://www.yelp.it/biz/l-idrovolante-torino,L’Idrovolante,'Viale Virgilio 105 10154 Torino','011 6687602',?,?,'Cucina italiana',3,3.5,2
+https://www.yelp.it/biz/antonelli-torino,Antonelli,'Piazza Vittorio Veneto 1 10124 Torino','011 8172544',?,?,'Pizzerie; Caffetteria; Gelaterie',2,3.5,2
+https://www.yelp.it/biz/curry-zone-turin,'Curry Zone','Via Vincenzo Gioberti 4 10128 Turin','011 4546875',?,?,'Cucina indiana',3,3.5,2
+https://www.yelp.it/biz/caffetteria-pasticceria-torino,'caffetteria pasticceria','corso orbassano 10137 Torino',null,?,?,Caffè/Tè,1,5.0,1
+https://www.yelp.it/biz/gelateria-fenice-torino,'Gelateria Fenice','Piazza Sofia 13 10154 Torino','011 0712122',?,?,Gelaterie,null,4.0,2
+https://www.yelp.it/biz/la-romana-torino,'La Romana','Corso Sebastopoli 190 10136 Torino',null,?,?,Gelaterie,1,3.0,3
+'https://www.yelp.it/biz/caff\%C3\%A8-e-vini-torino','Caffè e Vini','Via Porta Palatina 9 10122 Torino','011 7650477',?,?,'Cucina italiana; Wine bar',4,3.5,2
+https://www.yelp.it/biz/il-re-sole-torino,'Il Re Sole','Via Gaidano 10137 Torino',null,?,?,'Cucina italiana',3,5.0,1
+https://www.yelp.it/biz/la-piadineria-torino,'La Piadineria','Vittorio Emanuele II 30 10123 Torino','011 8391234',?,?,Panini/Sandwich,1,3.0,3
+https://www.yelp.it/biz/carlo-carni-torino,'Carlo Carni','Via Mercadante 86A 10154 Torino','011 2424319',?,?,Macellerie,1,5.0,1
+https://www.yelp.it/biz/pizzeria-da-candido-torino,'Pizzeria DA Candido','Via Monginevro 24 10100 Torino','011 4474902',?,?,Pizzerie,1,3.5,2
+https://www.yelp.it/biz/new-mexico-torino-2,'New Mexico','Via Gonin 10137 Torino',null,?,?,'Cucina italiana',null,5.0,1
+https://www.yelp.it/biz/bar-costarica-torino,'Bar Costarica','Corso Traiano 2 10135 Torino','011 615205',?,?,'Bar Caffè',3,5.0,1
+https://www.yelp.it/biz/caffe-lumiere-torino,'Caffe Lumiere','Corso Vittorio Emanuele II 35C 10125 Torino','011 6680887',?,?,'Caffè; Pasticcerie; Sale da tè',2,4.0,2
+https://www.yelp.it/biz/gelateria-due-salette-torino,'Gelateria Due Salette','Via Po 14 10123 Torino','346 8098522',?,?,'Caffè; Gelaterie',1,3.5,2
+https://www.yelp.it/biz/pepe-torino,Pepe,'Via della Rocca 19 10123 Torino','011 884698',?,?,'Caffè; Cocktail bar; Lounge bar',null,4.0,2
+https://www.yelp.it/biz/old-wild-west-torino-2,'Old Wild West','Via Nizza 262 10126 Torino',null,?,?,'Cucina americana (tradizionale)',1,3.0,3
+https://www.yelp.it/biz/samoa-torino,Samoa,'Via Montebello 11 10124 Torino','011 8174713',?,?,'Cucina italiana',1,3.0,2
+https://www.yelp.it/biz/porcaloca-torino,Porcaloca,'Via Tunisi 50 10134 Torino','011 3032490',?,?,Pizzerie,2,3.5,2
+https://www.yelp.it/biz/nuova-dezzuto-torino,'Nuova Dezzuto','Via Duchessa Jolanda 23 10138 Torino','011 4474291',?,?,'Caffè; Pasticcerie',2,3.0,4
+https://www.yelp.it/biz/wiener-haus-torino,'Wiener Haus','Via Nizza 262 10123 Torino','011 6590307',?,?,'Birreria; Cucina austriaca',null,3.5,2
+https://www.yelp.it/biz/giudice-esercizio-torino,'Giudice Esercizio','Strada Val Salice 78 10131 Torino','011 6602020',?,?,'Cucina italiana',2,3.0,3
+https://www.yelp.it/biz/fiorio-gelateria-torino-2,'Fiorio gelateria','Piazza Castello 10124 Torino',null,?,?,'Gelaterie',3,4.0,2
+'https://www.yelp.it/biz/rur\%C3\%A0l-torino',Ruràl,'Via San Dalmazzo 16 10122 Torino','011 2478470',?,?,'Cucina italiana',3,4.0,1
+https://www.yelp.it/biz/moka-torino-2,Moka,'Situato dentro Torino Porta Nuova FS','011 561207',?,?,Caffè,null,4.0,1
+https://www.yelp.it/biz/al-cacimperio-torino,'Al Cacimperio','Via Lamarmora 17C 10128 Torino','011 548467',?,?,'Cucina italiana',3,4.0,1
+https://www.yelp.it/biz/john-lennons-torino,'John Lennon’s','Corso Giovanni Agnelli 160 10135 Torino','338 8114199',?,?,Pub,3,4.0,2
+https://www.yelp.it/biz/cafe-vergnano-1882-torino,'Cafe Vergnano 1882','Via Lagrange Giuseppe Luigi 1 10123 Torino','011 5170140',?,?,'Cucina italiana; Caffè',2,4.0,1
+https://www.yelp.it/biz/regina-margherita-torino,'Regina Margherita','Piazza Savoia 2 10122 Torino','380 3444956',?,?,'Cucina italiana; Pizzerie',2,2.5,3
+https://www.yelp.it/biz/mara-dei-boschi-torino,'Mara dei Boschi','Via Berthollet 30H 10125 Torino','011 0769557',?,?,Yogurterie,2,4.0,1
+https://www.yelp.it/biz/b2-burger-and-beer-torino,'B2 Burger and Beer','Via XX Settembre 9 10121 Torino','011 19507936',?,?,Hamburger,null,3.0,2
+https://www.yelp.it/biz/zucca-torino,Zucca,'Via Antonio Gramsci 9-11 10123 Torino',null,?,?,'Caffetteria; Dolci',1,4.0,1
+https://www.yelp.it/biz/osteria-del-frate-torino,'Osteria del Frate','Via Boucheron 11 10122 Torino','011 19176965',?,?,'Cucina italiana',3,4.0,1
+https://www.yelp.it/biz/kensho-torino,Kensho,'Via Mercanti 16 10121 Torino','011 19781256',?,?,'Cucina giapponese; Sushi bar',2,4.0,1
+https://www.yelp.it/biz/la-pace-torino,'La Pace','Via Galliari Bernardino 22 10100 Torino','011 6505325',?,?,'Cucina italiana',2,4.0,1
+https://www.yelp.it/biz/giovanni-torino,Giovanni,'Via Gioberti 24 10128 Torino','011 539842',?,?,'Cucina italiana',3,4.0,1
+https://www.yelp.it/biz/caffe-vergnano-torino,'Caffe Vergnano','Via Fratelli Calandra 20 10026 Torino','011 9455111',?,?,Bar,1,4.0,1
+https://www.yelp.it/biz/gatsbys-torino,Gatsby’s,'Via Marcello Soleri 2 10123 Torino','011 5622545',?,?,Gelaterie,4,3.0,2
+https://www.yelp.it/biz/quo-vadis-torino-2,'Quo Vadis','Corso Raffaello 5 10126 Torino','011 6694723',?,?,'Cucina mediterranea',1,4.0,1
+https://www.yelp.it/biz/ij-brande-torino,'Ij Brande’','Via Massena 5 10128 Torino','011 537279',?,?,'Cucina italiana',4,4.0,1
+https://www.yelp.it/biz/birreria-la-divina-commedia-torino,'Birreria La Divina Commedia','Via San Donato 47 10144 Torino','011 488356',?,?,Bar,null,3.5,2
+https://www.yelp.it/biz/al-garamond-torino,'Al Garamond','Via Giuseppe Pomba 14 10123 Torino','011 8122781',?,?,'Cucina italiana',2,4.0,1
+https://www.yelp.it/biz/casa-del-barolo-torino-3,'Casa del Barolo','Via dei Mille 10Bis 10123 Torino','011 2876272',?,?,' Cucina piemontese; Cucina vegetariana; Cucina mediterranea',3,4.0,1
+'https://www.yelp.it/biz/caff\%C3\%A8-vergnano-torino-2','Caffè Vergnano','Corso Vittorio Emanuele II 44 10123 Torino','011 8141498',?,?,'Cucina italiana; Caffè; Colazioni/Brunch',2,4.0,1
+https://www.yelp.it/biz/art-lunch-di-jo-cafe-torino,'Art Lunch Di Jo Cafe’','Via Lamarmora 10128 Torino','011 538475',?,?,'Caffè; Caffè/Tè',2,4.0,1
+https://www.yelp.it/biz/panetteria-borgo-nuovo-torino,'Panetteria Borgo Nuovo','Via Giuseppe Mazzini 32A 10123 Torino','331 7623513',?,?,'Bar; Panifici',2,4.0,1
+https://www.yelp.it/biz/mc-donalds-torino-5,'Mc. Donalds','Via Nizza 2A Stazione Porta Nuova 10121 Torino',null,?,?,'Caffetteria; Hamburger',1,4.0,1
+https://www.yelp.it/biz/trattoria-vineria-da-ale-torino,'Trattoria Vineria da Ale','Piazza Corpus Domini 17 10122 Torino','011 5212228',?,?,'Cucina italiana; Cucina vegetariana; Cucina mediterranea',3,3.0,3
+https://www.yelp.it/biz/mina-torino,Mina,'Via Ellero 36 10126 Torino','1169 63608',?,?,'Cucina italiana',3,3.0,2
+https://www.yelp.it/biz/enoteca-rossorubino-torino,'Enoteca Rossorubino','Via Madama Cristina 21 10125 Torino','011 6502183',?,?,'Cantine/Enoteche; Tapas bar',1,4.0,1
+https://www.yelp.it/biz/pizzeria-spaccanapoli-torino,'Pizzeria Spaccanapoli','Via Mazzini 19 10123 Torino','011 8126694',?,?,'Cucina italiana',2,3.0,2
+https://www.yelp.it/biz/e-pronto-torino-2,'E Pronto!','Via San Massimo 41F 10123 Torino','011 5828446',?,?,'Cucina vegetariana',2,4.0,1
+https://www.yelp.it/biz/taverna-delloca-torino,'Taverna Dell’oca','Via dei Mille 24A 10123 Torino','011 837547',?,?,'Cucina italiana',2,4.0,1
+https://www.yelp.it/biz/eat-sicily-torino,'Eat Sicily','Via Bellini 5 10121 Torino','011 537836',?,?,'Pizzerie; Wine bar; Cucina siciliana',1,4.0,1
+https://www.yelp.it/biz/kashmir-torino-2,kashmir,'Via Saluzzo 17 10125 Torino','011 7900157',?,?,'Cucina indiana',3,4.0,1
+https://www.yelp.it/biz/el-pane-d-na-volta-torino,'El Pane D’na Volta','Corso Milano 19 10121 Torino','0174 554242',?,?,'Panifici; Pasticcerie',null,4.0,1
+https://www.yelp.it/biz/conogelato-torino,Conogelato,'Via Mazzini 22 10123 Torino','011 884747',?,?,Gelaterie,1,4.0,1
+https://www.yelp.it/biz/aldente-torino,Aldente,'Via delle Orfane 19G 10122 Torino','011 4368105',?,?,'Cucina italiana; Trattorie',2,4.0,1
+https://www.yelp.it/biz/banco-vini-e-alimenti-torino,'Banco Vini e Alimenti','Via dei Mercanti 13F 10122 Torino','011 7640239',?,?,'Bistrot; Cantine/Enoteche',2,4.0,1
+https://www.yelp.it/biz/dausin-torino,Dausin,'Via Goito 9 10125 Torino',null,?,?,'Cucina italiana',null,4.0,1
+https://www.yelp.it/biz/vermouth-anselmo-torino,'Vermouth Anselmo','Via Belfiore 14 10125 Torino','347 1583695',?,?,'Cucina italiana',2,4.0,1
+https://www.yelp.it/biz/club-monviso-torino,'Club Monviso','Corso Allamano Torino',null,?,?,'Cucina italiana',2,3.5,2
+https://www.yelp.it/biz/palazzo-carignano-torino,'Palazzo Carignano','Via Accademia delle Scienze 5 10123 Torino','1997 57517',?,?,'Musei; Monumenti/Luoghi storici e d interesse',null,4.0,1
+https://www.yelp.it/biz/caffe-shop-vergnao-torino,'Caffe Shop Vergnao','Corso Vittorio Emanuele II 41 10125 Torino',null,?,?,Caffè,2,4.0,1
+'https://www.yelp.it/biz/caf\%C3\%A9-zero-in-condotta-torino','Café Zero in Condotta','Via Giuseppe Luigi Lagrange 43 10123 Torino','389 2553129',?,?,'Caffè; Frullati/Succhi/Centrifugati; Fruttivendoli',2,4.0,1
+https://www.yelp.it/biz/libery-pizza-e-artigianal-beer-torino,'Libery: pizza & artigianal beer','Via Legnano 14 10128 Torino',null,?,?,'Cucina italiana',3,3.5,2
+https://www.yelp.it/biz/pizzeria-alloca-di-pulcinella-torino,'Pizzeria All’oca di Pulcinella','Corso Agnelli 2 10137 Torino','011 321004',?,?,Pizzerie,2,3.0,3
+https://www.yelp.it/biz/b-eat-torino,'B eat','Via Montebello 22A 10124 Torino','011 19701706',?,?,'Hamburger; Steak house; Cucina tex-mex',2,4.0,1
+https://www.yelp.it/biz/the-bakery-torino,'The Bakery','Via XX Settembre 16 10121 Torino','011 0813257',?,?,'Hamburger; Pasticcerie; Cupcake',1,4.0,1
+https://www.yelp.it/biz/tokio-zen-torino,'Tokio Zen','Via Giuseppe Mazzini 38 10123 Torino','011 19701153',?,?,'Cucina giapponese',null,4.0,1
+https://www.yelp.it/biz/brek-torino,Brek,'Piazza Carlo Felice 22 10121 Torino',null,?,?,'Cucina italiana',2,3.0,2
+https://www.yelp.it/biz/grom-torino-4,Grom,'Via Cernaia 18 10122 Torino','011 4407511',?,?,Gelaterie,1,4.0,1
+https://www.yelp.it/biz/panificio-zappia-domenico-domenico-torino,'Panificio Zappia Domenico / Domenico','Via Principe Tommaso 18 10125 Torino','011 6699247',?,?,Panifici,1,4.0,1
+https://www.yelp.it/biz/caffetteria-mazzini-torino,'Caffetteria Mazzini','Via Giuseppe Mazzini 5 10123 Torino','011 535312',?,?,Bar,3,4.0,1
+https://www.yelp.it/biz/freevolo-torino,Freevolo,'Piazza Emanuele Filiberto 7B 10122 Torino','011 4362222',?,?,'Cucina italiana',null,3.5,3
+https://www.yelp.it/biz/giusti-torino,Giusti,'Via Principe Tommaso 17 10125 Torino','011 6505939',?,?,'Cucina italiana',null,4.0,1
+https://www.yelp.it/biz/jb-home-torino,'JB Home','Corso Sommellier 12 10125 Torino','011 6696039',?,?,Pub,3,3.0,2
+https://www.yelp.it/biz/pasticceria-beatrice-2008-torino,'Pasticceria Beatrice 2008','C. Bramante 61 10126 Torino','011 6963208',?,?,'Gelaterie; Panifici; Cioccolatai',2,4.0,1
+https://www.yelp.it/biz/kido-ism-torino,Kido-ism,'Corso Rosselli 54A 10129 Torino',null,?,?,'Cucina giapponese; Cucina fusion asiatica; Cucina europea moderna',2,4.0,1
+'https://www.yelp.it/biz/caff\%C3\%A8-bodoni-torino','Caffè Bodoni','Via Bodoni 2 10123 Torino','342 3640486',?,?,'Cucina italiana; Bar; Caffè',3,4.0,1
+https://www.yelp.it/biz/siciloso-torino,Siciloso,'Via Madama Cristina 19 10125 Torino','011 6509632',?,?,'Caffè; Panifici',1,4.0,1
+https://www.yelp.it/biz/la-panzanella-torino,'La Panzanella','Via San Domenico 34 10122 Torino','011 0463656',?,?,'Cucina italiana; Pizzerie',1,4.0,1
+'https://www.yelp.it/biz/chlo\%C3\%A9-bistrot-torino','Chloé Bistrot','Via Giuseppe Barbaroux 12 10122 Torino','011 0680217',?,?,'Caffè; Bistrot; Cucina francese',2,4.0,1
+https://www.yelp.it/biz/sharazad-torino,Sharazad,'Via dei Mercanti 3A 10122 Torino','011 5612455',?,?,'Cucina italiana; Cucina persiana/iraniana',3,4.0,1
+https://www.yelp.it/biz/cinese-chen-lon-torino,'Cinese Chen Lon','Via Principi D acaja 35 10138 Torino','011 4345441',?,?,'Cucina cinese',2,4.0,1
+https://www.yelp.it/biz/bar-imperfetto-di-da-campo-giuseppe-torino,'BAR Imperfetto di DA Campo Giuseppe','Via Ormea 36/A 10125 Torino','011 6689060',?,?,Bar,null,4.0,1
+'https://www.yelp.it/biz/caff\%C3\%A8-del-borgo-medioevale-torino','Caffè del Borgo Medioevale','Viale Virgilio 107 10126 Torino','011 4431701',?,?,Caffè,null,4.0,1
+https://www.yelp.it/biz/pizza-speedy-torino-3,'Pizza Speedy','Via Galliari 29A 10125 Torino','011 6503171',?,?,Pizzerie,1,3.5,2
+https://www.yelp.it/biz/focacceria-tipica-ligure-torino,'Focacceria Tipica Ligure','Via Giolitti Giovanni 4 10123 Torino','011 5612454',?,?,Pizzerie,1,4.0,1
+https://www.yelp.it/biz/indian-street-food-torino,'Indian Street Food','Via Cernaia 3 10121 Torino','011 5185137',?,?,'Cucina indiana',null,4.0,1
+https://www.yelp.it/biz/nishiki-torino,Nishiki,'Via Luigi Tarino 2B 10124 Torino','011 835143',?,?,'Cucina giapponese; Sushi bar',2,4.0,1
+https://www.yelp.it/biz/cafe-alberto-torino,'Cafe Alberto','Via Palazzo di Città 17 10122 Torino',null,?,?,'Cucina italiana',3,4.0,1
+https://www.yelp.it/biz/la-badessa-torino,'La Badessa','Via dei Mille 20 10123 Torino','011 8128712',?,?,'Cucina italiana',null,4.0,1
+https://www.yelp.it/biz/la-gola-torino,'La Gola','Corso Matteotti Giacomo 59 10121 Torino','011 5111012',?,?,'Cucina italiana',2,3.0,2
+https://www.yelp.it/biz/camilla-kitchen-torino,'Camilla Kitchen','Via Maria Vittoria 49 10123 Torino','011 8170253',?,?,'Cucina piemontese',null,4.0,1
+https://www.yelp.it/biz/sushi-sun-torino,'Sushi Sun','Via Pietro Micca 17 10122 Torino','011 6970081',?,?,'Cucina giapponese; Sushi bar; Cucina fusion asiatica',1,4.0,1
+https://www.yelp.it/biz/scalo-vanchiglia-torino,'Scalo Vanchiglia','Via Luigi Tarino 3G 10124 Torino','011 883691',?,?,'Cucina italiana; Bistrot',3,4.0,1
+https://www.yelp.it/biz/kyoto-torino,Kyoto,'Corso Giuseppe Siccardi 15A 10122 Torino','011 5162993',?,?,'Cucina giapponese',2,4.0,1
+https://www.yelp.it/biz/al-tegamino-moncalieri,'Al Tegamino','Via Bogino 5D 10024 Moncalieri','011 0466809',?,?,Pizzerie,2,4.0,2
+'https://www.yelp.it/biz/roma-gi\%C3\%A0-talmone-torino','Roma Già Talmone','Piazza Carlo Felice 18 10121 Torino',null,?,?,Caffè,2,3.5,2
+https://www.yelp.it/biz/mamasita-torino,Mamasita,'C.so Rosselli 1 10128 Torino','011 5538214',?,?,'Cucina messicana',null,4.0,1
+https://www.yelp.it/biz/casa-mad-torino,'Casa Mad','Via Santa Chiara 24BIS C 10122 Torino','011 4368201',?,?,'Cucina italiana; Caffè',3,4.0,1
+https://www.yelp.it/biz/diplomatic-torino,Diplomatic,'Via Cernaia 42 10122 Torino','011 561244',?,?,'Cucina italiana',3,4.0,1
+https://www.yelp.it/biz/briss-torino,Briss,'Corso Orbassano 94 10136 Torino','011 3297154',?,?,'Piatti a base di pesce',3,4.0,1
+https://www.yelp.it/biz/il-ristoro-dei-mercanti-torino,'Il Ristoro dei Mercanti','Via dei Mercanti 6 10122 Torino','011 5613970',?,?,Trattorie,null,4.0,1
+https://www.yelp.it/biz/don-panino-torino,'Don Panino','Via Maria Vittoria 58E 10123 Torino','011 5828226',?,?,'Baguette; Panini/Sandwich',1,4.0,1
+https://www.yelp.it/biz/tisaneria-della-consolata-torino,'Tisaneria della Consolata','Vicolo della Consolata 2 10122 Torino',null,?,?,Caffè/Tè,3,4.0,1
+https://www.yelp.it/biz/da-mauro-torino,'DA Mauro','Via Maria Vittoria 21 10100 Torino','011 8170604',?,?,'Cucina italiana',2,4.5,4
+https://www.yelp.it/biz/simini-giuliano-torino,'Simini / Giuliano','C. Racconigi 30 10138 Torino','011 3352032',?,?,Macellerie,null,4.0,1
+https://www.yelp.it/biz/libanese-el-mir-torino,'Libanese El Mir','Piazza Corpus Domini 17 Torino',null,?,?,'Cucina italiana',null,4.0,1
+https://www.yelp.it/biz/mordillo-torino,Mordillo,'Via XX Settembre 74 10122 Torino','338 9748317',?,?,'Pizzerie; Hamburger; Kebab',1,4.0,1
+https://www.yelp.it/biz/happy-days-bar-torino,'Happy Days Bar','Via Garibaldi 53 10122 Torino','011 534733',?,?,Yogurterie,1,4.0,1
+https://www.yelp.it/biz/bar-del-duomo-torino,'Bar del Duomo','Via 20 settembre 79 10122 Torino','011 5705394',?,?,Dolci,null,4.0,1
+https://www.yelp.it/biz/mr-rooster-torino-3,'Mr Rooster','Via San Donato 8 10144 Torino','011 4375676',?,?,'Fast food; Gastronomia',1,4.0,1
+https://www.yelp.it/biz/ayasofya-torino,Ayasofya,'Via Garibaldi 57A 10122 Torino',null,?,?,'Pizzerie; Kebab; Friggitorie',1,4.0,1
+https://www.yelp.it/biz/sibir-torino-2,Sibir,'Via Gian Francesco Bellezia 8G 10122 Torino','011 4360738',?,?,'Cucina italiana; Cucina russa',3,4.0,1
+https://www.yelp.it/biz/la-cantinella-torino,'La Cantinella','Corso Moncalieri 3A 10131 Torino','011 8193311',?,?,'Cucina italiana; Pizzerie',3,4.0,1
+https://www.yelp.it/biz/alberto-marchetti-torino-2,'Alberto Marchetti','Via Po 35 10124 Torino','011 8390879',?,?,Gelaterie,1,4.0,1
+https://www.yelp.it/biz/caffe-madama-torino,'Caffe Madama','Piazza Castello Au premier étage du musée. 10122 Torino','011 4433501',?,?,'Caffè; Caffè/Tè',2,4.0,1
+https://www.yelp.it/biz/villa-della-regina-torino,'Villa della Regina','Strada Santa Margherita 79 10131 Torino','8003 29329',?,?,'Musei; Monumenti/Luoghi storici e d interesse',null,4.0,1
+'https://www.yelp.it/biz/l-angolo-del-caff\%C3\%A8-torino','L’Angolo del Caffè','Via Tripoli 11F 10136 Torino','011 353810',?,?,Bar,2,4.0,1
+https://www.yelp.it/biz/ichiban-torino,Ichiban,'Via Plana 1 10123 Torino','011 8123560',?,?,'Cucina giapponese',1,4.0,1
+https://www.yelp.it/biz/steamboat-torino,Steamboat,'Via Po 53 10124 Torino','011 19662964',?,?,'Dolci; Negozi alimentari specializzati; Gallerie d arte/Spazi espositivi',null,4.0,1
+https://www.yelp.it/biz/peperosso-torino,Peperosso,'Via Netro 22 10143 Torino','011 2077304',?,?,'Pizzerie; Cucina piemontese; Trattorie',1,4.0,1
+'https://www.yelp.it/biz/l-ancienne-maison-du-th\%C3\%A9-torino','L’Ancienne Maison du Thé','Via della Rocca 2 10123 Torino',null,?,?,Caffè/Tè,2,4.0,1
+https://www.yelp.it/biz/sen-mi-ya-torino-2,'Sen Mi Ya','Corso Peschiera 167 10141 Torino','011 3352634',?,?,'Cucina giapponese',2,4.0,1
+'https://www.yelp.it/biz/san-francisco-caff\%C3\%A8-torino','San Francisco Caffè','Via Principi d Acaja 15 10138 Torino',null,?,?,'Caffè; Caffetteria',1,4.0,1
+https://www.yelp.it/biz/bar-cristal-torino,'Bar Cristal','Piazza Statuto 30A 10144 Torino','011 4733298',?,?,Bar,null,4.0,1
+https://www.yelp.it/biz/strawberry-torino,Strawberry,'Piazza della Consolata 9/C 10122 Torino',null,?,?,'Lounge bar',2,4.0,1
+https://www.yelp.it/biz/ass0-ciazione-museo-della-marionetta-torino,'Ass0 Ciazione Museo Della Marionetta','Via Santa Teresa 5 10121 Torino','011 530238',?,?,'Musei; Opera/Danza classica; Arene/Sale da concerto',1,3.0,3
+https://www.yelp.it/biz/doubletree-torino,DoubleTree,'Via Nizza 230 10126 Torino','011 6642781',?,?,'Cocktail bar; Wine bar; Insalate',2,4.0,1
+https://www.yelp.it/biz/antico-balon-torino,'Antico Balon','Piazza Emanuele Filiberto 3A 10122 Torino','011 7652572',?,?,'Pizzerie; Cucina piemontese',2,4.0,1
+https://www.yelp.it/biz/beaubar-torino,Beaubar,'Via Montebello 13 10124 Torino',null,?,?,'Caffè; Hamburger; Panini/Sandwich',2,4.0,1
+https://www.yelp.it/biz/la-scala-ice-torino,'La Scala Ice','Piazza Vittorio Veneto 15 10124 Torino',null,?,?,Gelaterie,2,4.0,1
+https://www.yelp.it/biz/gelatiamo-torino,GelaTiAmo,'Via Arnaldo da Brescia 10134 Torino',null,?,?,Gelaterie,1,3.5,4
+https://www.yelp.it/biz/hua-li-du-torino,'HUA LI DU','Via San Donato 7 10144 Torino','011 487717',?,?,'Cucina italiana',null,4.0,1
+https://www.yelp.it/biz/ristorante-ratatui-torino-2,'Ristorante Ratatui','Via San Rocchetto 34 10143 Torino','011 7716771',?,?,'Cucina piemontese',2,4.0,1
+https://www.yelp.it/biz/borgo-dora-torino,'Borgo Dora','Via Borgo Dora 37 10152 Torino','011 4364778',?,?,'Cucina italiana',3,4.0,1
+https://www.yelp.it/biz/magica-egitto-torino,'Magica Egitto','Via Ferdinando Bonsignore 8A 10131 Torino',null,?,?,'Cucina egiziana',null,4.0,1
+https://www.yelp.it/biz/caffetteria-regina-torino,'Caffetteria Regina','C. Regina Margherita 122/A 10100 Torino','011 5215520',?,?,Bar,1,4.0,1
+https://www.yelp.it/biz/zelli-wine-bar-torino,'Zelli Wine Bar','Corso Vittorio Emanuele II 35 10123 Torino','011 6692250',?,?,'Wine bar',2,2.5,2
+https://www.yelp.it/biz/oro-birra-torino,'Oro Birra','Corso Regina Margherita 97 10124 Torino','011 5788480',?,?,'Cucina italiana; Pub',3,4.0,1
+https://www.yelp.it/biz/piedmonte-lounge-torino-2,'Piedmonte Lounge','Aeroporto di Torino 10152 Torino','011 5676538',?,?,'VIP lounge',null,4.0,1
+https://www.yelp.it/biz/okinawa-torino,Okinawa,'Via Giulia di Barolo 18 10124 Torino','011 19781521',?,?,'Cucina giapponese',2,4.0,1
+https://www.yelp.it/biz/bangla-takeaway-torino,'Bangla Takeaway','Corso Brescia 5 10152 Torino','389 1463972',?,?,'Kebab; Cucina indiana',3,4.0,1
+https://www.yelp.it/biz/bocciofila-mossetto-torino,'Bocciofila Mossetto','Lungo Dora Agrigento 16 10152 Torino','011 5213626',?,?,'Cucina italiana',4,4.0,1
+'https://www.yelp.it/biz/caff\%C3\%A8-della-posta-torino','Caffè della Posta','Via Pier Dionigi Pinelli 14C 10144 Torino',null,?,?,Caffè,null,4.0,1
+https://www.yelp.it/biz/singapore-torino,Singapore,'Corso Regina Margherita 161 10144 Torino','011 487003',?,?,'Pizzerie; Cucina cinese',2,4.0,1
+https://www.yelp.it/biz/pizzeria-vecchio-forno-garibaldi-torino,'Pizzeria Vecchio Forno Garibaldi','Corso Orbassano 112 10136 Torino','011 350882',?,?,Pizzerie,null,4.0,1
+'https://www.yelp.it/biz/caff\%C3\%A9-tiffany-torino-2','Caffé Tiffany','Via Urbino 38 10152 Torino','334 9588465',?,?,'Cucina italiana; Bar; Cucina cinese',2,4.0,1
+https://www.yelp.it/biz/farini-da-lia-torino,'Farini Da Lia','Via Giorgio Pallavicino 22 10153 Torino','011 887573',?,?,'Cucina italiana',null,4.0,1
+'https://www.yelp.it/biz/caff\%C3\%A9-margarita-torino-2','Caffé Margarita','Corso Regina Margherita 206 10144 Torino','011 484644',?,?,Caffetteria,1,4.0,1
+https://www.yelp.it/biz/chez-zeina-torino,'Chez Zeina','Via Vittorio Andreis 18N 10152 Torino','320 3712832',?,?,'Cucina libanese',3,4.0,1
+https://www.yelp.it/biz/cit-ma-bon-torino,'Cit Ma Bon','Corso Casale 34 10131 Torino','011 8196845',?,?,Pizzerie,2,4.0,1
+https://www.yelp.it/biz/exki-8-gallery-torino-2,'EXKi 8 Gallery','Via Nizza 230 10126 Torino','011 6645686',?,?,'Cucina vegetariana; Insalate; Senza glutine',3,4.0,1
+https://www.yelp.it/biz/wang-shao-xiong-torino,'Wang Shao Xiong','Via Nizza 262 10126 Torino','011 6960411',?,?,'Cucina italiana',4,4.0,1
+https://www.yelp.it/biz/sir-francis-drake-torino,'Sir Francis Drake','Via Caraglio 35 10141 Torino','011 19714878',?,?,Pub,2,4.0,1
+https://www.yelp.it/biz/i-soliti-amici-torino,'I Soliti Amici','Corso Unione Sovietica 383 10135 Torino','011 3175168',?,?,'Cucina italiana; Pizzerie; Piatti a base di pesce',1,3.0,2
+https://www.yelp.it/biz/neko-cafe-torino,'Neko Cafe’','Via Napione 33 10124 Torino','011 8178369',?,?,'Caffè; Cucina vegetariana; Cucina vegana',2,4.0,1
+https://www.yelp.it/biz/osteria-povrom-torino,'Osteria Povr’om','Via Modena 51 10153 Torino','011 2478224',?,?,'Cucina italiana',2,4.0,1
+https://www.yelp.it/biz/burger-king-parco-dora-torino,'Burger King Parco Dora','Via Treviso 26 10144 Torino','011 4338451',?,?,'Hamburger; Fast food',2,4.0,1
+https://www.yelp.it/biz/bastimento-torino,Bastimento,'Via Della Rocca 10 10123 Torino','011 19708154',?,?,'Cucina italiana',2,2.5,2
+https://www.yelp.it/biz/da-giuliano-torino,'Da Giuliano','Via Francesco Cigna 48B 10152 Torino','011 4363036',?,?,Pizzerie,2,4.0,1
+https://www.yelp.it/biz/banco-di-sicilia-torino,'Banco di Sicilia','Via Arnaldo da Brescia 23 10134 Torino','011 3192400',?,?,'Pizzerie; Piatti a base di pesce; Cucina siciliana',1,4.0,1
+https://www.yelp.it/biz/the-queen-victoria-torino,'the queen victoria','via s. casana 46 angolo corso traiano 10020 Torino','338 5472207',?,?,Pub,2,3.5,2
+https://www.yelp.it/biz/la-madia-torino,'La Madia','Via Quintino Sella 85A 10131 Torino','011 8190028',?,?,'Cucina piemontese; Trattorie',3,4.0,1
+https://www.yelp.it/biz/ponte-dora-torino,'Ponte Dora','Corso Vercelli 5Bis 10152 Torino','011 282839',?,?,Pizzerie,2,4.0,1
+https://www.yelp.it/biz/buosi-torino,Buosi,'Via Privata Angrogna 16 10139 Torino','011 7793536',?,?,'Wine bar',3,4.0,1
+https://www.yelp.it/biz/grande-muraglia-di-zhans-rong-e-li-songhai-torino,'Grande Muraglia di Zhans Rong e LI Songhai','Corso Emilia 2 10100 Torino','011 5539420',?,?,'Cucina cinese',null,4.0,1
+'https://www.yelp.it/biz/miseria-e-nobilt\%C3\%A0-torino-7','Miseria & Nobiltà','Via Lesegno 69I 10136 Torino','011 3601881',?,?,'Pizzerie; Cucina campana',2,4.0,1
+https://www.yelp.it/biz/birreria-don-giovanni-torino,'Birreria Don Giovanni','Via Tripoli 67 10136 Torino','011 3247949',?,?,Bar,3,3.0,2
+https://www.yelp.it/biz/pizzeria-silvestro-torino,'Pizzeria Silvestro','Corso Trapani 110 10139 Torino','011 332648',?,?,Pizzerie,null,4.0,1
+https://www.yelp.it/biz/exki-xxsettembre-torino,'Exki Xxsettembre','Via XX Settembre 12 10129 Torino','011 5604108',?,?,'Cucina italiana',4,2.5,2
+https://www.yelp.it/biz/giardini-di-parco-dora-torino,'Giardini di Parco Dora','Corso Mortara Torino',null,?,?,Parchi,null,4.0,1
+https://www.yelp.it/biz/mixer-bar-di-figliolia-m-torino,'Mixer BAR di Figliolia M.','Via Filadelfia 115 10100 Torino','011 352174',?,?,Bar,2,4.0,1
+https://www.yelp.it/biz/la-cantinetta-torino,'La Cantinetta','Via Buenos Aires 73 10137 Torino','011 390852',?,?,'Wine bar',2,4.0,1
+https://www.yelp.it/biz/alivella-torino,A’livella,'Corso Belgio 50 10153 Torino','011 8600173',?,?,Pizzerie,2,4.0,1
+https://www.yelp.it/biz/panino-giusto-torino,'Panino Giusto','Via Nizza 258 10126 Torino',null,?,?,'Panini/Sandwich; Insalate',2,4.0,1
+https://www.yelp.it/biz/la-limonaia-torino,'La Limonaia','Via Mario Ponzio 10 10141 Torino','011 7041887',?,?,'Cucina piemontese',null,4.0,1
+https://www.yelp.it/biz/la-prima-da-moreno-torino,'La Prima da Moreno','Corso Unione Sovietica 244 10134 Torino','011 3179191',?,?,'Cucina italiana',3,4.0,1
+https://www.yelp.it/biz/pizzeria-gelateria-cecchi-torino,'Pizzeria Gelateria Cecchi','Via Madama Cristina 92 10126 Torino','011 6507030',?,?,Pizzerie,2,3.0,2
+'https://www.yelp.it/biz/caff\%C3\%A9-del-parco-torino','Caffé del Parco','Via San Rocco 4 10133 Torino',null,?,?,'Caffè; Caffè/Tè',2,4.0,1
+https://www.yelp.it/biz/da-benito-torino,'Da Benito','Corso Siracusa 142 10132 Torino','011 3090353',?,?,'Cucina italiana',null,4.0,1
+https://www.yelp.it/biz/pizzeria-cristina-torino,'Pizzeria Cristina','Corso Palermo 101 10152 Torino','011 2481706',?,?,Pizzerie,3,2.0,6
+https://www.yelp.it/biz/pizze-e-cozze-torino,'Pizze e Cozze','Via Giovanni Battista Viotti 8 10121 Torino','011 5162035',?,?,'Cucina italiana; Pizzerie',2,3.0,2
+https://www.yelp.it/biz/panificio-ursino-francesco-torino-2,'Panificio Ursino Francesco','Piazza Tommaso Campanella 9 10146 Torino','011 7793200',?,?,'Panifici; Dolci; Pasticcerie',2,4.0,1
+https://www.yelp.it/biz/ginza-sushi-king-torino,'Ginza Sushi King','Corso Vittorio Emanuele Ii 29 10125 Torino','011 6698102',?,?,'Cucina giapponese; Cucina cinese',2,2.5,2
+https://www.yelp.it/biz/in-vino-veritas-torino,'In Vino Veritas','Via Giulia di Barolo 50 10124 Torino','347 0109214',?,?,'Cucina italiana; Wine bar',2,3.5,3
+https://www.yelp.it/biz/i-tre-scalini-torino,'I Tre Scalini','Via Guido Reni Torino',null,?,?,'Cucina italiana',null,4.0,1
+https://www.yelp.it/biz/lunarossa-torino,Lunarossa,'Via Pietro Micca 9/a 10121 Torino','011 5119810',?,?,'Cucina italiana',3,2.5,4
+'https://www.yelp.it/biz/caff\%C3\%A8-savoia-torino-2','Caffè Savoia','Piazza Castello 153 10122 Torino','011 4547200',?,?,Caffè,1,2.5,2
+https://www.yelp.it/biz/hua-dou-cheng-torino,'HUA DOU Cheng','Corso Unione Sovietica 335 10135 Torino','011 612760',?,?,'Cucina italiana',null,4.0,1
+'https://www.yelp.it/biz/algomas-caf\%C3\%A9-torino','Algomas Café','Via Rubino 45 10137 Torino',null,?,?,'Venditori ambulanti',2,4.0,1
+https://www.yelp.it/biz/bottega-baretti-moncalieri,'Bottega Baretti','Via Sant Anselmo 28F 10024 Moncalieri','011 7900331',?,?,'Cucina italiana; Pizzerie; Panini/Sandwich',2,4.0,1
+https://www.yelp.it/biz/stars-e-roses-torino,'Stars & Roses','Piazza Pietro Paleocapa 2 10121 Torino','011 5162052',?,?,'Cucina italiana',1,3.0,1
+https://www.yelp.it/biz/paese-zhou-torino-2,'Paese Zhou','Corso Traiano 17 10135 Torino','011 613243',?,?,'Cucina italiana',null,4.0,1
+https://www.yelp.it/biz/alla-baita-dei-7-nani-torino,'Alla Baita dei 7 Nani','Via Andrea Doria 5 10123 Torino','011 535812',?,?,'Cucina italiana; Pizzerie',null,3.0,1
+https://www.yelp.it/biz/sushi-yu-torino,'Sushi Yu','Corso Matteotti 3 10121 Torino','011 538584',?,?,'Cucina giapponese',2,3.0,1
+https://www.yelp.it/biz/pizzeria-la-sueva-torino-3,'Pizzeria La Sueva','Via San Paolo 33 10141 Torino','011 3851065',?,?,Pizzerie,2,2.5,2
+https://www.yelp.it/biz/el-pollo-loco-torino,'El Pollo Loco','Corso Unione Sovietica 395 10135 Torino','011 0209883',?,?,'Cucina messicana; Cucina tex-mex',null,4.0,1
+https://www.yelp.it/biz/burgheria-torino-2,Burgheria,'Via Giuseppe Baretti 6 10125 Torino','011 0446249',?,?,'Hamburger; Panini/Sandwich',2,3.0,1
+https://www.yelp.it/biz/vyta-torino,Vyta,'Via Mompatero 27 10128 Torino',null,?,?,'Dolci; Colazioni/Brunch; Brasserie',1,2.5,3
+https://www.yelp.it/biz/sushi-sound-torino,'Sushi Sound','Via Alessandro Volta 8 10121 Torino','011 0718071',?,?,'Cucina giapponese; Cocktail bar; Sushi bar',3,3.0,1
+https://www.yelp.it/biz/il-punto-verde-torino-2,'Il Punto Verde','Via San Massimo 17 10123 Torino','011 885543',?,?,'Cucina italiana; Cucina vegetariana',1,2.0,3
+https://www.yelp.it/biz/gelateria-piu-di-un-gelato-torino,'Gelateria PIU di UN Gelato','Via S. Tommaso 6 10121 Torino','011 5619252',?,?,Gelaterie,1,5.0,2
+https://www.yelp.it/biz/l-agrifoglio-torino,L’agrifoglio,'Via Provana Andrea 7 10123 Torino','011 8136837',?,?,'Cucina italiana',2,3.0,1
+https://www.yelp.it/biz/l-ancora-torino-3,L’Ancora,'Via Giovanni Giolitti 4B 10123 Torino','011 5063008',?,?,'Piatti a base di pesce',2,3.0,1
+'https://www.yelp.it/biz/masaniello-\%C3\%A9-turnat-torino','Masaniello é Turnat','Via Ormea 1B 10125 Torino','011 6691087',?,?,'Cucina italiana; Pizzerie',2,3.0,1
+https://www.yelp.it/biz/pony-bubble-tea-torino,'Pony Bubble Tea','Via Bruno Buozzi 4 10121 Torino','320 8853218',?,?,'Caffè; Bubble Tea',2,3.0,1
+https://www.yelp.it/biz/freemadam-torino,Freemadam,'Via Madama Cristina 5E 10125 Torino','338 2392122',?,?,'Pizzerie; Caffè; Hamburger',null,3.0,1
+https://www.yelp.it/biz/pasticceria-amore-torino,'Pasticceria Amore','Piazza Carlo Felice 74 10121 Torino','011 5830369',?,?,'Caffetteria; Dolci; Colazioni/Brunch',2,3.0,1
+https://www.yelp.it/biz/mazzini-38-torino,'Mazzini 38','Via Mazzini 38 10123 Torino','011 2634482',?,?,'Cucina italiana; Pizzerie',3,3.0,1
+https://www.yelp.it/biz/l-ancora-torino-2,L’Ancora,'Piazza Solferino 3 10121 Torino','011 4546157',?,?,'Piatti a base di pesce',3,3.0,1
+https://www.yelp.it/biz/marechiaro-torino,Marechiaro,'Via San Francesco d Assisi 21 10121 Torino','011 535757',?,?,'Cucina italiana',null,3.0,1
+https://www.yelp.it/biz/istanbul-santasophia-torino,'Istanbul SantaSophia','Via Madama Cristina 15 10126 Torino',null,?,?,'Pizzerie; Kebab',1,3.0,1
+https://www.yelp.it/biz/trattoria-torricelli-torino,'Trattoria Torricelli','Via Torricelli 51 10129 Torino','011 599814',?,?,Trattorie,2,3.0,1
+https://www.yelp.it/biz/tommy-tegamino-torino,'Tommy Tegamino','Corso Vittorio Emanuele II 45 10125 Torino','011 6693935',?,?,Pizzerie,2,3.0,1
+https://www.yelp.it/biz/boheme-torino,Boheme,'Via Ormea 6 10125 Torino','011 19941382',?,?,Ristoranti,2,3.0,1
+https://www.yelp.it/biz/pippo-paranza-torino,'Pippo Paranza','Via Bellezia 29 10122 Torino','011 7653356',?,?,'Cucina italiana; Piatti a base di pesce',2,3.0,1
+https://www.yelp.it/biz/freccia-club-torino,'Freccia Club','Via Mompatero 43 10128 Torino',null,?,?,'Cucina italiana; Caffè',null,3.0,1
+https://www.yelp.it/biz/sushi-j-torino,'Sushi J','Via dell Arsenale 41 10121 Torino','334 7467729',?,?,'Cucina giapponese',2,3.0,1
+https://www.yelp.it/biz/ristoro-28-3-torino-2,'Ristoro 28/3','Via Pigafetta Antonio 56D 10100 Torino','011 5086066',?,?,'Cucina italiana',4,3.0,2
+https://www.yelp.it/biz/la-galina-scannata-torino,'La Galina Scannata','Largo Saluzzo 25F 10125 Torino','011 6505723',?,?,'Piatti a base di pesce',null,3.0,1
+https://www.yelp.it/biz/giapponese-xia-torino,'Giapponese Xia','Via Giuseppe Parini 14 10121 Torino',null,?,?,'Cucina giapponese',null,3.0,1
+https://www.yelp.it/biz/bar-architettura-mac-torino,'Bar Architettura Mac','Viale Mattioli 39 10126 Torino','011 0907909',?,?,'Caffetteria',2,3.0,1
+https://www.yelp.it/biz/mar-rosso-torino-2,'mar rosso','Via Silvio Pellico 8 10125 Torino','011 658236',?,?,'Cucina africana',2,3.0,1
+https://www.yelp.it/biz/barber-and-caffee-torino,'Barber And Caffee','Via Fratelli Calandra 12D 10123 Torino',null,?,?,'Caffetteria; Tapas bar',null,3.0,1
+https://www.yelp.it/biz/7-nani-torino,'7 Nani','Via Andrea Doria 5 10123 Torino','011 535812',?,?,'Cucina italiana; Pizzerie',null,3.0,1
+https://www.yelp.it/biz/u-caruggiu-torino,'U Caruggiu','Via Madama Cristina 32 10125 Torino',null,?,?,'Pizzerie; Panifici',1,3.0,1
+https://www.yelp.it/biz/girarrosti-santa-rita-torino,'Girarrosti Santa Rita','Via Madama Cristina 28 10125 Torino','011 6688208',?,?,'Fast food',1,3.0,1
+https://www.yelp.it/biz/balbo-torino,Balbo,'Via Andra Doria 11 10123 Torino','011 8395775',?,?,'Cucina italiana',null,3.0,1
+https://www.yelp.it/biz/l-hamburgueria-di-eataly-torino,'L’Hamburgueria di Eataly','Piazza Solferino 16A 10121 Torino','011 5611050',?,?,Hamburger,2,3.0,1
+https://www.yelp.it/biz/lucky-nugget-saloon-torino,'Lucky Nugget Saloon','Corso Vittorio Emanuele II 21 10125 Torino','011 6695058',?,?,'Cucina tex-mex; Arene/Sale da concerto',2,3.0,1
+https://www.yelp.it/biz/il-rospetto-torino,'Il Rospetto','Via Madama Cristina 5 10125 Torino','011 6698221',?,?,Pizzerie,2,3.0,1
+https://www.yelp.it/biz/la-magnolia-torino-3,'La Magnolia','Via Mercantini 6F Angolo Via Meucci 10121 Torino','011 5184052',?,?,'Pizzerie; Piatti a base di pesce; Cucina mediterranea',2,3.0,1
+https://www.yelp.it/biz/tea-company-torino,'Tea Company','Via Giuseppe Mazzini 22 10123 Torino','011 8170433',?,?,Caffè/Tè,2,3.0,1
+https://www.yelp.it/biz/pizzeria-marfi-torino,'Pizzeria Marfi','Via Ormea 29 10125 Torino','339 3463740',?,?,Pizzerie,2,3.0,1
+https://www.yelp.it/biz/roar-roads-torino,'Roar Roads','Via Carlo Alberto 3 10123 Torino','011 8120171',?,?,'Cucina italiana; Pub; Hamburger',2,3.0,1
+https://www.yelp.it/biz/italians-wok-better-torino-3,'Italians Wok Better','Via Bellezia 7G 10122 Torino','011 7653007',?,?,'Cucina italiana; Cucina fusion asiatica; Cucina thailandese',2,3.0,1
+https://www.yelp.it/biz/la-botte-gaia-torino,'La Botte Gaia','Via San Massimo 2 10123 Torino','011 8172581',?,?,'Cucina italiana; Wine bar',2,3.0,1
+https://www.yelp.it/biz/pizzeria-la-stua-torino,'Pizzeria La Stua','Via Giuseppe Mazzini 46 10123 Torino','011 8178339',?,?,Pizzerie,null,3.0,1
+https://www.yelp.it/biz/san-tommaso-10-torino,'San Tommaso 10','Via San Tommaso 10 10122 Torino','011 534201',?,?,Caffè,1,3.0,1
+https://www.yelp.it/biz/museo-di-anatomia-umana-torino,'Museo di Anatomia Umana','Corso massimo D azelio 52 10126 Torino','011 6707883',?,?,Musei,null,3.0,1
+https://www.yelp.it/biz/bar-delle-scienze-torino,'Bar delle Scienze','Via Accademia delle Scienze 2 10123 Torino',null,?,?,'Caffè; Caffè/Tè',null,3.0,1
+https://www.yelp.it/biz/tropicana-torino,Tropicana,'Corso Mediterraneo 84 10129 Torino','011 19791200',?,?,'Cucina italiana; Pizzerie',2,3.0,1
+https://www.yelp.it/biz/chef-espress-buffet-stazione-porta-susa-torino,'Chef Espress Buffet Stazione Porta Susa','Piazza XVIII Dicembre 8 10121 Torino','011 5634216',?,?,'Caffè; Dolci',2,3.0,1
+https://www.yelp.it/biz/cinese-mei-li-hua-torino,'Cinese Mei Li Hua','Largo Toscana 29 10149 Torino','011 2161735',?,?,'Cucina cinese',2,3.0,2
+https://www.yelp.it/biz/ala-torino,Ala,'Via Santa Giulia 24 10124 Torino','011 817477',?,?,'Cucina italiana',2,4.5,3
+https://www.yelp.it/biz/pizzeria-4-stagioni-torino,'Pizzeria 4 Stagioni','Corso Lione 58 10141 Torino',null,?,?,'Cucina italiana',null,3.0,1
+https://www.yelp.it/biz/o-raffertys-pub-torino,'O’ Rafferty’s Pub','Corso Sommelier 17/C Torino',null,?,?,'Pub; Irish pub',2,3.0,1
+'https://www.yelp.it/biz/torino-citt\%C3\%A1-torino','Torino Cittá',Torino,null,?,?,'Monumenti/Luoghi storici e d interesse',null,3.0,1
+https://www.yelp.it/biz/mc-donald-torino,'Mc Donald','Corso Giulio Cesare piazzale Autostrada TO-MI Torino',null,?,?,'Cucina americana (tradizionale)',1,3.0,1
+https://www.yelp.it/biz/la-campana-torino-2,'La Campana','Via XX Settembre 79 10122 Torino','011 5214011',?,?,'Cucina piemontese; Senza glutine; Cucina pugliese',null,3.0,1
+https://www.yelp.it/biz/bar-nuovo-nazionale-torino-3,'Bar Nuovo Nazionale','Via dell accademia Albertina 1 10123 Torino','011 882140',?,?,Caffè,2,3.0,1
+https://www.yelp.it/biz/pizzeria-poldo-torino,'Pizzeria Poldo','Via Nanni Dante 97 10141 Torino','011 3855163',?,?,Pizzerie,null,2.0,4
+https://www.yelp.it/biz/caffetteria-auditorium-torino,'Caffetteria Auditorium','Via Rossini 5 10124 Torino',null,?,?,Caffè,null,3.0,1
+https://www.yelp.it/biz/dal-vecchio-torino,'Dal Vecchio','Corso Moncalieri 19A 10131 Torino','347 2110712',?,?,'Bar con sport in TV',2,3.0,1
+https://www.yelp.it/biz/gandhi-torino,Gandhi,'Corso Regio Parco 24 10153 Torino',null,?,?,'Cucina indiana',3,3.0,1
+https://www.yelp.it/biz/tre-da-tre-torino,'TRE DA TRE','Via G. Verdi 33 10124 Torino','011 8391312',?,?,Pizzerie,2,3.0,1
+https://www.yelp.it/biz/maks-torino,MAK’S,'Piazza Vittorio Veneto 13 10124 Torino','011 6470034',?,?,Gelaterie,3,3.0,1
+'https://www.yelp.it/biz/vale-un-per\%C3\%B9-torino','Vale un Perù','Via Prali 4B 10139 Torino','011 3835253',?,?,'Cucina peruviana',2,3.0,1
+https://www.yelp.it/biz/museo-nazionale-della-montagna-duca-degli-abruzzi-torino,'Museo Nazionale Della Montagna Duca Degli Abruzzi','Via Giardino 39 10131 Torino','011 6604104',?,?,Musei,null,3.0,1
+https://www.yelp.it/biz/porto-ribeca-torino-2,'Porto Ribeca','Via Tarino Luigi 2D 10124 Torino','011 8141426',?,?,Bar,2,3.0,1
+https://www.yelp.it/biz/shizen-torino,Shizen,'Viale Thovez 6 10131 Torino','011 6605074',?,?,'Cucina giapponese',2,3.0,1
+https://www.yelp.it/biz/residenza-parco-bramante-uno-torino,'Residenza Parco Bramante Uno','Via Bruno Giordano 63 10134 Torino','011 3185596',?,?,Parchi,null,3.0,1
+https://www.yelp.it/biz/la-gaia-scienza-torino,'La Gaia Scienza','Via Guastalla 22 10124 Torino','011 8123821',?,?,'Cucina italiana',null,3.0,1
+https://www.yelp.it/biz/fattore-k-torino,'Fattore K','Cesare Balbo 10 10124 Torino',null,?,?,Bar,null,3.0,1
+https://www.yelp.it/biz/trattoria-piemontese-torino,'Trattoria Piemontese','Via Napione 45 10124 Torino','011 8122714',?,?,'Cucina piemontese; Trattorie',2,3.0,1
+https://www.yelp.it/biz/il-porticciolo-torino,'Il Porticciolo','Via Barletta 58 10100 Torino','011 321601',?,?,'Cucina italiana',2,3.0,1
+https://www.yelp.it/biz/parco-colletta-torino,'Parco Colletta','Lungo Dora Pietro Colletta 10154 Torino',null,?,?,Parchi,null,3.0,1
+https://www.yelp.it/biz/the-duke-of-wellington-torino,'The Duke of Wellington','Via Caboto 26 10129 Torino','347 7062821',?,?,'Cucina italiana; Pub',2,2.5,2
+https://www.yelp.it/biz/ai-4-assi-di-sanna-roberto-torino,'AI 4 Assi di Sanna Roberto','Corso Sebastopoli 261B 10134 Torino','011 355341',?,?,Pizzerie,3,2.0,5
+https://www.yelp.it/biz/antica-cafetteria-torino,'Antica Cafetteria','Via Barletta 110 10136 Torino','011 5701656',?,?,Caffè,2,3.0,1
+'https://www.yelp.it/biz/g\%C3\%B8rilla-torino',Gørilla,'Via Bernardino Galliari 20 10125 Torino','333 4748414',?,?,'Cocktail bar; Cucina vegana; Frullati/Succhi/Centrifugati',3,2.0,1
+https://www.yelp.it/biz/bocciofila-cavorettese-torino,'Bocciofila Cavorettese','Strada Dei Ronchi 36 10133 Torino','011 6613030',?,?,'Cucina italiana',2,3.0,1
+https://www.yelp.it/biz/grom-torino-3,Grom,'Corso Orbassano Torino',null,?,?,Gelaterie,null,3.0,2
+https://www.yelp.it/biz/vitelloni-torino,Vitelloni,'Corso Giacomo Matteotti 3 Bis 10121 Torino','011 5069605',?,?,'Steak house; Barbecue; Carne di cervo',3,2.0,1
+https://www.yelp.it/biz/ciacolon-ca-veneta-torino,'Ciacolon CA’ Veneta','Viale XXV Aprile 11 10133 Torino','011 6610911',?,?,Ristoranti,3,4.5,2
+https://www.yelp.it/biz/wispobish-torino,WISPOBISH,'Corso Vittorio Emanuele ll 40 10123 Torino','011 884350',?,?,'Cucina italiana',2,5.0,1
+https://www.yelp.it/biz/exki-giolitti-torino-3,'Exki Giolitti','Via Carlo Alberto 29 10123 Torino','011 0864829',?,?,'Cucina vegetariana; Insalate; Senza glutine',3,2.0,1
+https://www.yelp.it/biz/macario-caffe-torino,'Macario Caffe’','Via San Domenico 7 Quadrilatero Romano 10122 Torino','011 4310151',?,?,Ristoranti,null,4.0,1
+https://www.yelp.it/biz/autogrill-torino-4,Autogrill,'Corso Stazione di Torino Porta Nuova 10125 Torino','8000 69069',?,?,Bar,null,2.0,1
+https://www.yelp.it/biz/bar-gerla-1927-torino,'Bar Gerla 1927','C.so Vittorio Emanuele II 88 10121 Torino','011 545422',?,?,'Cucina italiana; Bistrot; Colazioni/Brunch ',1,1.5,2
+https://www.yelp.it/biz/sale-in-zucca-torino,'Sale in zucca','Via Santa Chiara 45 10122 Torino','0039 0115794968',?,?,'Cucina vegana; Prodotti biologici',3,3.0,1
+https://www.yelp.it/biz/al-gatto-nero-torino,'Al Gatto Nero','Corso Filippo Turati 14 10128 Torino','011 590414',?,?,'Piatti a base di pesce; Cucina toscana',3,2.0,1
+https://www.yelp.it/biz/il-barotto-torino,'Il Barotto','Via Giuseppe Baretti 8 10125 Torino','329 5416028',?,?,Bar,2,5.0,1
+https://www.yelp.it/biz/rizzelli-torino,Rizzelli,'Via Cernaia 3 10121 Torino','333 2514515',?,?,'Cucina italiana; Piatti a base di pesce; Fast food',3,5.0,1
+https://www.yelp.it/biz/tor-na-torino,Tor.Na,'Via Ormea 1 10125 Torino','339 4238508',?,?,'Cucina italiana',4,5.0,1
+https://www.yelp.it/biz/chiodi-latini-new-food-torino,'Chiodi Latini New Food','Via S Quintino 33 10121 Torino','011 5623631',?,?,'Cucina vegetariana',null,5.0,1
+https://www.yelp.it/biz/focacceria-santagostino-torino,'Focacceria Sant’agostino','Piazza Castello 153 10122 Torino','011 538899',?,?,'Fast food',1,2.0,1
+https://www.yelp.it/biz/emporio-gastronomico-torino,'Emporio Gastronomico','Via Avogadro 2 10121 Torino','011 5629026',?,?,Pizzerie,2,5.0,1
+https://www.yelp.it/biz/armeria-reale-torino,'Armeria Reale','Piazza Castello 191 10122 Torino','011 543889',?,?,Musei,null,2.0,1
+https://www.yelp.it/biz/estrella-do-sul-torino,'Estrella Do Sul','Via Nizza 23 10125 Torino',null,?,?,'Cucina brasiliana',4,5.0,1
+https://www.yelp.it/biz/cento-90-due-torino-2,'Cento 90 Due','Corso Moncalieri 192 10131 Torino','011 6312273',?,?,'Cucina italiana',3,2.0,1
+'https://www.yelp.it/biz/caff\%C3\%A8-dellopera-torino','Caffè dell’Opera','Via Madama Cristina 72 10126 Torino',null,?,?,Caffè,2,5.0,1
+https://www.yelp.it/biz/trattoria-toscana-torino,'trattoria toscana','via vanchiglia 2 10124 Torino',null,?,?,'Cucina italiana',1,2.0,1
+https://www.yelp.it/biz/pizzeria-la-sacrestia-torino,'Pizzeria La Sacrestia','Via Giacosa 2 10125 Torino','011 6687357',?,?,Pizzerie,1,5.0,1
+https://www.yelp.it/biz/l-aglio-torino,L’aglio,'Via Curtatone 18 10131 Torino','011 6604563',?,?,'Cucina italiana',3,4.0,2
+https://www.yelp.it/biz/pasticceria-mele-torino,'Pasticceria Mele',Torino,null,?,?,Caffè/Tè,2,4.0,2
+https://www.yelp.it/biz/big-mama-club-torino,'Big Mama Club','F. Bonsignore 8 10131 Torino',null,?,?,'Cocktail bar',3,2.0,1
+https://www.yelp.it/biz/lo-zio-torino,'Lo Zio','Angolo Via Baretti 7G 10125 Torino','392 4087184',?,?,'Cucina italiana',4,5.0,1
+https://www.yelp.it/biz/la-stadera-pizzeria-la-stadera-di-muscariello-s-e-c-pizz-torino,'La Stadera Pizzeria La Stadera di Muscariello S. e C. Pizz','Via P. Giuria 35 10126 Torino','011 6501552',?,?,Pizzerie,3,4.0,2
+https://www.yelp.it/biz/l-oca-fola-torino,'L’Oca Fola','Via Drovetti 6 10138 Torino','011 4337422',?,?,'Cucina piemontese; Trattorie',3,5.0,1
+https://www.yelp.it/biz/i-tartufi-bistrot-torino,'I Tartufi Bistrot','Via Carlo Alberto 47 10123 Torino','339 6466555',?,?,'Cucina italiana',3,5.0,1
+https://www.yelp.it/biz/forchetta-e-scarpetta-torino,'Forchetta e Scarpetta','Corso Inghilterra 23B 10138 Torino','011 4472952',?,?,'Trattorie; Diner',1,5.0,1
+https://www.yelp.it/biz/the-egg-torino,'The Egg','Via Vincenzo Monti 16 10126 Torino','011 657457',?,?,'Cucina italiana; Cucina mediterranea; Tapas/snack',2,5.0,1
+https://www.yelp.it/biz/pepito-torino,Pepito,'Via Carlo Alberto 6 10123 Torino','011 5160085',?,?,'Cucina italiana',2,5.0,1
+https://www.yelp.it/biz/il-panino-giusto-torino,'il panino giusto','Gallery 8 al Lingotto di Torino Torino',null,?,?,Pub,null,5.0,1
+https://www.yelp.it/biz/gelateria-monginevro-smaldone-raffaele-torino,'Gelateria Monginevro Smaldone Raffaele','Via Monginevro 23A 10138 Torino',null,?,?,Gelaterie,1,5.0,1
+https://www.yelp.it/biz/la-gustosa-torino,'La Gustosa','Via San Donato 70 10144 Torino',null,?,?,'Cucina italiana',2,4.0,2
+https://www.yelp.it/biz/pizza-speedy-torino-2,'Pizza Speedy','Via Dante Di Nanni 50/a 10138 Torino','011 4345025',?,?,Pizzerie,1,5.0,1
+https://www.yelp.it/biz/pasticceria-beatrice-torino,'pasticceria beatrice','piazza statuto 16 10122 Torino',null,?,?,Panifici,null,5.0,1
+https://www.yelp.it/biz/spada-reale-torino,'Spada Reale','Via Principe Amedeo 53 10123 Torino','011 8173509',?,?,'Cucina italiana',3,5.0,1
+https://www.yelp.it/biz/sotto-la-mole-torino,'Sotto La Mole','Via montebello 9 10124 Torino','011 8179398',?,?,'Cucina italiana',2,5.0,1
+https://www.yelp.it/biz/cinese-nanchino-torino,'Cinese Nanchino','Corso Beccaria Giambattista 2 10122 Torino','011 5214060',?,?,'Cucina cinese',1,5.0,1
+https://www.yelp.it/biz/la-gricia-torino,'La Gricia','Piazza Emanuele Filiberto 6 10122 Torino',null,?,?,'Cucina italiana',2,5.0,1
+https://www.yelp.it/biz/la-conca-torino-2,'La Conca','Via Assetta 4E 10128 Torino',null,?,?,'Cucina italiana',2,3.5,2
+https://www.yelp.it/biz/da-giannino-l-angolo-d-abruzzo-torino,'Da Giannino L’Angolo d’Abruzzo','Via Rosolino Pilo 20 10143 Torino','02 29406526',?,?,'Cucina abruzzese',null,5.0,1
+https://www.yelp.it/biz/o-l-s-torino,O.L.S.,'Piazza Vittorio Veneto 23 10124 Torino','011 8128931',?,?,'Cucina italiana; Bar',2,5.0,1
+https://www.yelp.it/biz/martin-pescatore-torino,'Martin Pescatore','Otto Gallery 10126 Torino',null,?,?,Ristoranti,null,2.0,1
+https://www.yelp.it/biz/fondazione-torino-musei-torino,'Fondazione Torino Musei','Via Magenta 31 10128 Torino','011 5069052',?,?,Musei,null,3.5,2
+https://www.yelp.it/biz/teriyaky-torino,Teriyaky,'Centro Commerciale 8 Gallery Via Nizza 262 10126 Torino',null,?,?,'Cucina giapponese',null,2.0,1
+https://www.yelp.it/biz/copacabana-torino,Copacabana,'Via San Marino 31 10134 Torino','011 611799',?,?,'Cucina italiana; Discoteche',null,2.0,1
+https://www.yelp.it/biz/ristoranti-sardegna-torino,'Ristoranti Sardegna','Via San Donato 27 10144 Torino','011 484832',?,?,'Cucina sarda',3,5.0,1
+https://www.yelp.it/biz/gelateria-nicola-torino,'Gelateria Nicola','Corso Vittorio Emanuele II 199C 10139 Torino','011 7428034',?,?,Gelaterie,null,5.0,1
+https://www.yelp.it/biz/pizzeria-pizzemporio-torino,'Pizzeria Pizzemporio','Via Eusebio Bava 35 10124 Torino','011 8129679',?,?,Pizzerie,null,5.0,1
+https://www.yelp.it/biz/dai-saletta-torino-2,'Dai Saletta','Via Belfiore 37 10125 Torino','011 6687867',?,?,'Cucina piemontese; Trattorie',3,3.0,3
+https://www.yelp.it/biz/hua-dou-torino,'Hua Dou','Via Rovereto 79 10136 Torino','011 354420',?,?,'Cucina italiana; Cucina cinese',2,5.0,1
+https://www.yelp.it/biz/zichella-torino,Zichella,'Via Saluzzo 71 10125 Torino','011 6699970',?,?,'Caffè/Tè; Cioccolatai',2,3.5,2
+https://www.yelp.it/biz/gelateria-ciuffos-torino,'Gelateria Ciuffo’s','Corso Francia 151A 10138 Torino','011 2073383',?,?,Gelaterie,2,5.0,1
+https://www.yelp.it/biz/mitiko-pizzeria-consegna-a-domicilio-torino,'Mitiko Pizzeria Consegna A Domicilio','C. Svizzera 48 10143 Torino','011 744999',?,?,Pizzerie,null,5.0,1
+https://www.yelp.it/biz/entremetier-di-lingweifu-torino,'Entremetier di Lingweifu','Via Nizza 216 10126 Torino','011 19791783',?,?,Ristoranti,null,5.0,1
+https://www.yelp.it/biz/laboratorio-comba-torino,'Laboratorio Comba','Via Mombarcaro 106 10136 Torino','011 359937',?,?,'Panifici; Cioccolatai',null,5.0,1
+https://www.yelp.it/biz/museo-civico-di-arte-antica-torino,'Museo Civico Di Arte Antica','Piazza Castello Palazzo Madama 3 10122 Torino','011 4429912',?,?,Musei,null,3.5,2
+https://www.yelp.it/biz/bottegamia-torino,Bottegamia,'Via Palazzo di Città 19 10122 Torino','011 7652642',?,?,'Cucina italiana',1,1.0,1
+https://www.yelp.it/biz/osteria-rotonda-dei-facchinetti-torino,'Osteria Rotonda dei Facchinetti','Via Pianezza 185 10151 Torino','011 4556804',?,?,'Cucina italiana',3,2.0,1
+https://www.yelp.it/biz/da-ciccillo-torino,'Da Ciccillo','Via Nizza 69 10125 Torino','393 0348088',?,?,Pizzerie,1,4.0,1
+https://www.yelp.it/biz/greek-food-lab-torino-2,'Greek Food Lab','Via Claudio Luigi Berthollet 6 10125 Torino','011 5833992',?,?,'Cucina greca',null,4.0,1
+https://www.yelp.it/biz/montecarlo-torino,Montecarlo,'Via San Francesco Da Paola 37 10123 Torino','011 8126966',?,?,'Cucina italiana',null,1.0,1
+https://www.yelp.it/biz/trattoria-alba-torino,'Trattoria Alba','Via Eusebio Bava 2 10124 Torino','011 8171579',?,?,Bistrot,1,3.5,2
+https://www.yelp.it/biz/taxi-pizza-torino,'Taxi Pizza','Corso Francia 261 10139 Torino','011 799184',?,?,Pizzerie,2,3.5,3
+https://www.yelp.it/biz/lazzeri-giorgio-torino,'Lazzeri / Giorgio','C. Vercelli 79 10152 Torino','011 852657',?,?,Pizzerie,3,5.0,1
+https://www.yelp.it/biz/alcool-torino-2,Alcool,'Lungopo Lungopo Luigi Cadorna 1 10124 Torino','0338 7169827',?,?,'Cucina italiana',null,3.5,2
+https://www.yelp.it/biz/i-soliti-ignoti-torino,'I Soliti Ignoti','Corso Vittorio Emanuele Ii 181 10138 Torino','011 4386213',?,?,Pizzerie,null,3.5,2
+https://www.yelp.it/biz/pescheria-cernaia-di-bullaro-e-santacroce-torino,'Pescheria Cernaia di Bullaro e Santacroce','Via Cernaia 32 10121 Torino','011 5621169',?,?,'Pizzerie; Negozi alimentari specializzati',null,1.0,1
+https://www.yelp.it/biz/museo-della-futta-torino,'Museo della Futta','Via Pietro Giuria 15 10126 Torino','011 6708195',?,?,Musei,null,1.0,1
+https://www.yelp.it/biz/agnolotti-e-friends-torino,'Agnolotti & Friends','Piazza Corpus domini Torino','011 4338792',?,?,'Cucina italiana',4,1.0,1
+https://www.yelp.it/biz/bar-marconi-di-torre-francesco-torino,'Bar Marconi Di Torre Francesco','Corso Guglielmo Marconi 3 10125 Torino','011 6505151',?,?,Caffè,2,4.0,1
+https://www.yelp.it/biz/anema-e-cozze-torino,'Anema E Cozze','Corso Matteotti 3 Bis 10121 Torino','011 19916810',?,?,'Cucina italiana',3,4.0,1
+https://www.yelp.it/biz/pasticceria-venier-torino,'Pasticceria Venier','Via Monte di Pieta  22 10122 Torino','011 541592',?,?,'Dolci; Cioccolatai',2,4.0,1
+'https://www.yelp.it/biz/dess\%C3\%AC-torino',Dessì,'Via Madama Cristina 63 10125 Torino',null,?,?,'Cucina italiana',2,2.5,3
+https://www.yelp.it/biz/macao-torino,Macao,'Corso Filippo Turati 9 10128 Torino','011 5683898',?,?,'Cucina cinese',1,4.0,1
+https://www.yelp.it/biz/pasta-mon-amour-torino,'Pasta Mon Amour','Via Giuseppe Baretti 10 10152 Torino','011 0605691',?,?,'Cucina italiana',4,4.0,1
+https://www.yelp.it/biz/turin-hotels-international-torino,'Turin Hotels International','Via Dell arcivescovado 14 10121 Torino','080 0179217',?,?,'Cucina italiana',2,4.0,1
+https://www.yelp.it/biz/punto-pizza-di-moro-michel-torino,'Punto Pizza di Moro Michel','Corso Vittorio Emanuele II 29B 10123 Torino','011 6506555',?,?,Pizzerie,1,4.0,1
+https://www.yelp.it/biz/crocetta-torino,Crocetta,'Via Marco Polo 21 10129 Torino','011 597789',?,?,'Cucina italiana',1,4.0,1
+https://www.yelp.it/biz/la-granda-torino,'La Granda','Piazza Solferino 16A 10121 Torino','011 5611050',?,?,'Hamburger; Hot dog',2,3.0,2
+https://www.yelp.it/biz/sapori-d-autore-di-palladino-maurizio-torino,'Sapori D’autore di Palladino Maurizio','Via Amerigo Vespucci 51 10129 Torino','011 595423',?,?,Macellerie,2,4.0,1
+https://www.yelp.it/biz/boka-torino,Boka,'Piazza Emanuelr Filberto 7C 10122 Torino','7653 009',?,?,Brasserie,2,4.0,1
+https://www.yelp.it/biz/taverna-rossa-di-zappia-pasquale-torino,'Taverna Rossa di Zappia / Pasquale','Via Valperga Caluso 22 10125 Torino','011 6504431',?,?,Pizzerie,null,4.0,1
+'https://www.yelp.it/biz/caff\%C3\%A8-clarissa-torino','Caffè Clarissa','Piazza Vittorio Veneto 22 10123 Torino','011 8390535',?,?,'Cucina italiana; Caffè',1,4.0,1
+https://www.yelp.it/biz/yu-xieshu-torino,'Yu Xieshu','Via Venti Settembre 49 10121 Torino','011 542966',?,?,'Cucina italiana',1,4.0,1
+https://www.yelp.it/biz/che-bolle-in-pentola-torino,'Che Bolle in Pentola','Via Rivara 30 10143 Torino','011 7930961',?,?,'Trattorie; Cucina toscana; Carne di cervo',3,1.0,1
+https://www.yelp.it/biz/galante-torino-2,Galante,'Corso Palestro 15 10122 Torino','011 3810845',?,?,'Cucina italiana',3,4.0,1
+https://www.yelp.it/biz/ristorante-peppino-torino,'Ristorante Peppino','Via Mercanti 7H 10122 Torino','1153 0570',?,?,Pizzerie,1,4.0,1
+https://www.yelp.it/biz/ist-per-la-storia-del-ris-torino,'Ist. Per La Storia Del Ris.','Via Accademia Scienze 5 10123 Torino','011 543421',?,?,Musei,null,3.0,2
+https://www.yelp.it/biz/rotonda-valentino-torino,'Rotonda Valentino','Corso Massimo D Azeglio 11 10126 Torino','011 6686743',?,?,'Cucina italiana',null,4.0,1
+https://www.yelp.it/biz/quelli-che-ben-pensano-2-torino,'Quelli Che Ben Pensano 2','Via San Paolo 3 10138 Torino','011 2760728',?,?,'Cucina italiana; Pizzerie',1,4.0,1
+https://www.yelp.it/biz/mc-donalds-torino-4,'Mc donald’s','Piazza Castello 59 10123 Torino',null,?,?,Hamburger,2,4.0,1
+https://www.yelp.it/biz/toscano-torino-3,Toscano,'Via della Misericordia 4 10122 Torino',null,?,?,'Cucina italiana',null,4.0,1
+https://www.yelp.it/biz/smeraldo-torino,smeraldo,Torino,null,?,?,'Cucina italiana',null,4.0,1
+https://www.yelp.it/biz/bar-bar-blu-torino,'Bar: BAR BLU','Piazza Castello 99 10122 Torino','011 531424',?,?,'Bar; Caffè; Caffè/Tè',3,3.0,2
+https://www.yelp.it/biz/vinolento-torino,VinoLento,'Via Corte d Appello 13 10122 Torino','011 19508801',?,?,'Wine bar; Brasserie',null,4.0,1
+https://www.yelp.it/biz/pizza-speedy-torino,'Pizza Speedy','Via delle Rosine 8/a 10123 Torino','1119 508413',?,?,Pizzerie,null,4.0,1
+https://www.yelp.it/biz/pizzeria-vecchia-londra-torino,'Pizzeria Vecchia Londra','Corso Inghilterra 45 10138 Torino','011 4335459',?,?,Pizzerie,3,4.0,1
+https://www.yelp.it/biz/al-ghibellin-fuggiasco-torino,'Al Ghibellin Fuggiasco','Via Tunisi 50 10134 Torino','011 319611',?,?,'Cucina italiana',3,1.0,1
+https://www.yelp.it/biz/jubin-di-hu-lidan-torino,'Jubin Di Hu Lidan','Via Gorizia 173 10137 Torino','011 365762',?,?,'Cucina cinese',2,3.0,3
+https://www.yelp.it/biz/black-jack-torino,'Black Jack','Via Nizza 84 10126 Torino',null,?,?,'Cucina italiana',null,4.0,1
+https://www.yelp.it/biz/cioccolato-peyrano-torino-2,'Cioccolato Peyrano','Corso Moncalieri 47 10133 Torino','011 6602202',?,?,Caffè/Tè,3,4.0,1
+https://www.yelp.it/biz/la-cantina-torino,'La Cantina','Via delle Rosine 1 10123 Torino','011 8174321',?,?,'Cucina piemontese',3,4.0,1
+https://www.yelp.it/biz/il-peccato-torino,'Il Peccato','Via Monginevro 8 10138 Torino','392 5633897',?,?,'Pizzerie; Pub; Karaoke',null,3.0,1
+https://www.yelp.it/biz/rubirosa-torino,Rubirosa,'Via Giovanni Plana 1 10123 Torino','011 8398061',?,?,'Cucina italiana',null,4.0,1
+https://www.yelp.it/biz/la-voglia-matta-torino-6,'La voglia matta','Via Dante di Nanni 60 10138 Torino',null,?,?,Gelaterie,null,4.0,1
+https://www.yelp.it/biz/l-angolo-divino-torino,'L’Angolo Divino','Via Umberto Cosmo 13 10131 Torino','329 3067874',?,?,'Pizzerie; Cucina piemontese; Wine bar ',null,4.0,1
+https://www.yelp.it/biz/pizzeria-ideal-di-atzori-alberto-torino,'Pizzeria Ideal di Atzori Alberto','Corso Principe Eugenio 17 10122 Torino','011 4310551',?,?,Pizzerie,2,4.0,1
+https://www.yelp.it/biz/bbq-di-pennestri-davide-antonio-c-torino,'Bbq di Pennestri Davide Antonio C.','Corso Monalieri 308 10131 Torino','011 6614211',?,?,Barbecue,1,4.0,1
+https://www.yelp.it/biz/esperia-torino-2,Esperia,'Corso Moncalieri 2 10133 Torino','011 8193013',?,?,'Cucina italiana',1,4.0,1
+https://www.yelp.it/biz/san-giorgio-torino,'San Giorgio','Viale E. Millo 156 10126 Torino',null,?,?,'Cucina italiana',1,4.0,1
+https://www.yelp.it/biz/le-cantine-di-bacco-torino,'Le cantine di bacco','Via Vigone 49E 10139 Torino','338 8903989',?,?,'Cucina italiana',null,4.0,1
+https://www.yelp.it/biz/cristina-due-torino,'Cristina Due','via Burzio 9/F 10122 Torino','011 5214906',?,?,Pizzerie,2,4.0,1
+https://www.yelp.it/biz/museo-di-antichita-di-torino-torino,'Museo Di Antichita’ Di Torino','Via XX Settembre 88 10122 Torino','011 4363082',?,?,Musei,null,3.0,2
+https://www.yelp.it/biz/lo-scugnizzo-torino,'Lo Scugnizzo','Corso San Maurizio 34B 10124 Torino','011 8390312',?,?,Pizzerie,3,4.0,1
+'https://www.yelp.it/biz/caff\%C3\%A8-900-torino','Caffè 900','Via Tripoli 6 10136 Torino','011 369746',?,?,'Caffè; Caffè/Tè',2,4.0,1
+https://www.yelp.it/biz/pizzeria-bella-vita-torino,'Pizzeria Bella Vita','Via Malta 34C 10141 Torino','338 8068640',?,?,'Cucina italiana; Pizzerie',2,4.0,1
+https://www.yelp.it/biz/michi-tanzariello-torino,'Michi Tanzariello','Via San Donato 38 10144 Torino','011 4732408',?,?,Pizzerie,3,4.0,1
+https://www.yelp.it/biz/cinese-e-internazionale-torino,'Cinese E Internazionale','Corso U Sovietica 335 10135 Torino','011 5885273',?,?,'Cucina cinese',2,3.5,2
+https://www.yelp.it/biz/la-granseola-torino,'La Granseola','Via Don Giovanni Bosco 10 10144 Torino','011 484588',?,?,'Cucina italiana',1,4.0,1
+https://www.yelp.it/biz/dog-out-presso-otto-gallery-torino,'Dog Out presso Otto Gallery','Via Nizza 262 10126 Torino','011 6630050',?,?,'Fast food; Kebab; Hot dog',2,1.0,1
+https://www.yelp.it/biz/pizza-pistrocchio-torino,'Pizza Pistrocchio','Corso Orbassano 282 10129 Torino','011 3115483',?,?,Pizzerie,2,3.5,2
+https://www.yelp.it/biz/bar-st-germain-torino,'Bar St. Germain','Via Nizza 203 10126 Torino','011 2638292',?,?,Bar,null,4.0,1
+https://www.yelp.it/biz/pistacchio-torino,Pistacchio,'Corso Racconigi 18 10139 Torino','011 7741261',?,?,'Caffè; Dolci',1,3.0,2
+https://www.yelp.it/biz/hokkaido-torino,Hokkaido,'Corso Vittorio Emanuele II 217 D 10139 Torino','011 7714659',?,?,'Cucina giapponese',2,4.0,1
+https://www.yelp.it/biz/passaggio-in-india-torino,'Passaggio in India','Corso Casale 73 10132 Torino',null,?,?,'Cucina indiana',3,2.5,3
+https://www.yelp.it/biz/pasticceria-s-rita-di-mariano-a-torino,'Pasticceria S. Rita di Mariano A.','Via Emanuel 23 10136 Torino','011 4124124',?,?,Gelaterie,3,4.0,1
+https://www.yelp.it/biz/amore-mio-torino,'Amore MIO','Via Filadelfia 21A 10100 Torino','011 3017148',?,?,Pizzerie,2,4.0,1
+https://www.yelp.it/biz/pasticceria-giori-torino,'pasticceria giori','via Mombarcaro 114 10136 Torino','011 352795',?,?,Panifici,null,4.0,1
+https://www.yelp.it/biz/premiata-osteria-dellhermada-torino,'Premiata Osteria Dell’hermada','Piazza Hermada 10 10131 Torino','011 8190541',?,?,'Cucina italiana',null,4.0,1
+https://www.yelp.it/biz/la-luna-rossa-torino,'La Luna Rossa','Via Pietro Micca 9 10121 Torino','011 5119810',?,?,'Cucina italiana',3,2.5,2
+https://www.yelp.it/biz/stickhouse-torino,StickHouse,'Corso Mortara 24 10149 Torino',null,?,?,Gelaterie,null,4.0,1
+https://www.yelp.it/biz/pizzeria-au-lapin-agile-torino-2,'Pizzeria Au Lapin Agile','Via Ghemme 1 10145 Torino','011 7496124',?,?,'Pizzerie; Cucina mediterranea',2,3.0,2
+https://www.yelp.it/biz/fiorio-gelateria-torino,'Fiorio Gelateria',Torino,'011 3279326',?,?,Gelaterie,null,2.5,2
+https://www.yelp.it/biz/don-gennaro-torino,'Don Gennaro','Corso Novara 1 10155 Torino','011 2876296',?,?,Pizzerie,2,3.0,2
+https://www.yelp.it/biz/vecchia-europa-torino,'Vecchia Europa','Corso Potenza 14 10143 Torino','011 771246',?,?,'Cucina italiana',2,4.0,1
+https://www.yelp.it/biz/pizzeria-l-orchidea-torino,'Pizzeria L’orchidea','Corso Unione Sovietica 227 10134 Torino','011 3172466',?,?,Pizzerie,3,3.0,2
+https://www.yelp.it/biz/pastificio-baretti-torino,'Pastificio Baretti','Via Baretti 18 10125 Torino','011 6691673',?,?,'Fast food',2,3.0,1
+https://www.yelp.it/biz/jolly-principi-di-piemonte-torino,'Jolly Principi Di Piemonte','Via Piero Gobetti 15 10123 Torino','011 545471',?,?,'Cucina italiana',3,3.0,1
+https://www.yelp.it/biz/zi-barba-di-pompilio-vito-torino,'Zi’ Barba Di Pompilio Vito','Via Silvio Pellico 13 10125 Torino','011 658391',?,?,'Cucina italiana',2,3.0,1
+https://www.yelp.it/biz/decameron-torino,Decameron,'Via Andrea Doria 21 10123 Torino','1119 703744',?,?,Ristoranti,null,3.0,1
+https://www.yelp.it/biz/arcanomatto-torino,arcanomatto,'via pietro micca 17b 10121 Torino','011 547953',?,?,'Cocktail bar',null,3.0,1
+https://www.yelp.it/biz/museo-di-antropologia-ed-etnografia-torino,'Museo Di Antropologia Ed Etnografia','Via Accademia Albertina 17 10123 Torino','011 6704707',?,?,Musei,null,3.0,1
+https://www.yelp.it/biz/trattoria-casalinga-torino,'Trattoria Casalinga','Via Mazzini 50 10123 Torino','011 888942',?,?,'Cucina italiana',2,3.0,1
+https://www.yelp.it/biz/mamma-licia-torino,'Mamma Licia','Via Giuseppe Mazzini 50 10123 Torino','011 888942',?,?,'Cucina italiana',null,3.0,1
+https://www.yelp.it/biz/le-vigne-torino,'Le Vigne','Via Giovanni Botero 7 10122 Torino','011 5178378',?,?,'Cucina italiana',null,3.0,1
+https://www.yelp.it/biz/museo-regionale-di-scienze-naturali-torino,'Museo Regionale Di Scienze Naturali','Via Giolitti 36 10123 Torino','011 4323080',?,?,Musei,null,3.0,1
+https://www.yelp.it/biz/ristoranti-tropicana-torino,Ristoranti:Tropicana,'Corso Mediterraneo 84 10129 Torino','011 591210',?,?,Ristoranti,2,3.0,1
+https://www.yelp.it/biz/comune-di-torino-torino,'Comune Di Torino','Piazza Palazzo Di Citta  1 10122 Torino','011 4310916',?,?,'Monumenti/Luoghi storici e d interesse',null,3.0,1
+https://www.yelp.it/biz/al-grassi-torino-2,'Al Grassi','Via Giuseppe Grassi 9 10138 Torino','011 4345430',?,?,'Cucina italiana',2,3.0,1
+https://www.yelp.it/biz/el-mir-torino,'El Mir','Piazza Corpus Domini 17 10122 Torino','011 5624496',?,?,'Cucina italiana',null,3.0,1
+https://www.yelp.it/biz/marhaba-torino,Marhaba,'Via San Domenico 10122 Torino','011 5214452',?,?,'Cucina araba',null,3.0,1
+https://www.yelp.it/biz/friedas-pub-torino,'Frieda’s Pub','Via Rossini 14 10124 Torino','011 8171601',?,?,Bar,null,3.0,1
+https://www.yelp.it/biz/meridien-torino,Meridien,'corso moncalieri 208 10131 Torino',null,?,?,'Bar; Sale/Spazi per eventi',null,3.0,1
+https://www.yelp.it/biz/sciuscia-pizzeria-torino,'Sciuscia’ Pizzeria','Lungo Po Armando Diaz 2 10123 Torino','011 8170258',?,?,Pizzerie,2,3.0,1
+https://www.yelp.it/biz/gelateria-bucaneve-2-torino,'gelateria Bucaneve 2','c.so sebastopoli 155 10137 Torino','011 6992663',?,?,Gelaterie,null,3.0,1
+https://www.yelp.it/biz/bar-il-mottino-torino,'Bar Il Mottino','Piazza Sabotino 8 10139 Torino','011 4334173',?,?,'Bar Caffè',3,3.0,1
+https://www.yelp.it/biz/barbagia-di-ollolai-torino,'Barbagia Di Ollolai','Via F Millio 57 10141 Torino','011 3851257',?,?,'Cucina italiana',2,3.0,1
+https://www.yelp.it/biz/pizzeri-lapislazzulo-torino,'Pizzeri Lapislazzulo','Via Cibrario 14 10144 Torino','011 485661',?,?,'Cucina italiana',1,3.0,1
+https://www.yelp.it/biz/a-vucciria-torino,'A Vucciria','Corso XI Febbraio 7 10152 Torino',null,?,?,'Cucina italiana',3,3.0,1
+https://www.yelp.it/biz/acab-torino,Acab,'Via Montebello 38 10124 Torino','011 883490',?,?,Bistrot,1,3.0,1
+https://www.yelp.it/biz/trattoria-pizzeria-mare-e-monti-torino,'Trattoria Pizzeria Mare E Monti','Via Cibrario Luigi 41 10144 Torino','011 4375424',?,?,Bistrot,null,3.0,1
+https://www.yelp.it/biz/black-angus-turin,'Black Angus','Via Spotorno 45 10126 Turin','380 4346413',?,?,'Cucina italiana',1,4.0,1
+https://www.yelp.it/biz/zonk-di-brigada-igor-torino,'Zonk di Brigada Igor','Via Gian Franco Bellezia 20 10122 Torino','011 5217568',?,?,Bar,2,2.0,2
+https://www.yelp.it/biz/pizzerie-charlie-chaplin-torino,'Pizzerie Charlie Chaplin','Via Monginevro 152 10138 Torino','011 3855075',?,?,Pizzerie,3,2.0,3
+https://www.yelp.it/biz/ristrorante-la-chicca-torino-2,'Ristrorante La Chicca','Via Cardinale Maurizio 14 10131 Torino','011 8132541',?,?,'Cucina italiana',null,3.0,1
+https://www.yelp.it/biz/la-reseda-torino,'La Reseda','Corso Palermo 14 10154 Torino','011 857074',?,?,Pizzerie,null,3.0,1
+https://www.yelp.it/biz/yu-jiasheng-torino,'Yu Jiasheng','Via Bari 20 10144 Torino','011 5884922',?,?,'Cucina cinese',2,3.0,1
+https://www.yelp.it/biz/dorian-gray-torino,'Dorian Gray','Via Tunisi 61 10134 Torino','0349 6842667',?,?,'Cucina italiana',2,3.0,1
+https://www.yelp.it/biz/tio-chico-torino-2,'Tio Chico','Corso Regina Margherita 27 10124 Torino','011 8390160',?,?,'Cucina italiana',null,3.0,1
+https://www.yelp.it/biz/cacio-e-pepe-torino,'Cacio & Pepe','Via San Quintino 2 10121 Torino','011 5612489',?,?,'Cucina italiana',2,2.0,1
+https://www.yelp.it/biz/brasserie-bordeaux-torino-3,'Brasserie bordeaux','baretti 15F 10125 Torino','011 5539793',?,?,'Fast food',2,2.0,1
+https://www.yelp.it/biz/shannon-torino,shannon,'via barletta 87 10136 Torino',null,?,?,'Bar con sport in TV',null,3.0,1
+https://www.yelp.it/biz/winston-churchill-new-pub-torino,'Winston Churchill New Pub','Via Nizza 343 10126 Torino','011 6632987',?,?,'Bar; Caffè',2,3.0,1
+https://www.yelp.it/biz/osteria-fate-infretta-a-tavola-torino,'Osteria Fate Infretta A Tavola','Via Biglieri 10126 Torino',null,?,?,'Cucina italiana',null,3.0,1
+https://www.yelp.it/biz/la-svolta-torino,'La Svolta','Via Sabaudia 21 10133 Torino','011 6312643',?,?,'Cucina italiana; Pizzerie',3,3.0,1
+https://www.yelp.it/biz/quelli-che-ben-pensano-torino,'Quelli che ben pensano','Corso Regio Parco 52 10154 Torino',null,?,?,'Cucina italiana',null,3.0,1
+https://www.yelp.it/biz/a-la-merenda-sinoira-torino,'A la Merenda Sinoira','Piazza Hermada 12 10131 Torino','011 8190613',?,?,'Cucina italiana',null,3.0,1
+https://www.yelp.it/biz/pizzeria-amalfi-torino,'Pizzeria Amalfi','Via Borgone 12 10139 Torino',null,?,?,'Cucina italiana',null,3.0,1
+https://www.yelp.it/biz/la-vecchia-europa-torino,'La Vecchia Europa','Via Gorizia 144 10137 Torino','011 322200',?,?,Pizzerie,null,3.0,1
+https://www.yelp.it/biz/complice-di-zhou-jinshu-torino,'Complice Di Zhou Jinshu','Piazza Galimberti 21 10134 Torino','011 3040196',?,?,'Cucina italiana',1,3.0,1
+https://www.yelp.it/biz/bollicine-di-gigliotti-e-de-bartolo-torino,'Bollicine di Gigliotti e DE Bartolo','Via San Marino 58 10137 Torino','011 396728',?,?,Pizzerie,4,3.0,1
+https://www.yelp.it/biz/filo-di-marianna-torino,'Filo Di Marianna','Via Pr Tommaso 2 10125 Torino','011 6692365',?,?,'Cucina italiana',1,2.0,1
+https://www.yelp.it/biz/sara-caffetteria-torino,'Sara Caffetteria','Corso Cosenza 42 10137 Torino','011 356809',?,?,'Caffè; Caffè/Tè',2,3.0,1
+https://www.yelp.it/biz/mc-donalds-torino-2,'mc donalds','piazza statuto 16 10122 Torino',null,?,?,Hamburger,null,2.0,1
+https://www.yelp.it/biz/artinfood-torino,Artinfood,'Corso Vittorio Emanuele 21 10125 Torino','011 19665874',?,?,'Cucina italiana',3,1.0,1
+https://www.yelp.it/biz/il-male-torino,'Il Male','Via Lombardore 10 10154 Torino','011 284617',?,?,Bar,3,2.0,2
+https://www.yelp.it/biz/pizzificio-torino,Pizzificio,'Corso Regina Margherita 69C 10124 Torino',null,?,?,Pizzerie,null,2.0,1
+https://www.yelp.it/biz/papaldo-di-terentin-paola-torino,'Papaldo Di Terentin Paola','Via Cibrario Luigi 104 10144 Torino','011 7712633',?,?,Pizzerie,null,2.0,1
+https://www.yelp.it/biz/la-caravella-torino-2,'La Caravella','Via Fratelli Vasco 2 10124 Torino','011 8395105',?,?,'Cucina italiana',3,1.0,1
+https://www.yelp.it/biz/fondazione-darte-sella-pollone-torino,'Fondazione Darte Sella Pollone','Via Maria Vittoria 26 10123 Torino','011 8174002',?,?,Musei,null,1.0,1
+https://www.yelp.it/biz/dolce-basilico-torino,'Dolce Basilico','Via Monginevro 230 10141 Torino','011 704287',?,?,Pizzerie,null,2.0,1
+https://www.yelp.it/biz/pantagruel-torino,Pantagruel,'C. Moncalieri 261 10133 Torino','011 6613827',?,?,Pizzerie,3,1.0,1
+https://www.yelp.it/biz/garden-caffetteria-torino,'Garden Caffetteria','Via Arnaldo da Brescia 35 Proche Faculté d Economie 10134 Torino',null,?,?,'Cucina italiana',3,3.0,1
+https://www.yelp.it/biz/il-buco-torino,'Il Buco','Via Lombriasco 5 10139 Torino','011 4332210',?,?,'Cucina italiana',1,4.0,1
