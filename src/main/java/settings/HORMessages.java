@@ -3,7 +3,9 @@ package settings;
 import com.vdurmont.emoji.EmojiParser;
 import common.UserPreferences;
 import ontology.services.RequestHTTP;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import survey.context.beans.Context;
 
@@ -26,8 +28,6 @@ public class HORMessages implements LoggerInterface {
     static String MESSAGE_LOGIN = "Inviami le credenziali secondo questo modello:\n\nemail\npassword";
     static String MESSAGE_LOGIN_COMPLETE = "Login completato, visualizza il tuo contesto con /showcontext " +
             "oppure imposta la tua posizione con /setlocation o imposta le tue preferenze con /buildprofile.";
-    static String MESSAGE_CONTEXT_START = "Per impostare il tuo contesto usa questi comandi:\n" +
-            " - /setcompany\n - /setrested\n - /setmood\n - /setactivity\n - /setinterests";
     static String MESSAGE_CONTEXT_EDIT = "Per modificare il tuo contesto usa il comando /setcontext";
     static String MESSAGE_HELP = "Puoi utilizzarmi con i seguenti comandi:\n\n" +
             "/login - Effettua il login per Myrror\n" +
@@ -46,7 +46,7 @@ public class HORMessages implements LoggerInterface {
     static String MESSAGE_ACTIVITY = "Hai fatto molta attività fisica?";
     static String MESSAGE_INTERESTS = "Vuoi usare gli interessi caricati da Myrror?";
     static String MESSAGE_MOOD = "Di che umore sei?";
-    static String MESSAGE_CONTEXT_UPDATE = "Il tuo contesto è stato aggiornato.";
+    static String MESSAGE_CONTEXT_UPDATE = "Il tuo contesto è stato aggiornato. Usa /recommend per ricevere un suggerimento.";
     static String MESSAGE_CONTEXT_ERROR = "Il valore da inserito non è corretto.";
     static String MESSAGE_POSITION = "Inviami la tua posizione";
     static String MESSAGE_POSITION_SAVED = "Posizione salvata.";
@@ -69,6 +69,12 @@ public class HORMessages implements LoggerInterface {
     static String MESSAGE_MISSING_MOOD = "Non so di che umore sei, per dirmelo usa il comando /setmood";
     static String MESSAGE_MISSING_ACTIVITY = "Non so se hai fatto attività, per dirmelo usa il comando /setactivity";
     static String UNKNOWN_COMMAND = "Commando sconosciuto: ";
+    static String SET_CONFIGURATION = "Imposta configurazione\n" +
+            "0 - random\n" +
+            "1 - Content-based\n" +
+            "2 - Context-aware pre-filtering\n" +
+            "3 - Context-aware post-filtering\n" +
+            "4 - Graph-based";
 
     static {
         TAGS = createMap();
@@ -322,6 +328,150 @@ public class HORMessages implements LoggerInterface {
         keyboardMarkup.setKeyboard(keyboard);
 
         return keyboardMarkup;
+    }
+
+    /**
+     * Set inline keyboard for context
+     * @return a keyboard for set user context
+     */
+    static InlineKeyboardMarkup setInlineKeyboard() {
+        Map<String, String> updateCommands = new LinkedHashMap<>();
+        updateCommands.put("setcompany", "Imposta compagnia");
+        updateCommands.put("setrested", "Imposta riposo");
+        updateCommands.put("setmood", "Imposta umore");
+        updateCommands.put("setactivity", "Imposta attività");
+        updateCommands.put("contextdone", "Fine");
+
+        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline;
+
+        for (String command : updateCommands.keySet()) {
+            rowInline = new ArrayList<>();
+            rowInline.add(new InlineKeyboardButton()
+                    .setText(updateCommands.get(command))
+                    .setCallbackData(command));
+            // Set the keyboard to the markup
+            rowsInline.add(rowInline);
+        }
+
+        // Add it to the message
+        markupInline.setKeyboard(rowsInline);
+
+        return markupInline;
+    }
+
+    /**
+     * Set inline keyboard for company context
+     * @return a keyboard for set user company context
+     */
+    static InlineKeyboardMarkup setInlineKeyboardForCompany() {
+        Map<String, String> updateCommands = new LinkedHashMap<>();
+        updateCommands.put("friends", "Amici");
+        updateCommands.put("familypartner", "Famiglia/Fidanzata-o");
+        updateCommands.put("associates", "Colleghi");
+
+        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline;
+
+        for (String command : updateCommands.keySet()) {
+            rowInline = new ArrayList<>();
+            rowInline.add(new InlineKeyboardButton()
+                    .setText(updateCommands.get(command))
+                    .setCallbackData(command));
+            // Set the keyboard to the markup
+            rowsInline.add(rowInline);
+        }
+
+        // Add it to the message
+        markupInline.setKeyboard(rowsInline);
+
+        return markupInline;
+    }
+
+    /**
+     * Set inline keyboard for rested context
+     * @return a keyboard for set user rested context
+     */
+    static InlineKeyboardMarkup setInlineKeyboardForRested() {
+        Map<String, String> updateCommands = new LinkedHashMap<>();
+        updateCommands.put("restedtrue", "Sì");
+        updateCommands.put("restedfalse", "No");
+
+        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline;
+
+        for (String command : updateCommands.keySet()) {
+            rowInline = new ArrayList<>();
+            rowInline.add(new InlineKeyboardButton()
+                    .setText(updateCommands.get(command))
+                    .setCallbackData(command));
+            // Set the keyboard to the markup
+            rowsInline.add(rowInline);
+        }
+
+        // Add it to the message
+        markupInline.setKeyboard(rowsInline);
+
+        return markupInline;
+    }
+
+    /**
+     * Set inline keyboard for activity context
+     * @return a keyboard for set user activity context
+     */
+    static InlineKeyboardMarkup setInlineKeyboardForActivity() {
+        Map<String, String> updateCommands = new LinkedHashMap<>();
+        updateCommands.put("activitytrue", "Sì");
+        updateCommands.put("activityfalse", "No");
+
+        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline;
+
+        for (String command : updateCommands.keySet()) {
+            rowInline = new ArrayList<>();
+            rowInline.add(new InlineKeyboardButton()
+                    .setText(updateCommands.get(command))
+                    .setCallbackData(command));
+            // Set the keyboard to the markup
+            rowsInline.add(rowInline);
+        }
+
+        // Add it to the message
+        markupInline.setKeyboard(rowsInline);
+
+        return markupInline;
+    }
+
+    /**
+     * Set inline keyboard for mood context
+     * @return a keyboard for set user mood context
+     */
+    static InlineKeyboardMarkup setInlineKeyboardForMood() {
+        Map<String, String> updateCommands = new LinkedHashMap<>();
+        updateCommands.put("moodtrue", "Buon umore");
+        updateCommands.put("moodfalse", "Cattivo umore");
+
+        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline;
+
+        for (String command : updateCommands.keySet()) {
+            rowInline = new ArrayList<>();
+            rowInline.add(new InlineKeyboardButton()
+                    .setText(updateCommands.get(command))
+                    .setCallbackData(command));
+            // Set the keyboard to the markup
+            rowsInline.add(rowInline);
+        }
+
+        // Add it to the message
+        markupInline.setKeyboard(rowsInline);
+
+        return markupInline;
     }
 
     /**

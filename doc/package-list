@@ -8,6 +8,7 @@ recommender.contentBased.beans
 recommender.contentBased.services
 recommender.contextAware.beans
 recommender.contextAware.services
+recommender.graph
 settings
 survey.context.beans
 survey.context.sevices

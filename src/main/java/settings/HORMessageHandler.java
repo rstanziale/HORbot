@@ -76,18 +76,21 @@ public class HORMessageHandler {
 
             case HORCommands.LOGIN:
                 userCommand.replace(toIntExact(user_id), HORCommands.LOGIN);
-                userPreferences.setStartRecommendTime(0);
+                userPreferences.setStartRecommendTime(System.currentTimeMillis());
                 sendMessage.setText(HORMessages.MESSAGE_LOGIN);
                 break;
 
             case HORCommands.SET_CONTEXT:
                 userCommand.replace(toIntExact(user_id), HORCommands.SET_CONTEXT);
-                userPreferences.setStartRecommendTime(0);
-                if (!userPreferences.isMyrrorUsed()) {
-                    userPreferences.setMyrrorUsed(false);
+                userPreferences.setStartRecommendTime(System.currentTimeMillis());
+                if (userPreferences.getUserContext() == null) {
                     userPreferences.setUserContext(new UserContext());
                 }
-                sendMessage.setText(HORMessages.MESSAGE_CONTEXT_START);
+                if (!userPreferences.isMyrrorUsed()) {
+                    userPreferences.setMyrrorUsed(false);
+                }
+                sendMessage.setText(userPreferences.getUserContext().toString());
+                sendMessage.setReplyMarkup(HORMessages.setInlineKeyboard());
                 break;
 
             case HORCommands.SURVEY:
@@ -160,7 +163,10 @@ public class HORMessageHandler {
                         int checkUserContext = ContextAwareRecommender.checkValuesUserContext(userContext);
 
                         if (checkUserContext == 0) {
-                            userPreferences.setContextTime(System.currentTimeMillis() - userPreferences.getContextTime());
+                            if (!userPreferences.isFlagContextTime()) {
+                                userPreferences.setContextTime(System.currentTimeMillis() - userPreferences.getContextTime());
+                                userPreferences.setFlagContextTime(true);
+                            }
                             Location location = userPreferences.getLocation();
                             this.initRecommender(location);
 
@@ -334,7 +340,7 @@ public class HORMessageHandler {
                 case HORCommands.SET_COMPANY:
                     if (HORMessages.checkContextCompany(received_text)) {
                         userPreferences.getUserContext().setCompany(received_text);
-                        userPreferences.addLabelToMyrrorUpdated("Company");
+                        userPreferences.addLabelToMyrrorUpdated("Company=" + received_text);
                         sendMessage.setText(HORMessages.MESSAGE_CONTEXT_UPDATE);
                     } else {
                         sendMessage.setText(HORMessages.MESSAGE_CONTEXT_ERROR);
@@ -349,7 +355,7 @@ public class HORMessageHandler {
                     if (HORMessages.checkContextBoolean(received_text)) {
                         userPreferences.getUserContext()
                                 .setRested(received_text.equals("Sì"));
-                        userPreferences.addLabelToMyrrorUpdated("Rested");
+                        userPreferences.addLabelToMyrrorUpdated("Rested=" + received_text);
                         sendMessage.setText(HORMessages.MESSAGE_CONTEXT_UPDATE);
                     } else {
                         sendMessage.setText(HORMessages.MESSAGE_CONTEXT_ERROR);
@@ -364,7 +370,7 @@ public class HORMessageHandler {
                     if (HORMessages.checkContextBoolean(received_text)) {
                         userPreferences.getUserContext()
                                 .setActivity(received_text.equals("Sì"));
-                        userPreferences.addLabelToMyrrorUpdated("Activity");
+                        userPreferences.addLabelToMyrrorUpdated("Activity=" + received_text);
                         sendMessage.setText(HORMessages.MESSAGE_CONTEXT_UPDATE);
                     } else {
                         sendMessage.setText(HORMessages.MESSAGE_CONTEXT_ERROR);
@@ -393,7 +399,7 @@ public class HORMessageHandler {
                     if (HORMessages.checkContextMood(received_text)) {
                         userPreferences.getUserContext()
                                 .setMood(received_text.equals("Buon umore"));
-                        userPreferences.addLabelToMyrrorUpdated("Mood");
+                        userPreferences.addLabelToMyrrorUpdated("Mood=" + received_text);
                         sendMessage.setText(HORMessages.MESSAGE_CONTEXT_UPDATE);
                     } else {
                         sendMessage.setText(HORMessages.MESSAGE_CONTEXT_ERROR);

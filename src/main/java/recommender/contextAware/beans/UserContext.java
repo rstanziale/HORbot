@@ -38,7 +38,7 @@ public class UserContext {
                     .getFromActivity()
                     .get(ontology.getBehaviors().getFromActivity().size() - 1)
                     .getNameActivity().equals("veryActive");
-            this.addMyrrorData("Activity");
+            this.addMyrrorData("Activity=" + this.activity);
         }
         if (ontology.getAffects() != null
                 && ontology.getAffects().size() > 0) {
@@ -51,7 +51,7 @@ public class UserContext {
                     || ontology.getAffects()
                             .get(ontology.getAffects().size() - 1)
                             .getEmotion().equals("neutrality");
-            this.addMyrrorData("Mood");
+            this.addMyrrorData("Mood=" + this.mood);
         }
         if (ontology.getPhysicalStates() != null
                 && ontology.getPhysicalStates().getSleep() != null
@@ -59,7 +59,7 @@ public class UserContext {
             this.rested = ontology.getPhysicalStates()
                     .getSleep().get(ontology.getPhysicalStates().getSleep().size() - 1)
                     .getMinutesAsleep() >= 360; // 6 hours for rested
-            this.addMyrrorData("Rested");
+            this.addMyrrorData("Rested=" + this.rested);
         }
         if (ontology.getInterests().size() > 0) {
             this.interests = new ArrayList<>();

@@ -27,6 +27,7 @@ public class UserPreferences {
     private boolean myrrorUsed;
     private List<String> myrrorUpdated;
     private long contextTime;
+    private boolean flagContextTime;
     private long startRecommendTime;
     private int configuration;
 
@@ -145,6 +146,22 @@ public class UserPreferences {
      */
     public long getContextTime() {
         return contextTime;
+    }
+
+    /**
+     * Check if context tie is set
+     * @return boolean flag
+     */
+    public boolean isFlagContextTime() {
+        return flagContextTime;
+    }
+
+    /**
+     * Set context time flag
+     * @param flagContextTime boolean flag
+     */
+    public void setFlagContextTime(boolean flagContextTime) {
+        this.flagContextTime = flagContextTime;
     }
 
     /**

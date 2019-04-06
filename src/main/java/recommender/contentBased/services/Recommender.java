@@ -41,6 +41,7 @@ public class Recommender {
     /**
      * Constructor of Recommender
      * @param pois list of Items
+     * @param city representing city of recommendation
      */
     public Recommender(List<Item> pois, String city) {
         this.city = city;

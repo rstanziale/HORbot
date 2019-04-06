@@ -5,6 +5,7 @@ import common.Utils;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendDocument;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
@@ -23,6 +24,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
 
     // MESSAGE HANDLER
     private HORMessageHandler messageHandler = new HORMessageHandler();
+    private HORMessageCallbackHandler messageCallbackHandler = new HORMessageCallbackHandler();
 
     // USER PREFERENCES
     private Map<Integer, UserPreferences> userPreferences = new HashMap<>();
@@ -37,7 +39,8 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
      */
     public void onUpdateReceived(Update update) {
         // Check text message
-        if(update.hasMessage() && update.getMessage().hasText() || update.getMessage().hasLocation()) {
+        if(update.hasMessage() && update.getMessage().hasText() ||
+                update.hasMessage() && update.getMessage().hasLocation()) {
 
             // Set user info for logging
             String user_first_name = update.getMessage().getChat().getFirstName();
@@ -74,12 +77,7 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                         update.getMessage().getText().equals(HORCommands.SET_CONF)) {
                     this.adminCommand = HORCommands.SET_CONF;
                     message = new SendMessage();
-                    ((SendMessage) message).setText("Imposta configurazione\n" +
-                            "0 - random\n" +
-                            "1 - Content-based\n" +
-                            "2 - Context-aware pre-filtering\n" +
-                            "3 - Context-aware post-filtering\n" +
-                            "4 - Graph-based");
+                    ((SendMessage) message).setText(HORMessages.SET_CONFIGURATION);
                 } else if (update.getMessage() != null &&
                         this.adminCommand != null &&
                         this.adminCommand.equals(HORCommands.SET_CONF)) {
@@ -127,6 +125,29 @@ public class HORBot extends TelegramLongPollingBot implements LoggerInterface {
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }
+            }
+        } else if (update.hasCallbackQuery()) {
+            long user_id = update.getCallbackQuery().getFrom().getId();
+            long chat_id = update.getCallbackQuery().getMessage().getChatId();
+            long message_id = update.getCallbackQuery().getMessage().getMessageId();
+            String user_first_name = update.getCallbackQuery().getFrom().getFirstName();
+            String user_last_name = update.getCallbackQuery().getFrom().getLastName();
+            String user_username = update.getCallbackQuery().getFrom().getUserName();
+            String call_data = update.getCallbackQuery().getData();
+
+            try {
+                // Log message values
+                logger.info(new HORLogger().logUserInfo(user_first_name,
+                        user_last_name,
+                        user_username,
+                        Long.toString(user_id)));
+
+                execute(this.messageCallbackHandler.setMessage(message_id,
+                        chat_id,
+                        call_data,
+                        this.userPreferences.get(toIntExact(user_id))));
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
             }
         }
     }
