@@ -76,13 +76,13 @@ public class HORMessageHandler {
 
             case HORCommands.LOGIN:
                 userCommand.replace(toIntExact(user_id), HORCommands.LOGIN);
-                userPreferences.setStartRecommendTime(System.currentTimeMillis());
+                userPreferences.setStartRecommendTime(0);
                 sendMessage.setText(HORMessages.MESSAGE_LOGIN);
                 break;
 
             case HORCommands.SET_CONTEXT:
                 userCommand.replace(toIntExact(user_id), HORCommands.SET_CONTEXT);
-                userPreferences.setStartRecommendTime(System.currentTimeMillis());
+                userPreferences.setStartRecommendTime(0);
                 if (userPreferences.getUserContext() == null) {
                     userPreferences.setUserContext(new UserContext());
                 }
@@ -153,6 +153,13 @@ public class HORMessageHandler {
                     c.resetCheckValues();
                 }
                 sendMessage.setText(HORMessages.MESSAGE_ACTIVITIES_RESET);
+                break;
+
+            case HORCommands.RESET_CONTEXT:
+                userCommand.replace(toIntExact(user_id), HORCommands.RESET_CONTEXT);
+                userPreferences.setUserContext(new UserContext());
+                userPreferences.setMyrrorUsed(false);
+                sendMessage.setText(HORMessages.MESSAGE_CONTEXT_RESET);
                 break;
 
             case HORCommands.RECOMMEND:

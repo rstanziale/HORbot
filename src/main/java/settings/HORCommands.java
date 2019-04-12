@@ -19,18 +19,23 @@ public class HORCommands {
     final static String SHOW_PROFILE = "/showprofile";
     final static String RESET_ANSWER = "/resetanswer";
     final static String RESET_PROFILE = "/resetprofile";
+    final static String RESET_CONTEXT = "/resetcontext";
     final static String RECOMMEND = "/recommend";
+    final static String RECOMMEND_ALL = "/recommendall";
+    final static String HELP = "/help";
+
+    // SET CONTEXT COMMANDS
     final static String SET_COMPANY = "/setcompany";
     final static String SET_RESTED = "/setrested";
     final static String SET_MOOD = "/setmood";
     final static String SET_ACTIVITY = "/setactivity";
     final static String SET_INTERESTS = "/setinterests";
-    final static String HELP = "/help";
+
+    // ADMIN COMMANDS
     final static String LOGFILE = "/logfile";
     final static String LOG_PREFERENCES_FILE = "/logpreferencesfile";
     final static String LOG_SURVEY_FILE = "/logsurveyfile";
     final static String SET_CONF = "/setconf";
     final static String CONF = "/conf";
     final static String SHOW_TAGS = "/showtags";
-
 }

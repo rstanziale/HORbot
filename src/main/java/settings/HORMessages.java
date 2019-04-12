@@ -29,6 +29,7 @@ public class HORMessages implements LoggerInterface {
     static String MESSAGE_LOGIN_COMPLETE = "Login completato, visualizza il tuo contesto con /showcontext " +
             "oppure imposta la tua posizione con /setlocation o imposta le tue preferenze con /buildprofile.";
     static String MESSAGE_CONTEXT_EDIT = "Per modificare il tuo contesto usa il comando /setcontext";
+    static String MESSAGE_CONTEXT_RESET = "Contesto reimpostato.";
     static String MESSAGE_HELP = "Puoi utilizzarmi con i seguenti comandi:\n\n" +
             "/login - Effettua il login per Myrror\n" +
             "/setlocation - Invia la posizione\n" +
@@ -340,6 +341,7 @@ public class HORMessages implements LoggerInterface {
         updateCommands.put("setrested", "Imposta riposo");
         updateCommands.put("setmood", "Imposta umore");
         updateCommands.put("setactivity", "Imposta attività");
+        updateCommands.put("setinterests", "Imposta interessi");
         updateCommands.put("contextdone", "Fine");
 
         InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
@@ -454,6 +456,34 @@ public class HORMessages implements LoggerInterface {
         Map<String, String> updateCommands = new LinkedHashMap<>();
         updateCommands.put("moodtrue", "Buon umore");
         updateCommands.put("moodfalse", "Cattivo umore");
+
+        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline;
+
+        for (String command : updateCommands.keySet()) {
+            rowInline = new ArrayList<>();
+            rowInline.add(new InlineKeyboardButton()
+                    .setText(updateCommands.get(command))
+                    .setCallbackData(command));
+            // Set the keyboard to the markup
+            rowsInline.add(rowInline);
+        }
+
+        // Add it to the message
+        markupInline.setKeyboard(rowsInline);
+
+        return markupInline;
+    }
+
+    /**
+     * Set inline keyboard for rested context
+     * @return a keyboard for set user rested context
+     */
+    static InlineKeyboardMarkup setInlineKeyboardFoInterests() {
+        Map<String, String> updateCommands = new LinkedHashMap<>();
+        updateCommands.put("intereststrue", "Sì");
+        updateCommands.put("interestsfalse", "No");
 
         InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
