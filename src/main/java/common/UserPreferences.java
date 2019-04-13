@@ -7,9 +7,7 @@ import survey.context.beans.Location;
 import survey.context.sevices.SurveyContext;
 import survey.question.services.Survey;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 /**
  * Define UserPreferences class
@@ -23,7 +21,9 @@ public class UserPreferences {
     private Ontology ontology;
     private Location location;
     private UserContext userContext;
+    private int recommendType;
     private List<Item> recommendPOI;
+    private Map<Integer, Item> recommendAllPOI;
     private boolean myrrorUsed;
     private List<String> myrrorUpdated;
     private long contextTime;
@@ -41,6 +41,7 @@ public class UserPreferences {
         this.survey = new Survey(questionPath);
         this.surveyContext = new SurveyContext(contextsPath, activitiesPath);
         this.recommendPOI = new ArrayList<>();
+        this.recommendAllPOI = new HashMap<>();
         this.myrrorUpdated = new ArrayList<>();
     }
 
@@ -241,6 +242,14 @@ public class UserPreferences {
     }
 
     /**
+     * Add recommend POI into a list
+     * @param item item recommended
+     */
+    public void setRecommendPOI(Item item) {
+        this.recommendPOI.add(item);
+    }
+
+    /**
      * Get system configuration of this user
      * @return int
      */
@@ -270,6 +279,59 @@ public class UserPreferences {
      */
     boolean checkListRecommendPOI() {
         return this.recommendPOI != null;
+    }
+
+    /**
+     * Get recommend type
+     * @return int representing recommend type
+     */
+    public int getRecommendType() {
+        return recommendType;
+    }
+
+    /**
+     * Set recommend type
+     * @param recommendType int representing recommend type
+     */
+    public void setRecommendType(int recommendType) {
+        this.recommendType = recommendType;
+    }
+
+    /**
+     * Set recommend list for chose
+     * @param recommendPOI reresenting item to chose
+     */
+    public void setRecommendAllPOI(List<Item> recommendPOI) {
+        boolean flag = false;
+        int index = 0;
+
+        while (!flag && index < recommendPOI.size()) {
+            if (this.addRecommendAllPOI(recommendPOI.get(index))) {
+                flag = true;
+            }
+            index++;
+        }
+    }
+
+    /**
+     * Print all four element
+     * @return a string
+     */
+    public String printRecommendAllPOI() {
+        String text = "";
+        for (int rt = 1; rt <= 4; rt++) {
+            text = text.concat(this.getRecommendAllPOI(rt).toString() + "\n\n");
+        }
+        return text;
+    }
+
+    /**
+     * Get item according recommend type
+     * @param recommendType representing type of recommendation
+     * @return an item
+     */
+    public Item getRecommendAllPOI(int recommendType) {
+        return this.recommendAllPOI.get(recommendType);
     }
 
     /**
@@ -305,6 +367,23 @@ public class UserPreferences {
     }
 
     /**
+     * Add item into map that user has to chose
+     * @param item representing the item to chose
+     * @return a boolean flag
+     */
+    private boolean addRecommendAllPOI(Item item) {
+        boolean flag = false;
+
+        if (!this.checkItemInRecommendList(item) && !checkItemInRecommendAllMap(item)) {
+            item.setRecommended();
+            this.recommendAllPOI.put(item.getRecommenderType(), item);
+            flag = true;
+        }
+
+        return flag;
+    }
+
+    /**
      * Check if an item is present in recommend item list
      * @param item representing recommend item
      * @return boolean flag
@@ -318,6 +397,25 @@ public class UserPreferences {
                 flag = true;
             }
             index++;
+        }
+
+        return flag;
+    }
+
+    /**
+     * Check if an item is present in map chose structure
+     * @param item representing item to chose
+     * @return boolean flag
+     */
+    private boolean checkItemInRecommendAllMap(Item item) {
+        boolean flag = false;
+        Iterator<Integer> iterator = this.recommendAllPOI.keySet().iterator();
+
+        while (!flag && iterator.hasNext()) {
+            Item i = this.recommendAllPOI.get(iterator.next());
+            if (i.getName().equals(item.getName())) {
+                flag = true;
+            }
         }
 
         return flag;

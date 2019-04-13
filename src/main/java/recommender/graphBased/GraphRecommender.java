@@ -1,4 +1,4 @@
-package recommender.graph;
+package recommender.graphBased;
 
 
 import edu.uci.ics.jung.algorithms.scoring.PageRank;

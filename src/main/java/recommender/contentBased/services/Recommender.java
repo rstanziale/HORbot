@@ -16,8 +16,8 @@ import org.apache.lucene.store.RAMDirectory;
 import recommender.RecommendUtils;
 import recommender.contentBased.beans.Item;
 import recommender.contextAware.beans.UserContext;
-import recommender.graph.GraphRecommender;
-import recommender.graph.GraphSettings;
+import recommender.graphBased.GraphRecommender;
+import recommender.graphBased.GraphSettings;
 import settings.HORMessages;
 import survey.context.beans.Activity;
 import survey.context.beans.Context;
@@ -74,19 +74,15 @@ public class Recommender {
      * @param userPreferences representing user preferences
      * @param userContext representing user context
      * @param location is user location
+     * @param recommendType representing recommend type
      * @return a list of relevant item to recommend
      * @throws IOException for Input/Output exception
      * @throws ParseException for search document exception
      */
     public List<Item> recommend(UserPreferences userPreferences,
                                 UserContext userContext,
-                                Location location) throws IOException, ParseException {
-        int recommendType;
-        if (userPreferences.getConfiguration() > 0 && userPreferences.getConfiguration() <= 4) {
-            recommendType = userPreferences.getConfiguration();
-        } else {
-            recommendType = RecommendUtils.getRecommendType();
-        }
+                                Location location,
+                                int recommendType) throws IOException, ParseException {
         if (recommendType >=0 && recommendType < 4) {
             String query = RecommendUtils.generateQueryAccordingRecommendType(
                     userPreferences,
@@ -211,7 +207,7 @@ public class Recommender {
     }
 
     /**
-     * Set map for graph-based recommend
+     * Set map for graphBased-based recommend
      * @param userPreferences representing user preferences
      * @return a map of context, activities
      */

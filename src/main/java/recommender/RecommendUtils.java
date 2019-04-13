@@ -24,7 +24,7 @@ public class RecommendUtils {
      * @return int representing recommend type (1: Content-based, 2: Pre-filtering, 3: Post-filtering)
      */
     public static int getRecommendType() {
-        return getRandomIntegerBetweenRange(1, 3);
+        return getRandomIntegerBetweenRange(1, 4);
     }
 
     /**

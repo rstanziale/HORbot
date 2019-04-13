@@ -42,13 +42,7 @@ public class HORMessages implements LoggerInterface {
             "/resetanswer - Reimposta le risposte del questionario\n" +
             "/resetprofile - Reimposta il tuo profilo\n" +
             "/recommend - Ottieni un suggerimento di attività da svolgere";
-    static String MESSAGE_COMPANY = "Con chi sei?";
-    static String MESSAGE_RESTED = "Ti senti riposato?";
-    static String MESSAGE_ACTIVITY = "Hai fatto molta attività fisica?";
     static String MESSAGE_INTERESTS = "Vuoi usare gli interessi caricati da Myrror?";
-    static String MESSAGE_MOOD = "Di che umore sei?";
-    static String MESSAGE_CONTEXT_UPDATE = "Il tuo contesto è stato aggiornato. Usa /recommend per ricevere un suggerimento.";
-    static String MESSAGE_CONTEXT_ERROR = "Il valore da inserito non è corretto.";
     static String MESSAGE_POSITION = "Inviami la tua posizione";
     static String MESSAGE_POSITION_SAVED = "Posizione salvata.";
     static String MESSAGE_SURVEY_START = "Indica quanto sei d'accordo con le seguenti affermazioni\n\n";
@@ -65,10 +59,10 @@ public class HORMessages implements LoggerInterface {
             " e/o preferenze (/buildprofile).";
     static String MESSAGE_NO_ACTIVITY = "Nessuna attività da suggerire.";
     static String MESSAGE_ITEM_VOTED = "Item votato.";
-    static String MESSAGE_MISSING_COMPANY = "Non so con chi ti trovi, per dirmelo usa il comando /setcompany";
-    static String MESSAGE_MISSING_RESTED = "Non so se sei riposato, per dirmelo usa il comando /setrested";
-    static String MESSAGE_MISSING_MOOD = "Non so di che umore sei, per dirmelo usa il comando /setmood";
-    static String MESSAGE_MISSING_ACTIVITY = "Non so se hai fatto attività, per dirmelo usa il comando /setactivity";
+    static String MESSAGE_MISSING_COMPANY = "Non so con chi ti trovi, per dirmelo usa il comando /setcontext";
+    static String MESSAGE_MISSING_RESTED = "Non so se sei riposato, per dirmelo usa il comando /setcontext";
+    static String MESSAGE_MISSING_MOOD = "Non so di che umore sei, per dirmelo usa il comando /setcontext";
+    static String MESSAGE_MISSING_ACTIVITY = "Non so se hai fatto attività, per dirmelo usa il comando /setcontext";
     static String UNKNOWN_COMMAND = "Commando sconosciuto: ";
     static String SET_CONFIGURATION = "Imposta configurazione\n" +
             "0 - random\n" +
@@ -130,33 +124,6 @@ public class HORMessages implements LoggerInterface {
     }
 
     /**
-     * Check if the answer for set context company is correct
-     * @param value user answer
-     * @return boolean flag
-     */
-    static boolean checkContextCompany(String value) {
-        return value.equals("Amici") || value.equals("Famiglia/Fidanzata-o") || value.equals("Colleghi");
-    }
-
-    /**
-     * Check if the answer for set context rested or activity is correct
-     * @param value user answer
-     * @return boolean flag
-     */
-    static boolean checkContextBoolean(String value) {
-        return value.equals("Sì") || value.equals("No");
-    }
-
-    /**
-     * Check if the answer for set context mood is correct
-     * @param value user answer
-     * @return boolean flag
-     */
-    static boolean checkContextMood(String value) {
-        return value.equals("Buon umore") || value.equals("Cattivo umore");
-    }
-
-    /**
      * Set keyboard for survey
      *
      * @return keyboard for message with answer values
@@ -186,110 +153,6 @@ public class HORMessages implements LoggerInterface {
             keyboard.add(row);
             row = new KeyboardRow();
         }
-
-        // Set the keyboard to the markup
-        keyboardMarkup.setKeyboard(keyboard);
-
-        return keyboardMarkup;
-    }
-
-    /**
-     * Set keyboard for missing context company
-     *
-     * @return keyboard for message with answer values
-     */
-    static ReplyKeyboardMarkup setReplyKeyboardForCompany() {
-
-        // Set answers
-        String[] answers = new String[3];
-        answers[0] = "Amici";
-        answers[1] = "Famiglia/Fidanzata-o";
-        answers[2] = "Colleghi";
-
-        // Create ReplyKeyboardMarkup object
-        ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
-        keyboardMarkup.setResizeKeyboard(true);
-
-        // Create the keyboard (list of keyboard rows)
-        List<KeyboardRow> keyboard = new ArrayList<>();
-
-        // Create a keyboard row
-        KeyboardRow row = new KeyboardRow();
-
-        // Set each button, you can also use KeyboardButton objects if you need something else than text
-        for (String answer : answers) {
-            row.add(answer);
-            keyboard.add(row);
-            row = new KeyboardRow();
-        }
-
-        // Set the keyboard to the markup
-        keyboardMarkup.setKeyboard(keyboard);
-
-        return keyboardMarkup;
-    }
-
-    /**
-     * Set keyboard for missing context mood
-     *
-     * @return keyboard for message with answer values
-     */
-    static ReplyKeyboardMarkup setReplyKeyboardForMood() {
-
-        // Set answers
-        String[] answers = new String[2];
-        answers[0] = "Buon umore";
-        answers[1] = "Cattivo umore";
-
-        // Create ReplyKeyboardMarkup object
-        ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
-        keyboardMarkup.setResizeKeyboard(true);
-
-        // Create the keyboard (list of keyboard rows)
-        List<KeyboardRow> keyboard = new ArrayList<>();
-
-        // Create a keyboard row
-        KeyboardRow row = new KeyboardRow();
-
-        // Set each button, you can also use KeyboardButton objects if you need something else than text
-        for (String answer : answers) {
-            row.add(answer);
-        }
-        keyboard.add(row);
-
-        // Set the keyboard to the markup
-        keyboardMarkup.setKeyboard(keyboard);
-
-        return keyboardMarkup;
-    }
-
-    /**
-     * Set keyboard for missing context rested
-     *
-     * @return keyboard for message with answer values
-     */
-    static ReplyKeyboardMarkup setReplyKeyboardBoolean() {
-
-        // Set answers
-        String[] answers = new String[2];
-        answers[0] = "Sì";
-        answers[1] = "No";
-
-        // Create ReplyKeyboardMarkup object
-        ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
-        keyboardMarkup.setResizeKeyboard(true);
-
-        // Create the keyboard (list of keyboard rows)
-        List<KeyboardRow> keyboard = new ArrayList<>();
-
-        // Create a keyboard row
-        KeyboardRow row = new KeyboardRow();
-
-        // Set each button, you can also use KeyboardButton objects if you need something else than text
-        for (String answer : answers) {
-            row.add(answer);
-        }
-        keyboard.add(row);
 
         // Set the keyboard to the markup
         keyboardMarkup.setKeyboard(keyboard);
@@ -332,17 +195,53 @@ public class HORMessages implements LoggerInterface {
     }
 
     /**
+     * Set keyboard for chose item with recommend all command
+     *
+     * @return keyboard for message with answer values
+     */
+    static ReplyKeyboardMarkup setReplyKeyboardForRecommend() {
+
+        // Set answers
+        String[] answers = new String[4];
+        answers[0] = "1";
+        answers[1] = "2";
+        answers[2] = "3";
+        answers[3] = "4";
+
+        // Create ReplyKeyboardMarkup object
+        ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
+        keyboardMarkup.setResizeKeyboard(true);
+
+        // Create the keyboard (list of keyboard rows)
+        List<KeyboardRow> keyboard = new ArrayList<>();
+
+        // Create a keyboard row
+        KeyboardRow row = new KeyboardRow();
+
+        // Set each button, you can also use KeyboardButton objects if you need something else than text
+        for (String answer : answers) {
+            row.add(answer);
+        }
+        keyboard.add(row);
+
+        // Set the keyboard to the markup
+        keyboardMarkup.setKeyboard(keyboard);
+
+        return keyboardMarkup;
+    }
+
+    /**
      * Set inline keyboard for context
      * @return a keyboard for set user context
      */
     static InlineKeyboardMarkup setInlineKeyboard() {
         Map<String, String> updateCommands = new LinkedHashMap<>();
-        updateCommands.put("setcompany", "Imposta compagnia");
-        updateCommands.put("setrested", "Imposta riposo");
-        updateCommands.put("setmood", "Imposta umore");
-        updateCommands.put("setactivity", "Imposta attività");
-        updateCommands.put("setinterests", "Imposta interessi");
-        updateCommands.put("contextdone", "Fine");
+        updateCommands.put(HORCommands.SET_COMPANY, "Imposta compagnia");
+        updateCommands.put(HORCommands.SET_RESTED, "Imposta riposo");
+        updateCommands.put(HORCommands.SET_MOOD, "Imposta umore");
+        updateCommands.put(HORCommands.SET_ACTIVITY, "Imposta attività");
+        updateCommands.put(HORCommands.SET_INTERESTS, "Imposta interessi");
+        updateCommands.put(HORCommands.CONTEXT_DONE, "Fine");
 
         InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
@@ -369,9 +268,9 @@ public class HORMessages implements LoggerInterface {
      */
     static InlineKeyboardMarkup setInlineKeyboardForCompany() {
         Map<String, String> updateCommands = new LinkedHashMap<>();
-        updateCommands.put("friends", "Amici");
-        updateCommands.put("familypartner", "Famiglia/Fidanzata-o");
-        updateCommands.put("associates", "Colleghi");
+        updateCommands.put(HORCommands.FRIENDS, "Amici");
+        updateCommands.put(HORCommands.FAMILY_PARTNER, "Famiglia/Fidanzata-o");
+        updateCommands.put(HORCommands.ASSOCIATES, "Colleghi");
 
         InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
@@ -398,8 +297,8 @@ public class HORMessages implements LoggerInterface {
      */
     static InlineKeyboardMarkup setInlineKeyboardForRested() {
         Map<String, String> updateCommands = new LinkedHashMap<>();
-        updateCommands.put("restedtrue", "Sì");
-        updateCommands.put("restedfalse", "No");
+        updateCommands.put(HORCommands.RESTED_TRUE, "Sì");
+        updateCommands.put(HORCommands.RESTED_FALSE, "No");
 
         InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
@@ -426,8 +325,8 @@ public class HORMessages implements LoggerInterface {
      */
     static InlineKeyboardMarkup setInlineKeyboardForActivity() {
         Map<String, String> updateCommands = new LinkedHashMap<>();
-        updateCommands.put("activitytrue", "Sì");
-        updateCommands.put("activityfalse", "No");
+        updateCommands.put(HORCommands.ACTIVITY_TRUE, "Sì");
+        updateCommands.put(HORCommands.ACTIVITY_FALSE, "No");
 
         InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
@@ -454,8 +353,8 @@ public class HORMessages implements LoggerInterface {
      */
     static InlineKeyboardMarkup setInlineKeyboardForMood() {
         Map<String, String> updateCommands = new LinkedHashMap<>();
-        updateCommands.put("moodtrue", "Buon umore");
-        updateCommands.put("moodfalse", "Cattivo umore");
+        updateCommands.put(HORCommands.MOOD_TRUE, "Buon umore");
+        updateCommands.put(HORCommands.MOOD_FALSE, "Cattivo umore");
 
         InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
@@ -480,10 +379,10 @@ public class HORMessages implements LoggerInterface {
      * Set inline keyboard for rested context
      * @return a keyboard for set user rested context
      */
-    static InlineKeyboardMarkup setInlineKeyboardFoInterests() {
+    static InlineKeyboardMarkup setInlineKeyboardForInterests() {
         Map<String, String> updateCommands = new LinkedHashMap<>();
-        updateCommands.put("intereststrue", "Sì");
-        updateCommands.put("interestsfalse", "No");
+        updateCommands.put(HORCommands.INTERESTS_TRUE, "Sì");
+        updateCommands.put(HORCommands.INTERESTS_FALSE, "No");
 
         InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
@@ -497,6 +396,35 @@ public class HORMessages implements LoggerInterface {
             // Set the keyboard to the markup
             rowsInline.add(rowInline);
         }
+
+        // Add it to the message
+        markupInline.setKeyboard(rowsInline);
+
+        return markupInline;
+    }
+
+    /**
+     * Set inline keyboard for company context
+     * @return a keyboard for set user company context
+     */
+    static InlineKeyboardMarkup setInlineKeyboardForRecommendAll() {
+        Map<String, String> updateCommands = new LinkedHashMap<>();
+        updateCommands.put(HORCommands.CONTENT_BASED, "1");
+        updateCommands.put(HORCommands.CONTEXT_AWARE_PRE, "2");
+        updateCommands.put(HORCommands.CONTEXT_AWARE_POST, "3");
+        updateCommands.put(HORCommands.GRAPH_BASED, "4");
+
+        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
+        List<InlineKeyboardButton> rowInline = new ArrayList<>();
+
+        for (String command : updateCommands.keySet()) {
+            rowInline.add(new InlineKeyboardButton()
+                    .setText(updateCommands.get(command))
+                    .setCallbackData(command));
+        }
+        // Set the keyboard to the markup
+        rowsInline.add(rowInline);
 
         // Add it to the message
         markupInline.setKeyboard(rowsInline);

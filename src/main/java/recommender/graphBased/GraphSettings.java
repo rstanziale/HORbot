@@ -1,4 +1,4 @@
-package recommender.graph;
+package recommender.graphBased;
 
 import java.util.ArrayList;
 import java.util.Map;

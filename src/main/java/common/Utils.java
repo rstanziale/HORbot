@@ -186,6 +186,26 @@ public class Utils {
      */
     private static String createLogFileByUser(long user_id, UserPreferences userPreferences) {
         StringBuilder sb = new StringBuilder();
+        sb.append("UserID"); // User id
+        sb.append(';');
+        sb.append("Myrror Used"); // True if user did login
+        sb.append(';');
+        sb.append("Myrror Data"); // Data returned after login
+        sb.append(';');
+        sb.append("Myrror Changed"); // Data updated by user
+        sb.append(';');
+        sb.append("Context Time"); // Time for set user context
+        sb.append(';');
+        sb.append("Item Name"); // Recommend item name
+        sb.append(';');
+        sb.append("Recommned Type"); // Recommend type
+        sb.append(';');
+        sb.append("Index Item"); // Index of item in the list of user recommend items
+        sb.append(';');
+        sb.append("Item Liked"); // True if user like it
+        sb.append(';');
+        sb.append("Recommend Time"); // Time from start recommend and first like
+        sb.append('\n');
         if (userPreferences.checkListRecommendPOI()) {
             int index = 0;
             while (index < userPreferences.getListRecommendPOI().size()) {

@@ -8,6 +8,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendDocument;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardRemove;
+import recommender.RecommendUtils;
 import recommender.contentBased.beans.Item;
 import recommender.contentBased.services.Recommender;
 import recommender.contextAware.beans.UserContext;
@@ -71,6 +72,11 @@ public class HORMessageHandler {
             case HORCommands.START:
                 this.userCommand.replace(toIntExact(user_id), HORCommands.START);
                 userPreferences.setContextTime(System.currentTimeMillis());
+                if (userPreferences.getConfiguration() > 0 && userPreferences.getConfiguration() <= 4) {
+                    userPreferences.setRecommendType(userPreferences.getConfiguration());
+                } else {
+                    userPreferences.setRecommendType(RecommendUtils.getRecommendType());
+                }
                 sendMessage.setText(HORMessages.MESSAGE_START);
                 break;
 
@@ -178,7 +184,7 @@ public class HORMessageHandler {
                             this.initRecommender(location);
 
                             userPreferences.setRecommendPOI(this.getRecommender(location)
-                                            .recommend(userPreferences, userContext, location));
+                                            .recommend(userPreferences, userContext, location, userPreferences.getRecommendType()));
 
                             String textRecommend;
                             Item item = userPreferences.getRecommendPOI();
@@ -208,43 +214,43 @@ public class HORMessageHandler {
                 }
                 break;
 
-            case HORCommands.SET_COMPANY:
-                userCommand.replace(toIntExact(user_id), HORCommands.SET_COMPANY);
-                // Add keyboard to message
-                sendMessage.setReplyMarkup(HORMessages.setReplyKeyboardForCompany());
-                sendMessage.setText(HORMessages.MESSAGE_COMPANY);
-                break;
+            case HORCommands.RECOMMEND_ALL:
+                try {
+                    if (userPreferences.isComplete()) {
+                        userPreferences.setStartRecommendTime(System.currentTimeMillis());
+                        UserContext userContext = userPreferences.getUserContext();
+                        int checkUserContext = ContextAwareRecommender.checkValuesUserContext(userContext);
 
-            case HORCommands.SET_RESTED:
-                userCommand.replace(toIntExact(user_id), HORCommands.SET_RESTED);
-                sendMessage.setReplyMarkup(HORMessages.setReplyKeyboardBoolean());
-                sendMessage.setText(HORMessages.MESSAGE_RESTED);
-                break;
+                        if (checkUserContext == 0) {
+                            if (!userPreferences.isFlagContextTime()) {
+                                userPreferences.setContextTime(System.currentTimeMillis() - userPreferences.getContextTime());
+                                userPreferences.setFlagContextTime(true);
+                            }
+                            Location location = userPreferences.getLocation();
+                            this.initRecommender(location);
+                            // Take recommend item for each recommend type
+                            for (int rt = 1; rt <= 4; rt++) {
+                                userPreferences.setRecommendAllPOI(this.getRecommender(location)
+                                        .recommend(userPreferences, userContext, location, rt));
+                            }
+                            sendMessage.setText(EmojiParser.parseToUnicode(userPreferences.printRecommendAllPOI()))
+                                    .setReplyMarkup(HORMessages.setInlineKeyboardForRecommendAll());
+                        } else if (checkUserContext == 1) {
+                            sendMessage.setText(HORMessages.MESSAGE_MISSING_COMPANY);
+                        } else if (checkUserContext == 2) {
+                            sendMessage.setText(HORMessages.MESSAGE_MISSING_RESTED);
+                        } else if (checkUserContext == 3) {
+                            sendMessage.setText(HORMessages.MESSAGE_MISSING_MOOD);
+                        } else if (checkUserContext == 4) {
+                            sendMessage.setText(HORMessages.MESSAGE_MISSING_ACTIVITY);
+                        }
 
-            case HORCommands.SET_MOOD:
-                userCommand.replace(toIntExact(user_id), HORCommands.SET_MOOD);
-                sendMessage.setReplyMarkup(HORMessages.setReplyKeyboardForMood());
-                sendMessage.setText(HORMessages.MESSAGE_MOOD);
-                break;
-
-            case HORCommands.SET_ACTIVITY:
-                userCommand.replace(toIntExact(user_id), HORCommands.SET_ACTIVITY);
-                sendMessage.setReplyMarkup(HORMessages.setReplyKeyboardBoolean());
-                sendMessage.setText(HORMessages.MESSAGE_ACTIVITY);
-                break;
-
-            case HORCommands.SET_INTERESTS:
-                userCommand.replace(toIntExact(user_id), HORCommands.SET_INTERESTS);
-                sendMessage.setReplyMarkup(HORMessages.setReplyKeyboardBoolean());
-                String textInterests = HORMessages.MESSAGE_INTERESTS;
-                if (userPreferences.getUserContext().getPreferencesMapped() != null) {
-                    String interests = "";
-                    for (String interest : userPreferences.getUserContext().getPreferencesMapped()) {
-                        interests = interests.concat(" - " + interest + "\n");
+                    } else {
+                        sendMessage.setText(HORMessages.MESSAGE_REFERENCES_NON_COMPLETE);
                     }
-                    textInterests = textInterests.concat("\n\n" + interests);
+                } catch (IOException | ParseException e) {
+                    e.printStackTrace();
                 }
-                sendMessage.setText(textInterests);
                 break;
 
             case HORCommands.HELP:
@@ -342,79 +348,6 @@ public class HORMessageHandler {
                         sendMessage.setText(HORMessages.MESSAGE_ACTIVITIES_ERROR);
                         userCommand.replace(toIntExact(user_id), "unknown");
                     }
-                    break;
-
-                case HORCommands.SET_COMPANY:
-                    if (HORMessages.checkContextCompany(received_text)) {
-                        userPreferences.getUserContext().setCompany(received_text);
-                        userPreferences.addLabelToMyrrorUpdated("Company=" + received_text);
-                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_UPDATE);
-                    } else {
-                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_ERROR);
-                    }
-                    // Remove keyboard from message
-                    keyboardMarkup = new ReplyKeyboardRemove();
-                    sendMessage.setReplyMarkup(keyboardMarkup);
-                    userCommand.replace(toIntExact(user_id), "unknown");
-                    break;
-
-                case HORCommands.SET_RESTED:
-                    if (HORMessages.checkContextBoolean(received_text)) {
-                        userPreferences.getUserContext()
-                                .setRested(received_text.equals("Sì"));
-                        userPreferences.addLabelToMyrrorUpdated("Rested=" + received_text);
-                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_UPDATE);
-                    } else {
-                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_ERROR);
-                    }
-                    // Remove keyboard from message
-                    keyboardMarkup = new ReplyKeyboardRemove();
-                    sendMessage.setReplyMarkup(keyboardMarkup);
-                    userCommand.replace(toIntExact(user_id), "unknown");
-                    break;
-
-                case HORCommands.SET_ACTIVITY:
-                    if (HORMessages.checkContextBoolean(received_text)) {
-                        userPreferences.getUserContext()
-                                .setActivity(received_text.equals("Sì"));
-                        userPreferences.addLabelToMyrrorUpdated("Activity=" + received_text);
-                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_UPDATE);
-                    } else {
-                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_ERROR);
-                    }
-                    // Remove keyboard from message
-                    keyboardMarkup = new ReplyKeyboardRemove();
-                    sendMessage.setReplyMarkup(keyboardMarkup);
-                    userCommand.replace(toIntExact(user_id), "unknown");
-                    break;
-
-                case HORCommands.SET_INTERESTS:
-                    if (HORMessages.checkContextBoolean(received_text)) {
-                        userPreferences.getUserContext()
-                                .setInterestsUsed(received_text.equals("Sì"));
-                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_UPDATE);
-                    } else {
-                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_ERROR);
-                    }
-                    // Remove keyboard from message
-                    keyboardMarkup = new ReplyKeyboardRemove();
-                    sendMessage.setReplyMarkup(keyboardMarkup);
-                    userCommand.replace(toIntExact(user_id), "unknown");
-                    break;
-
-                case HORCommands.SET_MOOD:
-                    if (HORMessages.checkContextMood(received_text)) {
-                        userPreferences.getUserContext()
-                                .setMood(received_text.equals("Buon umore"));
-                        userPreferences.addLabelToMyrrorUpdated("Mood=" + received_text);
-                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_UPDATE);
-                    } else {
-                        sendMessage.setText(HORMessages.MESSAGE_CONTEXT_ERROR);
-                    }
-                    // Remove keyboard from message
-                    keyboardMarkup = new ReplyKeyboardRemove();
-                    sendMessage.setReplyMarkup(keyboardMarkup);
-                    userCommand.replace(toIntExact(user_id), "unknown");
                     break;
 
                 case "voteItem":

@@ -1,4 +1,4 @@
-package recommender.graph;
+package recommender.graphBased;
 
 
 
