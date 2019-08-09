@@ -1,6 +1,5 @@
 package recommender.graphBased;
 
-
 import edu.uci.ics.jung.algorithms.scoring.PageRank;
 import edu.uci.ics.jung.algorithms.scoring.PageRankWithPriors;
 import edu.uci.ics.jung.graph.Graph;
@@ -95,7 +94,7 @@ public class GraphRecommender {
 
     public HashMap<String, Double> Pagerank() {
 
-        HashMap<String, Double> score_map  = new HashMap();
+        HashMap<String, Double> score_map  = new HashMap<>();
         PageRankWithPriors ranker;
 
         if(debug) System.out.println("before PageRank");
@@ -108,7 +107,7 @@ public class GraphRecommender {
         ranker.setMaxIterations(graphSettings.getMax_iterations());
         ranker.evaluate();
 
-        ArrayList<String> visitati = new ArrayList();
+        ArrayList<String> visitati = new ArrayList<>();
         if(graphSettings.isAvoid_visited()){
             for(String s : graphSettings.getHistory().keySet()){
                 visitati.addAll(Arrays.asList(graphSettings.getHistory().get(s)));
@@ -135,7 +134,7 @@ public class GraphRecommender {
 
 
         //svuoto la vecchia mappa
-        score_map = new HashMap();
+        score_map = new HashMap<>();
 
         //prendo i primi top_rank. NB: qua li mette bene però nel JSON li mette comunque al contrario.
         for (int i =0 ; i< graphSettings.getTop_rank(); i++) {
@@ -150,5 +149,4 @@ public class GraphRecommender {
 
         return score_map;
     }
-
 }

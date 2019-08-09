@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class GraphSettings {
 
-    //variabili con valori di default
+    // variabili con valori di default
     private String[] contesto;
     private Map<String, String[]> history;
     private String user;
@@ -17,7 +17,7 @@ public class GraphSettings {
     private int max_iterations=100;
     private String alg="PageRankPriors";
     private boolean inverso=true;
-    private double priors_weights[] = new double[] {1d, 0d, 0d, 0d};
+    private double[] priors_weights = new double[] {1d, 0d, 0d, 0d};
     private ArrayList to_avoid = new ArrayList();
     private boolean avoid_visited = true;
 
@@ -27,11 +27,11 @@ public class GraphSettings {
     }
 
     //get e set vari, il mapping viene effettuato in automatica dal server
-    public boolean isInverso() {
+    boolean isInverso() {
         return inverso;
     }
 
-    public ArrayList getTo_avoid() {
+    ArrayList getTo_avoid() {
         return to_avoid;
     }
 
@@ -39,8 +39,7 @@ public class GraphSettings {
         this.to_avoid = to_avoid;
     }
 
-
-    public int getMax_iterations() {
+    int getMax_iterations() {
         return max_iterations;
     }
 
@@ -48,11 +47,11 @@ public class GraphSettings {
         this.max_iterations = max_iterations;
     }
 
-    public double[] getPriors_weights() {
+    double[] getPriors_weights() {
         return priors_weights;
     }
 
-    public boolean isAvoid_visited() {
+    boolean isAvoid_visited() {
         return avoid_visited;
     }
 
@@ -68,7 +67,7 @@ public class GraphSettings {
         this.inverso = inverso;
     }
 
-    public String getAlg() {
+    String getAlg() {
         return alg;
     }
 
@@ -76,7 +75,7 @@ public class GraphSettings {
         this.alg = alg;
     }
 
-    public Double getAlpha() {
+    Double getAlpha() {
         return alpha;
     }
 
@@ -84,7 +83,7 @@ public class GraphSettings {
         this.alpha = alpha;
     }
 
-    public String[] getContesto() {
+    String[] getContesto() {
         return contesto;
     }
 
@@ -92,7 +91,7 @@ public class GraphSettings {
         this.contesto = contesto;
     }
 
-    public boolean isDiretto() {
+    boolean isDiretto() {
         return diretto;
     }
 
@@ -100,7 +99,7 @@ public class GraphSettings {
         this.diretto = diretto;
     }
 
-    public Map<String, String[]> getHistory() {
+    Map<String, String[]> getHistory() {
         return history;
     }
 
@@ -116,7 +115,7 @@ public class GraphSettings {
         this.user = user;
     }
 
-    public int getTop_rank() {
+    int getTop_rank() {
         return top_rank;
     }
 
@@ -124,7 +123,7 @@ public class GraphSettings {
         this.top_rank = top_rank;
     }
 
-    public String getCity() {
+    String getCity() {
         return city;
     }
 
@@ -132,12 +131,11 @@ public class GraphSettings {
         this.city = city;
     }
 
-    public boolean isFull_connected() {
+    boolean isFull_connected() {
         return full_connected;
     }
 
     public void setFull_connected(boolean full_connected) {
         this.full_connected = full_connected;
     }
-
 }

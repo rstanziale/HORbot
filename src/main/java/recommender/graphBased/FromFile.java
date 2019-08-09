@@ -8,17 +8,17 @@ import java.util.HashMap;
 public class FromFile {
 
 	private static String data = "torino";
-	private static String data_folder="/";
 
-	public static void SetData(String dataset){
+	static void SetData(String dataset){
 		data=dataset;
 	}
 
 	private static String GetPath(String file){
-		return data_folder+file;
+		String data_folder = "/";
+		return data_folder +file;
 	}
 
-	public static HashMap<String, String[]> getPlacesNew() throws IOException
+	static HashMap<String, String[]> getPlacesNew() throws IOException
 
 	{
 		InputStream in = Utils.class.getResourceAsStream(GetPath("businesses_"+data+"_filtered.csv"));
@@ -26,7 +26,7 @@ public class FromFile {
 
 		String st;
 		String[] all;
-		HashMap<String, String[]> dict = new HashMap<String, String[]>();
+		HashMap<String, String[]> dict = new HashMap<>();
 		br.readLine();
 		while ((st = br.readLine()) != null) {
 			all = st.split(",");
@@ -36,6 +36,5 @@ public class FromFile {
 
 		br.close();
 		return dict;
-
 	}
 }
